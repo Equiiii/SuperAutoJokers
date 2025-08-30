@@ -42,10 +42,10 @@ SMODS.Joker {
     loc_txt = {
         name = "Pig",
         text = {
-            "Each scored 4 has a",
-            "{C:green}#2# in #3# chance",
+            "Each scored {C:attention}4{} has a",
+            "{C:green}#2# in #3#{} chance",
             "to increase this joker's",
-            "sell value by {C:yellow}$1",
+            "sell value by {C:money}$1{}",
         },
     },
 
