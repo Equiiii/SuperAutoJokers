@@ -1,0 +1,48 @@
+INFO - [♥] Lovely 0.8.0
+INFO - [♥] Game directory is at "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods"
+WARN - [♥] Unknown key `patches.11.?.match_indent` found in patch file at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\Mayhem\\lovely.toml", ignoring it
+WARN - [♥] Unknown key `patches.12.?.match_indent` found in patch file at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\Mayhem\\lovely.toml", ignoring it
+WARN - [♥] Unknown key `patches.49.?.match_indent` found in patch file at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\Talisman\\lovely.toml", ignoring it
+WARN - [♥] Unknown key `patches.52.?.match_indent` found in patch file at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\Talisman\\lovely.toml", ignoring it
+INFO - [♥] Cleaning up dumps directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 104ms
+INFO - [♥] Applied 1 patch to 'conf.lua'
+WARN - [♥] Pattern 'G.ARGS.score_intensity.organ = G.video_organ or G.ARGS.score_intensity.required_score > 0 and math.max(math.min(0.4, 0.1*math.log(G.ARGS.score_intensity.earned_score/(G.ARGS.score_intensity.required_score+1), 5)),0.) or 0' on target 'main.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'if type(G.GAME.current_round.current_hand.chips) ~= \'number\' or type(G.GAME.current_round.current_hand.mult) ~= \'number\' then' on target 'main.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+INFO - [♥] Applied 1 patch to 'main.lua'
+INFO - [♥] Applied 2 patches to 'engine/string_packer.lua'
+INFO - [♥] Applied 1 patch to 'back.lua'
+INFO - [♥] Applied 1 patch to 'engine/moveable.lua'
+INFO - [♥] Applied 1 patch to 'engine/sprite.lua'
+WARN - [♥] Pattern 'G.ARGS.score_intensity.organ = G.video_organ or G.ARGS.score_intensity.required_score > 0 and math.max(math.min(0.4, 0.1*math.log(G.ARGS.score_intensity.earned_score/(G.ARGS.score_intensity.required_score+1), 5)),0.) or 0' on target 'functions/misc_functions.lua' for pattern patch from Mayhem\lovely.toml resulted in no matches
+INFO - [♥] Applied 9 patches to 'functions/misc_functions.lua'
+WARN - [♥] Pattern 'G.SHADERS[\'CRT\']:send(\'glitch_intensity\', glitched_intensity or 0)' on target 'game.lua' for pattern patch from Mayhem\lovely.toml resulted in no matches
+INFO - [♥] Applied 14 patches to 'game.lua'
+INFO - [♥] Applied 1 patch to 'globals.lua'
+INFO - [♥] Applied 3 patches to 'engine/ui.lua'
+INFO - [♥] Applied 7 patches to 'functions/UI_definitions.lua'
+WARN - [♥] Pattern 'if effects[ii].edition.p_dollars_mod then' on target 'functions/state_events.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+WARN - [♥] Regex 'hand_chips\\*mult' on target 'functions/state_events.lua' for regex patch from Mayhem\lovely.toml resulted in no matches
+WARN - [♥] Regex 'to_big\\(hand_chips\\)\\*mult' on target 'functions/state_events.lua' for regex patch from Mayhem\lovely.toml resulted in no matches
+INFO - [♥] Applied 26 patches to 'functions/state_events.lua'
+WARN - [♥] Pattern 'colours = {(G.GAME.hands[cfg.hand_type].level==1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[cfg.hand_type].level)])}' on target 'functions/common_events.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'if num_dollars > 60 or num_dollars < -60 then' on target 'functions/common_events.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'func = (function() if eval_func(card) then if not first or first then card:juice_up(0.1, 0.1) end;juice_card_until(card, eval_func, nil, 0.8) end return true end)' on target 'functions/common_events.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'text = localize{type=\'variable\',key=\'a_chips\'..(amt<0 and \'_minus\' or \'\'),vars={math.abs(amt)}}' on target 'functions/common_events.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'text = localize{type=\'variable\',key=\'a_mult\'..(amt<0 and \'_minus\' or \'\'),vars={math.abs(amt)}}' on target 'functions/common_events.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'text = localize{type=\'variable\',key=\'a_xmult\'..(amt<0 and \'_minus\' or \'\'),vars={math.abs(amt)}}' on target 'functions/common_events.lua' for pattern patch from Talisman\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'elseif eval_type == \'x_chips\' then \n\tsound = \'talisman_xchip\'\n\tamt = amt\n\ttext = \'X\' .. amt\n\tcolour = G.C.CHIPS\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7\nelseif eval_type == \'e_chips\' then \n\tsound = \'talisman_echip\'\n\tamt = amt\n\ttext = \'^\' .. amt\n\tcolour = G.C.CHIPS\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7\nelseif eval_type == \'ee_chips\' then \n\tsound = \'talisman_eechip\'\n\tamt = amt\n\ttext = \'^^\' .. amt\n\tcolour = G.C.CHIPS\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7\nelseif eval_type == \'eee_chips\' then \n\tsound = \'talisman_eeechip\'\n\tamt = amt\n\ttext = \'^^^\' .. amt\n\tcolour = G.C.CHIPS\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7\nelseif eval_type == \'hyper_chips\' then\n\tsound = \'talisman_eeechip\'\n\ttext = (amt[1] > 5 and (\'{\' .. tostring(amt[1]) .. \'}\') or string.rep(\'^\', amt[1])) .. tostring(amt[2])\n\tamt = amt[2]\n\tcolour = G.C.CHIPS\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7\nelseif eval_type == \'e_mult\' then \n\tsound = \'talisman_emult\'\n\tamt = amt\n\ttext = \'^\' .. amt .. \' Mult\'\n\tcolour = G.C.MULT\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7\nelseif eval_type == \'ee_mult\' then \n\tsound = \'talisman_eemult\'\n\tamt = amt\n\ttext = \'^^\' .. amt .. \' Mult\'\n\tcolour = G.C.MULT\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7\nelseif eval_type == \'eee_mult\' then \n\tsound = \'talisman_eeemult\'\n\tamt = amt\n\ttext = \'^^^\' .. amt .. \' Mult\'\n\tcolour = G.C.MULT\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7\nelseif eval_type == \'hyper_mult\' or eval_type == \'hypermult_mod\' then \n\tsound = \'talisman_eeemult\'\n\ttext = (amt[1] > 5 and (\'{\' .. tostring(amt[1]) .. \'}\') or string.rep(\'^\', amt[1])) .. tostring(amt[2]) .. \' Mult\'\n\tamt = amt[2]\n\tcolour = G.C.MULT\n\tconfig.type = \'fade\'\n\tconfig.scale = 0.7' on target 'functions/common_events.lua' for pattern patch from Mayhem\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'if not extra or not extra.no_juice then\n                card:juice_up(0.6, 0.1)\n                G.ROOM.jiggle = G.ROOM.jiggle + 0.7\n            end\n        else\n            G.E_MANAGER:add_event(Event({ --Add bonus chips from this card\n                    trigger = \'before\',\n                    delay = delay,\n                    func = function()\n                    if extrafunc then extrafunc() end\n                    attention_text({\n                        text = text,\n                        scale = config.scale or 1, \n                        hold = delay - 0.2,\n                        backdrop_colour = colour,\n                        align = card_aligned,\n                        major = card,\n                        offset = {x = 0, y = y_off}\n                    })\n                    play_sound(sound, 0.8+percent*0.2, volume)\n                    if not extra or not extra.no_juice then\n                        card:juice_up(0.6, 0.1)\n                        G.ROOM.jiggle = G.ROOM.jiggle + 0.7\n                    end\n' on target 'functions/common_events.lua' for pattern patch from Mayhem\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'colours = {(to_big(G.GAME.hands[cfg.hand_type].level)==to_big(1) and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[to_number(to_big(math.min(7, G.GAME.hands[cfg.hand_type].level)))])}' on target 'functions/common_events.lua' for pattern patch from Mayhem\lovely.toml resulted in no matches
+INFO - [♥] Applied 33 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 10 patches to 'functions/button_callbacks.lua'
+WARN - [♥] Pattern 'if effect.Xmult_mod then mult = mod_mult(mult*effect.Xmult_mod);extras.mult = true  end' on target 'card.lua' for pattern patch from Mayhem\lovely.toml resulted in no matches
+WARN - [♥] Pattern 'if center.name == \"m_mp_glass\" then' on target 'card.lua' for pattern patch from Mayhem\lovely.toml resulted in no matches
+INFO - [♥] Applied 12 patches to 'card.lua'
+INFO - [♥] Applied 3 patches to 'cardarea.lua'
+INFO - [♥] Applied 2 patches to 'blind.lua'
+INFO - [♥] Applied 4 patches to 'engine/text.lua'
+INFO - [♥] Applied 2 patches to 'engine/save_manager.lua'
+INFO - [♥] Applied 2 patches to 'engine/string_packer.lua'

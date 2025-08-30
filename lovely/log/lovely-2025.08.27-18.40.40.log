@@ -1,0 +1,86 @@
+INFO - [♥] Lovely 0.8.0
+INFO - [♥] Game directory is at "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Cleaning up dumps directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 83ms
+INFO - [♥] Applied 10 patches to 'main.lua'
+INFO - [♥] Applied 5 patches to 'engine/controller.lua'
+INFO - [♥] Applied 16 patches to 'back.lua'
+INFO - [♥] Applied 7 patches to 'tag.lua'
+INFO - [♥] Applied 3 patches to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 68 patches to 'functions/misc_functions.lua'
+WARN - [♥] Pattern 'self.GAME.pseudorandom.seed = hash_seed(self.GAME.pseudorandom.seed)' on target 'game.lua' for pattern patch from BalatroMultiplayer\lovely\TheOrder.toml resulted in no matches
+INFO - [♥] Applied 44 patches to 'game.lua'
+INFO - [♥] Applied 2 patches to 'globals.lua'
+INFO - [♥] Applied 5 patches to 'engine/ui.lua'
+INFO - [♥] Applied 106 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 54 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 132 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 54 patches to 'functions/button_callbacks.lua'
+INFO - [♥] Applied 201 patches to 'card.lua'
+INFO - [♥] Applied 12 patches to 'cardarea.lua'
+INFO - [♥] Applied 37 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [♥] Applied 3 patches to '=[SMODS _ "src/utils.lua"]'
+INFO - [♥] Applied 1 patch to '=[SMODS _ "src/overrides.lua"]'
+INFO - [♥] Applied 1 patch to '=[SMODS _ "src/game_object.lua"]'
+INFO - [G] Failed to connect to the debug server
+INFO - [G] 2025-08-27 18:40:51 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started !
+INFO - [G] 2025-08-27 18:40:51 :: INFO  :: SMODS :: Steamodded v1.0.0~BETA-0711a
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-08-27 18:40:55 :: INFO  :: Loader :: Valid JSON file found
+INFO - [G] 2025-08-27 18:40:55 :: TRACE :: Loader :: Processing Mod file (Legacy header): BetterMouseAndGamepad_v1.0.6c.lua
+INFO - [G] 2025-08-27 18:40:55 :: TRACE :: Loader :: Saving Mod Info: BetterMouseAndGamepad
+INFO - [G] 2025-08-27 18:40:55 :: INFO  :: Loader :: Valid JSON file found
+INFO - [G] 2025-08-27 18:40:55 :: DEBUG :: MULTIPLAYER :: Resetting lobby options
+INFO - [G] 2025-08-27 18:40:55 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-08-27 18:40:55 :: TRACE :: MULTIPLAYER :: Client sent message: connect
+INFO - [G] 2025-08-27 18:40:55 :: INFO  :: TIMER :: [0000] Injected Fonts in 0.002 ms
+INFO - [G] 2025-08-27 18:40:55 :: INFO  :: TIMER :: [0000] Injected Language in 0.002 ms
+INFO - [G] 2025-08-27 18:40:55 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 4.448 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0022] Injected Atlas in 479.766 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0001] Injected Sound in 3.120 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0008] Injected Stake in 0.192 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0004] Injected Rarity in 0.033 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0004] Injected ObjectType in 0.078 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0081] Injected Center in 1.043 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0007] Injected Undiscovered Sprite in 0.050 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0003] Injected Blind in 0.097 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0004] Injected Seal in 0.331 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0004] Injected Suit in 0.099 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0013] Injected Rank in 0.356 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0028] Injected DeckSkin in 0.317 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0012] Injected PokerHand in 0.191 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0034] Injected Challenge in 0.192 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0001] Injected Tag in 0.089 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0006] Injected Sticker in 0.162 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0000] Injected Shader in 0.002 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0002] Injected Keybind in 0.022 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0000] Injected Achievement in 0.194 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0002] Injected nil in 0.042 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0022] Injected Draw Step in 0.174 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 28.849 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0009] Injected nil in 0.041 ms
+INFO - [G] 2025-08-27 18:40:56 :: INFO  :: TIMER :: [0003] Injected nil in 0.028 ms
+INFO - [G] 2025-08-27 18:40:56 :: TRACE :: MULTIPLAYER :: Client got connected message:  (action: connected) 
+INFO - [G] 2025-08-27 18:40:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:username,username:balatro but woke~18,modHash:
+INFO - [G] 2025-08-27 18:40:56 :: TRACE :: MULTIPLAYER :: Client got version message:  (action: version) 
+INFO - [G] 2025-08-27 18:40:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:version,version:0.2.15-MULTIPLAYER
+INFO - [G] 2025-08-27 18:40:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:username,username:balatro but woke~18,modHash:preview=true;unlocked=true;encryptID=114770131200.07;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.15;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration
+INFO - [G] 2025-08-27 18:46:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:joinLobby,code:XVVOC
+INFO - [G] 2025-08-27 18:46:21 :: TRACE :: MULTIPLAYER :: Client got joinedLobby message:  (type: attrition)  (action: joinedLobby)  (code: XVVOC) 
+INFO - [G] 2025-08-27 18:46:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:syncClient,isCached:true
+INFO - [G] 2025-08-27 18:46:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:lobbyInfo
+INFO - [G] 2025-08-27 18:46:21 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (forced_config: true)  (sleeve: sleeve_casl_none)  (back: Red Deck)  (timer_base_seconds: 150)  (gold_on_life_loss: true)  (starting_lives: 4)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_ranked)  (action: lobbyOptions)  (timer_forgiveness: 0) 
+INFO - [G] 2025-08-27 18:46:21 :: TRACE :: MULTIPLAYER :: Client got lobbyInfo message:  (hostCached: true)  (hostHash: preview=true;unlocked=true;encryptID=114770131200.07;serversideConnectionID=26df9ae8;DereBS-0.0.0;Handy-1.5.1g;Lovely-0.8.0;Multiplayer-0.2.16;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;malverk-1.1.3a;oneshot-deck-cards-1.0.0)  (host: ozo~11)  (guestHash: preview=true;unlocked=true;encryptID=114770131200.07;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.15;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration)  (guest: balatro but woke~18)  (guestReady: false)  (action: lobbyInfo)  (isHost: false)  (guestCached: true) 
+INFO - [G] 2025-08-27 18:46:21 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-08-27 18:46:22 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (forced_config: true)  (sleeve: sleeve_casl_none)  (back: Red Deck)  (timer_base_seconds: 150)  (gold_on_life_loss: true)  (starting_lives: 4)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_ranked)  (action: lobbyOptions)  (timer_forgiveness: 0) 
+INFO - [G] 2025-08-27 18:46:22 :: TRACE :: MULTIPLAYER :: Client got lobbyInfo message:  (hostCached: true)  (hostHash: preview=true;unlocked=true;encryptID=114770131200.07;serversideConnectionID=26df9ae8;DereBS-0.0.0;Handy-1.5.1g;Lovely-0.8.0;Multiplayer-0.2.16;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;malverk-1.1.3a;oneshot-deck-cards-1.0.0)  (host: ozo~11)  (guestHash: preview=true;unlocked=true;encryptID=114770131200.07;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.15;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration)  (guest: balatro but woke~18)  (guestReady: false)  (action: lobbyInfo)  (isHost: false)  (guestCached: true) 
+INFO - [G] 2025-08-27 18:46:22 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (forced_config: true)  (sleeve: sleeve_casl_none)  (back: Red Deck)  (timer_base_seconds: 150)  (gold_on_life_loss: true)  (starting_lives: 4)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_ranked)  (action: lobbyOptions)  (timer_forgiveness: 0) 
+INFO - [G] 2025-08-27 18:46:30 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (timer_base_seconds: 150)  (back: b_mp_cocktail)  (forced_config: true)  (gold_on_life_loss: true)  (action: lobbyOptions)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_ranked)  (starting_lives: 4)  (timer_forgiveness: 0) 
+INFO - [G] 2025-08-27 18:47:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:leaveLobby
+INFO - [G] 2025-08-27 18:47:38 :: DEBUG :: MULTIPLAYER :: Resetting game states

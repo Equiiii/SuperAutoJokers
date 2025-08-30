@@ -1,0 +1,9 @@
+{
+    "id": "SuperAutoJokers",
+    "name": "Super Auto Jokers",
+    "author": ["Equi"],
+    "description": "A Balatro mod which adds new jokers inspired by the game Super Auto Pets",
+    "prefix": "sapjokers",
+    "main_file": "superautojokers_main.lua",
+    "version": "1.0.0"
+}
