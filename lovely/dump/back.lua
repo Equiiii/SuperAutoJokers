@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'f5dde9c082124ba74925623d1a01e7dfd31d0bacf242a147d08699b82dea8987'
+LOVELY_INTEGRITY = '90b1d07ab8d39287199be8d21cffcffc5968271b48b011b464ae95e79edab216'
 
 --Class
 Back = Object:extend()
@@ -243,7 +243,7 @@ function Back:apply_to_run()
         G.E_MANAGER:add_event(Event({
             func = function()
                 for k, v in ipairs(self.effect.config.consumables) do
-                    local card = create_card(G.P_CENTERS[v].set, G.consumeables, nil, nil, nil, nil, v, 'deck')
+                    local card = create_card('Tarot', G.consumeables, nil, nil, nil, nil, v, 'deck')
                     card:add_to_deck()
                     G.consumeables:emplace(card)
                 end

@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '0a69bf31864e14463351bf47425a4d71a4351acacbad73845e368200aede7544'
+LOVELY_INTEGRITY = 'cdcabc63516806df6bb3ffcf66e8bb614b98778248c7a3e6c7cd07e66e6cd9ed'
 
 --Class
 Game = Object:extend()
@@ -2058,7 +2058,6 @@ function Game:start_run(args)
     self.GAME.STOP_USE = 0
     self.GAME.selected_back = Back(selected_back)
     self.GAME.selected_back_key = selected_back
-    G._MP_SET_SEED = args.seed
 
     G.C.UI_CHIPS[1], G.C.UI_CHIPS[2], G.C.UI_CHIPS[3], G.C.UI_CHIPS[4] = G.C.BLUE[1], G.C.BLUE[2], G.C.BLUE[3], G.C.BLUE[4]
     G.C.UI_MULT[1], G.C.UI_MULT[2], G.C.UI_MULT[3], G.C.UI_MULT[4] = G.C.RED[1], G.C.RED[2], G.C.RED[3], G.C.RED[4]
@@ -2090,7 +2089,6 @@ function Game:start_run(args)
                             local _joker = add_joker(v.id, v.edition, k ~= 1)
                             if v.eternal then _joker:set_eternal(true) end
                             if v.pinned then _joker.pinned = true end
-                            if v.rental then _joker:set_rental(true) end
                         return true
                         end
                     }))
@@ -2134,8 +2132,6 @@ function Game:start_run(args)
                         elseif v.id == 'no_reward_specific' then
                             self.GAME.modifiers.no_blind_reward = self.GAME.modifiers.no_blind_reward or {}
                             self.GAME.modifiers.no_blind_reward[v.value] = true
-                        elseif v.id == 'mp_ante_scaling' then
-                        	self.GAME.starting_params.ante_scaling = v.value
                         elseif v.value then
                             self.GAME.modifiers[v.id] = v.value
                         elseif v.id == 'no_shop_jokers' then 
@@ -2174,9 +2170,6 @@ function Game:start_run(args)
         self.GAME.round_resets.discards = self.GAME.starting_params.discards
         self.GAME.round_resets.reroll_cost = self.GAME.starting_params.reroll_cost
         self.GAME.dollars = self.GAME.starting_params.dollars
-            if MP and MP.LOBBY and MP.LOBBY.code then
-                MP.GAME.real_money = tostring(self.GAME.starting_params.dollars)
-            end
         self.GAME.base_reroll_cost = self.GAME.starting_params.reroll_cost
         self.GAME.round_resets.reroll_cost = self.GAME.base_reroll_cost
         self.GAME.current_round.reroll_cost = self.GAME.base_reroll_cost
@@ -2189,13 +2182,9 @@ function Game:start_run(args)
         self.GAME.pseudorandom.seed = args.seed or (not (G.SETTINGS.tutorial_complete or G.SETTINGS.tutorial_progress.completed_parts['big_blind']) and "TUTORIAL") or generate_starting_seed()
     end
 
-    if self.GAME.pseudorandom.seed:sub(1, 1) ~= "*" and MP.should_use_the_order() then self.GAME.pseudorandom.seed = "*" .. self.GAME.pseudorandom.seed end
     for k, v in pairs(self.GAME.pseudorandom) do if v == 0 then self.GAME.pseudorandom[k] = pseudohash(k..self.GAME.pseudorandom.seed) end end
     self.GAME.pseudorandom.hashed_seed = pseudohash(self.GAME.pseudorandom.seed)
 
-    if not saveTable then -- i am 99% sure this is unnecessary but i'm checking it anyway
-    	MP.ApplyBans()
-    end
     G:save_settings()
 
     if not self.GAME.round_resets.blind_tags then
@@ -2268,17 +2257,7 @@ function Game:start_run(args)
         CAI.consumeable_H, 
         {card_limit = self.GAME.starting_params.consumable_slots, type = 'joker', highlight_limit = 1})
 
-    if MP.LOBBY.code then 
-	MP.shared = CardArea(
-		0, CAI.consumeable_H + 0.3,
-		CAI.consumeable_W / 2,
-		CAI.consumeable_H, 
-		{card_limit = 0, type = 'joker', highlight_limit = 1})
-		elseif MP.shared then
-			MP.shared:remove()
-			MP.shared = nil
-		end
-self.jokers = CardArea(
+    self.jokers = CardArea(
         0, 0,
         CAI.joker_W,
         CAI.joker_H, 
@@ -3373,8 +3352,7 @@ function Game:update_round_eval(dt)
     if self.buttons then self.buttons:remove(); self.buttons = nil end
     if self.shop then self.shop:remove(); self.shop = nil end
 
-     if not G.STATE_COMPLETE and not MP.GAME.prevent_eval then
-        MP.GAME.prevent_eval = true
+    if not G.STATE_COMPLETE then
         stop_use()
         G.STATE_COMPLETE = true
         G.E_MANAGER:add_event(Event({
