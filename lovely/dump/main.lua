@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '2cd3d3ac9252e8ee53ac7ca8b60493f0de382b8132ae77abcc17c65829404174'
+LOVELY_INTEGRITY = '6fce4a64cb99383824335f18660c7069e681da7b901ad9256ae46c0a35988787'
 
 --- STEAMODDED CORE
 --- MODULE STACKTRACE
@@ -860,6 +860,10 @@ injectStackTrace()
 -- --------MOD CORE API STACKTRACE END-----------
 
 if (love.system.getOS() == 'OS X' ) and (jit.arch == 'arm64' or jit.arch == 'arm') then jit.off() end
+do
+    local logger = require("debugplus.logger")
+    logger.registerLogHandler()
+end
 require "engine/object"
 require "bit"
 require "engine/string_packer"
@@ -999,6 +1003,11 @@ function love.draw()
 	--Perf monitoring checkpoint
     timer_checkpoint(nil, 'draw', true)
 	G:draw()
+	do
+	    local console = require("debugplus.console")
+	    console.doConsoleRender()
+	    timer_checkpoint('DebugPlus Console', 'draw')
+	end
 end
 
 function love.keypressed(key)
