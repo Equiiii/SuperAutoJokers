@@ -91,6 +91,31 @@ SMODS.Joker {
 --Dog
 --Sheep
 --Skunk
+SMODS.Joker {
+    key = "skunkjoker",
+    pos = {x = 0, y = 3},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Skunk",
+        text = {
+            "Sell this joker to",
+            "reduce boss blind's score",
+            "requirement by 66%",
+        } 
+    },
+
+    calculate = function(self, card, context)
+        if context.selling_self then
+            if G.GAME.blind:get_type() == "Boss" then
+                G.GAME.blind.chips = G.GAME.blind.chips / 3
+            end
+        end
+    end,
+}
 --Hippo
 --Bison
 --Blowfish

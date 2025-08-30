@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '17710668d8d28482ca84da707c4441d38ac898676f6f9769972c525195087ec8'
+LOVELY_INTEGRITY = 'a9028bc61b73a7e4299794e30f801b4b255372a3af0ee01686a172bfebf8dc6d'
 
 --Updates all display information for all displays for a given screenmode. Returns the key for the resolution option cycle
 --
@@ -328,7 +328,8 @@ end
 
 function pseudoseed(key, predict_seed)
   if key == 'seed' then return math.random() end
-  if G.SETTINGS.paused and key ~= 'to_do' then return math.random() end
+  -- disabled by Multiplayer because of voucher rng calls while paused 
+  -- if G.SETTINGS.paused and key ~= 'to_do' then return math.random() end
 
   if predict_seed then 
     local _pseed = pseudohash(key..(predict_seed or ''))
@@ -1831,6 +1832,7 @@ utf8.chars =
 	end
 
 function localize(args, misc_cat)
+   if not args then return "ERROR" end
   if args and not (type(args) == 'table') then
     if misc_cat and G.localization.misc[misc_cat] then return G.localization.misc[misc_cat][args] or 'ERROR' end
     return G.localization.misc.dictionary[args] or 'ERROR'
