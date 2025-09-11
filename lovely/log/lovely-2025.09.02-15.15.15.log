@@ -1,0 +1,1385 @@
+INFO - [♥] Lovely 0.8.0
+INFO - [♥] Game directory is at "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Cleaning up dumps directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 205ms
+INFO - [♥] Applied 10 patches to 'main.lua'
+INFO - [♥] Applied 5 patches to 'engine/controller.lua'
+INFO - [♥] Applied 16 patches to 'back.lua'
+INFO - [♥] Applied 7 patches to 'tag.lua'
+INFO - [♥] Applied 3 patches to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 69 patches to 'functions/misc_functions.lua'
+WARN - [♥] Pattern 'self.GAME.pseudorandom.seed = hash_seed(self.GAME.pseudorandom.seed)' on target 'game.lua' for pattern patch from BalatroMultiplayer\lovely\TheOrder.toml resulted in no matches
+INFO - [♥] Applied 44 patches to 'game.lua'
+INFO - [♥] Applied 2 patches to 'globals.lua'
+INFO - [♥] Applied 5 patches to 'engine/ui.lua'
+INFO - [♥] Applied 106 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 54 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 132 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 54 patches to 'functions/button_callbacks.lua'
+INFO - [♥] Applied 201 patches to 'card.lua'
+INFO - [♥] Applied 12 patches to 'cardarea.lua'
+INFO - [♥] Applied 37 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [♥] Applied 3 patches to '=[SMODS _ "src/utils.lua"]'
+INFO - [♥] Applied 1 patch to '=[SMODS _ "src/overrides.lua"]'
+INFO - [♥] Applied 1 patch to '=[SMODS _ "src/game_object.lua"]'
+INFO - [G] Failed to connect to the debug server
+INFO - [G] 2025-09-02 15:15:27 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started !
+INFO - [G] 2025-09-02 15:15:27 :: INFO  :: SMODS :: Steamodded v1.0.0~BETA-0711a
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: Loader :: Valid JSON file found
+INFO - [G] 2025-09-02 15:15:34 :: TRACE :: Loader :: Processing Mod file (Legacy header): BetterMouseAndGamepad_v1.0.6c.lua
+INFO - [G] 2025-09-02 15:15:34 :: TRACE :: Loader :: Saving Mod Info: BetterMouseAndGamepad
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: Loader :: Valid JSON file found
+INFO - [G] 2025-09-02 15:15:34 :: DEBUG :: MULTIPLAYER :: Resetting lobby options
+INFO - [G] 2025-09-02 15:15:34 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-09-02 15:15:34 :: TRACE :: MULTIPLAYER :: Client sent message: connect
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0000] Injected Fonts in 0.002 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0000] Injected Language in 0.002 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 2.575 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0022] Injected Atlas in 558.133 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0001] Injected Sound in 1.527 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0008] Injected Stake in 0.689 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0004] Injected Rarity in 0.141 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0004] Injected ObjectType in 0.744 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0081] Injected Center in 1.340 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0007] Injected Undiscovered Sprite in 0.029 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0003] Injected Blind in 0.039 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0004] Injected Seal in 0.338 ms
+INFO - [G] 2025-09-02 15:15:34 :: INFO  :: TIMER :: [0004] Injected Suit in 0.132 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0013] Injected Rank in 0.113 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0028] Injected DeckSkin in 1.962 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0012] Injected PokerHand in 0.079 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0034] Injected Challenge in 0.342 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0001] Injected Tag in 0.023 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0006] Injected Sticker in 0.136 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0000] Injected Shader in 0.003 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0002] Injected Keybind in 0.023 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0000] Injected Achievement in 0.102 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0002] Injected nil in 0.026 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0022] Injected Draw Step in 0.172 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 10.248 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0009] Injected nil in 0.045 ms
+INFO - [G] 2025-09-02 15:15:35 :: INFO  :: TIMER :: [0003] Injected nil in 0.049 ms
+INFO - [G] 2025-09-02 15:15:35 :: TRACE :: MULTIPLAYER :: Client got connected message:  (action: connected) 
+INFO - [G] 2025-09-02 15:15:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:username,username:balatro but woke~18,modHash:
+INFO - [G] 2025-09-02 15:15:35 :: TRACE :: MULTIPLAYER :: Client got version message:  (action: version) 
+INFO - [G] 2025-09-02 15:15:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:version,version:0.2.17-MULTIPLAYER
+INFO - [G] 2025-09-02 15:15:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:username,username:balatro but woke~18,modHash:preview=true;unlocked=true;encryptID=8501491200.071;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.17;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration
+INFO - [G] 2025-09-02 15:24:58 :: DEBUG :: MULTIPLAYER :: Resetting lobby options
+INFO - [G] 2025-09-02 15:24:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:createLobby,gameMode:attrition
+INFO - [G] 2025-09-02 15:24:59 :: TRACE :: MULTIPLAYER :: Client got joinedLobby message:  (type: attrition)  (action: joinedLobby)  (code: LTUOD) 
+INFO - [G] 2025-09-02 15:24:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:syncClient,isCached:true
+INFO - [G] 2025-09-02 15:24:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:lobbyInfo
+INFO - [G] 2025-09-02 15:24:59 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-09-02 15:24:59 :: TRACE :: MULTIPLAYER :: Client got lobbyInfo message:  (host: balatro but woke~18)  (hostCached: true)  (action: lobbyInfo)  (hostHash: preview=true;unlocked=true;encryptID=8501491200.071;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.17;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration)  (isHost: true) 
+INFO - [G] 2025-09-02 15:24:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:lobbyOptions,no_gold_on_round_loss:false,disable_live_and_timer_hud:false,timer_base_seconds:150,sleeve:sleeve_casl_none,back:Red Deck,legacy_smallworld:false,gold_on_life_loss:true,starting_lives:4,pvp_countdown_seconds:3,multiplayer_jokers:true,forced_config:false,different_decks:false,death_on_round_loss:true,custom_seed:random,ruleset:ruleset_mp_smallworld,the_order:true,timer:true,challenge:,gamemode:gamemode_mp_attrition,stake:1,timer_increment_seconds:60,showdown_starting_antes:3,preview_disabled:false,pvp_start_round:2,different_seeds:false,timer_forgiveness:0
+INFO - [G] 2025-09-02 15:25:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:leaveLobby
+INFO - [G] 2025-09-02 15:25:08 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-09-02 15:25:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:joinLobby,code:PLRAV
+INFO - [G] 2025-09-02 15:25:19 :: TRACE :: MULTIPLAYER :: Client got joinedLobby message:  (type: attrition)  (action: joinedLobby)  (code: PLRAV) 
+INFO - [G] 2025-09-02 15:25:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:syncClient,isCached:true
+INFO - [G] 2025-09-02 15:25:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:lobbyInfo
+INFO - [G] 2025-09-02 15:25:19 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (forced_config: false)  (sleeve: sleeve_casl_none)  (back: b_mp_cocktail)  (timer_base_seconds: 150)  (gold_on_life_loss: true)  (starting_lives: 4)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_smallworld)  (action: lobbyOptions)  (timer_forgiveness: 0) 
+INFO - [G] 2025-09-02 15:25:19 :: TRACE :: MULTIPLAYER :: Client got lobbyInfo message:  (hostCached: true)  (hostHash: preview=false;unlocked=true;encryptID=8501491200.071;serversideConnectionID=e5adfdc8;Handy-1.5.1h;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.16;Steamodded-1.0.0~BETA-0711a)  (host: Guest~1)  (guestHash: preview=true;unlocked=true;encryptID=8501491200.071;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.17;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration)  (guest: balatro but woke~18)  (guestReady: false)  (action: lobbyInfo)  (isHost: false)  (guestCached: true) 
+INFO - [G] 2025-09-02 15:25:19 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-09-02 15:25:19 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (timer_base_seconds: 150)  (back: b_mp_cocktail)  (forced_config: false)  (gold_on_life_loss: true)  (action: lobbyOptions)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_smallworld)  (starting_lives: 4)  (timer_forgiveness: 0) 
+INFO - [G] 2025-09-02 15:25:19 :: TRACE :: MULTIPLAYER :: Client got lobbyInfo message:  (hostCached: true)  (hostHash: preview=false;unlocked=true;encryptID=8501491200.071;serversideConnectionID=e5adfdc8;Handy-1.5.1h;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.16;Steamodded-1.0.0~BETA-0711a)  (host: Guest~1)  (guestHash: preview=true;unlocked=true;encryptID=8501491200.071;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.17;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration)  (guest: balatro but woke~18)  (guestReady: false)  (action: lobbyInfo)  (isHost: false)  (guestCached: true) 
+INFO - [G] 2025-09-02 15:25:20 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (timer_base_seconds: 150)  (back: b_mp_cocktail)  (forced_config: false)  (gold_on_life_loss: true)  (action: lobbyOptions)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_smallworld)  (starting_lives: 4)  (timer_forgiveness: 0) 
+INFO - [G] 2025-09-02 15:25:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyLobby
+INFO - [G] 2025-09-02 15:25:26 :: TRACE :: MULTIPLAYER :: Client got lobbyInfo message:  (hostCached: true)  (hostHash: preview=false;unlocked=true;encryptID=8501491200.071;serversideConnectionID=e5adfdc8;Handy-1.5.1h;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.16;Steamodded-1.0.0~BETA-0711a)  (host: Guest~1)  (guestHash: preview=true;unlocked=true;encryptID=8501491200.071;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.17;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration)  (guest: balatro but woke~18)  (guestReady: true)  (action: lobbyInfo)  (isHost: false)  (guestCached: true) 
+INFO - [G] 2025-09-02 15:25:26 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (timer_base_seconds: 150)  (back: b_mp_cocktail)  (forced_config: false)  (gold_on_life_loss: true)  (action: lobbyOptions)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_smallworld)  (starting_lives: 4)  (timer_forgiveness: 0) 
+INFO - [G] 2025-09-02 15:25:29 :: TRACE :: MULTIPLAYER :: Client got startGame message:  (deck: c_multiplayer_1)  (action: startGame) 
+INFO - [G] 2025-09-02 15:25:29 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-09-02 15:25:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:0
+INFO - [G] 2025-09-02 15:25:29 :: TRACE :: MULTIPLAYER :: Client got playerInfo message:  (lives: 4)  (action: playerInfo) 
+INFO - [G] LONG DT @ 21: 0.1
+INFO - [G] LONG DT @ 21: 0.083113159999998
+INFO - [G] LONG DT @ 21: 0.068879288000006
+INFO - [G] LONG DT @ 21: 0.057794050400004
+INFO - [G] 2025-09-02 15:25:30 :: DEBUG :: DefaultLogger :: (Idol) Selected card 6 of Clubs with weight 4 of total 35
+INFO - [G] 2025-09-02 15:25:30 :: DEBUG :: DefaultLogger :: (Mail) Selected card Ace with weight 7 of total 35
+INFO - [G] 2025-09-02 15:25:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:25:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:25:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 15:25:39 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:25:39 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:25:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:11
+INFO - [G] 2025-09-02 15:25:53 :: DEBUG :: DefaultLogger :: (Idol) Selected card 6 of Diamonds with weight 1 of total 35
+INFO - [G] 2025-09-02 15:25:53 :: DEBUG :: DefaultLogger :: (Mail) Selected card 4 with weight 5 of total 35
+INFO - [G] 2025-09-02 15:26:00 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:26:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:6
+INFO - [G] 2025-09-02 15:26:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:26:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Buffoon Pack
+INFO - [G] 2025-09-02 15:26:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:26:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:8 Ball
+INFO - [G] 2025-09-02 15:26:19 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 4)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:26:20 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:26:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:4
+INFO - [G] 2025-09-02 15:26:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:26:20 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:26:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:26:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:26:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 15:26:21 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:26:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:12
+INFO - [G] 2025-09-02 15:26:38 :: DEBUG :: DefaultLogger :: (Idol) Selected card 8 of Diamonds with weight 2 of total 35
+INFO - [G] 2025-09-02 15:26:38 :: DEBUG :: DefaultLogger :: (Mail) Selected card 8 with weight 3 of total 35
+INFO - [G] 2025-09-02 15:26:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:26:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:8
+INFO - [G] 2025-09-02 15:26:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:26:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Clearance Sale
+INFO - [G] 2025-09-02 15:26:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:26:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Buffoon Pack
+INFO - [G] 2025-09-02 15:26:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:27:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Hologram
+INFO - [G] 2025-09-02 15:27:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Arcana Pack
+INFO - [G] 2025-09-02 15:27:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:27:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:27:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:27:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:27:16 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:27:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:27:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Pluto
+INFO - [G] 2025-09-02 15:27:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Saturn
+INFO - [G] 2025-09-02 15:27:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:27:24 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:27:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:11
+INFO - [G] 2025-09-02 15:27:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:27:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:27:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:27:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_hook
+INFO - [G] 2025-09-02 15:27:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Tower
+INFO - [G] 2025-09-02 15:27:39 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 8)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:27:39 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:27:40 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:27:40 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_hook)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:27:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:27:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:27:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:27:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:2
+INFO - [G] 2025-09-02 15:27:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:13
+INFO - [G] 2025-09-02 15:27:53 :: DEBUG :: DefaultLogger :: (Idol) Selected card 9 of Clubs with weight 1 of total 34
+INFO - [G] 2025-09-02 15:27:53 :: DEBUG :: DefaultLogger :: (Mail) Selected card 8 with weight 3 of total 34
+INFO - [G] 2025-09-02 15:27:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:8
+INFO - [G] 2025-09-02 15:27:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:28:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Arcana Pack
+INFO - [G] 2025-09-02 15:28:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:28:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:28:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Acrobat,cost:4
+INFO - [G] 2025-09-02 15:28:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:28:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Standard Pack
+INFO - [G] 2025-09-02 15:28:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:28:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Bonus
+INFO - [G] 2025-09-02 15:28:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:10
+INFO - [G] 2025-09-02 15:28:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:28:29 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:28:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:28:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:28:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 15:28:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Tower
+INFO - [G] 2025-09-02 15:28:42 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 10)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:28:43 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:28:46 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:28:50 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:28:50 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:28:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:28:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:21
+INFO - [G] 2025-09-02 15:28:59 :: DEBUG :: DefaultLogger :: (Idol) Selected card 7 of Diamonds with weight 1 of total 34
+INFO - [G] 2025-09-02 15:28:59 :: DEBUG :: DefaultLogger :: (Mail) Selected card 2 with weight 2 of total 34
+INFO - [G] 2025-09-02 15:29:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:6
+INFO - [G] 2025-09-02 15:29:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:29:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Spectral Pack
+INFO - [G] 2025-09-02 15:29:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:29:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Talisman
+INFO - [G] 2025-09-02 15:29:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:3
+INFO - [G] 2025-09-02 15:29:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:29:22 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:29:22 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:29:22 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] LONG DT @ 257: 0.052469412215161
+INFO - [G] LONG DT @ 257: 0.073489549772137
+INFO - [G] LONG DT @ 257: 0.097567879817703
+INFO - [G] LONG DT @ 257: 0.089619883854164
+INFO - [G] LONG DT @ 257: 0.075783567083336
+INFO - [G] LONG DT @ 257: 0.062923673666661
+INFO - [G] LONG DT @ 257: 0.053370378933324
+INFO - [G] 2025-09-02 15:29:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:29:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:29:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:22
+INFO - [G] 2025-09-02 15:29:48 :: DEBUG :: DefaultLogger :: (Idol) Selected card 4 of Spades with weight 2 of total 34
+INFO - [G] 2025-09-02 15:29:48 :: DEBUG :: DefaultLogger :: (Mail) Selected card 4 with weight 4 of total 34
+INFO - [G] 2025-09-02 15:29:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:8
+INFO - [G] 2025-09-02 15:29:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:29:54 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:30:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Blank
+INFO - [G] 2025-09-02 15:30:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-7
+INFO - [G] 2025-09-02 15:30:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Greedy Joker,cost:4
+INFO - [G] 2025-09-02 15:30:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:30:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Standard Pack
+INFO - [G] 2025-09-02 15:30:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:30:10 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 4)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:30:10 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:30:11 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_ready)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:30:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Mult
+INFO - [G] 2025-09-02 15:30:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:14
+INFO - [G] 2025-09-02 15:30:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:30:31 :: TRACE :: MULTIPLAYER :: Toggling Ready
+INFO - [G] 2025-09-02 15:30:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_ready
+INFO - [G] 2025-09-02 15:30:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyBlind
+INFO - [G] 2025-09-02 15:30:31 :: TRACE :: MULTIPLAYER :: Client got startBlind message:  (action: startBlind) 
+INFO - [G] 2025-09-02 15:30:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:30:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:30:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_mp_nemesis
+INFO - [G] 2025-09-02 15:30:44 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:30:44 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_mp_nemesis)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:30:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:765,handsLeft:3
+INFO - [G] 2025-09-02 15:30:56 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 4)  (action: enemyInfo)  (handsLeft: 3)  (score: 196) 
+INFO - [G] 2025-09-02 15:30:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:1695,handsLeft:2
+INFO - [G] 2025-09-02 15:31:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:2257,handsLeft:1
+INFO - [G] 2025-09-02 15:31:12 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 4)  (action: enemyInfo)  (handsLeft: 2)  (score: 348) 
+INFO - [G] 2025-09-02 15:31:18 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 4)  (action: enemyInfo)  (handsLeft: 1)  (score: 628) 
+INFO - [G] 2025-09-02 15:31:46 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 4)  (action: enemyInfo)  (handsLeft: 0)  (score: 11968) 
+INFO - [G] 2025-09-02 15:31:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:48715,handsLeft:0
+INFO - [G] 2025-09-02 15:31:54 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 3)  (action: enemyInfo)  (handsLeft: 0)  (score: 11968) 
+INFO - [G] 2025-09-02 15:31:54 :: TRACE :: MULTIPLAYER :: Client got endPvP message:  (lost: false)  (action: endPvP) 
+INFO - [G] 2025-09-02 15:31:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:3
+INFO - [G] 2025-09-02 15:31:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:23
+INFO - [G] 2025-09-02 15:31:55 :: DEBUG :: DefaultLogger :: (Idol) Selected card 5 of Diamonds with weight 1 of total 35
+INFO - [G] 2025-09-02 15:31:55 :: DEBUG :: DefaultLogger :: (Mail) Selected card Ace with weight 7 of total 35
+INFO - [G] 2025-09-02 15:31:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:32:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:5
+INFO - [G] 2025-09-02 15:32:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:32:01 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:32:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Spectral Pack
+INFO - [G] 2025-09-02 15:32:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:32:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Medium
+INFO - [G] 2025-09-02 15:32:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:The Tower
+INFO - [G] 2025-09-02 15:32:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:32:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:32:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:32:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:j_mp_lets_go_gambling,cost:4
+INFO - [G] 2025-09-02 15:32:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:sendPhantom,key:j_mp_lets_go_gambling
+INFO - [G] 2025-09-02 15:32:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:32:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:7
+INFO - [G] 2025-09-02 15:32:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:32:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:32:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:32:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 15:32:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:32:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Saturn
+INFO - [G] 2025-09-02 15:32:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:32:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:32:40 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 18)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:32:40 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:32:41 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 3)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:32:42 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:32:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:32:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:32:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:32:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:33:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 15:33:04 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:33:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:31
+INFO - [G] 2025-09-02 15:33:08 :: DEBUG :: DefaultLogger :: (Idol) Selected card 10 of Hearts with weight 2 of total 35
+INFO - [G] 2025-09-02 15:33:08 :: DEBUG :: DefaultLogger :: (Mail) Selected card 10 with weight 3 of total 35
+INFO - [G] 2025-09-02 15:33:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:7
+INFO - [G] 2025-09-02 15:33:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:33:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Liquidation
+INFO - [G] 2025-09-02 15:33:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-7
+INFO - [G] 2025-09-02 15:33:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Standard Pack
+INFO - [G] 2025-09-02 15:33:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:33:29 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:33:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:33:33 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:33:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Pluto
+INFO - [G] 2025-09-02 15:33:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:33:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Arcana Pack
+INFO - [G] 2025-09-02 15:33:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:33:40 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:33:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:33:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:33:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:33:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:33:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:33:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:33:45 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 37)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:33:46 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:33:48 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 3)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:33:48 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:33:50 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:33:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:11
+INFO - [G] 2025-09-02 15:33:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:33:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:33:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:33:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 15:33:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:34:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:34:16 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:34:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Saturn
+INFO - [G] 2025-09-02 15:34:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:34:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:34:37 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 13)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:34:37 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:34:38 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_ready)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:34:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Saturn
+INFO - [G] 2025-09-02 15:34:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:34:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:34:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:34:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:32
+INFO - [G] 2025-09-02 15:34:58 :: DEBUG :: DefaultLogger :: (Idol) Selected card 2 of Clubs with weight 1 of total 35
+INFO - [G] 2025-09-02 15:34:58 :: DEBUG :: DefaultLogger :: (Mail) Selected card 2 with weight 2 of total 35
+INFO - [G] 2025-09-02 15:35:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:35:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:7
+INFO - [G] 2025-09-02 15:35:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:35:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Buffoon Pack
+INFO - [G] 2025-09-02 15:35:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:35:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Acrobat
+INFO - [G] 2025-09-02 15:35:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:35:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:35:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Hologram
+INFO - [G] 2025-09-02 15:35:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Arcana Pack
+INFO - [G] 2025-09-02 15:35:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:35:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Tower
+INFO - [G] 2025-09-02 15:35:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:5
+INFO - [G] 2025-09-02 15:35:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:35:40 :: TRACE :: MULTIPLAYER :: Toggling Ready
+INFO - [G] 2025-09-02 15:35:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_ready
+INFO - [G] 2025-09-02 15:35:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyBlind
+INFO - [G] 2025-09-02 15:35:40 :: TRACE :: MULTIPLAYER :: Client got startBlind message:  (action: startBlind) 
+INFO - [G] 2025-09-02 15:35:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:35:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:35:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_mp_nemesis
+INFO - [G] 2025-09-02 15:35:43 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 3)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:35:43 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_mp_nemesis)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:35:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:1417,handsLeft:3
+INFO - [G] 2025-09-02 15:35:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:2182,handsLeft:2
+INFO - [G] 2025-09-02 15:36:01 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 3)  (action: enemyInfo)  (handsLeft: 3)  (score: 81) 
+INFO - [G] 2025-09-02 15:36:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Saturn
+INFO - [G] 2025-09-02 15:36:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:36:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:36:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:36:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:36:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:36:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:letsGoGamblingNemesis
+INFO - [G] 2025-09-02 15:36:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 15:36:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:12610,handsLeft:1
+INFO - [G] 2025-09-02 15:36:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:36:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:36:34 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 3)  (action: enemyInfo)  (handsLeft: 2)  (score: 343) 
+INFO - [G] 2025-09-02 15:36:47 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 3)  (action: enemyInfo)  (handsLeft: 1)  (score: 1210) 
+INFO - [G] 2025-09-02 15:37:02 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 3)  (action: enemyInfo)  (handsLeft: 0)  (score: 23850) 
+INFO - [G] 2025-09-02 15:37:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:31907,handsLeft:0
+INFO - [G] 2025-09-02 15:37:11 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 2)  (action: enemyInfo)  (handsLeft: 0)  (score: 23850) 
+INFO - [G] 2025-09-02 15:37:11 :: TRACE :: MULTIPLAYER :: Client got endPvP message:  (lost: false)  (action: endPvP) 
+INFO - [G] 2025-09-02 15:37:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:4
+INFO - [G] 2025-09-02 15:37:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:33
+INFO - [G] 2025-09-02 15:37:11 :: DEBUG :: DefaultLogger :: (Idol) Selected card 8 of Diamonds with weight 3 of total 34
+INFO - [G] 2025-09-02 15:37:11 :: DEBUG :: DefaultLogger :: (Mail) Selected card King with weight 1 of total 34
+INFO - [G] 2025-09-02 15:37:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 15:37:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:37:16 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:37:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Antimatter
+INFO - [G] 2025-09-02 15:37:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:37:22 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Standard Pack
+INFO - [G] 2025-09-02 15:37:22 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:37:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Glass Card
+INFO - [G] 2025-09-02 15:37:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Standard Pack
+INFO - [G] 2025-09-02 15:37:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:37:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Steel Card
+INFO - [G] 2025-09-02 15:37:38 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:37:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Loyalty Card,cost:2
+INFO - [G] 2025-09-02 15:37:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:37:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:5
+INFO - [G] 2025-09-02 15:37:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:37:47 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 25)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:37:47 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:37:48 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 2)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:37:48 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:37:52 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:6
+INFO - [G] 2025-09-02 15:37:52 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:37:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:22
+INFO - [G] 2025-09-02 15:37:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:37:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:37:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:37:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 15:38:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:38:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:38:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:38:13 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Tower
+INFO - [G] 2025-09-02 15:38:19 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:38:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:38:38 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] LONG DT @ 812: 0.081465866365225
+INFO - [G] LONG DT @ 812: 0.069848533092161
+INFO - [G] LONG DT @ 812: 0.058780786473737
+INFO - [G] 2025-09-02 15:38:41 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 14)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:38:41 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:38:42 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 2)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:38:42 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:38:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:41
+INFO - [G] 2025-09-02 15:38:58 :: DEBUG :: DefaultLogger :: (Idol) Selected card 6 of Diamonds with weight 2 of total 35
+INFO - [G] 2025-09-02 15:38:58 :: DEBUG :: DefaultLogger :: (Mail) Selected card 6 with weight 5 of total 35
+INFO - [G] 2025-09-02 15:39:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:8
+INFO - [G] 2025-09-02 15:39:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:39:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Tribe,cost:4
+INFO - [G] 2025-09-02 15:39:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Tribe,cost:4
+INFO - [G] 2025-09-02 15:39:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Celestial Pack
+INFO - [G] 2025-09-02 15:39:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:39:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Pluto
+INFO - [G] 2025-09-02 15:39:17 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:39:33 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 12)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:39:34 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:39:36 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_ready)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:39:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:j_mp_lets_go_gambling
+INFO - [G] 2025-09-02 15:39:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:39:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:39:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:removePhantom,key:j_mp_lets_go_gambling
+INFO - [G] 2025-09-02 15:39:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Tribe,cost:4
+INFO - [G] 2025-09-02 15:39:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:39:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:7
+INFO - [G] 2025-09-02 15:39:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:39:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:39:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:39:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 15:40:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:42
+INFO - [G] 2025-09-02 15:40:17 :: DEBUG :: DefaultLogger :: (Idol) Selected card King of Hearts with weight 1 of total 35
+INFO - [G] 2025-09-02 15:40:17 :: DEBUG :: DefaultLogger :: (Mail) Selected card King with weight 1 of total 35
+INFO - [G] 2025-09-02 15:40:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 15:40:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:40:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Arcana Pack
+INFO - [G] 2025-09-02 15:40:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:40:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:40:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:40:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:5
+INFO - [G] 2025-09-02 15:40:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:40:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Loyalty Card
+INFO - [G] 2025-09-02 15:40:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:40:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:40:49 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Acrobat,cost:3
+INFO - [G] 2025-09-02 15:40:49 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:40:50 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:10
+INFO - [G] 2025-09-02 15:40:50 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:40:51 :: TRACE :: MULTIPLAYER :: Toggling Ready
+INFO - [G] 2025-09-02 15:40:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_ready
+INFO - [G] 2025-09-02 15:40:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyBlind
+INFO - [G] 2025-09-02 15:40:51 :: TRACE :: MULTIPLAYER :: Client got startBlind message:  (action: startBlind) 
+INFO - [G] 2025-09-02 15:40:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:40:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:40:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_mp_nemesis
+INFO - [G] 2025-09-02 15:40:54 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 2)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:40:54 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_mp_nemesis)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:41:05 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 2)  (action: enemyInfo)  (handsLeft: 3)  (score: 465) 
+INFO - [G] 2025-09-02 15:41:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:4992,handsLeft:3
+INFO - [G] 2025-09-02 15:41:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:8400,handsLeft:2
+INFO - [G] 2025-09-02 15:41:19 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 2)  (action: enemyInfo)  (handsLeft: 2)  (score: 930) 
+INFO - [G] 2025-09-02 15:41:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:10092,handsLeft:1
+INFO - [G] 2025-09-02 15:41:37 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 2)  (action: enemyInfo)  (handsLeft: 1)  (score: 1077) 
+INFO - [G] 2025-09-02 15:41:37 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:41:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Saturn
+INFO - [G] 2025-09-02 15:41:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:41:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:41:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Saturn
+INFO - [G] 2025-09-02 15:41:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:41:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:41:59 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 2)  (action: enemyInfo)  (handsLeft: 0)  (score: 152891) 
+INFO - [G] 2025-09-02 15:42:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:279984,handsLeft:0
+INFO - [G] 2025-09-02 15:42:08 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 1)  (action: enemyInfo)  (handsLeft: 0)  (score: 152891) 
+INFO - [G] 2025-09-02 15:42:08 :: TRACE :: MULTIPLAYER :: Client got endPvP message:  (lost: false)  (action: endPvP) 
+INFO - [G] 2025-09-02 15:42:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:5
+INFO - [G] 2025-09-02 15:42:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:43
+INFO - [G] 2025-09-02 15:42:09 :: DEBUG :: DefaultLogger :: (Idol) Selected card 5 of Diamonds with weight 1 of total 35
+INFO - [G] 2025-09-02 15:42:09 :: DEBUG :: DefaultLogger :: (Mail) Selected card Ace with weight 7 of total 35
+INFO - [G] 2025-09-02 15:42:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:9
+INFO - [G] 2025-09-02 15:42:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:42:14 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:42:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Arcana Pack
+INFO - [G] 2025-09-02 15:42:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:42:22 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:42:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Pluto
+INFO - [G] 2025-09-02 15:42:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Arcana Pack
+INFO - [G] 2025-09-02 15:42:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:42:27 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 18)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:42:28 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:42:29 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 1)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:42:29 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:42:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:42:41 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:42:42 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:5
+INFO - [G] 2025-09-02 15:42:42 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:42:52 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:42:59 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:43:03 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:43:08 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:43:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:6
+INFO - [G] 2025-09-02 15:43:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:43:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:15
+INFO - [G] 2025-09-02 15:43:19 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 12)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:43:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:43:19 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:43:20 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 1)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:43:20 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:43:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:43:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:43:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 15:43:31 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:43:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Tower
+INFO - [G] 2025-09-02 15:43:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:43:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:43:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:43:50 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:51
+INFO - [G] 2025-09-02 15:43:50 :: DEBUG :: DefaultLogger :: (Idol) Selected card 6 of Diamonds with weight 3 of total 34
+INFO - [G] 2025-09-02 15:43:50 :: DEBUG :: DefaultLogger :: (Mail) Selected card 6 with weight 5 of total 34
+INFO - [G] 2025-09-02 15:43:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:8
+INFO - [G] 2025-09-02 15:43:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:43:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Emperor,cost:1
+INFO - [G] 2025-09-02 15:43:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 15:43:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:43:58 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:43:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:The Star
+INFO - [G] 2025-09-02 15:43:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:43:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:44:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:44:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:44:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:44:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:44:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:44:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:44:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:44:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:5
+INFO - [G] 2025-09-02 15:44:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:44:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:8 Ball
+INFO - [G] 2025-09-02 15:44:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:44:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:44:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:To Do List,cost:2
+INFO - [G] 2025-09-02 15:44:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:44:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:8
+INFO - [G] 2025-09-02 15:44:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:44:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:44:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:44:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 15:44:22 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 21)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:44:22 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:44:22 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_ready)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:44:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:44:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:4
+INFO - [G] 2025-09-02 15:44:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:52
+INFO - [G] 2025-09-02 15:44:43 :: DEBUG :: DefaultLogger :: (Idol) Selected card 10 of Diamonds with weight 3 of total 34
+INFO - [G] 2025-09-02 15:44:43 :: DEBUG :: DefaultLogger :: (Mail) Selected card 9 with weight 4 of total 34
+INFO - [G] 2025-09-02 15:44:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:11
+INFO - [G] 2025-09-02 15:44:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:44:50 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Arcana Pack
+INFO - [G] 2025-09-02 15:44:50 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:44:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:44:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:44:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:44:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:44:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Pluto
+INFO - [G] 2025-09-02 15:44:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:44:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:44:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:5
+INFO - [G] 2025-09-02 15:44:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:45:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:6
+INFO - [G] 2025-09-02 15:45:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:45:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Emperor,cost:1
+INFO - [G] 2025-09-02 15:45:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 15:45:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:45:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:The Star
+INFO - [G] 2025-09-02 15:45:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:45:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:45:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:45:05 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Pluto
+INFO - [G] 2025-09-02 15:45:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Pluto
+INFO - [G] 2025-09-02 15:45:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:7
+INFO - [G] 2025-09-02 15:45:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-7
+INFO - [G] 2025-09-02 15:45:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:8
+INFO - [G] 2025-09-02 15:45:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-8
+INFO - [G] 2025-09-02 15:45:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Emperor,cost:1
+INFO - [G] 2025-09-02 15:45:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 15:45:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:45:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:The Tower
+INFO - [G] 2025-09-02 15:45:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:45:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:45:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:45:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The High Priestess
+INFO - [G] 2025-09-02 15:45:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Jupiter
+INFO - [G] 2025-09-02 15:45:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:45:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 15:45:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Emperor
+INFO - [G] 2025-09-02 15:45:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:31
+INFO - [G] 2025-09-02 15:45:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:45:45 :: TRACE :: MULTIPLAYER :: Toggling Ready
+INFO - [G] 2025-09-02 15:45:45 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_ready
+INFO - [G] 2025-09-02 15:45:45 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyBlind
+INFO - [G] 2025-09-02 15:45:45 :: TRACE :: MULTIPLAYER :: Client got startBlind message:  (action: startBlind) 
+INFO - [G] 2025-09-02 15:45:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:45:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:45:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_mp_nemesis
+INFO - [G] 2025-09-02 15:45:49 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 1)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:45:49 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_mp_nemesis)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:45:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:45:59 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 1)  (action: enemyInfo)  (handsLeft: 3)  (score: 465) 
+INFO - [G] 2025-09-02 15:45:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:4
+INFO - [G] 2025-09-02 15:46:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:768,handsLeft:3
+INFO - [G] 2025-09-02 15:46:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:4
+INFO - [G] 2025-09-02 15:46:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:4608,handsLeft:2
+INFO - [G] 2025-09-02 15:46:27 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 1)  (action: enemyInfo)  (handsLeft: 2)  (score: 786) 
+INFO - [G] 2025-09-02 15:46:36 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 1)  (action: enemyInfo)  (handsLeft: 1)  (score: 1138) 
+INFO - [G] 2025-09-02 15:46:42 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:4
+INFO - [G] 2025-09-02 15:46:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:9216,handsLeft:1
+INFO - [G] 2025-09-02 15:46:50 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 1)  (action: enemyInfo)  (handsLeft: 0)  (score: 279932) 
+INFO - [G] 2025-09-02 15:46:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Hierophant
+INFO - [G] 2025-09-02 15:47:05 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:357354,handsLeft:0
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 1)  (lives: 0)  (action: enemyInfo)  (handsLeft: 0)  (score: 279932) 
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client got winGame message:  (action: winGame) 
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:getEndGameJokers
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:endGameStatsRequested
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:getNemesisDeck
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client got getEndGameJokers message:  (action: getEndGameJokers) 
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Sending end game jokers: ;j_todo_list-none-none-none;j_greedy_joker-none-none-none;j_hologram-none-none-none;j_tribe-none-none-none;j_hologram-none-none-none;j_acrobat-none-none-none
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:receiveEndGameJokers,keys:H4sIAAAAAAAACu2ZS4vbOhSA/0rwugyx/F50UTr0RS9caBeFoQjZlmNNZcuV5OnklvnvV/IrsseZNMEwmdBFAtZ56uj44yjhWNa8XP2+sRLEU2F9f/37xtZflqg4kRhmKCHlRq1bGWeltF7dWGRTMo6hyFHKfmmLB7WI0hSnUDKY4uSHWpS8xmqZo1I/2TuzGInWFvPeti7JzxrDO0QhFOhO+fl4rY0C33UCJddrMCOYdglaCS5lY27dqpApg5QIlVqTR0wokdtWL2ZlrU3WSpDDoqayf0BlKmBF0VYFQxImHCOJldDRUnwvOWo9pIxSxLUPVwkq9gNzqI117A9kk6/eqrK1kfXeGRyr/IsI1yW7h0lOKtFVosK8QHCUkJkbFOQ/3D20qvemam+9S621GscYTOxG2ItMBzNejQU5F9N0M81AYK1tfdIF0HtmvD1i39zH4zyqiZum+LoXavwo38fW5glPPU12KLeV9mhZzeZMVyUqGslXtrpmq89NL6mj352DPl6KYkwfa8XbCgkBKTO7Xvd42z8lK0iJaF+imkg4XlLvF4b7tSDjZGPIJClw37hDal0OKREJu8N8C4f3o89nqlCTnTBhQpcIdHnD7rnpd8RR0b1zvbF6yhAVs26PitsJY9RUTkXYdnu8b6I/vBqjQQuvwjCKPCeyndCxPUfXinEJiS6Ferbbek55leK4zjIjb4Ep7bdpDy3XLTQlBcsjEJyCQM+3Pf8QATcc43QLb9sXbwEIemMGit7I6ZpTh70mqGDKvg04YtYxsJvh2zysjqDdHKxwluGkSfyL2sDqH609R71ZNspxen+GPfBSqPe+aZ/VsIF93JvqXSz5vHMkX+S7UeAGvu26HohG5PPccDHwOcuDzzlp9nODlu9PgS9nlG3UOS0CPWBAb30FdBN8M6DyjBMceO4JLngxE9yHoSP2c8zUuRiGOROGBWfJsGgdRKHjqfmtHdZ2DFMD3WIMc5dnmHsSwxzXC8EhiElOYnyAYGMU7CUYMJgFzmAqyw9OVrux7JuzfyhbDGSq786LZO9oLfInLqQ5Xn1t++OJ+6ipdDFAcydAC88SaLa/9iIXRGEYBmOg2e399FiiDVPIiGje8kTzTiLaGkTuwfvoomOZ7Z/tXGZfeX8ns7+T2UVMZo4XRDYA68AJAjACWRiBxSYzf3mO+SdxTN0u/egQx1DCWYyW+V8BuAbGnDOYzY75xSxn1arJdo5ly/1iZq/Dl0KzN31r7IeZoXKxLPPPkmXqkulFwPc9JwRjltnAjZaC2UNTljIjmzaznGxyqj4SUlKQ3oxyWCmAteHWV3pJ/9E66OgKDpY4Hdn2bXjbvyh6I3ohxSKxek8Jq8vek8RFZbhWSf4PgsJYr+AdAAA=
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client got endGameStatsRequested message:  (action: endGameStatsRequested) 
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:nemesisEndGameStats,reroll_count:10,reroll_cost_total:58,vouchers:v_clearance_sale-v_antimatter-v_blank-v_liquidation
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client got getNemesisDeck message:  (action: getNemesisDeck) 
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:receiveNemesisDeck,cards:;S-6-m_bonus-none-none;S-4-c_base-none-none;S-4-m_bonus-none-none;H-4-m_bonus-none-none;C-9-c_base-none-none;C-6-m_bonus-none-none;D-A-m_bonus-none-none;D-A-m_bonus-none-none;D-A-m_bonus-none-none;D-A-m_bonus-none-none;D-A-m_bonus-none-none;D-A-m_bonus-none-none;D-A-m_bonus-none-none;D-K-m_mult-none-none;D-T-c_base-none-none;D-T-m_bonus-none-none;D-T-m_bonus-none-none;D-9-c_base-none-Purple;D-9-m_steel-foil-none;D-9-m_bonus-none-none;D-8-m_bonus-none-none;D-8-m_bonus-none-Gold;D-8-m_bonus-none-none;D-8-m_bonus-none-none;D-7-m_bonus-none-none;D-7-m_glass-none-none;D-7-m_bonus-none-none;D-6-m_bonus-none-none;D-6-m_bonus-none-none;D-6-m_bonus-none-none;D-5-c_base-none-none;D-4-c_base-none-none;D-2-c_base-none-none;D-2-m_bonus-none-none;D-4-m_stone-none-none;C-T-m_stone-none-none;C-6-m_stone-none-none;H-5-m_stone-none-none;H-3-m_stone-none-none
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client got receiveEndGameJokers message:  (keys: H4sIAAAAAAAACu2ZW2vbMBSA/0rxcwm+yZeHPQwKu8Ce9jIIQ8i2HKuVLU+Su2al/32Sb5GdhK7BLVnJQ9v43HTO0dGHnHIsG15dPa6tFPFMWD8/PK4d/csSNScSwxylpNoouZVzVknrem2RTcU4hqJAGfutPZ6UEGUZzqBkMMPpnRJK3mAl5qjST87OLUGi88V88G0q8qvB8B5RCAW6V3G+3GgnzwaBq/RaBnOCaZ+gleJKtu7WLdxwjLMtvGV3SnLdppIQSuS2M01Y1WgvWykKWDZUDg+oygSsKdqq9ZCEKcdIYqV0PaXFD5KjLoIYvLRcNER/tG4IKpkK0K1YQEH+4D7wA0wLUou+6hrzEsHJysbHTvswyWt0tw33jFGK+K6Q6SJjAHNFMwzOc5y2iX9XBVx909aj6V4+xTQjOU1vmorAbdivXfvXFuPdxrpGdfsF1bMobbv1ADR4L5N9b3NP55HmuW9rHdGy2jrMUBUqW82ndn6uxgKy3V7qraUowfSQXbKtkRCQMnPc9XB3U1OxklSIDl1SXYdTkTpYGB63goyTjaGTpMTDuI7J9TlkRKTsHvMtHA/GkM/coCE7ZcqEbhPo84bGc404KvvDNjirpxxRcTDsi9btlQlqO6dW2A4nR/31VWFTJmjlKnYiEAQhCGIQA52hYFxColsR+0HXzjmnMpw0eW6kLTClQ5XuOHW9oO2ouzz63FPQFwDfd54jX8Eo26h9WoR6gQE9e+XqFv8woPISqE1oeIBwL2XaKgRHuXgg8DFyHeLiv9IsNEs5a5x9HofiOMpMm3eDsXCGsfAsMQYUyDwQ+V4QTikWRNEJFBuvKhOKectTzDvpAqdqjcGbYswJLxy7cOzCsdfmmBs4APgh8CM/8CcgC317MZD5y4PMPwVkYeSCZzmGUs4SJBfBWGRQzJuj6MxfMAtWX7XZHiLZci+Yjh39Lyz7OEzGcZQZJu+GZMGMZMFZkgw4Tux4rufbduxMr2TxKS+Wh0kGlicZOOlK5nlB7L0lytor2IVlF5ZdWPb6X5IFgePFjh27wHYnLIuXe718artS5WTTJVaQTUHVj4SUlGQ4WJTDWvGrW85eaZH+D8Nooxs4euJs4jtM4e1wTnQdWpBhkVpDpJQ11fB9pcRlbYRWSf4FIJJs5tkYAAA=)  (action: receiveEndGameJokers)  (seed: FZ6D8) 
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Received end game jokers: ;j_greedy_joker-none-none-none;j_hologram-none-none-none;j_hologram-none-none-none;j_acrobat-none-none-none;j_acrobat-none-none-none
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client got nemesisEndGameStats message:  (reroll_count: 8)  (action: nemesisEndGameStats)  (vouchers: v_blank-v_antimatter)  (reroll_cost_total: 42) 
+INFO - [G] 2025-09-02 15:47:06 :: TRACE :: MULTIPLAYER :: Client got receiveNemesisDeck message:  (cards: ;S-A-c_base-none-none;S-A-m_bonus-none-none;S-9-c_base-none-none;H-K-m_mult-none-none;H-T-c_base-none-none;H-T-c_base-none-none;H-5-c_base-none-none;C-A-m_bonus-none-none;C-A-m_bonus-none-Purple;C-A-c_base-none-Gold;D-A-c_base-none-none;D-A-c_base-none-none;D-T-m_bonus-none-none;D-T-m_bonus-none-none;D-9-c_base-none-none;D-9-c_base-none-none;D-8-m_bonus-none-none;D-8-c_base-none-none;D-8-c_base-none-none;D-8-m_steel-none-none;D-7-c_base-none-none;D-7-c_base-none-none;D-6-c_base-none-none;D-6-c_base-none-none;D-6-c_base-none-none;D-6-c_base-none-none;D-6-c_base-none-none;D-6-c_base-none-none;D-5-c_base-none-none;D-4-c_base-none-none;D-4-c_base-none-none;D-4-c_base-none-none;D-4-c_base-none-none;D-2-c_base-none-none;D-2-c_base-none-none;D-4-m_stone-none-none;H-3-m_stone-none-none;S-Q-m_stone-none-none)  (action: receiveNemesisDeck) 
+INFO - [G] 2025-09-02 15:47:30 :: TRACE :: MULTIPLAYER :: Client got endGameStatsRequested message:  (action: endGameStatsRequested) 
+INFO - [G] 2025-09-02 15:47:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:nemesisEndGameStats,reroll_count:10,reroll_cost_total:58,vouchers:v_clearance_sale-v_antimatter-v_blank-v_liquidation
+INFO - [G] 2025-09-02 15:48:27 :: TRACE :: MULTIPLAYER :: Client got stopGame message:  (action: stopGame)  (seed: FZ6D8) 
+INFO - [G] 2025-09-02 15:48:27 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-09-02 15:48:27 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: Blind Select)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:49:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyLobby
+INFO - [G] 2025-09-02 15:49:24 :: TRACE :: MULTIPLAYER :: Client got lobbyInfo message:  (hostCached: true)  (hostHash: preview=false;unlocked=true;encryptID=8501491200.071;serversideConnectionID=e5adfdc8;Handy-1.5.1h;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.16;Steamodded-1.0.0~BETA-0711a)  (host: Guest~1)  (guestHash: preview=true;unlocked=true;encryptID=8501491200.071;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.17;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration)  (guest: balatro but woke~18)  (guestReady: true)  (action: lobbyInfo)  (isHost: false)  (guestCached: true) 
+INFO - [G] 2025-09-02 15:49:25 :: TRACE :: MULTIPLAYER :: Client got lobbyOptions message:  (no_gold_on_round_loss: false)  (disable_live_and_timer_hud: false)  (timer_base_seconds: 150)  (back: b_mp_cocktail)  (forced_config: false)  (gold_on_life_loss: true)  (action: lobbyOptions)  (different_seeds: false)  (multiplayer_jokers: true)  (pvp_start_round: 2)  (different_decks: false)  (death_on_round_loss: true)  (custom_seed: random)  (pvp_countdown_seconds: 3)  (the_order: true)  (timer: true)  (challenge: 0)  (gamemode: gamemode_mp_attrition)  (stake: 1)  (timer_increment_seconds: 60)  (showdown_starting_antes: 3)  (preview_disabled: false)  (ruleset: ruleset_mp_smallworld)  (starting_lives: 4)  (timer_forgiveness: 0) 
+INFO - [G] 2025-09-02 15:49:32 :: TRACE :: MULTIPLAYER :: Client got startGame message:  (deck: c_multiplayer_1)  (action: startGame) 
+INFO - [G] 2025-09-02 15:49:32 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-09-02 15:49:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:0
+INFO - [G] 2025-09-02 15:49:32 :: TRACE :: MULTIPLAYER :: Client got playerInfo message:  (lives: 4)  (action: playerInfo) 
+INFO - [G] 2025-09-02 15:49:33 :: DEBUG :: DefaultLogger :: (Idol) Selected card King of Diamonds with weight 1 of total 52
+INFO - [G] 2025-09-02 15:49:33 :: DEBUG :: DefaultLogger :: (Mail) Selected card 5 with weight 4 of total 52
+INFO - [G] LONG DT @ 77: 0.094345252425377
+INFO - [G] LONG DT @ 77: 0.091930121940214
+INFO - [G] LONG DT @ 77: 0.077766917552258
+INFO - [G] LONG DT @ 77: 0.06577863404173
+INFO - [G] LONG DT @ 77: 0.056429987233408
+INFO - [G] 2025-09-02 15:49:40 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:49:40 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:49:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:49:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:49:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 15:50:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:11
+INFO - [G] 2025-09-02 15:50:00 :: DEBUG :: DefaultLogger :: (Idol) Selected card 4 of Diamonds with weight 1 of total 52
+INFO - [G] 2025-09-02 15:50:00 :: DEBUG :: DefaultLogger :: (Mail) Selected card 2 with weight 4 of total 52
+INFO - [G] 2025-09-02 15:50:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:6
+INFO - [G] 2025-09-02 15:50:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:50:07 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:50:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:To Do List,cost:4
+INFO - [G] 2025-09-02 15:50:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:50:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Riff-raff,cost:6
+INFO - [G] 2025-09-02 15:50:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:50:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:10
+INFO - [G] 2025-09-02 15:50:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:50:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:50:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:50:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 15:50:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:4
+INFO - [G] 2025-09-02 15:50:25 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 6)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:50:25 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:50:27 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:50:27 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:50:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:4
+INFO - [G] 2025-09-02 15:50:42 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:4
+INFO - [G] 2025-09-02 15:50:43 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:50:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:4
+INFO - [G] 2025-09-02 15:51:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:12
+INFO - [G] 2025-09-02 15:51:02 :: DEBUG :: DefaultLogger :: (Idol) Selected card 10 of Clubs with weight 1 of total 52
+INFO - [G] 2025-09-02 15:51:02 :: DEBUG :: DefaultLogger :: (Mail) Selected card 10 with weight 4 of total 52
+INFO - [G] 2025-09-02 15:51:04 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 11)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:51:04 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:51:05 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:51:05 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_hook)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:51:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:11
+INFO - [G] 2025-09-02 15:51:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:51:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Reroll Glut
+INFO - [G] 2025-09-02 15:51:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:51:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Recyclomancy
+INFO - [G] 2025-09-02 15:51:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 15:51:32 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:51:49 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:52:10 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 20)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:52:10 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:52:11 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:52:12 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:52:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Mega Standard Pack
+INFO - [G] 2025-09-02 15:52:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-8
+INFO - [G] 2025-09-02 15:52:22 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Bonus
+INFO - [G] 2025-09-02 15:52:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Default Base
+INFO - [G] 2025-09-02 15:52:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 15:52:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 15:52:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:2
+INFO - [G] 2025-09-02 15:52:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 15:52:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Wily Joker
+INFO - [G] 2025-09-02 15:52:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:52:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:2
+INFO - [G] 2025-09-02 15:52:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:To Do List
+INFO - [G] 2025-09-02 15:52:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:52:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:2
+INFO - [G] 2025-09-02 15:52:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Cartomancer,cost:6
+INFO - [G] 2025-09-02 15:52:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:52:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:27
+INFO - [G] 2025-09-02 15:52:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:52:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:52:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:52:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_hook
+INFO - [G] 2025-09-02 15:52:38 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:52:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:52:41 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:53:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:2
+INFO - [G] 2025-09-02 15:53:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:13
+INFO - [G] 2025-09-02 15:53:04 :: DEBUG :: DefaultLogger :: (Idol) Selected card 6 of Spades with weight 1 of total 54
+INFO - [G] 2025-09-02 15:53:04 :: DEBUG :: DefaultLogger :: (Mail) Selected card 7 with weight 4 of total 54
+INFO - [G] 2025-09-02 15:53:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:15
+INFO - [G] 2025-09-02 15:53:08 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:53:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Buffoon Pack
+INFO - [G] 2025-09-02 15:53:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:53:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Riff-raff
+INFO - [G] 2025-09-02 15:53:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:53:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:53:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Delayed Gratification
+INFO - [G] 2025-09-02 15:53:22 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:53:25 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 15)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:53:25 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:53:26 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:53:26 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:53:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Overstock Plus
+INFO - [G] 2025-09-02 15:53:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-10
+INFO - [G] 2025-09-02 15:53:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Arcana Pack
+INFO - [G] 2025-09-02 15:53:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:53:49 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Magician
+INFO - [G] 2025-09-02 15:53:54 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:53:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:20
+INFO - [G] 2025-09-02 15:53:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:53:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:53:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:53:58 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 15:54:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Magician
+INFO - [G] 2025-09-02 15:54:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:20
+INFO - [G] 2025-09-02 15:54:19 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 15)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:54:19 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:54:21 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_ready)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:55:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:21
+INFO - [G] 2025-09-02 15:55:00 :: DEBUG :: DefaultLogger :: (Idol) Selected card 6 of Diamonds with weight 1 of total 54
+INFO - [G] 2025-09-02 15:55:00 :: DEBUG :: DefaultLogger :: (Mail) Selected card 2 with weight 4 of total 54
+INFO - [G] 2025-09-02 15:55:05 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:15
+INFO - [G] 2025-09-02 15:55:05 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:55:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Golden Joker
+INFO - [G] 2025-09-02 15:55:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:55:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:55:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Trading Card,cost:6
+INFO - [G] 2025-09-02 15:55:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:55:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Buffoon Pack
+INFO - [G] 2025-09-02 15:55:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:55:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Delayed Gratification
+INFO - [G] 2025-09-02 15:55:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:55:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:2
+INFO - [G] 2025-09-02 15:55:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Delayed Gratification
+INFO - [G] 2025-09-02 15:55:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Golden Joker
+INFO - [G] 2025-09-02 15:55:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:55:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:55:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Trio,cost:8
+INFO - [G] 2025-09-02 15:55:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-8
+INFO - [G] 2025-09-02 15:55:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 15:55:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 15:55:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Star,cost:3
+INFO - [G] 2025-09-02 15:55:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:55:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Celestial Pack
+INFO - [G] 2025-09-02 15:55:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:55:37 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 15:55:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:28
+INFO - [G] 2025-09-02 15:55:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:55:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:55:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:55:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 15:55:45 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:56:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:22
+INFO - [G] 2025-09-02 15:56:11 :: DEBUG :: DefaultLogger :: (Idol) Selected card 3 of Spades with weight 1 of total 53
+INFO - [G] 2025-09-02 15:56:11 :: DEBUG :: DefaultLogger :: (Mail) Selected card Ace with weight 4 of total 53
+INFO - [G] 2025-09-02 15:56:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 15:56:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:56:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Delayed Gratification
+INFO - [G] 2025-09-02 15:56:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:56:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:2
+INFO - [G] 2025-09-02 15:56:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Judgement
+INFO - [G] 2025-09-02 15:56:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Golden Joker
+INFO - [G] 2025-09-02 15:56:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 15:56:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:56:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Judgement,cost:3
+INFO - [G] 2025-09-02 15:56:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:56:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Judgement
+INFO - [G] 2025-09-02 15:56:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Earth,cost:3
+INFO - [G] 2025-09-02 15:56:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:56:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 15:56:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Arcana Pack
+INFO - [G] 2025-09-02 15:56:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:56:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Magician
+INFO - [G] 2025-09-02 15:56:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Standard Pack
+INFO - [G] 2025-09-02 15:56:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:56:40 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:18
+INFO - [G] 2025-09-02 15:56:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:56:41 :: TRACE :: MULTIPLAYER :: Toggling Ready
+INFO - [G] 2025-09-02 15:56:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_ready
+INFO - [G] 2025-09-02 15:56:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyBlind
+INFO - [G] 2025-09-02 15:56:42 :: TRACE :: MULTIPLAYER :: Client got startBlind message:  (action: startBlind) 
+INFO - [G] 2025-09-02 15:56:45 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:56:45 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:56:45 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_mp_nemesis
+INFO - [G] 2025-09-02 15:56:45 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:56:45 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_mp_nemesis)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:56:49 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:57:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:57:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:616,handsLeft:3
+INFO - [G] 2025-09-02 15:57:57 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 3)  (score: 1008) 
+INFO - [G] 2025-09-02 15:58:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:736,handsLeft:2
+INFO - [G] 2025-09-02 15:58:03 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 2)  (score: 1296) 
+INFO - [G] 2025-09-02 15:58:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:772,handsLeft:1
+INFO - [G] 2025-09-02 15:58:14 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 1)  (score: 1408) 
+INFO - [G] LONG DT @ 599: 0.055950678506518
+INFO - [G] LONG DT @ 600: 0.05130654103837
+INFO - [G] LONG DT @ 600: 0.07348615283074
+INFO - [G] LONG DT @ 600: 0.067374902264545
+INFO - [G] LONG DT @ 600: 0.082863741811626
+INFO - [G] LONG DT @ 600: 0.072305473449277
+INFO - [G] LONG DT @ 600: 0.1
+INFO - [G] LONG DT @ 600: 0.088750860000055
+INFO - [G] LONG DT @ 600: 0.1
+INFO - [G] LONG DT @ 600: 0.1
+INFO - [G] LONG DT @ 600: 0.09611871999994
+INFO - [G] LONG DT @ 601: 0.084240255999979
+INFO - [G] LONG DT @ 601: 0.075860164800036
+INFO - [G] LONG DT @ 601: 0.065213291839986
+INFO - [G] LONG DT @ 601: 0.059764633471961
+INFO - [G] LONG DT @ 601: 0.052492906777619
+INFO - [G] LONG DT @ 601: 0.054377258777768
+INFO - [G] LONG DT @ 605: 0.064368608051321
+INFO - [G] LONG DT @ 605: 0.084302726441044
+INFO - [G] LONG DT @ 605: 0.097956741152864
+INFO - [G] LONG DT @ 605: 0.095197872922285
+INFO - [G] LONG DT @ 605: 0.1
+INFO - [G] LONG DT @ 605: 0.083920079999989
+INFO - [G] LONG DT @ 605: 0.072715224000061
+INFO - [G] LONG DT @ 605: 0.062018659200042
+INFO - [G] LONG DT @ 605: 0.060340847360038
+INFO - [G] LONG DT @ 605: 0.057477297887976
+INFO - [G] LONG DT @ 605: 0.05415627831042
+INFO - [G] LONG DT @ 607: 0.053863551226407
+INFO - [G] LONG DT @ 607: 0.067518340981127
+INFO - [G] LONG DT @ 607: 0.06250597278487
+INFO - [G] LONG DT @ 607: 0.053192978227919
+INFO - [G] LONG DT @ 608: 0.051498319309336
+INFO - [G] LONG DT @ 609: 0.054945936304903
+INFO - [G] LONG DT @ 609: 0.056591189043978
+INFO - [G] LONG DT @ 609: 0.05184487123517
+INFO - [G] 2025-09-02 15:58:25 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 4)  (action: enemyInfo)  (handsLeft: 0)  (score: 5088) 
+INFO - [G] LONG DT @ 609: 0.060543236988083
+INFO - [G] LONG DT @ 609: 0.051993329590529
+INFO - [G] 2025-09-02 15:58:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:13078,handsLeft:0
+INFO - [G] 2025-09-02 15:58:27 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 3)  (action: enemyInfo)  (handsLeft: 0)  (score: 5088) 
+INFO - [G] 2025-09-02 15:58:27 :: TRACE :: MULTIPLAYER :: Client got endPvP message:  (lost: false)  (action: endPvP) 
+INFO - [G] 2025-09-02 15:58:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:3
+INFO - [G] 2025-09-02 15:58:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:23
+INFO - [G] 2025-09-02 15:58:28 :: DEBUG :: DefaultLogger :: (Idol) Selected card 7 of Hearts with weight 1 of total 52
+INFO - [G] 2025-09-02 15:58:28 :: DEBUG :: DefaultLogger :: (Mail) Selected card 10 with weight 4 of total 52
+INFO - [G] 2025-09-02 15:58:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:9
+INFO - [G] 2025-09-02 15:58:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 15:58:35 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] LONG DT @ 619: 0.050090744124282
+INFO - [G] LONG DT @ 619: 0.061222455299395
+INFO - [G] LONG DT @ 620: 0.087064584239528
+INFO - [G] LONG DT @ 620: 0.092755827391625
+INFO - [G] LONG DT @ 620: 0.078899141913335
+INFO - [G] LONG DT @ 620: 0.068194693530685
+INFO - [G] LONG DT @ 620: 0.058598194824469
+INFO - [G] LONG DT @ 620: 0.050551215859604
+INFO - [G] LONG DT @ 620: 0.051573044416067
+INFO - [G] LONG DT @ 620: 0.07145613845828
+INFO - [G] LONG DT @ 620: 0.1
+INFO - [G] LONG DT @ 621: 0.088111059999919
+INFO - [G] LONG DT @ 621: 0.075179207999976
+INFO - [G] LONG DT @ 621: 0.063524706400013
+INFO - [G] LONG DT @ 621: 0.055616825119975
+INFO - [G] LONG DT @ 621: 0.055761840095981
+INFO - [G] LONG DT @ 621: 0.064045845661439
+INFO - [G] LONG DT @ 621: 0.1
+INFO - [G] LONG DT @ 621: 0.1
+INFO - [G] LONG DT @ 621: 0.083967959999954
+INFO - [G] LONG DT @ 621: 0.070557067999984
+INFO - [G] LONG DT @ 621: 0.059822114399968
+INFO - [G] LONG DT @ 621: 0.051302391519975
+INFO - [G] 2025-09-02 15:58:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Buffoon Pack
+INFO - [G] 2025-09-02 15:58:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 15:58:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Standard Pack
+INFO - [G] 2025-09-02 15:58:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 15:59:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Default Base
+INFO - [G] 2025-09-02 15:59:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Star,cost:3
+INFO - [G] 2025-09-02 15:59:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:59:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 15:59:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 15:59:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Earth,cost:3
+INFO - [G] 2025-09-02 15:59:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 15:59:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 15:59:10 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 15:59:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:17
+INFO - [G] 2025-09-02 15:59:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 15:59:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 15:59:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 15:59:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] LONG DT @ 657: 0.063570453780588
+INFO - [G] LONG DT @ 657: 0.075106023024457
+INFO - [G] LONG DT @ 657: 0.062663878419628
+INFO - [G] LONG DT @ 657: 0.053389642735636
+INFO - [G] 2025-09-02 15:59:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 15:59:21 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 30)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 15:59:21 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 15:59:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 15:59:22 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 3)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 15:59:22 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] LONG DT @ 668: 0.053034084524397
+INFO - [G] LONG DT @ 668: 0.097739067619499
+INFO - [G] LONG DT @ 668: 0.1
+INFO - [G] LONG DT @ 668: 0.094725080000062
+INFO - [G] LONG DT @ 669: 0.088599084000056
+INFO - [G] LONG DT @ 669: 0.075816127200043
+INFO - [G] LONG DT @ 669: 0.070308161760034
+INFO - [G] LONG DT @ 669: 0.061021469407997
+INFO - [G] LONG DT @ 669: 0.055512635526389
+INFO - [G] LONG DT @ 669: 0.050706302736948
+INFO - [G] LONG DT @ 669: 0.071349002189475
+INFO - [G] LONG DT @ 669: 0.078632721751669
+INFO - [G] LONG DT @ 669: 0.070691217401334
+INFO - [G] LONG DT @ 669: 0.076572753921051
+INFO - [G] LONG DT @ 669: 0.065460803136849
+INFO - [G] LONG DT @ 669: 0.055061682509419
+INFO - [G] 2025-09-02 15:59:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:20
+INFO - [G] 2025-09-02 15:59:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:20
+INFO - [G] 2025-09-02 15:59:52 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The World
+INFO - [G] 2025-09-02 15:59:55 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:00:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:31
+INFO - [G] 2025-09-02 16:00:02 :: DEBUG :: DefaultLogger :: (Idol) Selected card King of Hearts with weight 1 of total 52
+INFO - [G] 2025-09-02 16:00:02 :: DEBUG :: DefaultLogger :: (Mail) Selected card 4 with weight 3 of total 52
+INFO - [G] 2025-09-02 16:00:05 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 16:00:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 16:00:08 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 16:00:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Celestial Pack
+INFO - [G] 2025-09-02 16:00:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 16:00:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:00:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Celestial Pack
+INFO - [G] 2025-09-02 16:00:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 16:00:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:00:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 16:00:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 16:00:27 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 16:00:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Magician,cost:3
+INFO - [G] 2025-09-02 16:00:28 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:00:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:2
+INFO - [G] 2025-09-02 16:00:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 16:00:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:3
+INFO - [G] 2025-09-02 16:00:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:00:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Wily Joker
+INFO - [G] 2025-09-02 16:00:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:00:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:2
+INFO - [G] 2025-09-02 16:00:47 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 38)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 16:00:47 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:00:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Hologram,cost:7
+INFO - [G] 2025-09-02 16:00:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-7
+INFO - [G] 2025-09-02 16:00:49 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:4
+INFO - [G] 2025-09-02 16:00:49 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 16:00:49 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 3)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 16:00:49 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:00:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Hologram
+INFO - [G] 2025-09-02 16:00:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:00:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 16:00:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Idol,cost:9
+INFO - [G] 2025-09-02 16:00:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-9
+INFO - [G] 2025-09-02 16:00:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:5
+INFO - [G] 2025-09-02 16:00:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-5
+INFO - [G] 2025-09-02 16:01:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Earth,cost:3
+INFO - [G] 2025-09-02 16:01:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:01:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:01:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:47
+INFO - [G] 2025-09-02 16:01:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 16:01:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 16:01:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 16:01:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 16:01:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 16:01:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The World
+INFO - [G] 2025-09-02 16:01:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Magician
+INFO - [G] 2025-09-02 16:01:44 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:01:49 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:32
+INFO - [G] 2025-09-02 16:01:49 :: DEBUG :: DefaultLogger :: (Idol) Selected card 6 of Clubs with weight 1 of total 51
+INFO - [G] 2025-09-02 16:01:49 :: DEBUG :: DefaultLogger :: (Mail) Selected card 9 with weight 4 of total 51
+INFO - [G] 2025-09-02 16:01:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:01:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:12
+INFO - [G] 2025-09-02 16:01:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 16:02:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Star,cost:3
+INFO - [G] 2025-09-02 16:02:04 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:02:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 16:02:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 16:02:18 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 3)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 16:02:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Earth,cost:3
+INFO - [G] 2025-09-02 16:02:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:02:18 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:02:18 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:02:19 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_ready)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:02:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Standard Pack
+INFO - [G] 2025-09-02 16:02:21 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 16:02:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Glass Card
+INFO - [G] 2025-09-02 16:02:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:13
+INFO - [G] 2025-09-02 16:02:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 16:02:33 :: TRACE :: MULTIPLAYER :: Toggling Ready
+INFO - [G] 2025-09-02 16:02:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_ready
+INFO - [G] 2025-09-02 16:02:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyBlind
+INFO - [G] 2025-09-02 16:02:33 :: TRACE :: MULTIPLAYER :: Client got startBlind message:  (action: startBlind) 
+INFO - [G] 2025-09-02 16:02:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 16:02:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 16:02:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_mp_nemesis
+INFO - [G] 2025-09-02 16:02:36 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 3)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 16:02:37 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_mp_nemesis)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:02:42 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 16:03:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 16:03:28 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 3)  (action: enemyInfo)  (handsLeft: 3)  (score: 684) 
+INFO - [G] 2025-09-02 16:03:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:336,handsLeft:3
+INFO - [G] 2025-09-02 16:03:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:52536,handsLeft:2
+INFO - [G] 2025-09-02 16:03:46 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 3)  (action: enemyInfo)  (handsLeft: 2)  (score: 1332) 
+INFO - [G] 2025-09-02 16:04:00 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 3)  (action: enemyInfo)  (handsLeft: 1)  (score: 1857) 
+INFO - [G] 2025-09-02 16:04:13 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 3)  (action: enemyInfo)  (handsLeft: 0)  (score: 17697) 
+INFO - [G] 2025-09-02 16:04:13 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 2)  (action: enemyInfo)  (handsLeft: 0)  (score: 17697) 
+INFO - [G] 2025-09-02 16:04:13 :: TRACE :: MULTIPLAYER :: Client got endPvP message:  (lost: false)  (action: endPvP) 
+INFO - [G] LONG DT @ 956: 0.063981709289979
+INFO - [G] LONG DT @ 956: 0.062647067432001
+INFO - [G] LONG DT @ 956: 0.060671173945541
+INFO - [G] LONG DT @ 956: 0.051853599156451
+INFO - [G] 2025-09-02 16:04:13 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:4
+INFO - [G] 2025-09-02 16:04:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:33
+INFO - [G] 2025-09-02 16:04:14 :: DEBUG :: DefaultLogger :: (Idol) Selected card Jack of Diamonds with weight 3 of total 51
+INFO - [G] 2025-09-02 16:04:14 :: DEBUG :: DefaultLogger :: (Mail) Selected card 9 with weight 3 of total 51
+INFO - [G] 2025-09-02 16:04:19 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:04:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 16:04:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 16:04:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Buffoon Pack
+INFO - [G] 2025-09-02 16:04:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 16:04:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 16:04:31 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 16:04:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Bull,cost:11
+INFO - [G] 2025-09-02 16:04:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-11
+INFO - [G] 2025-09-02 16:04:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Celestial Pack
+INFO - [G] 2025-09-02 16:04:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 16:04:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:04:43 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:20
+INFO - [G] 2025-09-02 16:04:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 16:04:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 16:04:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 16:04:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 16:04:52 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 16:04:58 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 48)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 16:04:58 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:04:59 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 2)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 16:05:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 16:05:00 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:05:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Judgement
+INFO - [G] 2025-09-02 16:05:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:05:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] LONG DT @ 1031: 0.056640028869941
+INFO - [G] LONG DT @ 1031: 0.057428403095905
+INFO - [G] LONG DT @ 1032: 0.050358602476757
+INFO - [G] 2025-09-02 16:05:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:41
+INFO - [G] 2025-09-02 16:05:33 :: DEBUG :: DefaultLogger :: (Idol) Selected card 10 of Spades with weight 3 of total 50
+INFO - [G] 2025-09-02 16:05:33 :: DEBUG :: DefaultLogger :: (Mail) Selected card 7 with weight 5 of total 50
+INFO - [G] 2025-09-02 16:05:35 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:05:37 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:05:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 16:05:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 16:05:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Standard Pack
+INFO - [G] 2025-09-02 16:05:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 16:05:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Judgement
+INFO - [G] 2025-09-02 16:05:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:05:53 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 16:05:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Star,cost:3
+INFO - [G] 2025-09-02 16:05:54 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:05:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 16:05:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 16:05:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:2
+INFO - [G] 2025-09-02 16:05:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 16:05:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:3
+INFO - [G] 2025-09-02 16:05:59 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:06:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:15
+INFO - [G] 2025-09-02 16:06:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 16:06:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 16:06:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 16:06:02 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 16:06:06 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 16:06:08 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 18)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 16:06:08 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:06:09 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 2)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 16:06:09 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:06:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 16:06:52 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:42
+INFO - [G] 2025-09-02 16:06:52 :: DEBUG :: DefaultLogger :: (Idol) Selected card 8 of Clubs with weight 1 of total 49
+INFO - [G] 2025-09-02 16:06:52 :: DEBUG :: DefaultLogger :: (Mail) Selected card 3 with weight 5 of total 49
+INFO - [G] 2025-09-02 16:06:52 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:06:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:10
+INFO - [G] 2025-09-02 16:06:57 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 16:07:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Buffoon Pack
+INFO - [G] 2025-09-02 16:07:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 16:07:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 16:07:07 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 16:07:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:2
+INFO - [G] 2025-09-02 16:07:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 16:07:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Celestial Pack
+INFO - [G] 2025-09-02 16:07:14 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 16:07:16 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:07:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Mercury
+INFO - [G] 2025-09-02 16:07:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:07:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 16:07:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:11
+INFO - [G] 2025-09-02 16:07:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 16:07:27 :: TRACE :: MULTIPLAYER :: Toggling Ready
+INFO - [G] 2025-09-02 16:07:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_ready
+INFO - [G] 2025-09-02 16:07:27 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyBlind
+INFO - [G] 2025-09-02 16:07:27 :: TRACE :: MULTIPLAYER :: Client got speedrun message:  (action: speedrun) 
+INFO - [G] 2025-09-02 16:07:31 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 17)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 16:07:31 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:07:32 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_ready)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:07:32 :: TRACE :: MULTIPLAYER :: Client got startBlind message:  (action: startBlind) 
+INFO - [G] 2025-09-02 16:07:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 16:07:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 16:07:35 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_mp_nemesis
+INFO - [G] 2025-09-02 16:07:36 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 2)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 16:07:36 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_mp_nemesis)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:07:37 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Wheel of Fortune
+INFO - [G] 2025-09-02 16:07:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] LONG DT @ 1188: 0.051826604311028
+INFO - [G] LONG DT @ 1188: 0.1
+INFO - [G] LONG DT @ 1188: 0.1
+INFO - [G] LONG DT @ 1188: 0.086770340000003
+INFO - [G] LONG DT @ 1188: 0.075380972000006
+INFO - [G] LONG DT @ 1188: 0.063044657599995
+INFO - [G] LONG DT @ 1188: 0.053272226080008
+INFO - [G] 2025-09-02 16:08:14 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 2)  (action: enemyInfo)  (handsLeft: 3)  (score: 5940) 
+INFO - [G] 2025-09-02 16:08:23 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 2)  (action: enemyInfo)  (handsLeft: 2)  (score: 7496) 
+INFO - [G] 2025-09-02 16:08:34 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 2)  (action: enemyInfo)  (handsLeft: 1)  (score: 9052) 
+INFO - [G] 2025-09-02 16:09:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:43956,handsLeft:3
+INFO - [G] LONG DT @ 1268: 0.061490594974686
+INFO - [G] LONG DT @ 1268: 0.059433355979786
+INFO - [G] LONG DT @ 1268: 0.055039964783755
+INFO - [G] LONG DT @ 1268: 0.051329131827057
+INFO - [G] 2025-09-02 16:09:28 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 2)  (action: enemyInfo)  (handsLeft: 0)  (score: 56214) 
+INFO - [G] LONG DT @ 1288: 0.058896759323953
+INFO - [G] LONG DT @ 1288: 0.092690587459227
+INFO - [G] LONG DT @ 1288: 0.1
+INFO - [G] LONG DT @ 1288: 0.1
+INFO - [G] LONG DT @ 1288: 0.1
+INFO - [G] LONG DT @ 1288: 0.1
+INFO - [G] LONG DT @ 1288: 0.1
+INFO - [G] LONG DT @ 1288: 0.087125980000001
+INFO - [G] LONG DT @ 1289: 0.1
+INFO - [G] LONG DT @ 1289: 0.1
+INFO - [G] LONG DT @ 1289: 0.1
+INFO - [G] LONG DT @ 1289: 0.085353839999952
+INFO - [G] LONG DT @ 1289: 0.071867151999981
+INFO - [G] LONG DT @ 1289: 0.061018801599948
+INFO - [G] LONG DT @ 1289: 0.052721881279994
+INFO - [G] 2025-09-02 16:10:03 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:45909,handsLeft:2
+INFO - [G] 2025-09-02 16:10:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:109665,handsLeft:1
+INFO - [G] 2025-09-02 16:10:12 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 1)  (action: enemyInfo)  (handsLeft: 0)  (score: 56214) 
+INFO - [G] 2025-09-02 16:10:12 :: TRACE :: MULTIPLAYER :: Client got endPvP message:  (lost: false)  (action: endPvP) 
+INFO - [G] 2025-09-02 16:10:12 :: TRACE :: MULTIPLAYER :: Client sent message: action:setAnte,ante:5
+INFO - [G] 2025-09-02 16:10:13 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:43
+INFO - [G] 2025-09-02 16:10:13 :: DEBUG :: DefaultLogger :: (Idol) Selected card 7 of Clubs with weight 1 of total 48
+INFO - [G] 2025-09-02 16:10:13 :: DEBUG :: DefaultLogger :: (Mail) Selected card Queen with weight 4 of total 48
+INFO - [G] 2025-09-02 16:10:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:9
+INFO - [G] 2025-09-02 16:10:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 16:10:20 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:10:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Cartomancer
+INFO - [G] 2025-09-02 16:10:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:10:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 16:10:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Oops! All 6s,cost:4
+INFO - [G] 2025-09-02 16:10:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 16:10:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Arcana Pack
+INFO - [G] 2025-09-02 16:10:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 16:10:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 16:10:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Arcana Pack
+INFO - [G] 2025-09-02 16:10:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 16:10:41 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Magician
+INFO - [G] 2025-09-02 16:10:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 16:10:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 16:10:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Star,cost:3
+INFO - [G] 2025-09-02 16:10:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:10:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:2
+INFO - [G] 2025-09-02 16:10:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 16:10:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:The World
+INFO - [G] 2025-09-02 16:10:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:10:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:1
+INFO - [G] 2025-09-02 16:10:52 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Star,cost:3
+INFO - [G] 2025-09-02 16:10:52 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:10:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:25
+INFO - [G] 2025-09-02 16:10:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 16:10:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 16:10:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 16:10:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_small
+INFO - [G] 2025-09-02 16:10:57 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 36)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 16:10:57 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:10:58 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 1)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 16:10:58 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_small)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:11:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 16:11:15 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] LONG DT @ 1386: 0.061688085698124
+INFO - [G] LONG DT @ 1386: 0.055931028558519
+INFO - [G] 2025-09-02 16:11:24 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:11:39 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:51
+INFO - [G] 2025-09-02 16:11:39 :: DEBUG :: DefaultLogger :: (Idol) Selected card Jack of Diamonds with weight 4 of total 47
+INFO - [G] 2025-09-02 16:11:39 :: DEBUG :: DefaultLogger :: (Mail) Selected card 7 with weight 5 of total 47
+INFO - [G] LONG DT @ 1406: 0.05820441736053
+INFO - [G] LONG DT @ 1406: 0.05833687388846
+INFO - [G] LONG DT @ 1407: 0.050249279110786
+INFO - [G] 2025-09-02 16:11:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Earth
+INFO - [G] 2025-09-02 16:11:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:9
+INFO - [G] 2025-09-02 16:11:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 16:11:50 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 16:11:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] LONG DT @ 1414: 0.058271258489483
+INFO - [G] LONG DT @ 1414: 0.072484126791608
+INFO - [G] LONG DT @ 1414: 0.079502981433279
+INFO - [G] LONG DT @ 1414: 0.082830185146577
+INFO - [G] LONG DT @ 1414: 0.090478848117254
+INFO - [G] LONG DT @ 1414: 0.078389418493825
+INFO - [G] LONG DT @ 1414: 0.076263794795112
+INFO - [G] LONG DT @ 1414: 0.079926635836035
+INFO - [G] LONG DT @ 1414: 0.067573288668874
+INFO - [G] LONG DT @ 1414: 0.058015590935058
+INFO - [G] LONG DT @ 1414: 0.050133812748039
+INFO - [G] 2025-09-02 16:11:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:2
+INFO - [G] 2025-09-02 16:11:55 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 16:12:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Arcana Pack
+INFO - [G] 2025-09-02 16:12:00 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 16:12:01 :: TRACE :: MULTIPLAYER :: Client got soldJoker message:  (action: soldJoker) 
+INFO - [G] 2025-09-02 16:12:07 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 33)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 16:12:08 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:12:09 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 1)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 16:12:09 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_big)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:12:09 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Magician
+INFO - [G] 2025-09-02 16:12:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:3
+INFO - [G] 2025-09-02 16:12:20 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:12:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Trading Card
+INFO - [G] 2025-09-02 16:12:24 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:12:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:3
+INFO - [G] 2025-09-02 16:12:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Trio,cost:8
+INFO - [G] 2025-09-02 16:12:26 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-8
+INFO - [G] 2025-09-02 16:12:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:4
+INFO - [G] 2025-09-02 16:12:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-4
+INFO - [G] 2025-09-02 16:12:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:The Wheel of Fortune,cost:3
+INFO - [G] 2025-09-02 16:12:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-3
+INFO - [G] 2025-09-02 16:12:34 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Wheel of Fortune
+INFO - [G] 2025-09-02 16:12:37 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:27
+INFO - [G] 2025-09-02 16:12:37 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 16:12:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 16:12:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 16:12:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_big
+INFO - [G] 2025-09-02 16:12:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 16:12:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:20
+INFO - [G] 2025-09-02 16:13:01 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_shop)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:13:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:setFurthestBlind,furthestBlind:52
+INFO - [G] 2025-09-02 16:13:01 :: DEBUG :: DefaultLogger :: (Idol) Selected card 10 of Diamonds with weight 4 of total 47
+INFO - [G] 2025-09-02 16:13:01 :: DEBUG :: DefaultLogger :: (Mail) Selected card 5 with weight 3 of total 47
+INFO - [G] 2025-09-02 16:13:05 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:11
+INFO - [G] 2025-09-02 16:13:05 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_shop
+INFO - [G] 2025-09-02 16:13:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Mega Arcana Pack
+INFO - [G] 2025-09-02 16:13:10 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-8
+INFO - [G] 2025-09-02 16:13:13 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Wheel of Fortune
+INFO - [G] 2025-09-02 16:13:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:Jumbo Arcana Pack
+INFO - [G] 2025-09-02 16:13:17 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-6
+INFO - [G] 2025-09-02 16:13:32 :: TRACE :: MULTIPLAYER :: Client sent message: action:usedCard,card:The Star
+INFO - [G] 2025-09-02 16:13:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:1
+INFO - [G] 2025-09-02 16:13:36 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-1
+INFO - [G] 2025-09-02 16:13:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:rerollShop,cost:2
+INFO - [G] 2025-09-02 16:13:38 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-2
+INFO - [G] 2025-09-02 16:13:40 :: TRACE :: MULTIPLAYER :: Client got spentLastShop message:  (amount: 40)  (action: spentLastShop) 
+INFO - [G] 2025-09-02 16:13:40 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_selecting)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:13:41 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_ready)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:13:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldCard,card:Oops! All 6s
+INFO - [G] 2025-09-02 16:13:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:soldJoker
+INFO - [G] 2025-09-02 16:13:44 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:2
+INFO - [G] 2025-09-02 16:13:45 :: TRACE :: MULTIPLAYER :: Client sent message: action:boughtCardFromShop,card:Ancient Joker,cost:8
+INFO - [G] 2025-09-02 16:13:45 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:-8
+INFO - [G] 2025-09-02 16:13:46 :: TRACE :: MULTIPLAYER :: Client sent message: action:spentLastShop,amount:25
+INFO - [G] 2025-09-02 16:13:47 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_selecting
+INFO - [G] 2025-09-02 16:13:48 :: TRACE :: MULTIPLAYER :: Toggling Ready
+INFO - [G] 2025-09-02 16:13:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_ready
+INFO - [G] 2025-09-02 16:13:48 :: TRACE :: MULTIPLAYER :: Client sent message: action:readyBlind
+INFO - [G] 2025-09-02 16:13:48 :: TRACE :: MULTIPLAYER :: Client got startBlind message:  (action: startBlind) 
+INFO - [G] 2025-09-02 16:13:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:0,handsLeft:4
+INFO - [G] 2025-09-02 16:13:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:newRound
+INFO - [G] 2025-09-02 16:13:51 :: TRACE :: MULTIPLAYER :: Client sent message: action:setLocation,location:loc_playing-bl_mp_nemesis
+INFO - [G] 2025-09-02 16:13:52 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 1)  (action: enemyInfo)  (handsLeft: 4)  (score: 0) 
+INFO - [G] 2025-09-02 16:13:52 :: TRACE :: MULTIPLAYER :: Client got enemyLocation message:  (location: loc_playing-bl_mp_nemesis)  (action: enemyLocation) 
+INFO - [G] 2025-09-02 16:14:09 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 1)  (action: enemyInfo)  (handsLeft: 3)  (score: 57590) 
+INFO - [G] 2025-09-02 16:14:11 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:129618,handsLeft:3
+INFO - [G] 2025-09-02 16:14:19 :: TRACE :: MULTIPLAYER :: Client sent message: action:moneyMoved,amount:20
+INFO - [G] 2025-09-02 16:14:23 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:134344,handsLeft:2
+INFO - [G] 2025-09-02 16:14:36 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 1)  (action: enemyInfo)  (handsLeft: 2)  (score: 61130) 
+INFO - [G] LONG DT @ 1605: 0.055358518434765
+INFO - [G] LONG DT @ 1605: 0.09474957474784
+INFO - [G] LONG DT @ 1605: 0.090626579798268
+INFO - [G] LONG DT @ 1605: 0.082287763838587
+INFO - [G] LONG DT @ 1605: 0.073449111070904
+INFO - [G] LONG DT @ 1605: 0.06524660885672
+INFO - [G] LONG DT @ 1605: 0.083331887085417
+INFO - [G] LONG DT @ 1605: 0.1
+INFO - [G] LONG DT @ 1605: 0.1
+INFO - [G] LONG DT @ 1605: 0.1
+INFO - [G] LONG DT @ 1606: 0.084815320000034
+INFO - [G] LONG DT @ 1606: 0.073195756000008
+INFO - [G] LONG DT @ 1606: 0.062197184799962
+INFO - [G] LONG DT @ 1606: 0.052764407839998
+INFO - [G] 2025-09-02 16:15:08 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 1)  (action: enemyInfo)  (handsLeft: 1)  (score: 155990) 
+INFO - [G] 2025-09-02 16:15:25 :: TRACE :: MULTIPLAYER :: Client sent message: action:playHand,score:1638028,handsLeft:1
+INFO - [G] 2025-09-02 16:15:29 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 1)  (action: enemyInfo)  (handsLeft: 0)  (score: 225740) 
+INFO - [G] 2025-09-02 16:15:29 :: TRACE :: MULTIPLAYER :: Client got enemyInfo message:  (skips: 0)  (lives: 0)  (action: enemyInfo)  (handsLeft: 0)  (score: 225740) 
+INFO - [G] 2025-09-02 16:15:29 :: TRACE :: MULTIPLAYER :: Client got winGame message:  (action: winGame) 
+INFO - [G] 2025-09-02 16:15:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:getEndGameJokers
+INFO - [G] 2025-09-02 16:15:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:endGameStatsRequested
+INFO - [G] 2025-09-02 16:15:29 :: TRACE :: MULTIPLAYER :: Client sent message: action:getNemesisDeck
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client got getEndGameJokers message:  (action: getEndGameJokers) 
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Sending end game jokers: ;j_idol-holo-none-none;j_trio-none-none-none;j_trio-none-none-none;j_bull-negative-none-none;j_ancient-none-none-none
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:receiveEndGameJokers,keys:H4sIAAAAAAAACu2YS2/bOBCA/4qhcxFIpJ6HPXTRS7voLYcCwYKgpZHFhia1FJXGW/S/LymZsiTb8dpw2ySIAT/IeXI4+kBagW6VWHy/83Kqisb7+4/vd4H98JpaMQ2kpDkTKzPvlUoK7b2789hKSAWkqWghv1mLH2aSFgUUREtSQH5vJrVqwUwrKuwo2JktadPbgnK2rWD/tEAeKCekoQ/Gz8cPRoZwFCTIyO0cKRnwbYJeDkJ35t5XwgrJvXddCkvGmd70KkspWqvtG0FF1i3XbkBF0ZCa042JQzXJFVANNsfMSOFRK2pjd2YN+xe2Zo8kr1jdbNdSg1pTMvE7+tlLHydRB3N/ZG5S51Tt0pwGGRyMI47dQFlCbhU8b9DYS6OaJqKnWU0zaKDz9knem+qasVT9LgUoGS1rfyX1zE9XRbufLezlsm893qq5p3n2mxrcevXElaDrTnJbweJj1xJ3XrHbQNsfnC6Bz3WWm5o2DeFy3LW2R/s2EnLNBOWuPi3TZDplng8gx7WIVGw1kmm2Btd9Q2LbHArW5PIB1IYM/e3ymSu0bCfMZWPLk23zJttxbKtJFV1vnxlnbEYl5c1Bt2fF3QqXtKucibBxj4r5Ds3C7NKgYJpJ0Su43askl7b23ffg7x6sAw+IE7vu74u0g4QNc5NGGCM/CNIMZTG2VZdKGxgYIQ7CuN+ZObkKWLZlOapAA5y7goVD424nsI2Lrg9DdBEMAz9O0lMw1IrJEzAcnif8JAwtc76MNX8zDKuTZNvR8AtafLbzh6CoD/kZp/O/mYjR82LibaUAFrJc0MVfTBRPI/K2a5SnEel0Xg0i0xki02eByDnY4jTKEhz5fob8bAI2FKKrgK0rKb4+2PAlYMNhhFD4y8CGsjewvYHtDWy/HmxJGsZJhjCOo9iPJ2AL4+6CcR2whdcHW3jRiS0JUZScAtuy5WddXycX1KOQQ2eybALBA2C74MJ6mIUHvP4MhmX4eSHsOLP+7Pb/OK+c/NWwqrtZvJCLqoAV1ewB7AbY/8cIZ2vmGnwQ7t9gd3aHDngozUKE0jQMg2DKQZyE+AIORnMORjZudH0ORhcd8KIYZSdvrlTkDGxi56MwuImegiE+92D36mCYvRQYvu+bYDEs4RgV9xRfDR5fxlHOvpA9ysV+OP3zLUz8SxB28Cj3oyuLKNmqz6xiq4qbt55wmCtSG2z14fybYM7qDg7OEqYMdy351fWRXYidKKDJB+rnshXOk4Z1PXJtkvwPcBSGUUMZAAA=
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client got endGameStatsRequested message:  (action: endGameStatsRequested) 
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:nemesisEndGameStats,reroll_count:24,reroll_cost_total:47,vouchers:v_overstock_plus-v_overstock_norm-v_reroll_glut-v_wasteful-v_reroll_surplus-v_recyclomancy
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client got getNemesisDeck message:  (action: getNemesisDeck) 
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client sent message: action:receiveNemesisDeck,cards:;S-Q-c_base-none-none;S-T-m_lucky-none-none;S-7-c_base-none-none;S-3-c_base-none-none;S-3-c_base-none-none;H-A-c_base-none-none;H-6-c_base-none-none;H-5-c_base-none-none;H-4-c_base-none-none;H-2-c_base-none-none;C-5-c_base-none-none;D-A-c_base-none-none;D-A-c_base-none-none;D-K-m_lucky-none-none;D-K-m_lucky-none-none;D-K-c_base-none-none;D-K-m_lucky-none-none;D-Q-m_lucky-none-none;D-Q-c_base-none-none;D-Q-c_base-none-none;D-J-c_base-none-none;D-J-c_base-holo-none;D-J-m_lucky-none-none;D-J-c_base-none-none;D-T-m_lucky-none-none;D-T-m_lucky-none-none;D-T-c_base-none-Blue;D-T-m_lucky-none-none;D-9-m_lucky-none-none;D-9-m_lucky-none-none;D-8-c_base-none-none;D-8-c_base-none-none;D-8-c_base-none-none;D-8-c_base-none-none;D-7-m_glass-none-Red;D-7-m_lucky-none-none;D-7-c_base-none-none;D-7-c_base-none-none;D-6-c_base-none-none;D-6-c_base-none-none;D-6-c_base-none-none;D-5-c_base-none-none;D-4-c_base-none-none;D-4-c_base-none-none;D-3-c_base-none-none;D-3-m_bonus-none-Red;D-3-c_base-none-none
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client got receiveEndGameJokers message:  (keys: H4sIAAAAAAAACt2XW2/bIBSA/4rn56ryLdh52MO0blr7MmnaWzQhYh/HtMR4gLtm1f77wDaO7abNEmVS2odcOJwbh8MnEKBqUTqPCzclIpPuj/ePC998ubISVAHOSUrLlZa7ueClci8WLl2VXACWBcn4L2PxRwtJlkGGFccZpHdaqEQNWixIaUb+1mxJZGsLwtrWJf1ZA74nDGNJ7rWf6ys9F3goDGM9b2Q4p8C6BN0UStWYu7eYZpy5F00KS8qo2rQqS17WRtvTEwVe10zZASkziStGNjoOUTgVQBSYHGd6Fh6UICZ2Yybpb+jMHnBa0Ep2a6lArAke+R38bWcfRlF7c29grlNnRGzTHAfpHQwjDt1AnkNqFFy313iSRjFORI2zGmcgofF2w+90dfWYi3aX/CAeLOvpSqqJn6aKZj9reJLLU+vhVk09TbPfVGDXq0auSrJuZr4X4Fw3LbFws+0Gmv5gZAlsqrPcVERKzPiwa02Ptm1U8jUtCbP1qanCY5E+H4Cf18Jc0NVgTtE12O7rE+tyyKhM+T2IDe772+YzVajpdjLl0pRn3uWNuzEy1SSCrLszY431KCdM7nR7UNxuckmayukIG3tU9G+kF2aWBhlVlJetgt29gjNuat/89v7uwDhwAdtp2/1tkbaQMGEuk9gPvShJ5r7noQYSXCgNA2OAgqTdmSm5MljWeT6ogATGbMGivnE7QWjiBqeHYXAUDCMUB94+GHKuD8TLMBxR5VkYBuEZALDYS7M9BFS7HAzz+HcAotcCwK+6Bd45HxhzkHwJglO9NwPCaALC6CxAOMVXhHw/juIkiVE4H+MrQf4R+Aqm+GpKGp4eX+Ex+PKT+TxB+/CVMyKLQy5zo+vacyyLD6BXk+OIeztYdsT1bTf+dnj9H/Savxp4fTYN4HzUT5GX0DXWejPgmk3ANTtLcCX+zAuDIETIR8kYXDPfOxm4otODKzoGXKGXhGGwD1yF7hdVABacZCd5jIb9bbSp+uwMbmMHPEdvdEc5V7rn9BF1PrXiXYQ74Qs1HK70rBn3hSpH94rzremV5yk31XsznEsmnEvOknNejJJ5gHxvHgb+iHOBh07yvvS6yCkvc7pqMyvoqmD6ozCja2pPGxO40mxrw3mXRmSOVq9jXPeWkI1sbUPe2iNjFmIEGcjUtZ5SXpfWk4J1NXCtk/wLLxyBlSYUAAA=)  (action: receiveEndGameJokers)  (seed: 8Y6TH) 
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Received end game jokers: ;j_idol-holo-none-none;j_oops-none-none-none;j_flash-none-none-none;j_hit_the_road-none-none-none
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client got nemesisEndGameStats message:  (reroll_count: 44)  (action: nemesisEndGameStats)  (vouchers: v_overstock_plus-v_overstock_norm-v_reroll_glut-v_wasteful-v_reroll_surplus-v_recyclomancy)  (reroll_cost_total: 131) 
+INFO - [G] 2025-09-02 16:15:30 :: TRACE :: MULTIPLAYER :: Client got receiveNemesisDeck message:  (cards: ;S-A-c_base-none-none;S-K-m_lucky-none-none;S-Q-c_base-none-none;S-J-m_lucky-none-none;S-T-m_lucky-none-none;S-9-c_base-none-none;S-8-c_base-none-none;S-7-c_base-none-none;S-6-c_base-none-none;S-5-c_base-none-none;S-4-c_base-none-none;S-3-c_base-none-none;S-2-c_base-none-none;H-A-m_lucky-none-none;H-K-m_lucky-none-none;H-Q-m_lucky-none-none;H-J-m_lucky-none-none;H-T-c_base-none-none;H-9-m_lucky-none-none;H-8-c_base-none-none;H-7-c_base-none-none;H-6-c_base-none-none;H-5-c_base-none-none;H-4-c_base-none-none;H-3-c_base-none-none;H-3-m_lucky-none-Red;H-2-c_base-none-none;C-A-c_base-none-none;C-K-c_base-none-none;C-Q-m_lucky-none-none;C-J-m_lucky-none-none;C-T-c_base-none-none;C-T-c_base-none-Gold;C-9-c_base-none-none;C-8-c_base-none-none;C-7-c_base-none-none;C-6-c_base-none-none;C-5-c_base-none-none;C-4-c_base-none-none;C-3-c_base-none-none;C-2-c_base-none-none;D-A-m_lucky-none-none;D-K-m_lucky-none-none;D-Q-c_base-none-none;D-J-c_base-none-none;D-T-m_lucky-none-none;D-9-c_base-none-none;D-8-c_base-none-none;D-7-c_base-none-none;D-6-c_base-none-none;D-5-c_base-none-none;D-4-c_base-none-none;D-3-c_base-none-none;D-2-c_base-none-none)  (action: receiveNemesisDeck) 
+INFO - [G] LONG DT @ 1644: 0.06571301649089
+INFO - [G] LONG DT @ 1644: 0.061236413192797
+INFO - [G] LONG DT @ 1644: 0.073311090554235
+INFO - [G] LONG DT @ 1644: 0.067696352443323
+INFO - [G] LONG DT @ 1644: 0.083555121954728
+INFO - [G] LONG DT @ 1644: 0.071016017563736
+INFO - [G] LONG DT @ 1644: 0.061817754050969
+INFO - [G] LONG DT @ 1644: 0.054192743240792
+INFO - [G] 2025-09-02 16:15:56 :: TRACE :: MULTIPLAYER :: Client got endGameStatsRequested message:  (action: endGameStatsRequested) 
+INFO - [G] 2025-09-02 16:15:56 :: TRACE :: MULTIPLAYER :: Client sent message: action:nemesisEndGameStats,reroll_count:24,reroll_cost_total:47,vouchers:v_overstock_plus-v_overstock_norm-v_reroll_glut-v_wasteful-v_reroll_surplus-v_recyclomancy
+INFO - [G] 2025-09-02 16:16:01 :: TRACE :: MULTIPLAYER :: Client got stopGame message:  (action: stopGame)  (seed: 8Y6TH) 
+INFO - [G] 2025-09-02 16:16:01 :: DEBUG :: MULTIPLAYER :: Resetting game states
+INFO - [G] 2025-09-02 16:16:01 :: TRACE :: MULTIPLAYER :: Client got lobbyInfo message:  (host: balatro but woke~18)  (hostCached: true)  (action: lobbyInfo)  (hostHash: preview=true;unlocked=true;encryptID=8501491200.071;serversideConnectionID=99363ae8;BetterMouseAndGamepad-1.0.6c;JokerDisplay-1.8.6;Lovely-0.8.0;Multiplayer-0.2.17;Preview-MultiplayerIntegration;Steamodded-1.0.0~BETA-0711a;TheOrder-MultiplayerIntegration)  (isHost: true) 
+INFO - [G] 2025-09-02 16:16:01 :: TRACE :: MULTIPLAYER :: Client sent message: action:lobbyOptions,no_gold_on_round_loss:false,disable_live_and_timer_hud:false,timer_base_seconds:150,action:lobbyOptions,sleeve:sleeve_casl_none,back:b_mp_cocktail,legacy_smallworld:false,gold_on_life_loss:true,starting_lives:4,pvp_countdown_seconds:3,multiplayer_jokers:true,forced_config:false,different_decks:false,death_on_round_loss:true,custom_seed:random,ruleset:ruleset_mp_smallworld,the_order:true,timer:true,challenge:0,gamemode:gamemode_mp_attrition,stake:1,timer_increment_seconds:60,showdown_starting_antes:3,preview_disabled:false,pvp_start_round:2,different_seeds:false,timer_forgiveness:0
+INFO - [G] 2025-09-02 16:17:33 :: TRACE :: MULTIPLAYER :: Client sent message: action:leaveLobby
+INFO - [G] 2025-09-02 16:17:33 :: DEBUG :: MULTIPLAYER :: Resetting game states
