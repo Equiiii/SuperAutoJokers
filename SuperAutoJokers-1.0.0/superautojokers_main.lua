@@ -167,6 +167,53 @@ SMODS.Joker {
 --Monkey
 --Armadillo
 --Cow
+SMODS.Joker {
+    key = "cowjoker",
+    pos = {x = 5, y = 4},
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = false,
+    cost = 6,
+    discovered = true,
+    config = {extra = {cow_rounds = 0, total_rounds = 1}},
+    loc_txt = {
+        name = "Cow",
+        text = {
+            "In {C:attention}1{} round,",
+            "Sell this {C:attention}Joker{} to",
+            "gain an {C:spectral}Aura",
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {key = "c_aura", set = "Spectral"}
+        return { vars = {} }
+    end,
+
+    calculate = function(self, card, context)
+        if context.selling_self and (card.ability.extra.cow_rounds >= card.ability.extra.total_rounds) and not context.blueprint then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                trigger = "before",
+                delay = 0.0,
+                func = (function()
+                    local card = create_card("Spectral",G.consumeables, nil, nil, nil, nil, "c_aura")
+                    card:add_to_deck()
+                    G.consumeables:emplace(card)
+                    G.GAME.consumeable_buffer = 0
+                return true
+                end)}))
+        end
+        if context.end_of_round and not context.game_over and context.main_eval and not context.blueprint then
+            card.ability.extra.cow_rounds = card.ability.extra.cow_rounds + 1
+            if card.ability.extra.cow_rounds >= card.ability.extra.total_rounds then
+                return {
+                    message = "Active!",
+                }
+            end
+        end
+    end,
+}
 --Seal
 --Rooster
 --Shark
