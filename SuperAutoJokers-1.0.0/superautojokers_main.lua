@@ -72,6 +72,36 @@ SMODS.Joker {
 --Snail
 --Crab
 --Swan
+SMODS.Joker {
+    key = "swanjoker",
+    pos = {x = 2, y = 2},
+    rarity = 1,
+    blueprint_compat = false,
+    cost = 3,
+    discovered = true,
+    config = { extra = { money = 0 }},
+    loc_txt = {
+        name = "Swan",
+        text = {
+            "Earn {C:money}$1{} at the",
+            "end of round for",
+            "each owned {C:attention}Joker{}",
+            "{C:inactive}(Currently {}{C:money}$#1#{}{C:inactive})",
+        }
+    },
+
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.dollars }}
+    end,
+
+    update = function(self, card, dt)
+        card.ability.extra.dollars = #G.jokers.cards
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        return card.ability.extra.dollars
+    end,
+}
 --Rat
 --Hedgehog
 --Peacock
