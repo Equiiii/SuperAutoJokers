@@ -30,7 +30,6 @@ SMODS.Joker {
 --Pigeon
 --Otter
 --Pig
---Each scored 4 has a 1/3 chance to increase this card's sell value by one
 SMODS.Joker {
     key = "pigjoker",
     pos = {x = 4, y = 0},
@@ -104,7 +103,7 @@ SMODS.Joker {
         text = {
             "Sell this joker to",
             "reduce boss blind's score",
-            "requirement by 66%",
+            "requirement by {C:attention}66%",
         } 
     },
 
@@ -143,5 +142,36 @@ SMODS.Joker {
 --Dragon
 --Mammoth
 --Cat
+SMODS.Joker {
+    key = "catjoker",
+    pos = {x = 7, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { tags = 1,}},
+    loc_txt = {
+        name = "Cat",
+        text = {
+            "When {C:attention}Blind{} is",
+            "Skipped, create a",
+            "{C:attention}Double Tag",
+        }
+    },
+
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.tags }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.skip_blind then
+            add_tag(Tag("tag_double"))
+            return {
+                tags = card.ability.extra.tags,
+                message = "Skipped!",
+            }
+        end
+    end
+}
 --Snake
 --Fly
