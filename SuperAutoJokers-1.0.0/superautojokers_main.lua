@@ -174,6 +174,28 @@ SMODS.Joker {
 --Leopard
 --Boar
 --Tiger
+SMODS.Joker {
+    key = "tigerjoker",
+    pos = {x = 2, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = false,
+    cost = 8,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Tiger",
+        text = {
+            "When this is sold,",
+            "gain a {C:attention}Rare Tag",
+        }
+    },
+    calculate = function(self, card, context)
+        if context.selling_self then
+            add_tag(Tag("tag_rare"))
+        end
+    end,
+}
 --Wolverine
 --Gorilla
 --Dragon
