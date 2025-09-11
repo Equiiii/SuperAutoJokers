@@ -43,7 +43,7 @@ SMODS.Joker {
         text = {
             "Each scored {C:attention}4{} has a",
             "{C:green}#2# in #3#{} chance",
-            "to increase this joker's",
+            "to increase this Joker's",
             "sell value by {C:money}$1{}",
         },
     },
@@ -83,6 +83,43 @@ SMODS.Joker {
 --Badger
 --Dolphin
 --Giraffe
+SMODS.Joker {
+    key = "giraffejoker",
+    pos = {x = 3, y = 2},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = {mult = 0,}},
+    loc_txt = {
+        name = "Giraffe",
+        text = {
+            "This Joker gains",
+            "{C:mult}+3{} Mult when {C:attention}Blind{} is",
+            "selected with an empty",
+            "{C:attention}Joker{} slot",
+            "{C:inactive}(Currently {C:red}+#1#{}{C:inactive} Mult){}",
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind and not context.blueprint and #G.jokers.cards < G.jokers.config.card_limit then
+            card.ability.extra.mult = card.ability.extra.mult + 3
+            return {
+                message = "Upgraded!",
+            }
+        end
+
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult,
+            }
+        end
+    end,
+}
 --Elephant
 --Camel
 --Rabbit
@@ -95,16 +132,16 @@ SMODS.Joker {
     pos = {x = 0, y = 3},
     rarity = 2,
     blueprint_compat = true,
-    cost = 5,
+    cost = 4,
     discovered = true,
     config = {},
     loc_txt = {
         name = "Skunk",
         text = {
-            "Sell this joker to",
+            "Sell this Joker to",
             "reduce boss blind's score",
             "requirement by {C:attention}66%",
-        } 
+        }
     },
 
     calculate = function(self, card, context)
