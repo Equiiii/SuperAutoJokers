@@ -79,7 +79,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 3,
     discovered = true,
-    config = { extra = { money = 0 }},
+    config = { extra = { dollars = 0 }},
     loc_txt = {
         name = "Swan",
         text = {
@@ -90,12 +90,14 @@ SMODS.Joker {
         }
     },
 
-    loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.dollars }}
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars, card.ability.extra.dollars * (G.Jokers and #G.Jokers.cards or 0) }}
     end,
 
-    update = function(self, card, dt)
-        card.ability.extra.dollars = #G.jokers.cards
+    calculate = function(self, card, context)
+        if context.joker_main then
+            card.ability.extra.dollars = #G.jokers.cards
+        end
     end,
 
     calc_dollar_bonus = function(self, card)
@@ -120,7 +122,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = {mult = 0,}},
+    config = { extra = { mult = 0 }},
     loc_txt = {
         name = "Giraffe",
         text = {
@@ -184,6 +186,41 @@ SMODS.Joker {
 }
 --Hippo
 --Bison
+SMODS.Joker {
+    key = "bisonjoker",
+    pos = {x = 2, y = 3},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { mult = 0 }},
+    loc_txt = {
+        name = "Bison",
+        text = {
+            "This Joker gains",
+            "{C:mult}+2{} Mult when a",
+            "{C:attention}Joker{} is sold",
+            "{C:inactive}(Currently{} +{C:mult}#1#{} {C:inactive}Mult)"
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.selling_card and context.card.ability.set == "Joker" and not context.blueprint and not context.selling_self then
+            card.ability.extra.mult = card.ability.extra.mult + 2
+            return {
+                message = "Upgraded!"
+            }
+        end
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult,
+            }
+        end
+    end,
+}
 --Blowfish
 --Turtle
 --Squirrel
