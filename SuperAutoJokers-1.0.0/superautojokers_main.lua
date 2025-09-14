@@ -74,7 +74,7 @@ SMODS.Joker {
 --Swan
 SMODS.Joker {
     key = "swanjoker",
-    pos = {x = 2, y = 2},
+    pos = {x = 2, y = 1},
     rarity = 1,
     blueprint_compat = false,
     cost = 3,
@@ -109,6 +109,45 @@ SMODS.Joker {
 --Peacock
 --Flamingo
 --Worm
+SMODS.Joker {
+    key = "wormjoker",
+    pos = {x = 7, y = 1},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { chips = 0 }},
+    loc_txt = {
+        name = "Worm",
+        text = {
+            "This Joker gains {C:chips}+10{} Chips",
+            "when a hand higher than",
+            "{C:attention}Three of a Kind{} is {C:attention}discarded{}",
+            "{C:inactive}(Currently{} +{C:chips}#1# {C:inactive}Chips){}",
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.chips }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.pre_discard and not context.hook then
+            local hand, _ = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
+            if hand ~= "High Card" and hand ~= "Pair" and hand ~= "Two Pair" and hand ~= "Three of a Kind" then
+                card.ability.extra.chips = card.ability.extra.chips + 10
+                return {
+                    message = "Upgraded!",
+                }
+            end
+        end
+
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips,
+            }
+        end
+    end,
+}
 --Kangaroo
 --Spider
 --Dodo
