@@ -353,6 +353,41 @@ SMODS.Joker {
 --Gorilla
 --Dragon
 --Mammoth
+SMODS.Joker {
+    key = "mammothjoker",
+    pos = {x = 6, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = {mult = 40, jokerslots = 1,}},
+    loc_txt = {
+        name = "Mammoth",
+        text = {
+            "+{C:mult}40{} Mult,",
+            "-1{C:attention} Joker {}Slot",
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.mult, center.ability.extra.jokerslots }}
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        G.jokers.config.card_limit = G.jokers.config.card_limit - 1
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        G.jokers.config.card_limit = G.jokers.config.card_limit + 1
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+}
 --Cat
 SMODS.Joker {
     key = "catjoker",
