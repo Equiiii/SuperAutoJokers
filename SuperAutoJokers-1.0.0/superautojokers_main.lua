@@ -27,6 +27,45 @@ SMODS.Joker {
 
 --Duck
 --Beaver
+SMODS.Joker {
+    key = "beaverjoker",
+    pos = {x = 1, y = 0},
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = false,
+    cost = 4,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Beaver",
+        text = {
+            "Sell this {C:attention}Joker{} to",
+            "Instantly gain a",
+            "{C:tarot}Wheel of Fortune{}",
+            "{C:inactive}(Must have room){}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_wheel_of_fortune
+        return { vars = {}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.selling_self and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                trigger = "before",
+                delay = 0.0,
+                func = (function()
+                    local card = create_card("Tarot",G.consumeables, nil, nil, nil, nil, "c_wheel_of_fortune")
+                    card:add_to_deck()
+                    G.consumeables:emplace(card)
+                    G.GAME.consumeable_buffer = 0
+                return true
+                end)}))
+            end
+        end,
+}
 --Pigeon
 --Otter
 --Pig
@@ -350,6 +389,41 @@ SMODS.Joker {
     end,
 }
 --Wolverine
+SMODS.Joker {
+    key = "wolverinejoker",
+    pos = {x = 3, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 7,
+    discovered = true,
+    config = { extra = { repetitions = 2 }},
+    loc_txt = {
+        name = "Mammoth",
+        text = {
+            "If played hand is a",
+            "{C:attention}Straight Flush{} without an {C:attention}Ace{},",
+            "retrigger scored cards twice",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play and context.poker_hands["Straight Flush"] then
+            local ace_check = true
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:get_id() == 14 then
+                    ace_check = false
+                    break
+                end
+            end
+
+            if ace_check == true then
+                return {
+                    repetitions = card.ability.extra.repetitions
+                }
+            end
+        end
+    end,
+}
 --Gorilla
 --Dragon
 --Mammoth
@@ -422,3 +496,27 @@ SMODS.Joker {
 }
 --Snake
 --Fly
+SMODS.Joker {
+    key = "flyjoker",
+    pos = {x = 9, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { repetitions = 1,}},
+    loc_txt = {
+        name = "Fly",
+        text = {
+            "Retrigger the first {C:attention}four{}",
+            "cards played in scoring",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play and context.other_card ~= context.scoring_hand[5] then
+            return {
+                repetitions = card.ability.extra.repetitions
+            }
+        end
+    end,
+}
