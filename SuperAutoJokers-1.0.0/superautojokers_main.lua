@@ -231,6 +231,42 @@ SMODS.Joker {
     end,
 }
 --Elephant
+SMODS.Joker {
+    key = "elephantjoker",
+    pos = {x = 4, y = 2},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { xmult = 1 }},
+    loc_txt = {
+        name = "Elephant",
+        text = {
+            "This Joker gains {X:mult,C:white}0.5X{} Mult",
+            "when played hand is",
+            "{C:attention}Not Allowed",
+            "{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}",
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return { vars = {center.ability.extra.xmult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.debuffed_hand and not context.blueprint then
+            card.ability.extra.xmult = card.ability.extra.xmult + 0.5
+            return {
+                message = "Upgraded!",
+            }
+        end
+
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+    end,
+}
 --Camel
 --Rabbit
 --Ox
