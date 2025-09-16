@@ -495,6 +495,37 @@ SMODS.Joker {
     end
 }
 --Snake
+SMODS.Joker {
+    key = "snakejoker",
+    pos = {x = 8, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 7,
+    discovered = true,
+    config = {extra = { xmult = 2 }},
+    loc_txt = {
+        name = "Snake",
+        text = {
+            "If on the {C:attention}third{} hand",
+            "of round, played {C:attention}Steel{}",
+            "cards give {X:mult,C:white}X#1#{} Mult",
+            "when scored",
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = {card.ability.extra.xmult}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and G.GAME.current_round.hands_played == 2
+            and SMODS.has_enhancement(context.other_card, "m_steel") then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+    end,
+}
 --Fly
 SMODS.Joker {
     key = "flyjoker",
