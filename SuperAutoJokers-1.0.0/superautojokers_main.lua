@@ -1,3 +1,7 @@
+G.localization.misc.dictionary.sapjokers_scorpion_saved = "Saved by Scorpion"
+init_localization()
+
+
 -- Test Joker
 SMODS.Joker {
     key = "joker",
@@ -343,6 +347,48 @@ SMODS.Joker {
 --Whale
 --Parrot
 --Scorpion
+SMODS.Joker {
+    key = "scorpionjoker",
+    pos = {x = 0, y = 4},
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = false,
+    cost = 5,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Scorpion",
+        text = {
+            "Prevents death if only",
+            "{C:attention}High Card{} was played",
+            "this blind",
+            "{C:red,E:2}self destructs{}"
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            card.is_active = true
+            return {
+                message = "Active!",
+            }
+        end
+        if context.before and not context.blueprint and context.scoring_name ~= "High Card" then
+            card.is_active = false
+            return {
+                message = "Inactive!",
+            }
+        end
+        if not context.blueprint and context.end_of_round and context.game_over and card.is_active == true then
+            card:start_dissolve()
+            return {
+                message = localize("k_saved_ex"),
+                saved = true,
+                colour = G.C.RED
+            }
+        end
+    end,
+}
 --Croc
 --Rhino
 --Monkey
