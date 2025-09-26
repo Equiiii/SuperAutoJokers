@@ -40,6 +40,7 @@ SMODS.Joker {
 --Beaver
 SMODS.Joker {
     key = "beaverjoker",
+    atlas = "jokers",
     pos = {x = 1, y = 0},
     rarity = 1,
     blueprint_compat = true,
@@ -427,6 +428,48 @@ SMODS.Joker {
     end,
 }
 --Blowfish
+SMODS.Joker {
+    key = "blowfishjoker",
+    atlas = "jokers",
+    pos = {x = 3, y = 3},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 7,
+    discovered = true,
+    config = {extra = { xmult = 3 }},
+    loc_txt = {
+        name = "Blowfish",
+        text = {
+            "{X:mult,C:white}3X{} Mult, reduce poker",
+            "hands to level {C:attention}1{} when",
+            "{C:attention}Blind{} is selected",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            for poker_hand_key, _ in pairs(G.GAME.hands) do
+                if G.GAME.hands[poker_hand_key].level > 1 then
+                    local level_downs = (G.GAME.hands[poker_hand_key].level - 1) * -1
+                    level_up_hand(self, poker_hand_key, true, level_downs)
+                end
+            end
+            return {
+                message = "Level Down!",
+                mcolour = G.C.RED
+            }
+        end
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+    end
+
+}
 --Turtle
 --Squirrel
 --Penguin
