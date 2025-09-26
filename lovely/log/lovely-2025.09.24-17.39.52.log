@@ -1,0 +1,59 @@
+INFO - [♥] Lovely 0.8.0
+INFO - [♥] Game directory is at "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Cleaning up dumps directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 77ms
+INFO - [♥] Applied 1 patch to 'conf.lua'
+INFO - [♥] Applied 11 patches to 'main.lua'
+INFO - [♥] Applied 10 patches to 'engine/controller.lua'
+INFO - [♥] Applied 15 patches to 'back.lua'
+INFO - [♥] Applied 7 patches to 'tag.lua'
+INFO - [♥] Applied 2 patches to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 67 patches to 'functions/misc_functions.lua'
+INFO - [♥] Applied 40 patches to 'game.lua'
+INFO - [♥] Applied 1 patch to 'globals.lua'
+INFO - [♥] Applied 5 patches to 'engine/ui.lua'
+INFO - [♥] Applied 95 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 49 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 117 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 51 patches to 'functions/button_callbacks.lua'
+INFO - [♥] Applied 186 patches to 'card.lua'
+INFO - [♥] Applied 10 patches to 'cardarea.lua'
+INFO - [♥] Applied 37 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [G] Failed to connect to the debug server 
+INFO - [G] 2025-09-24 17:40:01 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started ! 
+INFO - [G] 2025-09-24 17:40:01 :: INFO  :: SMODS :: Steamodded v1.0.0~BETA-0711a 
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-09-24 17:40:03 :: INFO  :: Loader :: Valid JSON file found 
+INFO - [G] 2025-09-24 17:40:03 :: INFO  :: Loader :: Valid JSON file found 
+INFO - [G] 2025-09-24 17:40:03 :: INFO  :: TIMER :: [0000] Injected Fonts in 0.001 ms 
+INFO - [G] 2025-09-24 17:40:03 :: INFO  :: TIMER :: [0000] Injected Language in 0.002 ms 
+INFO - [G] 2025-09-24 17:40:03 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 2.357 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0003] Injected Atlas in 456.323 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0001] Injected Sound in 1.149 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0008] Injected Stake in 0.366 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0004] Injected Rarity in 0.038 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0004] Injected ObjectType in 0.128 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0069] Injected Center in 2.265 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0007] Injected Undiscovered Sprite in 0.030 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0002] Injected Blind in 0.047 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0004] Injected Seal in 0.165 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0004] Injected Suit in 0.140 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0013] Injected Rank in 0.141 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0028] Injected DeckSkin in 0.549 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0012] Injected PokerHand in 0.116 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0020] Injected Challenge in 0.101 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0000] Injected Tag in 0.002 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0004] Injected Sticker in 0.118 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0000] Injected Shader in 0.002 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0002] Injected Keybind in 0.023 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0000] Injected Achievement in 0.088 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0002] Injected nil in 0.030 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0021] Injected Draw Step in 0.224 ms 
+INFO - [G] 2025-09-24 17:40:04 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 0.839 ms 
+INFO - [G] [DebugPlus] Press [/] to toggle console and press [shift] + [/] to toggle new log previews 

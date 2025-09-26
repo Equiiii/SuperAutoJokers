@@ -1,0 +1,111 @@
+INFO - [♥] Lovely 0.8.0
+INFO - [♥] Game directory is at "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Cleaning up dumps directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 56ms
+INFO - [♥] Applied 1 patch to 'conf.lua'
+INFO - [♥] Applied 11 patches to 'main.lua'
+INFO - [♥] Applied 10 patches to 'engine/controller.lua'
+INFO - [♥] Applied 15 patches to 'back.lua'
+INFO - [♥] Applied 7 patches to 'tag.lua'
+INFO - [♥] Applied 2 patches to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 67 patches to 'functions/misc_functions.lua'
+INFO - [♥] Applied 40 patches to 'game.lua'
+INFO - [♥] Applied 1 patch to 'globals.lua'
+INFO - [♥] Applied 5 patches to 'engine/ui.lua'
+INFO - [♥] Applied 95 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 49 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 117 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 51 patches to 'functions/button_callbacks.lua'
+INFO - [♥] Applied 186 patches to 'card.lua'
+INFO - [♥] Applied 10 patches to 'cardarea.lua'
+INFO - [♥] Applied 37 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [G] Failed to connect to the debug server 
+INFO - [G] 2025-09-22 20:27:37 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started ! 
+INFO - [G] 2025-09-22 20:27:37 :: INFO  :: SMODS :: Steamodded v1.0.0~BETA-0711a 
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-09-22 20:27:41 :: INFO  :: Loader :: Valid JSON file found 
+INFO - [G] 2025-09-22 20:27:41 :: INFO  :: Loader :: Valid JSON file found 
+INFO - [G] line not found
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] line not found
+INFO - [G] line not found
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-09-22 20:27:41 :: ERROR :: StackTrace :: Oops! The game crashed
+[SMODS _ "src/loader.lua"]:571: [SMODS SuperAutoJokers "superautojokers_main.lua"]:816: 'end' expected (to close 'function' at line 400) near '<eof>'
+Stack Traceback
+===============
+(1) Lua local 'handler' at file 'main.lua:612'
+	Local variables:
+	 msg = string: "[SMODS _ \"src/loader.lua\"]:571: [SMODS SuperAutoJokers \"superautojokers_main.lua\"]:816: 'end' expected (to close 'function' at line 400) near '<eof>'"
+	 (*temporary) = Lua function '?' (defined at line 31 of chunk [SMODS _ "src/logging.lua"])
+	 (*temporary) = string: "Oops! The game crashed\
+"
+(2) LÖVE function at file 'boot.lua:352' (best guess)
+	Local variables:
+	 errhand = Lua function '?' (defined at line 598 of chunk main.lua)
+	 handler = Lua function '?' (defined at line 598 of chunk main.lua)
+(3) global C function 'assert'
+(4) Lua global 'loadMods' at Steamodded file 'src/loader.lua:571' 
+	Local variables:
+	 modsDirectory = string: "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods"
+	 header_components = table: 0x3eca8cb0  {version:table: 0x3eca9400, id:table: 0x3eca8ec0, conflicts:table: 0x3eca92f0, outdated:table: 0x3eca9480, prefix:table: 0x3eca93a0, dump_loc:table: 0x3eca9520 (more...)}
+	 json_spec = table: 0x3eca95b8  {version:table: 0x3eca9cf8, id:table: 0x3eca98e8, main_file:table: 0x3eca9ed8, __:table: 0x3eca9f98, badge_colour:table: 0x3eca9b98, badge_text_colour:table: 0x3eca9c18 (more...)}
+	 used_prefixes = table: 0x3ecaa098  {}
+	 lovely_directories = table: 0x3ecaa0c0  {1:C:\Users\PC\AppData\Roaming\Balatro\Mods/DebugPlus/}
+	 processDirectory = Lua function '?' (defined at line 185 of chunk [SMODS _ "src/loader.lua"])
+	 keyset = table: 0x3e84f098  {1:0}
+	 check_dependencies = Lua function '?' (defined at line 419 of chunk [SMODS _ "src/loader.lua"])
+	 (for generator) = C function: builtin#6
+	 (for state) = table: 0x3e84f098  {1:0}
+	 (for control) = number: 1
+	 _ = number: 1
+	 priority = number: 0
+	 (for generator) = C function: builtin#6
+	 (for state) = table: 0x3ed34cf8  {1:table: 0x3ed21f00, 2:table: 0x3ed503c8}
+	 (for control) = number: 2
+	 _ = number: 2
+	 mod = table: 0x3ed503c8  {version:1.0.0, id:SuperAutoJokers, main_file:superautojokers_main.lua, can_load:true, badge_colour:table: 0x3ed50dc0, badge_text_colour:table: 0x3ed50e10 (more...)}
+(5) Lua global 'initSteamodded' at Steamodded file 'src/loader.lua:654' 
+(6) Lua method 'start_up' at file 'game.lua:211'
+	Local variables:
+	 self = table: 0x3e66b260  {SPEEDFACTOR:1, F_GUIDE:false, keybind_mapping:table: 0x3e6760b0, F_CRASH_REPORTS:false, P_CARDS:table: 0x3e90f8a8, shared_undiscovered_joker:table: 0x3eb97a70 (more...)}
+	 settings = string: "return {[\"version\"]=\"1.0.1o-FULL\",[\"paused\"]=false,[\"QUEUED_CHANGE\"]={},[\"COMP\"]={[\"prev_name\"]=\"\",[\"name\"]=\"\",[\"score\"]=2.7198107155716e+133,},[\"language\"]=\"en-us\",[\"colourblind_option\"]=true,[\"play_button_pos\"]=2,[\"CUSTOM_DECK\"]={[\"Collabs\"]={[\"Spades\"]=\"collab_STP\",[\"entr_nilsuit\"]=\"default_entr_nilsuit\",[\"Hearts\"]=\"collab_AU\",[\"Diamonds\"]=\"collab_SV\",[\"Clubs\"]=\"collab_STS\",},},[\"selected_colours\"]={[\"Spectral\"]={[\"order\"]=1,[\"old_colours\"]={},[\"name\"]=\"Default\",[\"new_colours\"]={},},[\"Tarot\"]={[\"order\"]=1,[\"old_colours\"]={},[\"name\"]=\"Default\",[\"new_colours\"]={},},[\"Planet\"]={[\"order\"]=1,[\"old_colours\"]={},[\"name\"]=\"Default\",[\"new_colours\"]={},},[\"Suits\"]={[\"order\"]=2,[\"old_colours\"]={[4]={[4]=1,[1]=0.94117647058824,[2]=0.20392156862745,[3]=0.3921568627451,},[1]={[4]=1,[1]=0.13725490196078,[2]=0.34901960784314,[3]=0.33333333333333,},[2]={[4]=1,[1]=0.23529411764706,[2]=0.26274509803922,[3]=0.4078431372549,},[3]={[4]=1,[1]=0.94117647058824,[2]=0.41960784313725,[3]=0.24705882352941,},},[\"name\"]=\"High Contrast\",[\"new_colours\"]={[4]={[4]=1,[1]=0.97254901960784,[2]=0.23137254901961,[3]=0.1843137254902,},[1]={[4]=1,[1]=0,[2]=0.55686274509804,[3]=0.90196078431373,},[2]={[4]=1,[1]=0.23529411764706,[2]=0.26274509803922,[3]=0.4078431372549,},[3]={[4]=1,[1]=0.88627450980392,[2]=0.56470588235294,[3]=0,},},},},[\"tutorial_complete\"]=true,[\"colour_palettes\"]={[\"Spades\"]=\"hc\",[\"entr_nilsuit\"]=\"lc\",[\"Hearts\"]=\"hc\",[\"Diamonds\"]=\"hc\",[\"Clubs\"]=\"hc\",},[\"FN\"]={[\"PRE\"]=true,[\"show_min_max\"]=true,[\"preview_dollars\"]=true,[\"hide_face_down\"]=true,[\"preview_score\"]=true,},[\"crashreports\"]=true,[\"screenshake\"]=0,[\"no_mod_badges\"]=false,[\"ambient_control\"]={[\"jen_ambientSurreal1\"]={[\"per\"]=1,[\"vol\"]=2.2332518001619e-06,},[\"may_tran2\"]={[\"per\"]=1,[\"vol\"]=0,},[\"jen_ambientDramatic2\"]={[\"per\"]=1,[\"vol\"]=0,},[\"ambientFire3\"]={[\"per\"]=1,[\"vol\"]=0.0070134431503975,},[\"may_tran4\"]={[\"per\"]=1,[\"vol\"]=0,},[\"jen_ambientSurreal2\"]={[\"per\"]=1,[\"vol\"]=0,},[\"may_tran3\"]={[\"per\"]=1,[\"vol\"]=3.2004228658632e-46,},[\"may_tran5\"]={[\"per\"]=1,[\"vol\"]=7.4391101062102e-20,},[\"jen_ambientSurreal3\"]={[\"per\"]=1,[\"vol\"]=0,},[\"ambientFire2\"]={[\"per\"]=1.05,[\"vol\"]=0.10060948572801,},[\"may_tran1\"]={[\"per\"]=1,[\"vol\"]=7.985637093817e-149,},[\"jen_ambientSinister\"]={[\"per\"]=1,[\"vol\"]=0,},[\"ambientFire1\"]={[\"per\"]=1.1,[\"vol\"]=0.0019557695673439,},[\"may_tran6\"]={[\"per\"]=1,[\"vol\"]=0,},[\"may_ambient_mass_use\"]={[\"per\"]=1,[\"vol\"]=0,},[\"jen_ambientDramatic\"]={[\"per\"]=1,[\"vol\"]=0,},[\"may_tran8\"]={[\"per\"]=1,[\"vol\"]=1.3280272376446e-15,},[\"jen_ambientDramatic1\"]={[\"per\"]=1,[\"vol\"]=0,},[\"ambientOrgan1\"]={[\"per\"]=0.7,[\"vol\"]=0.0013331942848126,},[\"may_tran7\"]={[\"per\"]=1,[\"vol\"]=0,},},[\"profile\"]=2,[\"WINDOW\"]={[\"vsync\"]=1,[\"display_names\"]={[2]=\"2\",[1]=\"1\",},[\"screenmode\"]=\"Borderless\",[\"DISPLAYS\"]={[1]={[\"screen_resolutions\"]={[\"strings\"]={[1]=\"2376 X 1485\",},[\"values\"]={[1]={[\"w\"]=1680,[\"h\"]=1050,},},},[\"screen_res\"]={[\"w\"]=1680,[\"h\"]=1050,},[\"DPI_scale\"]=1,[\"MONITOR_DIMS\"]={[\"height\"]=1485,[\"width\"]=2376,},},[2]={[\"screen_resolutions\"]={[\"strings\"]={[1]=\"1680 X 1050\",},[\"values\"]={[1]={[\"w\"]=1680,[\"h\"]=1050,},},},[\"DPI_scale\"]=1,[\"MONITOR_DIMS\"]={[\"height\"]=1050,[\"width\"]=1680,},},},[\"selected_display\"]=1,},[\"GAMESPEED\"]=4,[\"cryptid_notifs\"]={[\"jimball\"]=true,},[\"SOUND\"]={[\"volume\"]=25.904761904762,[\"music_volume\"]=100,[\"game_sounds_volume\"]=100,},[\"music_control\"]={[\"current_track\"]=\"\",[\"desired_track\"]=\"\",[\"lerp\"]=1,},[\"ACHIEVEMENTS_EARNED\"]={[\"speedrunner\"]=true,[\"big_hands\"]=true,[\"royale\"]=true,[\"tiny_hands\"]=true,[\"flushed\"]=true,[\"nest_egg\"]=true,[\"_1000k\"]=true,[\"ach_cry_exodia\"]=true,[\"extreme_couponer\"]=true,[\"ach_cry_pull_request\"]=true,[\"high_stakes\"]=true,[\"clairvoyance\"]=true,[\"ante_up\"]=true,[\"you_get_what_you_get\"]=true,[\"heads_up\"]=true,[\"retrograde\"]=true,[\"ach_cry_niw_uoy\"]=true,[\"ach_cry_googol_play_pass\"]=true,[\"cartomancy\"]=true,[\"ach_cry_now_the_fun_begins\"]=true,[\"mid_stakes\"]=true,[\"completionist\"]=true,[\"shattered\"]=true,[\"ach_may_the_one\"]=true,[\"ante_upper\"]=true,[\"ach_cry_jokes_on_you\"]=true,[\"low_stakes\"]=true,[\"astronomy\"]=true,[\"_100000k\"]=true,[\"legendary\"]=true,[\"roi\"]=true,[\"_10k\"]=true,[\"ach_cry_break_infinity\"]=true,[\"rule_bender\"]=true,[\"card_discarder\"]=true,[\"card_player\"]=true,},[\"run_stake_stickers\"]=false,[\"current_setup\"]=\"New Run\",[\"STATUSTEXT\"]=0,[\"FASTFORWARD\"]=0,[\"DEMO\"]={[\"win_CTA_shown\"]=true,[\"quit_CTA_shown\"]=true,[\"timed_CTA_shown\"]=true,[\"total_uptime\"]=78.085235083452,},[\"GRAPHICS\"]={[\"bloom\"]=2,[\"crt\"]=37.232142857143,[\"texture_scaling\"]=1,[\"shadows\"]=\"Off\",},}"
+	 settings_ver = nil
+	 new_colour_proto = table: 0x3e673940  {Spades:table: 0x3e673ba8, Hearts:table: 0x3e673a58, Diamonds:table: 0x3e673b10, Clubs:table: 0x3e673c60}
+	 sound_files = table: 0x3ea523f8  {1:ambientFire1.ogg, 2:ambientFire2.ogg, 3:ambientFire3.ogg, 4:ambientOrgan1.ogg, 5:button.ogg, 6:cancel.ogg, 7:card1.ogg, 8:card3.ogg, 9:cardFan2.ogg (more...)}
+	 shader_files = table: 0x3ea56370  {1:CRT.fs, 2:background.fs, 3:booster.fs, 4:debuff.fs, 5:dissolve.fs, 6:flame.fs, 7:flash.fs, 8:foil.fs, 9:gold_seal.fs, 10:holo.fs, 11:hologram.fs (more...)}
+(7) Lua field 'load' at file 'main.lua:952'
+(8) Lua function '?' at file 'main.lua:899' (best guess)
+(9) global C function 'xpcall'
+(10) LÖVE function at file 'boot.lua:368' (best guess)
+	Local variables:
+	 result = boolean: true
+	 main = nil
+(11) global C function 'xpcall'
+(12) LÖVE function at file 'boot.lua:377' (best guess)
+	Local variables:
+	 func = Lua function '(LÖVE Function)' (defined at line 355 of chunk [love "boot.lua"])
+	 inerror = boolean: true
+	 deferErrhand = Lua function '(LÖVE Function)' (defined at line 348 of chunk [love "boot.lua"])
+	 earlyinit = Lua function '(LÖVE Function)' (defined at line 355 of chunk [love "boot.lua"])
+ 
+INFO - [G] line not found
+INFO - [G] line not found
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-09-22 20:27:41 :: INFO  :: StackTrace :: Additional Context:
+Balatro Version: 1.0.1o-FULL
+Modded Version: 1.0.0~BETA-0711a-STEAMODDED
+LÖVE Version: 11.5.0
+Lovely Version: 0.8.0
+Platform: Windows
+Steamodded Mods:
+    1: Super Auto Jokers by Equi [ID: SuperAutoJokers, Version: 1.0.0]
+    2: DebugPlus by WilsontheWolf [ID: DebugPlus, Version: 1.5.1, Uses Lovely]
+Lovely Mods: 
