@@ -1,0 +1,174 @@
+INFO - [♥] Lovely 0.8.0
+INFO - [♥] Game directory is at "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Cleaning up dumps directory at "C:\\Users\\PC\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 85ms
+INFO - [♥] Applied 1 patch to 'conf.lua'
+INFO - [♥] Applied 11 patches to 'main.lua'
+INFO - [♥] Applied 10 patches to 'engine/controller.lua'
+INFO - [♥] Applied 15 patches to 'back.lua'
+INFO - [♥] Applied 7 patches to 'tag.lua'
+INFO - [♥] Applied 2 patches to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 67 patches to 'functions/misc_functions.lua'
+INFO - [♥] Applied 40 patches to 'game.lua'
+INFO - [♥] Applied 1 patch to 'globals.lua'
+INFO - [♥] Applied 5 patches to 'engine/ui.lua'
+INFO - [♥] Applied 95 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 49 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 117 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 51 patches to 'functions/button_callbacks.lua'
+INFO - [♥] Applied 186 patches to 'card.lua'
+INFO - [♥] Applied 10 patches to 'cardarea.lua'
+INFO - [♥] Applied 37 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [G] Failed to connect to the debug server 
+INFO - [G] 2025-09-26 22:03:15 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started ! 
+INFO - [G] 2025-09-26 22:03:15 :: INFO  :: SMODS :: Steamodded v1.0.0~BETA-0711a 
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: Loader :: Valid JSON file found 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: Loader :: Valid JSON file found 
+INFO - [G] 2025-09-26 22:03:19 :: WARN  :: Joker :: Cannot take ownership of j_mail-in_rebate: Does not exist. 
+INFO - [G] 2025-09-26 22:03:19 :: WARN  :: Joker :: Cannot take ownership of j_the_idol: Does not exist. 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0000] Injected Fonts in 0.002 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0000] Injected Language in 0.002 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 2.544 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0004] Injected Atlas in 405.745 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0001] Injected Sound in 0.948 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0008] Injected Stake in 0.402 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0004] Injected Rarity in 0.041 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0004] Injected ObjectType in 0.105 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0079] Injected Center in 2.052 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0007] Injected Undiscovered Sprite in 0.385 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0002] Injected Blind in 0.027 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0004] Injected Seal in 0.356 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0004] Injected Suit in 0.120 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0013] Injected Rank in 0.178 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0028] Injected DeckSkin in 0.632 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0012] Injected PokerHand in 0.686 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0020] Injected Challenge in 0.108 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0000] Injected Tag in 0.002 ms 
+INFO - [G] 2025-09-26 22:03:19 :: INFO  :: TIMER :: [0004] Injected Sticker in 0.454 ms 
+INFO - [G] 2025-09-26 22:03:20 :: INFO  :: TIMER :: [0000] Injected Shader in 0.002 ms 
+INFO - [G] 2025-09-26 22:03:20 :: INFO  :: TIMER :: [0002] Injected Keybind in 0.024 ms 
+INFO - [G] 2025-09-26 22:03:20 :: INFO  :: TIMER :: [0000] Injected Achievement in 0.114 ms 
+INFO - [G] 2025-09-26 22:03:20 :: INFO  :: TIMER :: [0002] Injected nil in 0.026 ms 
+INFO - [G] 2025-09-26 22:03:20 :: INFO  :: TIMER :: [0021] Injected Draw Step in 0.290 ms 
+INFO - [G] 2025-09-26 22:03:20 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 0.923 ms 
+INFO - [G] [DebugPlus] Press [/] to toggle console and press [shift] + [/] to toggle new log previews 
+INFO - [G] line not found
+INFO - [G] file not found: functions/button_callbacks.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-09-26 22:03:52 :: ERROR :: StackTrace :: Oops! The game crashed
+[SMODS _ "src/overrides.lua"]:1836: attempt to index local 'p_edition' (a nil value)
+Stack Traceback
+===============
+(1) Lua upvalue 'orig' at file 'main.lua:612'
+	Local variables:
+	 msg = string: "[SMODS _ \"src/overrides.lua\"]:1836: attempt to index local 'p_edition' (a nil value)"
+	 (*temporary) = Lua function '?' (defined at line 31 of chunk [SMODS _ "src/logging.lua"])
+	 (*temporary) = string: "Oops! The game crashed\
+"
+(2) Lua local 'handler' at file 'debugplus/console.lua:606' (from lovely module debugplus.console)
+	Local variables:
+	 msg = string: "[SMODS _ \"src/overrides.lua\"]:1836: attempt to index local 'p_edition' (a nil value)"
+(3) LÖVE metamethod at file 'boot.lua:352'
+	Local variables:
+	 errhand = Lua function '(LÖVE Function)' (defined at line 605 of chunk [lovely debugplus.console "debugplus/console.lua"])
+	 handler = Lua function '(LÖVE Function)' (defined at line 605 of chunk [lovely debugplus.console "debugplus/console.lua"])
+(4) Lua method 'set_edition' at Steamodded file 'src/overrides.lua:1836' 
+	Local variables:
+	 self = table: 0x1b74e378  {click_offset:table: 0x1bcf8898, children:table: 0x1bd63a58, ambient_tilt:0.2, T:table: 0x1b75b8a0, offset:table: 0x1b7e7d70, sell_cost:1, role:table: 0x1b4613c8 (more...)}
+	 edition = string: "e_holographic"
+	 immediate = nil
+	 silent = nil
+	 delay = nil
+	 old_edition = nil
+	 edition_type = string: "holographic"
+	 p_edition = nil
+	 (*temporary) = string: "e_holographic"
+	 (*temporary) = string: "holographic"
+	 (*temporary) = string: "Edition \"%s\" is missing \"e_\" prefix."
+	 (*temporary) = string: "e_holographic"
+	 (*temporary) = string: "Edition \"e_holographic\" is missing \"e_\" prefix."
+	 (*temporary) = number: 4
+	 (*temporary) = nil
+	 (*temporary) = nil
+	 (*temporary) = string: "attempt to index local 'p_edition' (a nil value)"
+(5) Lua field 'create_card' at Steamodded file 'src/utils.lua:390' 
+	Local variables:
+	 t = table: 0x1b07f0b0  {area:table: 0x1b716ff8, edition:e_holographic, set:Base}
+	 _card = table: 0x1b74e378  {click_offset:table: 0x1bcf8898, children:table: 0x1bd63a58, ambient_tilt:0.2, T:table: 0x1b75b8a0, offset:table: 0x1b7e7d70, sell_cost:1, role:table: 0x1b4613c8 (more...)}
+(6) Lua field 'add_card' at Steamodded file 'src/utils.lua:406' 
+	Local variables:
+	 t = table: 0x1b07f0b0  {area:table: 0x1b716ff8, edition:e_holographic, set:Base}
+(7) Lua method 'calculate' at file 'superautojokers_main.lua:383' (from mod with id SuperAutoJokers)
+	Local variables:
+	 self = table: 0x1b577300  {alerted:true, _saved_d_u:true, original_key:dogjoker, loc_txt:table: 0x1b577538, registered:true, rarity:2, cost:5, order:148, calculate:function: 0x1b5775e8 (more...)}
+	 card = table: 0x1bb42178  {click_offset:table: 0x1b12bf28, static_rotation:false, ambient_tilt:0.2, parent:table: 0x1b01ac40, T:table: 0x1bb267a8, last_aligned:-1, extra_cost:0 (more...)}
+	 context = table: 0x1b07ef28  {selling_self:true}
+(8) Lua method 'calculate_joker' at file 'card.lua:2555'
+	Local variables:
+	 self = table: 0x1bb42178  {click_offset:table: 0x1b12bf28, static_rotation:false, ambient_tilt:0.2, parent:table: 0x1b01ac40, T:table: 0x1bb267a8, last_aligned:-1, extra_cost:0 (more...)}
+	 context = table: 0x1b07ef28  {selling_self:true}
+	 obj = table: 0x1b577300  {alerted:true, _saved_d_u:true, original_key:dogjoker, loc_txt:table: 0x1b577538, registered:true, rarity:2, cost:5, order:148, calculate:function: 0x1b5775e8 (more...)}
+(9) Lua global 'eval_card' at file 'functions/common_events.lua:722'
+	Local variables:
+	 card = table: 0x1bb42178  {click_offset:table: 0x1b12bf28, static_rotation:false, ambient_tilt:0.2, parent:table: 0x1b01ac40, T:table: 0x1bb267a8, last_aligned:-1, extra_cost:0 (more...)}
+	 context = table: 0x1b07ef28  {selling_self:true}
+	 ret = table: 0x1b07ef50  {}
+	 post_trig = table: 0x1b07ef78  {}
+	 areas = table: 0x1b07efa0  {1:table: 0x1b01ac40, 2:table: 0x1af20050, 3:table: 0x1b0d3ff0}
+	 area_set = table: 0x1b07efe8  {table: 0x1b0d3ff0:true, table: 0x1b01ac40:true, table: 0x1af20050:true}
+(10) Lua method 'sell_card' at file 'card.lua:1837'
+	Local variables:
+	 self = table: 0x1bb42178  {click_offset:table: 0x1b12bf28, static_rotation:false, ambient_tilt:0.2, parent:table: 0x1b01ac40, T:table: 0x1bb267a8, last_aligned:-1, extra_cost:0 (more...)}
+	 area = table: 0x1b01ac40  {click_offset:table: 0x1afb7848, static_rotation:false, shuffle_amt:0, T:table: 0x1b2bd400, offset:table: 0x1bb27be0, role:table: 0x1b7db648, last_aligned:-1 (more...)}
+(11) Lua function '?' at file 'functions/button_callbacks.lua:2366' (best guess)
+	Local variables:
+	 e = table: 0x1b618b98  {pixellated_rect:table: 0x1b1591d8, click_offset:table: 0x1af958a0, children:table: 0x1b0ec708, parent:table: 0x1afca120, T:table: 0x1b1ad888 (more...)}
+	 card = table: 0x1bb42178  {click_offset:table: 0x1b12bf28, static_rotation:false, ambient_tilt:0.2, parent:table: 0x1b01ac40, T:table: 0x1bb267a8, last_aligned:-1, extra_cost:0 (more...)}
+(12) Lua method 'click' at file 'engine/ui.lua:981'
+	Local variables:
+	 self = table: 0x1b618b98  {pixellated_rect:table: 0x1b1591d8, click_offset:table: 0x1af958a0, children:table: 0x1b0ec708, parent:table: 0x1afca120, T:table: 0x1b1ad888 (more...)}
+(13) Lua method 'update' at file 'engine/controller.lua:375'
+	Local variables:
+	 self = table: 0x1b45c678  {held_button_times:table: 0x1b45cf48, focus_cursor_stack_level:1, snap_cursor_to:table: 0x1be9b8a0, interrupt:table: 0x1b45cf98, GAMEPAD:table: 0x1b45d7c8 (more...)}
+	 dt = number: 0.016751
+(14) Lua upvalue 'gameUpdateRef' at file 'game.lua:2689'
+	Local variables:
+	 self = table: 0x1aed0410  {F_GUIDE:false, F_CRASH_REPORTS:false, F_QUIT_BUTTON:true, HUD_tags:table: 0x1bc2d358, F_ENGLISH_ONLY:false, viewed_stake:1, HUD:table: 0x1b433b98 (more...)}
+	 dt = number: 0.016751
+(15) Lua method 'update' at Steamodded file 'src/ui.lua:84' 
+	Local variables:
+	 self = table: 0x1aed0410  {F_GUIDE:false, F_CRASH_REPORTS:false, F_QUIT_BUTTON:true, HUD_tags:table: 0x1bc2d358, F_ENGLISH_ONLY:false, viewed_stake:1, HUD:table: 0x1b433b98 (more...)}
+	 dt = number: 0.016751
+(16) Lua field 'update' at file 'main.lua:999'
+	Local variables:
+	 dt = number: 0.016751
+(17) Lua function '?' at file 'main.lua:938' (best guess)
+(18) global C function 'xpcall'
+(19) LÖVE function at file 'boot.lua:377' (best guess)
+	Local variables:
+	 func = Lua function '?' (defined at line 909 of chunk main.lua)
+	 inerror = boolean: true
+	 deferErrhand = Lua function '(LÖVE Function)' (defined at line 348 of chunk [love "boot.lua"])
+	 earlyinit = Lua function '(LÖVE Function)' (defined at line 355 of chunk [love "boot.lua"])
+ 
+INFO - [G] file not found: functions/button_callbacks.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-09-26 22:03:52 :: INFO  :: StackTrace :: Additional Context:
+Balatro Version: 1.0.1o-FULL
+Modded Version: 1.0.0~BETA-0711a-STEAMODDED
+LÖVE Version: 11.5.0
+Lovely Version: 0.8.0
+Platform: Windows
+Steamodded Mods:
+    1: Super Auto Jokers by Equi [ID: SuperAutoJokers, Version: 1.0.0]
+    2: DebugPlus by WilsontheWolf [ID: DebugPlus, Version: 1.5.1, Uses Lovely]
+Lovely Mods: 

@@ -8,6 +8,35 @@ SMODS.Atlas {
     py = 95,
 }
 
+--Pool of Sell Jokers
+SMODS.ObjectType({
+    key = "sell",
+    default = "j_sapjokers_beaverjoker",
+    cards = {
+            "j_sapjokers_beaverjoker",
+            "j_sapjokers_dogjoker",
+            "j_sapjokers_skunkjoker",
+            "j_sapjokers_cowjoker",
+            "j_sapjokers_tigerjoker",
+            "j_diet_cola",
+            "j_luchador",
+            "j_invisible",
+            },
+    inject = function(self)
+
+SMODS.ObjectType.inject(self)
+    end,
+})
+SMODS.Joker:take_ownership("diet_cola",{
+    pools = {sell = true},
+})
+SMODS.Joker:take_ownership("luchador",{
+    pools = {sell = true},
+})
+SMODS.Joker:take_ownership("invisible",{
+    pools = {sell = true},
+})
+
 -- Test Joker
 SMODS.Joker {
     key = "joker",
@@ -48,6 +77,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = {},
+    pools = {sell = true},
     loc_txt = {
         name = "Beaver",
         text = {
@@ -362,6 +392,36 @@ SMODS.Joker {
 --Rabbit
 --Ox
 --Dog
+SMODS.Joker {
+    key = "dogjoker",
+    pos = {x = 8, y = 2},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = {},
+    pools = {sell = true},
+    loc_txt = {
+        name = "Dog",
+        text = {
+            "Sell this Joker to",
+            "add a random {C:edition}Holographic",
+            "card to deck",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
+    end,
+    calculate = function(self, card, context)
+        if context.selling_self then
+            local dog_card = SMODS.add_card { set = "Base", edition = "e_holo", area = G.deck}
+            return {
+                message = "+1 Card",
+                colour = G.C.EDITION,
+            }
+        end
+    end
+}
 --Sheep
 --Skunk
 SMODS.Joker {
@@ -372,6 +432,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = {},
+    pools = {sell = true},
     loc_txt = {
         name = "Skunk",
         text = {
@@ -472,6 +533,36 @@ SMODS.Joker {
 }
 --Turtle
 --Squirrel
+SMODS.Joker {
+    key = "squirreljoker",
+    pos = {x = 5, y = 3},
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 7,
+    discovered = true,
+    config = { extra = { dollars = 0}},
+    loc_txt = {
+        name = "Squirrel",
+        text = {
+            "Earn {C:money}$2{} at the end",
+            "of round for each {C:spectral}Spectral",
+            "card used this run",
+            "{C:inactive}(Currently {}{C:money}$#1#{}{C:inactive})",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars }}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            card.ability.extra.dollars = G.GAME.consumeable_usage_total.spectral * 2
+        end
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        return card.ability.extra.dollars
+    end,
+}
 --Penguin
 --Deer
 --Whale
@@ -489,7 +580,8 @@ SMODS.Joker {
         text = {
             "All cards are considered",
             "{C:attention}2s{}, {C:attention}4s{}, {C:attention}6s{}, and {C:attention}8s",
-            "for vanilla {C:attention}Joker{} effects",
+            "for applicable {C:attention}Joker{} effects",
+            "{C:inactive}(incompatible with other modded jokers){}"
         }
     },
 }
@@ -545,17 +637,16 @@ end,
 true
 })
 
-SMODS.Joker:take_ownership("mail-in_rebate",{
+SMODS.Joker:take_ownership("mail",{
     calculate = function(self, card, context)
         if context.discard and not context.other_card.debuff then
             if G.GAME.current_round.mail_card.id == 2 or G.GAME.current_round.mail_card.id == 4 or G.GAME.current_round.mail_card.id == 6
             or G.GAME.current_round.mail_card.id == 8 then
                 if next(SMODS.find_card("j_sapjokers_parrotjoker")) then
-                    ease_dollars(self.ability.extra)
+                    ease_dollars(5)
                     return {
-                        message = localize('$')..self.ability.extra,
+                        message = localize('$')..5,
                         colour = G.C.MONEY,
-                        card = self
                     }
                 end
 
@@ -564,7 +655,6 @@ SMODS.Joker:take_ownership("mail-in_rebate",{
                 return {
                     message = localize('$')..self.ability.extra,
                     colour = G.C.MONEY,
-                    card = self
                 }
             end
         end
@@ -688,25 +778,22 @@ SMODS.Joker:take_ownership("even_steven", {
         true
 })
 
-SMODS.Joker:take_ownership("the_idol", {
-    config = { extra = { xmult = 2}},
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult }}
-    end,
+SMODS.Joker:take_ownership("idol", {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-                    if G.GAME.current_round.idol_card.id == 2 or G.GAME.current_round.idol_card.id == 4
-                    or G.GAME.current_round.idol_card.id == 6 or G.GAME.current_round.idol_card.id == 8 then
+                    sendDebugMessage(G.GAME.current_round.idol_card.rank)
+                    if G.GAME.current_round.idol_card.rank == "2" or G.GAME.current_round.idol_card.rank == "4"
+                    or G.GAME.current_round.idol_card.rank == "6" or G.GAME.current_round.idol_card.rank == "8" then
                         if next(SMODS.find_card("j_sapjokers_parrotjoker")) and context.other_card:is_suit(G.GAME.current_round.idol_card.suit) then
                             return {
-                                x_mult = card.ability.extra.xmult,
+                                x_mult = 2,
                                 colour = G.C.RED,
                                 card = card
                             }
                         end
                     elseif context.other_card:get_id() == G.GAME.current_round.idol_card.id and context.other_card:is_suit(G.GAME.current_round.idol_card.suit) then
                         return {
-                            x_mult = card.ability.extra.xmult,
+                            x_mult = 2,
                             colour = G.C.RED,
                             card = card
                         }
@@ -780,6 +867,27 @@ SMODS.Joker {
 }
 --Croc
 --Rhino
+SMODS.Joker {
+    key = "rhinojoker",
+    pos = {x = 2, y = 4},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { mult = 0 }},
+    loc_txt = {
+        name = "Rhino",
+        text = {
+            "{C:mult}+1{} Mult when a",
+            "card is {C:attention}retriggered",
+            "{C:inactive}(Currently{} +{C:mult}#1#{} {C:inactive}Mult)",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult }}
+    end,
+
+}
 --Monkey
 --Armadillo
 --Cow
@@ -791,7 +899,8 @@ SMODS.Joker {
     eternal_compat = false,
     cost = 6,
     discovered = true,
-    config = {extra = {cow_rounds = 0, total_rounds = 1}},
+    config = { extra = {cow_rounds = 0, total_rounds = 1}},
+    pools = {sell = true},
     loc_txt = {
         name = "Cow",
         text = {
@@ -846,6 +955,7 @@ SMODS.Joker {
     cost = 8,
     discovered = true,
     config = {},
+    pools = {sell = true},
     loc_txt = {
         name = "Tiger",
         text = {
@@ -897,6 +1007,57 @@ SMODS.Joker {
 }
 --Gorilla
 --Dragon
+SMODS.Joker {
+    key = "dragonjoker",
+    pos = {x = 5, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 8,
+    discovered = true,
+    config = { extra = { creates = 1, reroll_count = 0}},
+    loc_txt = {
+        name = "Dragon",
+        text = {
+            "After {C:attention}2{} Shop Rerolls,",
+            "create a random",
+            "{C:attention}Sell{} Joker",
+            "{C:inactive}(Must have room){}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.creates, card.ability.extra.reroll_count}}
+    end,
+    calculate = function(self, card, context)
+        if context.reroll_shop then
+            card.ability.extra.reroll_count = card.ability.extra.reroll_count + 1
+            if card.ability.extra.reroll_count == 2 then
+                if G.GAME.joker_buffer < G.jokers.config.card_limit then
+                    G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card {
+                                set = "sell",
+                            }
+                            G.GAME.joker_buffer = 0
+                            return true
+                        end
+                    }))
+                    card.ability.extra.reroll_count = 0
+                    return {
+                        message = "+1 Joker",
+                        colour = G.C.ATTENTION
+                    }
+                end
+                
+            else
+                return {
+                    message = "1/2",
+                    colour = G.C.ATTENTION
+                }
+            end
+        end
+    end
+}
 --Mammoth
 SMODS.Joker {
     key = "mammothjoker",
@@ -936,6 +1097,7 @@ SMODS.Joker {
 --Cat
 SMODS.Joker {
     key = "catjoker",
+    atlas = "jokers",
     pos = {x = 7, y = 5},
     rarity = 3,
     blueprint_compat = true,
@@ -968,6 +1130,7 @@ SMODS.Joker {
 --Snake
 SMODS.Joker {
     key = "snakejoker",
+    atlas = "jokers",
     pos = {x = 8, y = 5},
     rarity = 3,
     blueprint_compat = true,
@@ -1000,6 +1163,7 @@ SMODS.Joker {
 --Fly
 SMODS.Joker {
     key = "flyjoker",
+    atlas = "jokers",
     pos = {x = 9, y = 5},
     rarity = 3,
     blueprint_compat = true,
