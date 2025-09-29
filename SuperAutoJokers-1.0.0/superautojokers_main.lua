@@ -7,7 +7,36 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+--For Sloth
+SMODS.Rarity {
+    key = "token",
+    loc_txt = {
+        name = "Token"
+    },
+    pools = { ["Joker"] = true, },
+    default_weight = 0.001,
+    badge_colour = HEX("FF6A00"),
+    get_weight = function(self, weight, object_type)
+        return weight
+    end,
+}
 
+SMODS.Joker {
+    key = "slothjoker",
+    atlas = "jokers",
+    pos = {x = 0, y = 6},
+    rarity = "sapjokers_token",
+    blueprint_compat = true,
+    cost = 1,
+    discovered = false,
+    config = {},
+    loc_txt = {
+        name = "Sloth",
+        text = {
+            "{C:attention}Truly believes in you!{}"
+        }
+    }
+}
 --Pool of Sell Jokers
 SMODS.ObjectType({
     key = "sell",
@@ -390,6 +419,39 @@ SMODS.Joker {
 }
 --Camel
 --Rabbit
+SMODS.Joker {
+    key = "rabbitjoker",
+    pos = {x = 6, y = 2},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { sell_value = 1 }},
+    loc_txt = {
+        name = "Rabbit",
+        text = {
+            "When a Joker is {C:attention}bought{},",
+            "increase its {C:attention}sell value{}",
+            "by {C:money}$1{}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.sell_value }}
+    end,
+    calculate = function(self, card, context)
+        if context.buying_card and context.card.ability.set == "Joker" then
+            local j_rightmost = G.jokers.cards[#G.jokers.cards]
+            if j_rightmost.set_cost then
+                j_rightmost.ability.extra_value = (j_rightmost.ability.extra_value or 0) + card.ability.extra.sell_value
+                j_rightmost:set_cost()
+            end
+            return {
+                message = "Value Up!",
+                colour = G.C.MONEY
+            }
+        end
+    end,
+}
 --Ox
 --Dog
 SMODS.Joker {
@@ -397,6 +459,7 @@ SMODS.Joker {
     pos = {x = 8, y = 2},
     rarity = 2,
     blueprint_compat = true,
+    eternal_compat = false,
     cost = 5,
     discovered = true,
     config = {},
