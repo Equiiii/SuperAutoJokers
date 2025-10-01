@@ -177,6 +177,61 @@ SMODS.Joker {
 --Ant
 --Mosquito
 --Fish
+SMODS.Joker {
+    key = "fishjoker",
+    atlas = "jokers",
+    pos = {x = 7, y = 0},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { creates = 1, sell_count = 0 }},
+    loc_txt = {
+        name = "Fish",
+        text = {
+            "After selling 3 {C:attention}Jokers{},",
+            "create a random",
+            "{C:tarot}Tarot{} card",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.creates, card.ability.extra.sell_count }}
+    end,
+    calculate = function(self, card, context)
+        if context.selling_card and context.card.ability.set == "Joker" and not context.selling_self then
+            card.ability.extra.sell_count = card.ability.extra.sell_count + 1
+            if card.ability.extra.sell_count == 3 then
+                if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card {
+                                set = "Tarot",
+                            }
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+                    card.ability.extra.sell_count = 0
+                    return {
+                        message = "+1 Tarot",
+                        colour = G.C.TAROT
+                    }
+                end
+            elseif card.ability.extra.sell_count == 2 then
+                return {
+                    message = "2/3",
+                    colour = G.C.TAROT
+                }
+            else
+                return {
+                    message = "1/3",
+                    colour = G.C.TAROT
+                }
+            end
+        end
+    end,
+}
 --Cricket
 --Horse
 --Snail
@@ -1042,7 +1097,7 @@ SMODS.Joker {
     discovered = true,
     config = { extra = { repetitions = 2 }},
     loc_txt = {
-        name = "Mammoth",
+        name = "Wolverine",
         text = {
             "If played hand is a",
             "{C:attention}Straight Flush{} without an {C:attention}Ace{},",
@@ -1069,6 +1124,41 @@ SMODS.Joker {
     end,
 }
 --Gorilla
+SMODS.Joker {
+    key = "gorillajoker",
+    pos = {x = 4, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { chips = 200, consumableslots = 1,}},
+    loc_txt = {
+        name = "Gorilla",
+        text = {
+            "{C:chips}+200{} Chips,",
+            "-1{C:attention} Consumable {}Slot",
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.chips, center.ability.extra.consumableslots }}
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        G.consumeables.config.card_limit = G.consumeables.config.card_limit - 1
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end,
+}
 --Dragon
 SMODS.Joker {
     key = "dragonjoker",
@@ -1094,7 +1184,7 @@ SMODS.Joker {
         if context.reroll_shop then
             card.ability.extra.reroll_count = card.ability.extra.reroll_count + 1
             if card.ability.extra.reroll_count == 2 then
-                if G.GAME.joker_buffer < G.jokers.config.card_limit then
+                if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                     G.E_MANAGER:add_event(Event({
                         func = function()
@@ -1133,7 +1223,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Mammoth",
         text = {
-            "+{C:mult}40{} Mult,",
+            "{C:mult}+40{} Mult,",
             "-1{C:attention} Joker {}Slot",
         }
     },
