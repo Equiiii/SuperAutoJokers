@@ -352,6 +352,75 @@ SMODS.Joker {
 --Hedgehog
 --Peacock
 --Flamingo
+SMODS.Joker {
+    key = "flamingojoker",
+    pos = {x = 6, y = 1},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { mult = 0 }},
+    loc_txt = {
+        name = "Flamingo",
+        text = {
+            "This Joker gains {C:mult}+1{} Mult",
+            "for each {C:attention}consecutive{} hand played",
+            "with at most 2 scoring{C:attention}suits",
+            "{C:inactive}(Currently {C:red}+#1#{}{C:inactive} Mult){}",
+            
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult }}
+    end,
+    
+    calculate = function(self, card, context)
+        if context.before and not context.blueprint then
+            local two_suits = true
+            local suits = {
+                ["Hearts"] = 0,
+                ["Diamonds"] = 0,
+                ["Clubs"] = 0,
+                ["Spades"] = 0,
+            }
+            for _, card in ipairs(context.scoring_hand) do
+                if not SMODS.has_any_suit(context.scoring_hand[_]) then
+                    if context.scoring_hand[_]:is_suit('Hearts', true) and suits["Hearts"] == 0 then
+                        suits["Hearts"] = suits["Hearts"] + 1
+                    elseif context.scoring_hand[_]:is_suit('Diamonds', true) and suits["Diamonds"] == 0 then
+                        suits["Diamonds"] = suits["Diamonds"] + 1
+                    elseif context.scoring_hand[_]:is_suit('Spades', true) and suits["Spades"] == 0 then
+                        suits["Spades"] = suits["Spades"] + 1
+                    elseif context.scoring_hand[_]:is_suit('Clubs', true) and suits["Clubs"] == 0 then
+                        suits["Clubs"] = suits["Clubs"] + 1
+                    end
+                end
+            end
+            if suits["Hearts"] + suits["Diamonds"] + suits["Clubs"] + suits["Spades"] > 2 then
+                two_suits = false
+            end
+            if two_suits == true then
+                card.ability.extra.mult = card.ability.extra.mult + 1
+                return {
+                    message = "+1 Mult",
+                    colour = G.C.ATTENTION
+                }
+            else
+                card.ability.extra.mult = 0
+                return {
+                    message = "Reset",
+                    colour = G.C.ATTENTION
+                }
+            end
+        end
+
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+}
 --Worm
 SMODS.Joker {
     key = "wormjoker",
@@ -396,6 +465,33 @@ SMODS.Joker {
 --Spider
 --Dodo
 --Badger
+SMODS.Joker {
+    key = "badgerjoker",
+    pos = {x = 1, y = 2},
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 4,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Badger",
+        text = {
+            "If played hand contains exactly",
+            "{C:attention}2{} cards that share a",
+            "{C:attention}rank and suit{},",
+            "destroy the first",
+        }
+    },
+    calculate = function(self, card, context)
+        if context.after and #context.full_hand == 2 and context.full_hand[1]:get_id() == context.full_hand[2]:get_id() 
+        and context.full_hand[1].base.suit == context.full_hand[2].base.suit and not context.blueprint then
+            SMODS.destroy_cards(context.full_hand[1])
+            return {
+                message = "Destroyed!",
+            }
+        end
+    end,
+}
 --Dolphin
 --Giraffe
 SMODS.Joker {
@@ -619,7 +715,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Blowfish",
         text = {
-            "{X:mult,C:white}3X{} Mult, reduce poker",
+            "{X:mult,C:white}X3{} Mult, reduce poker",
             "hands to level {C:attention}1{} when",
             "{C:attention}Blind{} is selected",
         }
@@ -1060,6 +1156,36 @@ SMODS.Joker {
 --Seal
 --Rooster
 --Shark
+SMODS.Joker {
+    key = "sharkjoker",
+    pos = {x = 8, y = 4},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { xmult = 3 }},
+    loc_txt = {
+        name = "Shark",
+        text = {
+            "{X:mult,C:white}X3{} Mult if full",
+            "deck has{C:attention} <37{} or",
+            "{C:attention}>67{} total cards",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            if #G.playing_cards < 37 or #G.playing_cards > 67 then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
+        end
+    end,
+}
 --Turkey
 --Leopard
 --Boar
