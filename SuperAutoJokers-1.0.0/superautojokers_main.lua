@@ -1088,21 +1088,91 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     discovered = true,
-    config = { extra = { mult = 0 }},
+    config = { extra = { chips = 0, chips_gain = 3, chips_loss = 0 }},
     loc_txt = {
         name = "Rhino",
         text = {
-            "{C:mult}+1{} Mult when a",
-            "card is {C:attention}retriggered",
-            "{C:inactive}(Currently{} +{C:mult}#1#{} {C:inactive}Mult)",
+            "{C:chips}+3{} Chips when any",
+            "card is {C:attention}scored,",
+            "{C:chips}-3{} Chips for {C:attention}unscored{} cards",
+            "{C:inactive}(Currently{} +{C:chips}#1#{} {C:inactive}Chips)",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult }}
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips_gain, card.ability.extra.chips_loss }}
     end,
 
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and not context.blueprint then
+            card.ability.extra.chips = card.ability.extra.chips + 3
+            return {
+                message = localize {
+                    type = "variable",
+                    key = "a_chips",
+                    vars = {card.ability.extra.chips_gain},
+                },
+            }
+        end
+        if context.before then
+            if #context.full_hand > #context.scoring_hand then
+                card.ability.extra.chips_loss = 3 * (#context.full_hand - #context.scoring_hand)
+                card.ability.extra.chips = card.ability.extra.chips - card.ability.extra.chips_loss
+                return {
+                    message = localize {
+                        type = "variable",
+                        key = "a_chips_minus",
+                        vars = {card.ability.extra.chips_loss},
+                    }
+                }
+            end
+        end
+        
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end,
 }
 --Monkey
+SMODS.Joker {
+    key = "monkeyjoker",
+    pos = {x = 3, y = 4},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { dollars = 6 }},
+    loc_txt = {
+        name = "Monkey",
+        text = {
+            "Lucky cards {C:attention}held in{}",
+            "{C:attention}hand{} grant {C:money}$6{} at",
+            "end of round",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_lucky
+        return { vars = { card.ability.extra.dollars }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.end_of_round and context.cardarea == G.hand then
+            if SMODS.has_enhancement(context.other_card, "m_lucky") then
+                if context.other_card.debuff then
+                    return {
+                        message = localize("k_debuffed"),
+                        colour = G.C.RED
+                    }
+                else
+                    return {
+                    dollars = card.ability.extra.dollars,
+                }
+                end
+            end
+        end
+    end,
+}
 --Armadillo
 --Cow
 SMODS.Joker {
