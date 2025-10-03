@@ -42,6 +42,7 @@ SMODS.ObjectType({
     key = "sell",
     default = "j_sapjokers_beaverjoker",
     cards = {
+            "j_sapjokers_duckjoker",
             "j_sapjokers_beaverjoker",
             "j_sapjokers_dogjoker",
             "j_sapjokers_skunkjoker",
@@ -95,6 +96,62 @@ SMODS.Joker {
 }
 
 --Duck
+SMODS.Joker {
+    key = "duckjoker",
+    pos = {x = 0, y = 0},
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = false,
+    cost = 4,
+    discovered = true,
+    config = { extra = { duck_rounds = 0, total_rounds = 2 }},
+    pools = {sell = true},
+    loc_txt = {
+        name = "Duck",
+        text = {
+            "After {C:attention}#2#{} rounds,",
+            "sell this Joker to",
+            "gain a {C:tarot}Death{}",
+            "{C:inactive}(Must have room){}",
+            "{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#)"
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.duck_rounds, card.ability.extra.total_rounds }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.selling_self and (card.ability.extra.duck_rounds >= card.ability.extra.total_rounds) and (#G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit) and not context.blueprint then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                trigger = "before",
+                delay = 0.0,
+                func = (function()
+                    local card = create_card("Tarot",G.consumeables, nil, nil, nil, nil, "c_death")
+                    card:add_to_deck()
+                    G.consumeables:emplace(card)
+                    G.GAME.consumeable_buffer = 0
+                return true
+                end)}))
+        end
+        if context.end_of_round and not context.game_over and context.main_eval and not context.blueprint then
+            card.ability.extra.duck_rounds = card.ability.extra.duck_rounds + 1
+            if card.ability.extra.duck_rounds >= card.ability.extra.total_rounds then
+                local eval = function(card) return not card.REMOVED end
+                juice_card_until(card, eval, true)
+                return {
+                    message = "Active!",
+                    colour = G.C.FILTER
+                }
+            else
+                return {
+                    message = (card.ability.extra.duck_rounds .. "/" .. card.ability.extra.total_rounds),
+                    colour = G.C.FILTER
+                }
+            end
+        end
+    end,
+}
 --Beaver
 SMODS.Joker {
     key = "beaverjoker",
@@ -746,6 +803,35 @@ SMODS.Joker {
 
 }
 --Turtle
+SMODS.Joker {
+    key = "turtlejoker",
+    pos = {x = 4, y = 3},
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 4,
+    discovered = true,
+    config = { extra = { discard_mod = 4, hand_mod = -2 }},
+    loc_txt = {
+        name = "Turtle",
+        text = {
+            "{C:red}+4{} discards,",
+            "{C:blue}-2{} hands per round",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.discard_mod, card.ability.extra.hand_mod }}
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.discard_mod
+        G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hand_mod
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra.discard_mod
+        G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hand_mod
+    end,
+}
 --Squirrel
 SMODS.Joker {
     key = "squirreljoker",
