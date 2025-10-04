@@ -275,14 +275,9 @@ SMODS.Joker {
                         colour = G.C.TAROT
                     }
                 end
-            elseif card.ability.extra.sell_count == 2 then
-                return {
-                    message = "2/3",
-                    colour = G.C.TAROT
-                }
             else
                 return {
-                    message = "1/3",
+                    message = card.ability.extra.sell_count .. "/3",
                     colour = G.C.TAROT
                 }
             end
@@ -290,6 +285,32 @@ SMODS.Joker {
     end,
 }
 --Cricket
+SMODS.Joker {
+    key = "cricketjoker",
+    pos = {x = 8, y = 0},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 3,
+    discovered = true,
+    config = {extra = { draw_cards = 5 }},
+    loc_txt = {
+        name = "Cricket",
+        text = {
+            "When {C:attention}Blind{} is selected,",
+            "draw {C:attention}5{} extra",
+            "cards to hand",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.draw_cards }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.first_hand_drawn then
+            SMODS.draw_cards(card.ability.extra.draw_cards)
+        end
+    end,
+}
 --Horse
 --Snail
 SMODS.Joker {
@@ -406,6 +427,51 @@ SMODS.Joker {
     end,
 }
 --Rat
+SMODS.Joker {
+    key = "ratjoker",
+    pos = {x = 3, y = 1},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 4,
+    discovered = true,
+    config = { extra = { mult = 0, mult_mod = 4 }},
+    loc_txt = {
+        name = "Rat",
+        text = {
+            "{C:mult}+4{} Mult when hand",
+            "is played, resets at",
+            "end of round",
+            "{C:inactive}(Currently {C:mult}+#1#{}{C:inactive} Mult){}"
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult_mod }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.before and not context.blueprint then
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+            return {
+                message = localize {
+                    type = "variable",
+                    key = "a_mult",
+                    vars = {card.ability.extra.mult_mod}
+                }
+            }
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            card.ability.extra.mult = 0
+            return {
+                message = localize("k_reset")
+            }
+        end
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+}
 --Hedgehog
 --Peacock
 --Flamingo
@@ -566,7 +632,7 @@ SMODS.Joker {
             "{C:mult}+3{} Mult when {C:attention}Blind{} is",
             "selected with an empty",
             "{C:attention}Joker{} slot",
-            "{C:inactive}(Currently {C:red}+#1#{}{C:inactive} Mult){}",
+            "{C:inactive}(Currently {C:mult}+#1#{}{C:inactive} Mult){}",
         }
     },
     loc_vars = function(self, info_queue, center)
