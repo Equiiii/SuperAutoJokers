@@ -196,6 +196,33 @@ SMODS.Joker {
 }
 --Pigeon
 --Otter
+SMODS.Joker {
+    key = "otterjoker",
+    pos = {x = 3, y = 0},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { dollars = 3 }},
+    loc_txt = {
+        name = "Otter",
+        text = {
+            "{C:money}Gold{} cards give {C:money}$3{}",
+            "when {C:attention}discarded{}"
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.discard and not context.other_card.debuff and SMODS.has_enhancement(context.other_card, "m_gold") then
+            return {
+                dollars = card.ability.extra.dollars
+            }
+        end
+    end,
+}
 --Pig
 SMODS.Joker {
     key = "pigjoker",
@@ -459,7 +486,7 @@ SMODS.Joker {
                 }
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and not context.game_over and context.main_eval and not context.blueprint then
             card.ability.extra.mult = 0
             return {
                 message = localize("k_reset")
@@ -586,6 +613,124 @@ SMODS.Joker {
 }
 --Kangaroo
 --Spider
+SMODS.Joker {
+    key = "spiderjoker",
+    pos = {x = 9, y = 1},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = {
+        chips = 1,
+        mult = 1,
+        dollars = 1,
+        hand_mod = 1,
+        discard_mod = 1,
+        repetitions = 1,
+        hand_size_mod = 1,
+        config_pick = 0,
+    }},
+    loc_txt = {
+        name = "Spider",
+        text = {
+            "{C:attention}+1{} ...???",
+            "{C:inactive}(May require room){}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = {
+            card.ability.extra.chips,
+            card.ability.extra.mult,
+            card.ability.extra.dollars,
+            card.ability.extra.hand_mod,
+            card.ability.extra.discard_mod,
+            card.ability.extra.repetitions,
+            card.ability.extra.hand_size_mod,
+            card.ability.extra.config_pick
+        }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            card.ability.extra.config_pick = pseudorandom("j_sapjokers_spiderjoker", 0, 9)
+            if card.ability.extra.config_pick == 3 and not context.blueprint then
+                G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hand_mod
+            elseif card.ability.extra.config_pick == 4 and not context.blueprint then
+                G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.discard_mod
+            elseif card.ability.extra.config_pick == 6 and not context.blueprint then
+                G.hand:change_size(card.ability.extra.hand_size_mod)
+            elseif card.ability.extra.config_pick == 7 and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = "before",
+                    delay = 0.0,
+                    func = (function()
+                        local card = create_card("Tarot",G.consumeables, nil, nil, nil, nil, nil)
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                    return true
+                    end)}))
+            elseif card.ability.extra.config_pick == 8 and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = "before",
+                    delay = 0.0,
+                    func = (function()
+                        local card = create_card("Planet",G.consumeables, nil, nil, nil, nil, nil)
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                    return true
+                    end)}))
+            elseif card.ability.extra.config_pick == 9 and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = "before",
+                    delay = 0.0,
+                    func = (function()
+                        local card = create_card("Spectral",G.consumeables, nil, nil, nil, nil, nil)
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                    return true
+                    end)}))
+            end
+        end
+        if context.joker_main then
+            if card.ability.extra.config_pick == 0 then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            elseif card.ability.extra.config_pick == 1 then
+                return {
+                    mult = card.ability.extra.mult
+                }
+            elseif card.ability.extra.config_pick == 2 then
+                return {
+                    dollars = card.ability.extra.dollars
+                }
+            end
+        end
+        if context.repetition and context.cardarea == G.play and context.other_card == context.scoring_hand[1] then
+            if card.ability.extra.config_pick == 5 then
+                return {
+                    repetitions = card.ability.extra.repetitions
+                }
+            end
+        end
+        if context.end_of_round and not context.game_over and context.main_eval and not context.blueprint then
+            if card.ability.extra.config_pick == 3 then
+                G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hand_mod
+            elseif card.ability.extra.config_pick == 4 then
+                G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra.discard_mod
+            elseif card.ability.extra.config_pick == 6 then
+                G.hand:change_size(-card.ability.extra.hand_size_mod)
+            end
+        end
+    end,
+
+}
 --Dodo
 --Badger
 SMODS.Joker {
