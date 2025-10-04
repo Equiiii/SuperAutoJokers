@@ -31,3 +31,29 @@ INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
 INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
 INFO - [G] 2025-10-04 17:36:51 :: INFO  :: Loader :: Valid JSON file found 
 INFO - [G] 2025-10-04 17:36:51 :: INFO  :: Loader :: Valid JSON file found 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0000] Injected Fonts in 0.002 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0000] Injected Language in 0.002 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 2.640 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0004] Injected Atlas in 453.701 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0001] Injected Sound in 0.406 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0008] Injected Stake in 0.284 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0005] Injected Rarity in 0.045 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0005] Injected ObjectType in 0.101 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0099] Injected Center in 1.633 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0007] Injected Undiscovered Sprite in 0.031 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0002] Injected Blind in 0.027 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0004] Injected Seal in 0.264 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0004] Injected Suit in 0.131 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0013] Injected Rank in 0.209 ms 
+INFO - [G] 2025-10-04 17:36:51 :: INFO  :: TIMER :: [0028] Injected DeckSkin in 0.320 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0012] Injected PokerHand in 0.075 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0020] Injected Challenge in 0.060 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0000] Injected Tag in 0.002 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0004] Injected Sticker in 0.135 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0000] Injected Shader in 0.003 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0002] Injected Keybind in 0.022 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0000] Injected Achievement in 0.235 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0002] Injected nil in 0.035 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0021] Injected Draw Step in 0.389 ms 
+INFO - [G] 2025-10-04 17:36:52 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 1.913 ms 
+INFO - [G] [DebugPlus] Press [/] to toggle console and press [shift] + [/] to toggle new log previews 
