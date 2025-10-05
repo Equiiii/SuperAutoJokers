@@ -195,6 +195,41 @@ SMODS.Joker {
         end,
 }
 --Pigeon
+SMODS.Joker {
+    key = "pigeonjoker",
+    pos = {x = 2, y = 0},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 3,
+    discovered = true,
+    config = {},
+    pools = {sell = true},
+    loc_txt = {
+        name = "Pigeon",
+        text = {
+            "Sell this {C:attention}Joker{} to",
+            "Instantly gain a",
+            "random {C:planet}Planet{} card",
+            "{C:inactive}(Must have room){}",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.selling_self and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                trigger = "before",
+                delay = 0.0,
+                func = (function()
+                    local card = create_card("Planet",G.consumeables, nil, nil, nil, nil, nil)
+                    card:add_to_deck()
+                    G.consumeables:emplace(card)
+                    G.GAME.consumeable_buffer = 0
+                return true
+                end)}))
+        end
+    end,
+}
 --Otter
 SMODS.Joker {
     key = "otterjoker",
@@ -504,6 +539,7 @@ SMODS.Joker {
 --Flamingo
 SMODS.Joker {
     key = "flamingojoker",
+    atlas = "jokers",
     pos = {x = 6, y = 1},
     rarity = 1,
     blueprint_compat = true,
@@ -515,7 +551,7 @@ SMODS.Joker {
         text = {
             "This Joker gains {C:mult}+1{} Mult",
             "for each {C:attention}consecutive{} hand played",
-            "with at most 2 scoring{C:attention}suits",
+            "with at most 2 scoring{C:attention} suits",
             "{C:inactive}(Currently {C:red}+#1#{}{C:inactive} Mult){}",
             
         }
@@ -574,6 +610,7 @@ SMODS.Joker {
 --Worm
 SMODS.Joker {
     key = "wormjoker",
+    atlas = "jokers",
     pos = {x = 7, y = 1},
     rarity = 1,
     blueprint_compat = true,
@@ -615,6 +652,7 @@ SMODS.Joker {
 --Spider
 SMODS.Joker {
     key = "spiderjoker",
+    atlas = "jokers",
     pos = {x = 9, y = 1},
     rarity = 1,
     blueprint_compat = true,
