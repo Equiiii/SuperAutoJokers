@@ -67,37 +67,10 @@ SMODS.Joker:take_ownership("invisible",{
     pools = {sell = true},
 })
 
--- Test Joker
-SMODS.Joker {
-    key = "joker",
-    atlas = "jokers",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    blueprint_compat = true,
-    cost = 2,
-    discovered = true,
-    config = { extra = { mult = 9 }, },
-    loc_txt = {
-        name = "Test Joker",
-        text = {
-            "{C:red,s:1.1}+#1#{} Mult",
-        },
-    },
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult } }
-    end,
-    calculate = function(self, card, context)
-        if context.joker_main then
-            return {
-                mult = card.ability.extra.mult
-            }
-        end
-    end
-}
-
 --Duck
 SMODS.Joker {
     key = "duckjoker",
+    atlas = "jokers",
     pos = {x = 0, y = 0},
     rarity = 1,
     blueprint_compat = false,
@@ -197,6 +170,7 @@ SMODS.Joker {
 --Pigeon
 SMODS.Joker {
     key = "pigeonjoker",
+    atlas = "jokers",
     pos = {x = 2, y = 0},
     rarity = 1,
     blueprint_compat = true,
@@ -233,6 +207,7 @@ SMODS.Joker {
 --Otter
 SMODS.Joker {
     key = "otterjoker",
+    atlas = "jokers",
     pos = {x = 3, y = 0},
     rarity = 1,
     blueprint_compat = true,
@@ -261,6 +236,7 @@ SMODS.Joker {
 --Pig
 SMODS.Joker {
     key = "pigjoker",
+    atlas = "jokers",
     pos = {x = 4, y = 0},
     rarity = 1,
     blueprint_compat = true,
@@ -295,6 +271,35 @@ SMODS.Joker {
 }
 --Ant
 --Mosquito
+SMODS.Joker {
+    key = "mosquitojoker",
+    atlas = "jokers",
+    pos = {x = 6, y = 0},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 4,
+    discovered = true,
+    config = { extra = { mult = 1 }},
+    loc_txt = {
+        name = "Mosquito",
+        text = {
+            "{C:attention}All{} played cards",
+            "give {C:mult}+1 {}Mult",
+            "when scored",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+}
 --Fish
 SMODS.Joker {
     key = "fishjoker",
@@ -349,6 +354,7 @@ SMODS.Joker {
 --Cricket
 SMODS.Joker {
     key = "cricketjoker",
+    atlas = "jokers",
     pos = {x = 8, y = 0},
     rarity = 1,
     blueprint_compat = true,
@@ -377,6 +383,7 @@ SMODS.Joker {
 --Snail
 SMODS.Joker {
     key = "snailjoker",
+    atlas = "jokers",
     pos = {x = 0, y = 1},
     rarity = 1,
     blueprint_compat = true,
@@ -420,6 +427,7 @@ SMODS.Joker {
 --Crab
 SMODS.Joker {
     key = "crabjoker",
+    atlas = "jokers",
     pos = {x = 1, y = 1},
     rarity = 1,
     blueprint_compat = true,
@@ -1186,24 +1194,48 @@ end,
 true
 })
 
-SMODS.Joker:take_ownership("mail",{
+SMODS.Joker:take_ownership("mail", {
+    name = "Mail-In Rebate",
+                text = {
+                    "Earn {C:money}$#1#{} for each",
+                    "discarded {C:attention}#2#{}, rank",
+                    "changes every round",
+                },
+    config = { extra = { dollars = 5}},
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars, localize((G.GAME.current_round.sapjokers_mail_card or {}).rank or "Ace", "ranks")}}
+    end,
     calculate = function(self, card, context)
         if context.discard and not context.other_card.debuff then
-            if G.GAME.current_round.mail_card.id == 2 or G.GAME.current_round.mail_card.id == 4 or G.GAME.current_round.mail_card.id == 6
-            or G.GAME.current_round.mail_card.id == 8 then
+            if G.GAME.current_round.sapjokers_mail_card.id == 2 or G.GAME.current_round.sapjokers_mail_card.id == 4 or G.GAME.current_round.sapjokers_mail_card.id == 6
+            or G.GAME.current_round.sapjokers_mail_card.id == 8 then
                 if next(SMODS.find_card("j_sapjokers_parrotjoker")) then
-                    ease_dollars(5)
+                    G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
                     return {
-                        message = localize('$')..5,
-                        colour = G.C.MONEY,
+                        dollars = card.ability.extra.dollars,
+                        func = function()
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    G.GAME.dollar_buffer = 0
+                                    return true
+                                end
+                            }))
+                        end
                     }
                 end
 
-            elseif context.other_card:get_id() == G.GAME.current_round.mail_card.id then
-                ease_dollars(self.ability.extra)
+            elseif context.other_card:get_id() == G.GAME.current_round.sapjokers_mail_card.id then
+                G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
                 return {
-                    message = localize('$')..self.ability.extra,
-                    colour = G.C.MONEY,
+                    dollars = card.ability.extra.dollars,
+                    func = function()
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                G.GAME.dollar_buffer = 0
+                                return true
+                            end
+                        }))
+                    end
                 }
             end
         end
@@ -1211,6 +1243,20 @@ SMODS.Joker:take_ownership("mail",{
     true
 })
 
+local function reset_sapjokers_mail_rank()
+    G.GAME.current_round.sapjokers_mail_card = { rank = 'Ace' }
+    local valid_mail_cards = {}
+    for _, playing_card in ipairs(G.playing_cards) do
+        if not SMODS.has_no_rank(playing_card) then
+            valid_mail_cards[#valid_mail_cards + 1] = playing_card
+        end
+    end
+    local mail_card = pseudorandom_element(valid_mail_cards, 'sapjokers_mail' .. G.GAME.round_resets.ante)
+    if mail_card then
+        G.GAME.current_round.sapjokers_mail_card.rank = mail_card.base.value
+        G.GAME.current_round.sapjokers_mail_card.id = mail_card.base.id
+    end
+end
 --not currently working
 SMODS.Joker:take_ownership("8_ball", {
     key = "8_ball",
@@ -1312,12 +1358,11 @@ SMODS.Joker:take_ownership("even_steven", {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult }}
     end,
-    calulate = function(self, card, context)
+    calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
-                (context.other_card:get_id() <= 10 and 
+                ((context.other_card:get_id() <= 10 and 
                 context.other_card:get_id() >= 0 and
-                context.other_card:get_id()%2 == 0 or next(SMODS.find_card("j_sapjokers_parrotjoker")))
-                then
+                context.other_card:get_id()%2 == 0) or next(SMODS.find_card("j_sapjokers_parrotjoker"))) then
                     return {
                         mult = card.ability.extra.mult,
                         card = card
@@ -1820,7 +1865,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 7,
     discovered = true,
-    config = {extra = { xmult = 2 }},
+    config = { extra = { xmult = 2 }},
     loc_txt = {
         name = "Snake",
         text = {
@@ -1870,3 +1915,8 @@ SMODS.Joker {
         end
     end,
 }
+
+
+function SMODS.current_mod.reset_game_globals(run_start)
+    reset_sapjokers_mail_rank()
+end
