@@ -466,6 +466,7 @@ SMODS.Joker {
 --Swan
 SMODS.Joker {
     key = "swanjoker",
+    atlas = "jokers",
     pos = {x = 2, y = 1},
     rarity = 1,
     blueprint_compat = false,
@@ -499,6 +500,7 @@ SMODS.Joker {
 --Rat
 SMODS.Joker {
     key = "ratjoker",
+    atlas = "jokers",
     pos = {x = 3, y = 1},
     rarity = 1,
     blueprint_compat = true,
@@ -781,6 +783,7 @@ SMODS.Joker {
 --Badger
 SMODS.Joker {
     key = "badgerjoker",
+    atlas = "jokers",
     pos = {x = 1, y = 2},
     rarity = 2,
     blueprint_compat = false,
@@ -798,7 +801,7 @@ SMODS.Joker {
     },
     calculate = function(self, card, context)
         if context.after and #context.full_hand == 2 and context.full_hand[1]:get_id() == context.full_hand[2]:get_id() 
-        and context.full_hand[1].base.suit == context.full_hand[2].base.suit and not context.blueprint then
+        and context.full_hand[1].suit == context.full_hand[2].suit and not context.blueprint then
             SMODS.destroy_cards(context.full_hand[1])
             return {
                 message = "Destroyed!",
@@ -807,9 +810,44 @@ SMODS.Joker {
     end,
 }
 --Dolphin
+SMODS.Joker {
+    key = "dolphinjoker",
+    atlas = "jokers",
+    pos = {x = 2, y = 2},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { scored_mult = 5, final_mult = -15 }},
+    loc_txt = {
+        name = "Dolphin",
+        text = {
+            "{C:mult}-15{} Mult, but played",
+            "cards give {C:mult}+5{} Mult",
+            "when scored",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.scored_mult, card.ability.extra.final_mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.final_mult
+            }
+        end
+        if context.individual and context.cardarea == G.play then
+            return {
+                mult = card.ability.extra.scored_mult
+            }
+        end
+    end,
+}
 --Giraffe
 SMODS.Joker {
     key = "giraffejoker",
+    atlas = "jokers",
     pos = {x = 3, y = 2},
     rarity = 2,
     blueprint_compat = true,
@@ -848,6 +886,7 @@ SMODS.Joker {
 --Elephant
 SMODS.Joker {
     key = "elephantjoker",
+    atlas = "jokers",
     pos = {x = 4, y = 2},
     rarity = 2,
     blueprint_compat = true,
@@ -883,6 +922,39 @@ SMODS.Joker {
     end,
 }
 --Camel
+SMODS.Joker {
+    key = "cameljoker",
+    atlas = "jokers",
+    pos = {x = 5, y = 2},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { repetitions = 1 }},
+    loc_txt = {
+        name = "Camel",
+        text = {
+            "Retrigger each scored card",
+            "once for each played",
+            "{C:attention}unscored{} card",
+            "after the first",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.repetitions }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.before then
+            card.ability.extra.repetitions = (#context.full_hand - #context.scoring_hand - 1)
+        end
+        if context.repetition and context.cardarea == G.play then
+            return {
+                repetitions = card.ability.extra.repetitions
+            }
+        end
+    end,
+}
 --Rabbit
 SMODS.Joker {
     key = "rabbitjoker",
@@ -918,6 +990,43 @@ SMODS.Joker {
     end,
 }
 --Ox
+SMODS.Joker {
+    key = "oxjoker",
+    pos = {x = 7, y = 2},
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 3,
+    discovered = true,
+    config = { extra = { bankrupt_at = 10 }},
+    loc_txt = {
+        name = "Ox",
+        text = {
+            "Go up to {C:red}-$#1#{}",
+            "in debt, set money to",
+            "{C:attention}zero{} when blind is",
+            "selected",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.bankrupt_at }}
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.bankrupt_at = G.GAME.bankrupt_at - card.ability.extra.bankrupt_at
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.bankrupt_at = G.GAME.bankrupt_at + card.ability.extra.bankrupt_at
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            G.GAME.dollars = 0
+            return {
+                message = "Set to Zero!",
+                colour = G.C.MONEY
+            }
+        end
+    end,
+}
 --Dog
 SMODS.Joker {
     key = "dogjoker",
@@ -980,6 +1089,45 @@ SMODS.Joker {
     end,
 }
 --Hippo
+SMODS.Joker {
+    key = "hippojoker",
+    pos = {x = 1, y = 3},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { tags = 1 }},
+    loc_txt = {
+        name = "Hippo",
+        text = {
+            "When {C:attention}Blind{} is selected,",
+            "{X:attention,C:white}X1.5{} Blind Requirements and",
+            "gain a random {C:attention}Tag{}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.tags }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            G.GAME.blind.chips = G.GAME.blind.chips * 1.5
+            G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+            local tag_pool = get_current_pool('Tag')
+            local selected_tag = pseudorandom_element(tag_pool, 'sapjokers_seed')
+            local i = 1
+            while selected_tag == 'UNAVAILABLE' do
+                i = i + 1
+                selected_tag = pseudorandom_element(tag_pool, 'sapjokers_seed'..i)
+            end
+            add_tag(Tag(selected_tag, false, 'Small'))
+            return {
+                tags = card.ability.extra.tags,
+                message = "+1 Tag",
+            }
+        end
+    end,
+}
 --Bison
 SMODS.Joker {
     key = "bisonjoker",
@@ -1121,6 +1269,36 @@ SMODS.Joker {
     end,
 }
 --Penguin
+SMODS.Joker {
+    key = "penguinjoker",
+    pos = {x = 6, y = 3},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { chips = 0 }},
+    loc_txt = {
+        name = "Penguin",
+        text = {
+            "This joker has {C:chips}+25{} Chips",
+            "for each {C:attention}Straight Flush{}",
+            "played this game",
+            "{C:inactive}(Currently {}{C:chips}+#1# {C:inactive}Chips)",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            card.ability.extra.chips = (G.GAME.hands["Straight Flush"].played)*25
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end,
+}
 --Deer
 --Whale
 --Parrot
@@ -1638,6 +1816,56 @@ SMODS.Joker {
 }
 --Turkey
 --Leopard
+SMODS.Joker {
+    key = "leopardjoker",
+    atlas = "jokers",
+    pos = {x = 0, y = 5},
+    rarity = 3,
+    blueprint_compat = false,
+    cost = 7,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Leopard",
+        text = {
+            "If played hand is a single",
+            "{C:attention}#1#{} of {V:1}#2#{},",
+            "give it a random {C:attention}Seal",
+            "and {C:attention}Edition",
+            "{s:0.8}Card changes every round",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        local leopard_card = G.GAME.current_round.sapjokers_leopard_card or { rank = "Ace", suit = "Spades" }
+        return { vars = { localize(leopard_card.rank, "ranks"), localize(leopard_card.suit, "suits_plural"), colours = { G.C.SUITS[leopard_card.suit]}}}
+    end,
+    
+    calculate = function(self, card, context)
+        if context.before and #context.full_hand == 1 and 
+        context.full_hand[1]:get_id() == G.GAME.current_round.sapjokers_leopard_card.id and 
+        context.full_hand[1]:is_suit(G.GAME.current_round.sapjokers_leopard_card.suit) then
+            context.full_hand[1]:set_seal(SMODS.poll_seal({ guaranteed = true }))
+            local edition = poll_edition("test", 1, true, true, {"e_foil", "e_holo", "e_polychrome"})
+            context.full_hand[1]:set_edition(edition, true, true)
+        end
+    end,
+}
+
+local function reset_sapjokers_leopard_rank()
+    G.GAME.current_round.sapjokers_leopard_card = { rank = 'Ace', suit = "Spades" }
+    local valid_leopard_cards = {}
+    for _, playing_card in ipairs(G.playing_cards) do
+        if not SMODS.has_no_rank(playing_card) and not SMODS.has_no_suit(playing_card) then
+            valid_leopard_cards[#valid_leopard_cards + 1] = playing_card
+        end
+    end
+    local leopard_card = pseudorandom_element(valid_leopard_cards, 'sapjokers_leopardjoker' .. G.GAME.round_resets.ante)
+    if leopard_card then
+        G.GAME.current_round.sapjokers_leopard_card.rank = leopard_card.base.value
+        G.GAME.current_round.sapjokers_leopard_card.suit = leopard_card.base.suit
+        G.GAME.current_round.sapjokers_leopard_card.id = leopard_card.base.id
+    end
+end
 --Boar
 --Tiger
 SMODS.Joker {
@@ -1919,4 +2147,5 @@ SMODS.Joker {
 
 function SMODS.current_mod.reset_game_globals(run_start)
     reset_sapjokers_mail_rank()
+    reset_sapjokers_leopard_rank()
 end
