@@ -309,7 +309,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { creates = 1, sell_count = 0 }},
+    config = { extra = { sell_count = 0 }},
     loc_txt = {
         name = "Fish",
         text = {
@@ -319,11 +319,16 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.creates, card.ability.extra.sell_count }}
+        return { vars = { card.ability.extra.sell_count }}
     end,
     calculate = function(self, card, context)
         if context.selling_card and context.card.ability.set == "Joker" and not context.selling_self then
-            card.ability.extra.sell_count = card.ability.extra.sell_count + 1
+            if not context.blueprint then
+                if card.ability.extra.sell_count == 3 then
+                    card.ability.extra.sell_count = 0
+                end
+                card.ability.extra.sell_count = card.ability.extra.sell_count + 1
+            end
             if card.ability.extra.sell_count == 3 then
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
@@ -336,7 +341,6 @@ SMODS.Joker {
                             return true
                         end
                     }))
-                    card.ability.extra.sell_count = 0
                     return {
                         message = "+1 Tarot",
                         colour = G.C.TAROT
@@ -360,7 +364,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 3,
     discovered = true,
-    config = {extra = { draw_cards = 5 }},
+    config = { extra = { draw_cards = 5 }},
     loc_txt = {
         name = "Cricket",
         text = {
@@ -380,6 +384,38 @@ SMODS.Joker {
     end,
 }
 --Horse
+SMODS.Joker {
+    key = "horsejoker",
+    atlas = "jokers",
+    pos = {x = 9, y = 0},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 4,
+    discovered = true,
+    config = { extra = { dollars = 0, displayed_dollars = 2 }},
+    loc_txt = {
+        name = "Horse",
+        text = {
+            "Skipping a {C:attention}Blind{} gives",
+            "{C:money}$2{} for each Blind",
+            "{C:attention}skipped{} this run",
+            "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive})",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars, card.ability.extra.displayed_dollars }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.skip_blind then
+            card.ability.extra.dollars = 2 * G.GAME.skips
+            card.ability.extra.displayed_dollars = card.ability.extra.dollars + 2
+            return {
+                dollars = card.ability.extra.dollars
+            }
+        end
+    end,
+}
 --Snail
 SMODS.Joker {
     key = "snailjoker",
@@ -387,6 +423,7 @@ SMODS.Joker {
     pos = {x = 0, y = 1},
     rarity = 1,
     blueprint_compat = true,
+    eternal_compat = false,
     cost = 4,
     discovered = true,
     config = { extra = { chips = 90 }},
@@ -431,6 +468,7 @@ SMODS.Joker {
     pos = {x = 1, y = 1},
     rarity = 1,
     blueprint_compat = true,
+    eternal_compat = false,
     cost = 4,
     discovered = true,
     config = { extra = { mult = 15 }},
@@ -958,6 +996,7 @@ SMODS.Joker {
 --Rabbit
 SMODS.Joker {
     key = "rabbitjoker",
+    atlas = "jokers",
     pos = {x = 6, y = 2},
     rarity = 2,
     blueprint_compat = true,
@@ -992,6 +1031,7 @@ SMODS.Joker {
 --Ox
 SMODS.Joker {
     key = "oxjoker",
+    atlas = "jokers",
     pos = {x = 7, y = 2},
     rarity = 2,
     blueprint_compat = false,
@@ -1030,6 +1070,7 @@ SMODS.Joker {
 --Dog
 SMODS.Joker {
     key = "dogjoker",
+    atlas = "jokers",
     pos = {x = 8, y = 2},
     rarity = 2,
     blueprint_compat = true,
@@ -1060,9 +1101,54 @@ SMODS.Joker {
     end
 }
 --Sheep
+SMODS.Joker {
+    key = "sheepjoker",
+    atlas = "jokers",
+    pos = {x = 9, y = 2},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { tags = 1 }},
+    loc_txt = {
+        name = "Sheep",
+        text = {
+            "Skipping a {C:attention}Blind{} gives",
+            "a {C:tarot}Charm Tag{} and a",
+            "random {C:tarot}Tarot{} card",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.tags }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.skip_blind then
+            add_tag(Tag("tag_charm"))
+            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = "before",
+                    delay = 0.0,
+                    func = (function()
+                        local card = create_card("Tarot",G.consumeables, nil, nil, nil, nil, nil)
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                    return true
+                    end)}))
+                return {
+                    message = localize("k_plus_tarot"),
+                    colour = G.C.TAROT
+                }
+            end
+        end
+    end,
+}
 --Skunk
 SMODS.Joker {
     key = "skunkjoker",
+    atlas = "jokers",
     pos = {x = 0, y = 3},
     rarity = 2,
     blueprint_compat = true,
@@ -1091,6 +1177,7 @@ SMODS.Joker {
 --Hippo
 SMODS.Joker {
     key = "hippojoker",
+    atlas = "jokers",
     pos = {x = 1, y = 3},
     rarity = 2,
     blueprint_compat = true,
@@ -1131,6 +1218,7 @@ SMODS.Joker {
 --Bison
 SMODS.Joker {
     key = "bisonjoker",
+    atlas = "jokers",
     pos = {x = 2, y = 3},
     rarity = 2,
     blueprint_compat = true,
@@ -1210,6 +1298,7 @@ SMODS.Joker {
 --Turtle
 SMODS.Joker {
     key = "turtlejoker",
+    atlas = "jokers",
     pos = {x = 4, y = 3},
     rarity = 2,
     blueprint_compat = false,
@@ -1815,6 +1904,55 @@ SMODS.Joker {
     end,
 }
 --Turkey
+SMODS.Joker {
+    key = "turkeyjoker",
+    pos = {x = 9, y = 4},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 7,
+    discovered = true,
+    config = { extra = { sell_count = 0 }},
+    loc_txt = {
+        name = "Turkey",
+        text = {
+            "After selling 4 {C:attention}Jokers{},",
+            "Upgrade your most played",
+            "{C:attention}poker hand{}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.sell_count }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.selling_card and context.card.ability.set == "Joker" and not context.selling_self then
+            if not context.blueprint then
+                if card.ability.extra.sell_count == 4 then
+                    card.ability.extra.sell_count = 0
+                end
+                card.ability.extra.sell_count = card.ability.extra.sell_count + 1
+            end
+            if card.ability.extra.sell_count == 4 then
+                local _hand, _played = "High Card", -1
+                for hand_key, hand in pairs(G.GAME.hands) do
+                    if hand.played > _played then
+                        _played = hand.played
+                        _hand = hand_key
+                    end
+                end
+                local most_played = _hand
+                return {
+                    level_up = true,
+                    level_up_hand = most_played
+                }
+            end
+                return {
+                    message = card.ability.extra.sell_count .. "/4",
+                    colour = G.C.PLANET
+                }
+            end
+    end,
+}
 --Leopard
 SMODS.Joker {
     key = "leopardjoker",
@@ -1894,6 +2032,7 @@ SMODS.Joker {
 --Wolverine
 SMODS.Joker {
     key = "wolverinejoker",
+    atlas = "jokers",
     pos = {x = 3, y = 5},
     rarity = 3,
     blueprint_compat = true,
@@ -1930,6 +2069,7 @@ SMODS.Joker {
 --Gorilla
 SMODS.Joker {
     key = "gorillajoker",
+    atlas = "jokers",
     pos = {x = 4, y = 5},
     rarity = 3,
     blueprint_compat = true,
@@ -1966,6 +2106,7 @@ SMODS.Joker {
 --Dragon
 SMODS.Joker {
     key = "dragonjoker",
+    atlas = "jokers",
     pos = {x = 5, y = 5},
     rarity = 3,
     blueprint_compat = true,
@@ -2018,12 +2159,13 @@ SMODS.Joker {
 --Mammoth
 SMODS.Joker {
     key = "mammothjoker",
+    atlas = "jokers",
     pos = {x = 6, y = 5},
     rarity = 3,
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = {mult = 40, jokerslots = 1,}},
+    config = { extra = { mult = 40, jokerslots = 1 }},
     loc_txt = {
         name = "Mammoth",
         text = {
