@@ -584,6 +584,42 @@ SMODS.Joker {
 }
 --Hedgehog
 --Peacock
+SMODS.Joker {
+    key = "peacockjoker",
+    atlas = "jokers",
+    pos = {x = 5, y = 1},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { chips = 35 }},
+    loc_txt = {
+        name = "Peacock",
+        text = {
+            "Played {C:attention}prime number{} cards",
+            "give {C:chips}+35{} Chips",
+            "when scored",
+            "{C:inactive}(2, 3, 5, 7, J){}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if (context.other_card:get_id() == 2 or
+                context.other_card:get_id() == 3 or
+                context.other_card:get_id() == 5 or
+                context.other_card:get_id() == 7 or
+                context.other_card:get_id() == 11 or next(SMODS.find_card("j_sapjokers_parrotjoker"))) then
+                    return {
+                        chips = card.ability.extra.chips
+                    }
+                end
+            end
+        end,
+}
 --Flamingo
 SMODS.Joker {
     key = "flamingojoker",
@@ -1329,6 +1365,7 @@ SMODS.Joker {
 --Squirrel
 SMODS.Joker {
     key = "squirreljoker",
+    atlas = "jokers",
     pos = {x = 5, y = 3},
     rarity = 2,
     blueprint_compat = false,
@@ -1389,10 +1426,29 @@ SMODS.Joker {
     end,
 }
 --Deer
---Whale
+--Whale, probably needs redesign
+SMODS.Joker {
+    key = "whalejoker",
+    pos = {x = 8, y = 3},
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 4,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Whale",
+        text = {
+            "Two Pairs that are one",
+            "rank apart now count as",
+            "{C:attention}Four Of A Kind",
+        }
+    },
+}
+
 --Parrot
 SMODS.Joker {
     key = "parrotjoker",
+    atlas = "jokers",
     pos = {x = 9, y = 3},
     rarity = 2,
     blueprint_compat = false,
@@ -1875,6 +1931,7 @@ SMODS.Joker {
 --Shark
 SMODS.Joker {
     key = "sharkjoker",
+    atlas = "jokers",
     pos = {x = 8, y = 4},
     rarity = 3,
     blueprint_compat = true,
@@ -1906,6 +1963,7 @@ SMODS.Joker {
 --Turkey
 SMODS.Joker {
     key = "turkeyjoker",
+    atlas = "jokers",
     pos = {x = 9, y = 4},
     rarity = 3,
     blueprint_compat = true,
@@ -2005,9 +2063,41 @@ local function reset_sapjokers_leopard_rank()
     end
 end
 --Boar
+SMODS.Joker {
+    key = "boarjoker",
+    atlas = "jokers",
+    pos = {x = 1, y = 5},
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = false,
+    cost = 5,
+    discovered = true,
+    config = { extra = { mult = 3 }},
+    loc_txt = {
+        name = "Boar",
+        text = {
+            "If played hand contains",
+            "{C:attention}5{} cards, all cards",
+            "{C:attention}held in hand{} gain",
+            "{C:mult}+3{} Mult permanently",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.before and #context.full_hand == 5 then
+            for i = 1, #G.hand.cards do
+                G.hand.cards[i].ability.perma_mult = (G.hand.cards[i].ability.perma_mult or 0) + card.ability.extra.mult
+            end
+        end
+    end,
+}
 --Tiger
 SMODS.Joker {
     key = "tigerjoker",
+    atlas = "jokers",
     pos = {x = 2, y = 5},
     rarity = 3,
     blueprint_compat = true,
@@ -2235,14 +2325,14 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 7,
     discovered = true,
-    config = { extra = { xmult = 2 }},
+    config = { extra = { xmult = 1 }},
     loc_txt = {
         name = "Snake",
         text = {
-            "If on the {C:attention}third{} hand",
-            "of round, played {C:attention}Steel{}",
-            "cards give {X:mult,C:white}X#1#{} Mult",
-            "when scored",
+            "Played cards give {X:mult,C:white}X#1#{}",
+            "Mult when scored, increased",
+            "by {C:mult}0.05{} for each {C:attention}Straight{}",
+            "{C:attention}Flush{} played this game",
         }
     },
 
@@ -2251,11 +2341,13 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and G.GAME.current_round.hands_played == 2
-            and SMODS.has_enhancement(context.other_card, "m_steel") then
+        if context.individual and context.cardarea == G.play then
             return {
                 xmult = card.ability.extra.xmult
             }
+        end
+        if context.joker_main or context.setting_blind then
+            card.ability.extra.xmult = 1 + (G.GAME.hands["Straight Flush"].played * 0.05)
         end
     end,
 }
