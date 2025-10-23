@@ -21,22 +21,6 @@ SMODS.Rarity {
     end,
 }
 
-SMODS.Joker {
-    key = "slothjoker",
-    atlas = "jokers",
-    pos = {x = 0, y = 6},
-    rarity = "sapjokers_token",
-    blueprint_compat = true,
-    cost = 1,
-    discovered = false,
-    config = {},
-    loc_txt = {
-        name = "Sloth",
-        text = {
-            "{C:attention}Truly believes in you!{}"
-        }
-    }
-}
 --Pool of Sell Jokers
 SMODS.ObjectType({
     key = "sell",
@@ -59,13 +43,13 @@ SMODS.ObjectType.inject(self)
 })
 SMODS.Joker:take_ownership("diet_cola",{
     pools = {sell = true},
-})
+}, true)
 SMODS.Joker:take_ownership("luchador",{
     pools = {sell = true},
-})
+}, true)
 SMODS.Joker:take_ownership("invisible",{
     pools = {sell = true},
-})
+}, true)
 
 --Duck
 SMODS.Joker {
@@ -75,7 +59,7 @@ SMODS.Joker {
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = false,
-    cost = 4,
+    cost = 2,
     discovered = true,
     config = { extra = { duck_rounds = 0, total_rounds = 2 }},
     pools = {sell = true},
@@ -133,7 +117,7 @@ SMODS.Joker {
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = false,
-    cost = 4,
+    cost = 2,
     discovered = true,
     config = {},
     pools = {sell = true},
@@ -174,7 +158,7 @@ SMODS.Joker {
     pos = {x = 2, y = 0},
     rarity = 1,
     blueprint_compat = true,
-    cost = 3,
+    cost = 2,
     discovered = true,
     config = {},
     pools = {sell = true},
@@ -272,6 +256,7 @@ SMODS.Joker {
 --Ant
 SMODS.Joker {
     key = "antjoker",
+    atlas = "jokers",
     pos = {x = 5, y = 0},
     rarity = 1,
     blueprint_compat = false,
@@ -609,6 +594,39 @@ SMODS.Joker {
     end,
 }
 --Hedgehog
+SMODS.Joker {
+    key = "hedgehogjoker",
+    atlas = "jokers",
+    pos = {x = 4, y = 1},
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Hedgehog",
+        text = {
+            "Add {C:attention}half{} the total chip",
+            "value of all unenhanced",
+            "{C:attention}scoring{} cards to Mult",
+            "{C:inactive}(rounded down){}",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local hmult = 0
+            for _, playing_card in ipairs(context.scoring_hand) do
+                if not next(SMODS.get_enhancements(playing_card)) then
+                    hmult = hmult + playing_card:get_chip_bonus()
+                end
+            end
+            return {
+                mult = math.floor(hmult/2)
+            }
+        end
+    end,
+}
 --Peacock
 SMODS.Joker {
     key = "peacockjoker",
@@ -917,6 +935,7 @@ SMODS.Joker {
 --Dodo
 SMODS.Joker {
     key = "dodojoker",
+    atlas = "jokers",
     pos = {x = 0, y = 2},
     rarity = 2,
     blueprint_compat = true,
@@ -1038,7 +1057,7 @@ SMODS.Joker {
             "This Joker gains",
             "{C:mult}+3{} Mult when {C:attention}Blind{} is",
             "selected with an empty",
-            "{C:attention}Joker{} slot",
+            "{C:attention}joker{} slot",
             "{C:inactive}(Currently {C:mult}+#1#{}{C:inactive} Mult){}",
         }
     },
@@ -1531,23 +1550,106 @@ SMODS.Joker {
     end,
 }
 --Deer
---Whale, probably needs redesign
 SMODS.Joker {
-    key = "whalejoker",
-    pos = {x = 8, y = 3},
+    key = "deerjoker",
+    atlas = "jokers",
+    pos = {x = 7, y = 3},
     rarity = 2,
     blueprint_compat = false,
-    cost = 4,
+    cost = 5,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Deer",
+        text = {
+            "If played hand has",
+            "only {C:attention}1{} card, turn it",
+            "into your most common {C:suits}suit",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.before and #context.full_hand == 1 then
+            local hearts_count = 0
+            local spades_count = 0
+            local clubs_count = 0
+            local diamonds_count = 0
+            for _, playing_card in pairs(G.playing_cards) do
+                if playing_card.base.suit == "Hearts" then
+                    hearts_count = hearts_count + 1
+                elseif playing_card.base.suit == "Spades" then
+                    spades_count = spades_count + 1
+                elseif playing_card.base.suit == "Clubs" then
+                    clubs_count = clubs_count + 1
+                else
+                    diamonds_count = diamonds_count + 1
+                end
+            end
+            local suit_counts = {hearts_count, spades_count, clubs_count, diamonds_count}
+            local suits = {"Hearts", "Spades", "Clubs", "Diamonds"}
+            local highest = suit_counts[1]
+            local most_common_suit = suits[1]
+            for i = 2, 4 do
+                if suit_counts[i] > highest then
+                    most_common_suit = suits[i]
+                end
+            end
+            assert(SMODS.change_base(context.full_hand[1], most_common_suit))
+            --[[return {
+                extra = {
+                    func = function()
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                play_sound()
+                                return true
+                            end
+                        }))
+                    end
+                }
+            }]]
+        end
+    end,
+}
+--Whale
+SMODS.Joker {
+    key = "whalejoker",
+    atlas = "jokers",
+    pos = {x = 8, y = 3},
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
     discovered = true,
     config = {},
     loc_txt = {
         name = "Whale",
         text = {
-            "Two Pairs that are one",
-            "rank apart now count as",
-            "{C:attention}Four Of A Kind",
+            "When Blind is selected,",
+            "create a random",
+            "{C:attention}Sell{} joker",
+            "{C:inactive}(Must have room){}",
         }
     },
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+                    G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card {
+                                set = "sell",
+                            }
+                            G.GAME.joker_buffer = 0
+                            return true
+                        end
+                    }))
+                    return {
+                        message = "+1 Joker",
+                        colour = G.C.ATTENTION
+                    }
+            end
+        end
+    end,
 }
 
 --Parrot
@@ -1628,7 +1730,7 @@ SMODS.Joker:take_ownership("mail", {
                     "discarded {C:attention}#2#{}, rank",
                     "changes every round",
                 },
-    config = { extra = { dollars = 5}},
+    config = { extra = { dollars = 5 }},
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.dollars, localize((G.GAME.current_round.sapjokers_mail_card or {}).rank or "Ace", "ranks")}}
     end,
@@ -1649,6 +1751,21 @@ SMODS.Joker:take_ownership("mail", {
                             }))
                         end
                     }
+                else
+                    if context.other_card:get_id() == G.GAME.current_round.sapjokers_mail_card.id then
+                        G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
+                        return {
+                            dollars = card.ability.extra.dollars,
+                            func = function()
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        G.GAME.dollar_buffer = 0
+                                        return true
+                                    end
+                                }))
+                            end
+                        }
+                    end
                 end
 
             elseif context.other_card:get_id() == G.GAME.current_round.sapjokers_mail_card.id then
@@ -1666,6 +1783,7 @@ SMODS.Joker:take_ownership("mail", {
                 }
             end
         end
+    return nil, true
     end
 }, true)
 
@@ -1884,6 +2002,35 @@ SMODS.Joker {
     end,
 }
 --Croc
+SMODS.Joker {
+    key = "crocjoker",
+    atlas = "jokers",
+    pos = {x = 1, y = 4},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { xmult = 3 }},
+    loc_txt = {
+        name = "Crocodile",
+        text = {
+            "{X:mult,C:white}X3{} Mult if hand",
+            "is played with an",
+            "empty {C:attention}joker{} slot"
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main and #G.jokers.cards < G.jokers.config.card_limit then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+    end,
+}
 --Rhino
 SMODS.Joker {
     key = "rhinojoker",
@@ -1980,6 +2127,50 @@ SMODS.Joker {
     end,
 }
 --Armadillo
+SMODS.Joker {
+    key = "armadillojoker",
+    atlas = "jokers",
+    pos = {x = 4, y = 4},
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 7,
+    discovered = true,
+    config = { extra = { mult = 0, mult_change = 3 }},
+    loc_txt = {
+        name = "Armadillo",
+        text = {
+            "Before hand is played,",
+            "add or subtract {C:mult}3{}",
+            "Mult, then flip between",
+            "{C:attention}positive {}and {C:attention}negative{} Mult",
+            "{C:inactive}(Currently{} {C:mult}#1#{} {C:inactive}Mult)"
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult_change }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.before and not context.blueprint then
+            if card.ability.extra.mult >= 0 then
+                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_change
+            else
+                card.ability.extra.mult = card.ability.extra.mult - card.ability.extra.mult_change
+            end
+            card.ability.extra.mult = card.ability.extra.mult * -1
+            return {
+                message = "Flipped!",
+                colour = G.C.MULT
+            }
+        end
+
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+}
 --Cow
 SMODS.Joker {
     key = "cowjoker",
@@ -2033,6 +2224,38 @@ SMODS.Joker {
     end,
 }
 --Seal
+SMODS.Joker {
+    key = "sealjoker",
+    atlas = "jokers",
+    pos = {x = 6, y = 4},
+    rarity = 3,
+    blueprint_compat = false,
+    cost = 5,
+    discovered = true,
+    config = { extra = { sell_cost = 2 }},
+    loc_txt = {
+        name = "Seal",
+        text = {
+            "When a {C:attention}sell{} joker is",
+            "sold, add its sell value",
+            "to this card's sell value",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.sell_cost }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.selling_card and (context.card.config.center.pools or {})["sell"] then
+            card.ability.extra_value = card.ability.extra_value + context.card.sell_cost
+            card:set_cost()
+            return {
+                message = localize("k_val_up"),
+                colour = G.C.MONEY
+            }
+        end
+    end,
+}
 --Rooster, some weird stuff going on here with blueprint/copies
 SMODS.Joker {
     key = "roosterjoker",
@@ -2176,7 +2399,7 @@ SMODS.Joker {
     end,
     
     calculate = function(self, card, context)
-        if context.before and G.GAME.hands_played == 0 and #context.full_hand == 1 and 
+        if context.before and G.GAME.current_round.hands_played == 0 and #context.full_hand == 1 and 
         context.full_hand[1]:get_id() == G.GAME.current_round.sapjokers_leopard_card.id and 
         context.full_hand[1]:is_suit(G.GAME.current_round.sapjokers_leopard_card.suit) then
             context.full_hand[1]:set_seal(SMODS.poll_seal({ guaranteed = true }))
@@ -2279,9 +2502,12 @@ SMODS.Joker {
             "retrigger scored cards twice",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.repetitions, localize("Straight Flush", "poker_hands") }}
+    end,
 
     calculate = function(self, card, context)
-        if context.repetition and context.cardarea == G.play and context.poker_hands["Straight Flush"] then
+        if context.repetition and context.cardarea == G.play and next(context.poker_hands["Straight Flush"]) then
             local ace_check = true
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:get_id() == 14 then
@@ -2434,13 +2660,13 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     discovered = true,
-    config = { extra = { tags = 1,}},
+    config = { extra = { tags = 3 }},
     loc_txt = {
         name = "Cat",
         text = {
             "When {C:attention}Blind{} is",
-            "Skipped, create a",
-            "{C:attention}Double Tag",
+            "Skipped, create 3",
+            "{C:attention}Double Tags",
         }
     },
 
@@ -2450,9 +2676,10 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.skip_blind then
-            add_tag(Tag("tag_double"))
+            for i = 1, card.ability.extra.tags do
+                add_tag(Tag("tag_double"))
+            end
             return {
-                tags = card.ability.extra.tags,
                 message = "Skipped!",
             }
         end
@@ -2518,6 +2745,23 @@ SMODS.Joker {
             }
         end
     end,
+}
+
+SMODS.Joker {
+    key = "slothjoker",
+    atlas = "jokers",
+    pos = {x = 0, y = 6},
+    rarity = "sapjokers_token",
+    blueprint_compat = true,
+    cost = 1,
+    discovered = false,
+    config = {},
+    loc_txt = {
+        name = "Sloth",
+        text = {
+            "{C:attention}Truly believes in you!{}"
+        }
+    }
 }
 
 
