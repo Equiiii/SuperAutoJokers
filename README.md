@@ -19,6 +19,7 @@ It is mainly intended to be played as a standalone mod, or with mods like Balatr
 
 ## Some other information:
 
-The art is initially from the game Super Auto Pets by Teamwood Games, I'm not an artist and basically just went over the sprites so they would look better resized. It was hard to think of abilities for 60 more Jokers that felt 'vanilla' and weren't just copied from other mods (though there may be some mods I don't know about), so future additions will probably end up straying a little further than that. That being said, I want to keep the balancing as good as I can and don't intend to make anything Cryptid-like, so if you think something is too unbalanced one way or the other feel free to let me know :3
+The art is initially from the game Super Auto Pets by Teamwood Games, I'm not an artist and basically just went over the sprites so they would look better resized. The sounds from the game are off-limits, so sadly there won't be any funny bus sound when the deer triggers. Also, it was hard to think of abilities for 60 more Jokers that felt 'vanilla' and weren't just copied from other mods (though there may be some mods I don't know about), so future additions will probably end up straying a little further than that. That being said, I want to keep the balancing as good as I can and don't intend to make anything Cryptid-like, so if you think something is too unbalanced one way or the other feel free to let me know :3
+
 
 
