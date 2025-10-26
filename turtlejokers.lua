@@ -46,7 +46,7 @@ SMODS.Back {
                                  "j_sapjokers_skunkjoker",
                                  "j_diet_cola",
                                  "j_luchador"
-                                }, "turtledeck_seed"
+                                }, "turtledeck"
                             )
                         })
                     end
@@ -355,12 +355,12 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 4,
     discovered = true,
-    config = { extra = { mult = 1 }},
+    config = { extra = { mult = 2 }},
     loc_txt = {
         name = "Mosquito",
         text = {
             "{C:attention}All{} played cards",
-            "give {C:mult}+1 {}Mult",
+            "give {C:mult}+#1# {}Mult",
             "when scored",
         }
     },
@@ -510,7 +510,7 @@ SMODS.Joker {
         text = {
             "{C:chips}+#1#{} Chips,",
             "{C:chips}-#2#{} Chips for each",
-            "{C:attention}Shop Reroll{}",
+            "shop {C:attention}reroll{}",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -558,7 +558,7 @@ SMODS.Joker {
         text = {
             "{C:mult}+#1#{} Mult,",
             "{C:mult}-#2#{} Mult for each",
-            "{C:attention}Shop Reroll{}",
+            "shop {C:attention}reroll{}",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -632,7 +632,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Rat",
         text = {
-            "{C:mult}+4{} Mult when hand",
+            "{C:mult}+#2#{} Mult when hand",
             "is played, resets at",
             "end of round",
             "{C:inactive}(Currently {C:mult}+#1#{}{C:inactive} Mult){}"
@@ -714,7 +714,7 @@ SMODS.Joker {
         name = "Peacock",
         text = {
             "Played {C:attention}prime number{} cards",
-            "give {C:chips}+35{} Chips",
+            "give {C:chips}+#1#{} Chips",
             "when scored",
             "{C:inactive}(2, 3, 5, 7, J){}",
         }
@@ -892,7 +892,7 @@ SMODS.Joker {
     pos = {x = 9, y = 1},
     rarity = 1,
     blueprint_compat = true,
-    cost = 5,
+    cost = 3,
     discovered = true,
     config = { extra = {
         chips = 1,
@@ -929,8 +929,10 @@ SMODS.Joker {
             card.ability.extra.config_pick = pseudorandom("j_sapjokers_spiderjoker", 0, 9)
             if card.ability.extra.config_pick == 3 and not context.blueprint then
                 G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hand_mod
+                ease_hands_played(card.ability.extra.hand_mod)
             elseif card.ability.extra.config_pick == 4 and not context.blueprint then
                 G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.discard_mod
+                ease_discard(card.ability.extra.discard_mod)
             elseif card.ability.extra.config_pick == 6 and not context.blueprint then
                 G.hand:change_size(card.ability.extra.hand_size_mod)
             elseif card.ability.extra.config_pick == 7 and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -945,6 +947,9 @@ SMODS.Joker {
                         G.GAME.consumeable_buffer = 0
                     return true
                     end)}))
+                return {
+                    message = localize("k_plus_tarot")
+                }
             elseif card.ability.extra.config_pick == 8 and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                 G.E_MANAGER:add_event(Event({
@@ -957,6 +962,9 @@ SMODS.Joker {
                         G.GAME.consumeable_buffer = 0
                     return true
                     end)}))
+                return {
+                    message = localize("k_plus_planet")
+                }
             elseif card.ability.extra.config_pick == 9 and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                 G.E_MANAGER:add_event(Event({
@@ -969,6 +977,9 @@ SMODS.Joker {
                         G.GAME.consumeable_buffer = 0
                     return true
                     end)}))
+                return {
+                    message = localize("k_plus_spectral")
+                }
             end
         end
         if context.joker_main then
@@ -1007,8 +1018,10 @@ SMODS.Joker {
     remove_from_deck = function(self, card, from_debuff)
         if card.ability.extra.config_pick == 3 then
                 G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hand_mod
+                ease_hands_played(-card.ability.extra.hand_mod)
         elseif card.ability.extra.config_pick == 4 then
                 G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra.discard_mod
+                ease_discard(-card.ability.extra.discard_mod)
         elseif card.ability.extra.config_pick == 6 then
                 G.hand:change_size(-card.ability.extra.hand_size_mod)
         end
@@ -1028,7 +1041,7 @@ SMODS.Joker {
         name = "Dodo",
         text = {
             "When Blind is selected,",
-            "this Joker gains {X:mult,C:white}X0.1{} Mult",
+            "this Joker gains {X:mult,C:white}X#2#{} Mult",
             "for each held {C:attention}Sell Joker{}",
             "{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}",
         }
@@ -1101,8 +1114,8 @@ SMODS.Joker {
     loc_txt = {
         name = "Dolphin",
         text = {
-            "{C:mult}-15{} Mult, but played",
-            "cards give {C:mult}+5{} Mult",
+            "{C:mult}#2#{} Mult, but played",
+            "cards give {C:mult}+#1#{} Mult",
             "when scored",
         }
     },
@@ -1510,7 +1523,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Blowfish",
         text = {
-            "{X:mult,C:white}X3{} Mult, reduce poker",
+            "{X:mult,C:white}X#1#{} Mult, reduce poker",
             "hands to level {C:attention}1{} when",
             "{C:attention}Blind{} is selected",
         }
@@ -1553,8 +1566,8 @@ SMODS.Joker {
     loc_txt = {
         name = "Turtle",
         text = {
-            "{C:red}+4{} discards,",
-            "{C:blue}-2{} hands per round",
+            "{C:red}+#1#{} discards,",
+            "{C:blue}#2#{} hands per round",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -1580,7 +1593,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 7,
     discovered = true,
-    config = { extra = { dollars = 0}},
+    config = { extra = { dollars = 0 }},
     loc_txt = {
         name = "Squirrel",
         text = {
@@ -2131,7 +2144,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Rhino",
         text = {
-            "{C:chips}+3{} Chips when any",
+            "{C:chips}+#2#{} Chips when any",
             "card is {C:attention}scored,",
             "{C:chips}-3{} Chips for {C:attention}unscored{} cards",
             "{C:inactive}(Currently{} +{C:chips}#1#{} {C:inactive}Chips)",
@@ -2143,7 +2156,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and not context.blueprint then
-            card.ability.extra.chips = card.ability.extra.chips + 3
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_gain
             return {
                 message = localize {
                     type = "variable",
@@ -2187,7 +2200,7 @@ SMODS.Joker {
         name = "Monkey",
         text = {
             "Lucky cards {C:attention}held in{}",
-            "{C:attention}hand{} grant {C:money}$6{} at",
+            "{C:attention}hand{} grant {C:money}$#1#{} at",
             "end of round",
         }
     },
@@ -2227,7 +2240,7 @@ SMODS.Joker {
         name = "Armadillo",
         text = {
             "Before hand is played,",
-            "add or subtract {C:mult}3{}",
+            "add or subtract {C:mult}#2#{}",
             "Mult, then flip between",
             "{C:attention}positive {}and {C:attention}negative{} Mult",
             "{C:inactive}(Currently{} {C:mult}#1#{} {C:inactive}Mult)"
@@ -2328,7 +2341,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Seal",
         text = {
-            "When a {C:attention}sell{} joker is",
+            "When a {C:attention}Sell{} Joker is",
             "sold, add its sell value",
             "to this card's sell value",
         }
@@ -2348,7 +2361,7 @@ SMODS.Joker {
         end
     end,
 }
---Rooster, some weird stuff going on here with blueprint/copies
+--Rooster
 SMODS.Joker {
     key = "roosterjoker",
     atlas = "turtlejokers",
@@ -2398,7 +2411,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Shark",
         text = {
-            "{X:mult,C:white}X3{} Mult if full",
+            "{X:mult,C:white}X#1#{} Mult if full",
             "deck has{C:attention} < 42{} or",
             "{C:attention}> 67{} total cards",
         }
@@ -2536,7 +2549,7 @@ SMODS.Joker {
             "If first played hand",
             "contains {C:attention}5{} cards, all",
             "cards {C:attention}held in hand{}",
-            "gain {C:mult}+4{} Mult permanently",
+            "gain {C:mult}+#1#{} Mult permanently",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -2635,11 +2648,11 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     discovered = true,
-    config = { extra = { chips = 200, consumableslots = 1,}},
+    config = { extra = { chips = 200, consumableslots = 1 }},
     loc_txt = {
         name = "Gorilla",
         text = {
-            "{C:chips}+200{} Chips,",
+            "{C:chips}+#1#{} Chips,",
             "-1{C:attention} Consumable {}Slot",
         }
     },
@@ -2710,7 +2723,7 @@ SMODS.Joker {
                 
             else
                 return {
-                    message = "1/2",
+                    message = card.ability.extra.reroll_count .. "/2",
                     colour = G.C.ATTENTION
                 }
             end
@@ -2730,7 +2743,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Mammoth",
         text = {
-            "{C:mult}+40{} Mult,",
+            "{C:mult}+#1#{} Mult,",
             "-1{C:attention} Joker {}Slot",
         }
     },
@@ -2768,7 +2781,7 @@ SMODS.Joker {
         name = "Cat",
         text = {
             "When {C:attention}Blind{} is",
-            "Skipped, create 3",
+            "Skipped, create #1#",
             "{C:attention}Double Tags",
         }
     },
@@ -2832,7 +2845,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { repetitions = 1,}},
+    config = { extra = { repetitions = 1 }},
     loc_txt = {
         name = "Fly",
         text = {
