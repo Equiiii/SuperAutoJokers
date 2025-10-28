@@ -832,7 +832,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.pre_discard and not context.hook then
+        if context.pre_discard and not context.blueprint and not context.hook then
             local hand, _ = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
             if hand ~= "High Card" and hand ~= "Pair" and hand ~= "Two Pair" and hand ~= "Three of a Kind" then
                 card.ability.extra.chips = card.ability.extra.chips + 10
@@ -1051,7 +1051,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.setting_blind then
+        if context.setting_blind and not context.blueprint then
             local selljoker_flag = false
             for i = 1, #G.jokers.cards do
                 if (G.jokers.cards[i].config.center.pools or {})["sell"] then
@@ -1312,7 +1312,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.setting_blind then
+        if context.setting_blind and not context.blueprint then
             G.GAME.dollars = 0
             return {
                 message = localize("k_sapjokers_set_to_zero"),
@@ -1668,7 +1668,7 @@ SMODS.Joker {
     },
 
     calculate = function(self, card, context)
-        if context.before and #context.full_hand == 1 then
+        if context.before and not context.blueprint and #context.full_hand == 1 then
             local hearts_count = 0
             local spades_count = 0
             local clubs_count = 0
@@ -2165,7 +2165,7 @@ SMODS.Joker {
                 },
             }
         end
-        if context.before then
+        if context.before and not context.blueprint then
             if #context.full_hand > #context.scoring_hand then
                 card.ability.extra.chips_loss = 3 * (#context.full_hand - #context.scoring_hand)
                 card.ability.extra.chips = card.ability.extra.chips - card.ability.extra.chips_loss
@@ -2334,7 +2334,7 @@ SMODS.Joker {
     atlas = "turtlejokers",
     pos = {x = 6, y = 4},
     rarity = 3,
-    blueprint_compat = false,
+    blueprint_compat = true,
     cost = 5,
     discovered = true,
     config = { extra = { sell_cost = 2 }},
@@ -2507,7 +2507,7 @@ SMODS.Joker {
     end,
     
     calculate = function(self, card, context)
-        if context.before and G.GAME.current_round.hands_played == 0 and #context.full_hand == 1 and 
+        if context.before and not context.blueprint and G.GAME.current_round.hands_played == 0 and #context.full_hand == 1 and 
         context.full_hand[1]:get_id() == G.GAME.current_round.sapjokers_leopard_card.id and 
         context.full_hand[1]:is_suit(G.GAME.current_round.sapjokers_leopard_card.suit) then
             context.full_hand[1]:set_seal(SMODS.poll_seal({ guaranteed = true }))
@@ -2701,7 +2701,12 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.reroll_shop then
-            card.ability.extra.reroll_count = card.ability.extra.reroll_count + 1
+            if not context.blueprint then
+                if card.ability.extra.reroll_count == 2 then
+                    card.ability.extra.reroll_count = 0
+                end
+                card.ability.extra.reroll_count = card.ability.extra.reroll_count + 1
+            end
             if card.ability.extra.reroll_count == 2 then
                 if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
@@ -2714,7 +2719,6 @@ SMODS.Joker {
                             return true
                         end
                     }))
-                    card.ability.extra.reroll_count = 0
                     return {
                         message = localize("k_plus_joker"),
                         colour = G.C.ATTENTION
