@@ -2884,7 +2884,6 @@ SMODS.Joker {
     }
 }
 
-
 function SMODS.current_mod.reset_game_globals(run_start)
     reset_sapjokers_mail_rank()
     reset_sapjokers_leopard_rank()
