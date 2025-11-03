@@ -1593,29 +1593,27 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 7,
     discovered = true,
-    config = { extra = { dollars = 0 }},
+    config = { extra = { dollars = 2 }},
     loc_txt = {
         name = "Squirrel",
         text = {
-            "Earn {C:money}$2{} at the end",
+            "Earn {C:money}$#1#{} at the end",
             "of round for each {C:spectral}Spectral",
             "card used this run",
-            "{C:inactive}(Currently {}{C:money}$#1#{}{C:inactive})",
+            "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive})",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.dollars }}
+        return { vars = { card.ability.extra.dollars, card.ability.extra.dollars * ( G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.spectral or 0 ) }}
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            card.ability.extra.dollars = G.GAME.consumeable_usage_total.spectral * 2
+        if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == "Spectral" then
+            return {
+                message = localize("k_upgrade_ex"),
+                colour = G.C.MONEY
+            }
         end
     end,
-
-    calc_dollar_bonus = function(self, card)
-        return card.ability.extra.dollars
-    end,
-}
 --Penguin
 SMODS.Joker {
     key = "penguinjoker",
