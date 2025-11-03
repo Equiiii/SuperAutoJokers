@@ -1623,25 +1623,24 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { chips = 0 }},
+    config = { extra = { chips = 25 }},
     loc_txt = {
         name = "Penguin",
         text = {
-            "This joker has {C:chips}+25{} Chips",
+            "This joker has {C:chips}+#1#{} Chips",
             "for each {C:attention}Straight Flush{}",
             "played this game",
-            "{C:inactive}(Currently {}{C:chips}+#1# {C:inactive}Chips)",
+            "{C:inactive}(Currently {}{C:chips}+#2# {C:inactive}Chips)",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips }}
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * ( G.GAME.hands["Straight Flush"].played or 0 ) }}
     end,
 
     calculate = function(self, card, context)
         if context.joker_main then
-            card.ability.extra.chips = (G.GAME.hands["Straight Flush"].played)*25
             return {
-                chips = card.ability.extra.chips
+                chips = card.ability.extra.chips * (G.GAME.hands["Straight Flush"].played)
             }
         end
     end,
@@ -2812,29 +2811,26 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 7,
     discovered = true,
-    config = { extra = { xmult = 1 }},
+    config = { extra = { xmult = 0.05 }},
     loc_txt = {
         name = "Snake",
         text = {
-            "Played cards give {X:mult,C:white}X#1#{}",
+            "Played cards give {X:mult,C:white}X#2#{}",
             "Mult when scored, increased",
-            "by {C:mult}0.05{} for each {C:attention}Straight{}",
+            "by {C:mult}#1#{} for each {C:attention}Straight{}",
             "{C:attention}Flush{} played this game",
         }
     },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = {card.ability.extra.xmult}}
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * (G.GAME.hands["Straight Flush"].played or 0) }}
     end,
 
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             return {
-                xmult = card.ability.extra.xmult
+                xmult = 1 + card.ability.extra.xmult
             }
-        end
-        if context.joker_main or context.setting_blind then
-            card.ability.extra.xmult = 1 + (G.GAME.hands["Straight Flush"].played * 0.05)
         end
     end,
 }
