@@ -2834,7 +2834,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             return {
-                xmult = 1 + card.ability.extra.xmult
+                xmult = 1 + card.ability.extra.xmult * (G.GAME.hands["Straight Flush"].played)
             }
         end
     end,
