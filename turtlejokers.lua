@@ -1619,6 +1619,7 @@ SMODS.Joker {
             }
         end
     end,
+}
 --Penguin
 SMODS.Joker {
     key = "penguinjoker",
