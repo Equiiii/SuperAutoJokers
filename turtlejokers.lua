@@ -289,7 +289,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 3,
     discovered = true,
-    config = { extra = { sell_cost = 2, odds = 3 }},
+    config = { extra = { sell_cost = 2, odds = 2 }},
     loc_txt = {
         name = "Pig",
         text = {
@@ -307,7 +307,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-            if context.other_card:get_id() == 4 or next(SMODS.find_card("j_sapjokers_parrotjoker")) ==  true then
+            if context.other_card:get_id() == 4 or next(SMODS.find_card("j_sapjokers_parrotjoker")) then
                 if pseudorandom("pigjoker") < G.GAME.probabilities.normal / card.ability.extra.odds then
                     card.sell_cost = card.sell_cost + 1
                     return {
@@ -2344,8 +2344,9 @@ SMODS.Joker {
         name = "Seal",
         text = {
             "When a {C:attention}Sell{} Joker is",
-            "sold, add its sell value",
-            "to this card's sell value",
+            "sold, add double its sell",
+            "value to this card's",
+            "sell value",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -2354,7 +2355,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.selling_card and (context.card.config.center.pools or {})["sell"] then
-            card.ability.extra_value = card.ability.extra_value + context.card.sell_cost
+            card.ability.extra_value = card.ability.extra_value + context.card.sell_cost * 2
             card:set_cost()
             return {
                 message = localize("k_val_up"),
