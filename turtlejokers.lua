@@ -1200,7 +1200,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, center)
-        return { vars = {center.ability.extra.xmult }}
+        return { vars = { center.ability.extra.xmult }}
     end,
 
     calculate = function(self, card, context)
@@ -1571,7 +1571,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Turtle",
         text = {
-            "{C:red}+#1#{} discards,",
+            "{C:red}+#1#{} discards per round,",
             "{C:blue}#2#{} hands per round",
         }
     },
@@ -2142,13 +2142,13 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     discovered = true,
-    config = { extra = { chips = 0, chips_gain = 3, chips_loss = 0 }},
+    config = { extra = { chips = 0, chips_gain = 4, chips_loss = 0 }},
     loc_txt = {
         name = "Rhino",
         text = {
             "{C:chips}+#2#{} Chips when any",
             "card is {C:attention}scored,",
-            "{C:chips}-3{} Chips for {C:attention}unscored{} cards",
+            "{C:chips}-4{} Chips for {C:attention}unscored{} cards",
             "{C:inactive}(Currently{} +{C:chips}#1#{} {C:inactive}Chips)",
         }
     },
@@ -2169,7 +2169,7 @@ SMODS.Joker {
         end
         if context.before and not context.blueprint then
             if #context.full_hand > #context.scoring_hand then
-                card.ability.extra.chips_loss = 3 * (#context.full_hand - #context.scoring_hand)
+                card.ability.extra.chips_loss = 4 * (#context.full_hand - #context.scoring_hand)
                 card.ability.extra.chips = card.ability.extra.chips - card.ability.extra.chips_loss
                 return {
                     message = localize {
@@ -2446,7 +2446,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Turkey",
         text = {
-            "After selling 4 {C:attention}Jokers{},",
+            "After selling 3 {C:attention}Jokers{},",
             "Upgrade your most played",
             "{C:attention}poker hand{}",
         }
@@ -2458,12 +2458,12 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.selling_card and context.card.ability.set == "Joker" and not context.selling_self then
             if not context.blueprint then
-                if card.ability.extra.sell_count == 4 then
+                if card.ability.extra.sell_count == 3 then
                     card.ability.extra.sell_count = 0
                 end
                 card.ability.extra.sell_count = card.ability.extra.sell_count + 1
             end
-            if card.ability.extra.sell_count == 4 then
+            if card.ability.extra.sell_count == 3 then
                 local _hand, _played = "High Card", -1
                 for hand_key, hand in pairs(G.GAME.hands) do
                     if hand.played > _played then
@@ -2478,8 +2478,8 @@ SMODS.Joker {
                 }
             end
                 return {
-                    message = card.ability.extra.sell_count .. "/4",
-                    colour = G.C.PLANET
+                    message = card.ability.extra.sell_count .. "/3",
+                    colour = G.C.ATTENTION
                 }
             end
     end,
