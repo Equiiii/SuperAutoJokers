@@ -5,5 +5,5 @@
     "description": "A Balatro mod which adds new jokers inspired by the game Super Auto Pets. Original sprites by Teamwood Games",
     "prefix": "sapjokers",
     "main_file": "sapjokers_main.lua",
-    "version": "1.0.0"
+    "version": "1.0.2"
 }
