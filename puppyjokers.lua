@@ -48,7 +48,7 @@ SMODS.Consumable {
         name = "Stick",
         text = {
             "{C:mult}+#2# {}Mult when held",
-            "{C:red,s:0.8}Destroyed in #1# rounds",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -88,7 +88,7 @@ SMODS.Consumable {
         name = "Balloon",
         text = {
             "{C:money}+$#2#{} when destroyed",
-            "{C:red,s:0.8}Destroyed in #1# rounds",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -126,7 +126,7 @@ SMODS.Consumable {
             "When destroyed, +{C:chips}#2#{}",
             "chips to 5 random cards",
             "in the deck",
-            "{C:red,s:0.8}Destroyed in #1# rounds",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -157,7 +157,7 @@ SMODS.Consumable {
 SMODS.Consumable {
     key = "tennisball",
     set = "toy",
-    pos = {x = 0, y = 0},
+    pos = {x = 3, y = 0},
     discovered = true,
     config = { extra = { rounds_left = 2, hand_count = 0 } },
     can_use = false,
@@ -167,7 +167,7 @@ SMODS.Consumable {
             "When held, the last scored",
             "card of every third",
             "hand is destroyed",
-            "{C:red,s:0.8}Destroyed in #1# rounds",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -218,7 +218,7 @@ SMODS.Consumable {
             "When held, the first played card",
             "has a {C:green}#3# in #4#{} chance",
             "to retrigger",
-            "{C:red,s:0.8}Destroyed in #1# rounds",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -248,6 +248,188 @@ SMODS.Consumable {
     end,
 }
 
+SMODS.Consumable {
+    key = "melonhelmet",
+    set = "toy",
+    pos = {x = 5, y = 0},
+    discovered = true,
+    config = { extra = { rounds_left = 2 } },
+    can_use = false,
+    loc_txt = {
+        name = "Melon Helmet",
+        text = {
+            "When destroyed, give a",
+            "random Joker {C:dark_edition}Foil{},",
+            "{C:dark_edition}Holographic{} or {C:dark_edition}Polychrome",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.rounds_left }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
+            if card.ability.extra.rounds_left == 0 then
+                local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
+                local edition_card = pseudorandom_element(editionless_jokers, "c_sapjokers_melonhelmet")
+                local edition = poll_edition ("c_sapjokers_melonhelmet", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
+                edition_card:set_edition(edition, true)
+                SMODS.destroy_cards(card, nil, nil, true)
+                return {
+                    message = localize("k_sapjokers_destroyed")
+                }
+            else
+                return {
+                    message = localize("k_sapjokers_minus_round")
+                }
+            end
+        end
+    end,
+}
+
+SMODS.Consumable {
+    key = "foamsword",
+    set = "toy",
+    pos = {x = 0, y = 1},
+    discovered = true,
+    config = { extra = { rounds_left = 2 }},
+    can_use = false,
+    loc_txt = {
+        name = "Foam Sword",
+        text = {
+            "When held, the lowest",
+            "rank in played hands gets",
+            "increased by one rank",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.rounds_left }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.after then
+            local strength_cards = {}
+            local min_rank = 14
+            for i = 1, #context.full_hand do
+                local current_rank = context.full_hand[i]:get_id()
+                if current_rank < min_rank then
+                    min_rank = current_rank
+                    strength_cards = {}
+                    table.insert(strength_cards, i)
+                elseif current_rank == min_rank then
+                    table.insert(strength_cards, i)
+                end
+            end
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    play_sound('tarot1')
+                    card:juice_up(0.3, 0.5)
+                    return true
+                end
+            }))
+            for k, v in pairs(strength_cards) do
+                local percent = 1.15 - (k - 0.999) / (#strength_cards - 0.998) * 0.3
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.15,
+                    func = function()
+                        context.full_hand[v]:flip()
+                        play_sound('card1', percent)
+                        context.full_hand[v]:juice_up(0.3, 0.3)
+                        return true
+                    end
+                }))
+            end
+            delay(0.2)
+            for k, v in pairs(strength_cards) do
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.1,
+                    func = function()
+                        assert(SMODS.modify_rank(context.full_hand[v], 1))
+                        return true
+                    end
+                }))
+            end
+            for k, v in pairs(strength_cards) do
+                local percent = 0.85 + (k - 0.999) / (#strength_cards - 0.998) * 0.3
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.15,
+                    func = function()
+                        context.full_hand[v]:flip()
+                        play_sound('tarot2', percent, 0.6)
+                        context.full_hand[v]:juice_up(0.3, 0.3)
+                        return true
+                    end
+                }))
+            end
+        end
+
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
+            if card.ability.extra.rounds_left == 0 then
+                SMODS.destroy_cards(card, nil, nil, true)
+                return {
+                    message = localize("k_sapjokers_destroyed")
+                }
+            else
+                return {
+                    message = localize("k_sapjokers_minus_round")
+                }
+            end
+        end
+    end,
+}
+
+SMODS.Consumable {
+    key = "toygun",
+    set = "toy",
+    pos = {x = 1, y = 1},
+    discovered = true,
+    config = { extra = { rounds_left = 2, mult = 4 }},
+    can_use = false,
+    loc_txt = {
+        name = "Toy Gun",
+        text = {
+            "When held, cards in a",
+            "{C:attention}five-card hand{} give",
+            "{C:mult}+#2#{} Mult when scored",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.rounds_left, card.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if #context.scoring_hand == 5 then
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
+            if card.ability.extra.rounds_left == 0 then
+                SMODS.destroy_cards(card, nil, nil, true)
+                return {
+                    message = localize("k_sapjokers_destroyed")
+                }
+            else
+                return {
+                    message = localize("k_sapjokers_minus_round")
+                }
+            end
+        end   
+    end,
+}
 
 --Jokers
 
@@ -276,7 +458,7 @@ SMODS.Joker {
             G.E_MANAGER:add_event(Event({
                 func = (function()
                     SMODS.add_card ({
-                        key = pseudorandom_element({"c_sapjokers_balloon", "c_sapjokers_stick"}, "sapjokers_ferretjoker"),
+                        key = pseudorandom_element({"c_sapjokers_balloon", "c_sapjokers_stick"}, "j_sapjokers_ferretjoker"),
                         area = SuperAutoJokers.toy_card_area
                     })
                     G.GAME.consumeable_buffer = 0
@@ -312,7 +494,43 @@ SMODS.Joker {
             G.E_MANAGER:add_event(Event({
                 func = (function()
                     SMODS.add_card ({
-                        key = pseudorandom_element({"c_sapjokers_tennisball"}, "sapjokers_lemurjoker"),
+                        key = pseudorandom_element({"c_sapjokers_radio", "c_sapjokers_plasticsaw", "c_sapjokers_tennisball"}, "j_sapjokers_lemurjoker"),
+                        area = SuperAutoJokers.toy_card_area
+                    })
+                    G.GAME.consumeable_buffer = 0
+                    return true
+                end)
+            }))
+        end
+    end,
+}
+
+SMODS.Joker {
+    key = "gharialjoker",
+    pos = { x = 9, y = 2 },
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = false,
+    cost = 3,
+    discovered = true,
+    config = {},
+    pools = {sell = true},
+    loc_txt = {
+        name = "Gharial",
+        text = {
+            "Sell this joker to",
+            "gain a random",
+            "tier 3 {C:attention}Toy",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.selling_self and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer < SuperAutoJokers.toy_card_area.config.card_limit) then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                func = (function()
+                    SMODS.add_card ({
+                        key = pseudorandom_element({"c_sapjokers_melonhelmet", "c_sapjokers_foamsword", "c_sapjokers_toygun"}, "j_sapjokers_gharialjoker"),
                         area = SuperAutoJokers.toy_card_area
                     })
                     G.GAME.consumeable_buffer = 0
