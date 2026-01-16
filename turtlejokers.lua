@@ -578,7 +578,7 @@ SMODS.Joker {
                     message = localize {
                         type = "variable",
                         key = "a_mult_minus",
-                        vars = {card.ability.extra.chips_loss},
+                        vars = {card.ability.extra.mult_loss},
                     }
                 }
             end
