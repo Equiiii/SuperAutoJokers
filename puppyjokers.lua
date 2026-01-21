@@ -793,27 +793,6 @@ SMODS.Consumable {
     end,
 }
 
-peanutjar_rounds = 0
-
-local calculate_context_ref = SMODS.calculate_context
-SMODS.calculate_context = function(context, return_table)
-    if context.end_of_round then
-        for k, v in ipairs(SuperAutoJokers.toy_card_area.cards) do
-            if v.ability.debuff_sources and next(v.ability.debuff_sources) and v.ability.debuff_sources["c_sapjokers_peanutjar_undebuff"] then
-                peanutjar_rounds = peanutjar_rounds + 1
-                if peanutjar_rounds == 2 then
-                    v:juice_up()
-                    SMODS.debuff_card(v, false, "c_sapjokers_peanutjar_undebuff")
-                    peanutjar_rounds = 0
-                end
-            end
-        end
-    end
-
-    local ret = calculate_context_ref(context, return_table)
-    return ret
-end
-
 SMODS.Consumable {
     key = "airpalmtree",
     set = "toy",
@@ -958,6 +937,35 @@ SMODS.Joker {
 --Tropical Fish
 --Owl
 --Mole
+SMODS.Joker {
+    key = "molejoker",
+    pos = { x = 6, y = 2 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { mult = 25 }},
+    loc_txt = {
+        name = "Mole",
+        text = {
+            "{C:mult}+#1#{} Mult, debuffed",
+            "every other hand",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            SMODS.debuff_card(card, true, "j_sapjokers_molejoker_undebuff")
+            return {
+                mult = card.ability.extra.mult,
+                extra = {message = localize("k_sapjokers_debuffed")}
+            }
+        end
+    end,
+}
 --Flying Squirrel
 --Pangolin
 --Gharial
@@ -1159,3 +1167,40 @@ SMODS.Joker {
         end
     end,
 }
+
+peanutjar_rounds = 0
+
+mole_hands = 0
+
+local calculate_context_ref = SMODS.calculate_context
+SMODS.calculate_context = function(context, return_table)
+
+    if context.after then
+        for k, v in ipairs(G.jokers.cards) do
+            if v.ability.debuff_sources and next(v.ability.debuff_sources) and v.ability.debuff_sources["j_sapjokers_molejoker_undebuff"] then
+                mole_hands = mole_hands + 1
+                if mole_hands == 2 then
+                    v:juice_up()
+                    SMODS.debuff_card(v, false, "j_sapjokers_molejoker_undebuff")
+                    mole_hands = 0
+                end
+            end
+        end
+    end
+    
+    if context.end_of_round then
+        for k, v in ipairs(SuperAutoJokers.toy_card_area.cards) do
+            if v.ability.debuff_sources and next(v.ability.debuff_sources) and v.ability.debuff_sources["c_sapjokers_peanutjar_undebuff"] then
+                peanutjar_rounds = peanutjar_rounds + 1
+                if peanutjar_rounds == 2 then
+                    v:juice_up()
+                    SMODS.debuff_card(v, false, "c_sapjokers_peanutjar_undebuff")
+                    peanutjar_rounds = 0
+                end
+            end
+        end
+    end
+
+    local ret = calculate_context_ref(context, return_table)
+    return ret
+end

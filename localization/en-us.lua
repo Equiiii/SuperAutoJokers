@@ -1,6 +1,7 @@
 return {
     misc = {
         dictionary = {
+            k_sapjokers_debuffed = "Debuffed!",
             k_sapjokers_destroyed = "Destroyed!",
             k_sapjokers_fainted = "Fainted!",
             k_sapjokers_flipped = "Flipped!",
@@ -16,6 +17,7 @@ return {
             k_sapjokers_score_reduced = "Score Reduced!",
             k_sapjokers_scorpion_saved = "Saved by Scorpion",
             k_sapjokers_set_to_zero = "Set to Zero!",
+            k_sapjokers_undebuffed = "Undebuffed!",
         }
     }
 }
