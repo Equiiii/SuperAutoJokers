@@ -1,3 +1,7 @@
+SMODS.current_mod.optional_features = {
+    post_trigger = true
+}
+
 --Looked at JoyousSpring a LOT for this
 
 local start_run_ref = Game.start_run
@@ -36,6 +40,79 @@ SMODS.ConsumableType ({
         collection = "Toys",
     },
 })
+
+--This is all needed so that Mandrill can trigger toys' destroy effects
+
+local remove_from_deck_ref = Card.remove_from_deck
+function Card:remove_from_deck(from_debuff)
+    if self.added_to_deck and SuperAutoJokers.toy_card_area and not from_debuff and self.ability.set == "toy" then
+        if self.ability.name == "c_sapjokers_balloon" then
+            ease_dollars(self.ability.extra.dollars)
+        end
+
+        if self.ability.name == "c_sapjokers_radio" then
+            pseudoshuffle(G.playing_cards)
+            for i = 1, 5 do
+                G.playing_cards[i].ability.perma_bonus = G.playing_cards[i].ability.perma_bonus + self.ability.extra.bonus_chips
+            end
+        end
+
+        if self.ability.name == "c_sapjokers_melonhelmet" then
+            local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
+            local edition_card = pseudorandom_element(editionless_jokers, "c_sapjokers_melonhelmet")
+            local edition = poll_edition ("c_sapjokers_melonhelmet", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
+            edition_card:set_edition(edition, true)
+        end
+
+        if self.ability.name == "c_sapjokers_ovenmitts" then
+            local _hand, _played = "High Card", -1
+            for hand_key, hand in pairs(G.GAME.hands) do
+                if hand.played > _played then
+                    _played = hand.played
+                    _hand = hand_key
+                end
+            end
+            local most_played = _hand
+            SMODS.smart_level_up_hand(self, most_played, false, self.ability.extra.levels)
+        end
+
+        if self.ability.name == "c_sapjokers_cashregister" then
+            for i = 1, #G.jokers.cards do
+                G.jokers.cards[i].sell_cost = G.jokers.cards[i].sell_cost + self.ability.extra.sell_cost_increase
+            end
+        end
+
+        if self.ability.name == "c_sapjokers_flashlight" then
+            if (#G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit) then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = "before",
+                    delay = 0.0,
+                    func = (function()
+                        local card = create_card("Spectral", G.consumeables, nil, nil, nil, nil, nil)
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                    return true
+                end)}))
+            end
+        end
+
+        if self.ability.name == "c_sapjokers_tv" then
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i].edition and G.jokers.cards[i].edition.key == "e_foil" then
+                    print("holo")
+                    G.jokers.cards[i]:set_edition("e_holo")
+                elseif G.jokers.cards[i].edition and G.jokers.cards[i].edition.key == "e_holo" then
+                    print("poly")
+                    G.jokers.cards[i]:set_edition("e_polychrome")
+                end
+            end
+        end
+    end
+    return remove_from_deck_ref
+end
+
 
 SMODS.Consumable {
     key = "stick",
@@ -77,6 +154,7 @@ SMODS.Consumable {
     end,
 }
 
+
 SMODS.Consumable {
     key = "balloon",
     set = "toy",
@@ -101,8 +179,7 @@ SMODS.Consumable {
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
                 return {
-                    message = localize("k_sapjokers_destroyed"),
-                    dollars = card.ability.extra.dollars
+                    message = localize("k_sapjokers_destroyed")
                 }
             else
                 return {
@@ -138,10 +215,6 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                pseudoshuffle(G.playing_cards)
-                for i = 1, 5 do
-                    G.playing_cards[i].ability.perma_bonus = G.playing_cards[i].ability.perma_bonus + card.ability.extra.bonus_chips
-                end
                 return {
                     message = localize("k_sapjokers_destroyed"),
                 }
@@ -272,10 +345,6 @@ SMODS.Consumable {
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
-                local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
-                local edition_card = pseudorandom_element(editionless_jokers, "c_sapjokers_melonhelmet")
-                local edition = poll_edition ("c_sapjokers_melonhelmet", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
-                edition_card:set_edition(edition, true)
                 SMODS.destroy_cards(card, nil, nil, true)
                 return {
                     message = localize("k_sapjokers_destroyed")
@@ -455,15 +524,6 @@ SMODS.Consumable {
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
-                local _hand, _played = "High Card", -1
-                for hand_key, hand in pairs(G.GAME.hands) do
-                    if hand.played > _played then
-                        _played = hand.played
-                        _hand = hand_key
-                    end
-                end
-                local most_played = _hand
-                SMODS.smart_level_up_hand(card, most_played, false, card.ability.extra.levels)
                 SMODS.destroy_cards(card, nil, nil, true)
                 return {
                     message = localize("k_sapjokers_destroyed")
@@ -552,9 +612,6 @@ SMODS.Consumable {
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
-                for i = 1, #G.jokers.cards do
-                    G.jokers.cards[i].sell_cost = G.jokers.cards[i].sell_cost + card.ability.extra.sell_cost_increase
-                end
                 SMODS.destroy_cards(card, nil, nil, true)
                 return {
                     message = localize("k_sapjokers_destroyed"),
@@ -593,19 +650,6 @@ SMODS.Consumable {
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
-                if (#G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit) then
-                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                    G.E_MANAGER:add_event(Event({
-                        trigger = "before",
-                        delay = 0.0,
-                        func = (function()
-                            local card = create_card("Spectral", G.consumeables, nil, nil, nil, nil, nil)
-                            card:add_to_deck()
-                            G.consumeables:emplace(card)
-                            G.GAME.consumeable_buffer = 0
-                        return true
-                    end)}))
-                end
                 SMODS.destroy_cards(card, nil, nil, true)
                 return {
                     message = localize("k_sapjokers_destroyed"),
@@ -733,15 +777,6 @@ SMODS.Consumable {
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
-                for i = 1, #G.jokers.cards do
-                    if G.jokers.cards[i].edition and G.jokers.cards[i].edition.key == "e_foil" then
-                        print("holo")
-                        G.jokers.cards[i]:set_edition("e_holo")
-                    elseif G.jokers.cards[i].edition and G.jokers.cards[i].edition.key == "e_holo" then
-                        print("poly")
-                        G.jokers.cards[i]:set_edition("e_polychrome")
-                    end
-                end
                 SMODS.destroy_cards(card, nil, nil, true)
                 return {
                     message = localize("k_sapjokers_destroyed")
@@ -845,10 +880,102 @@ SMODS.Consumable {
 --Jokers
 
 --Moth
+SMODS.Joker {
+    key = "mothjoker",
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 4,
+    discovered = true,
+    config = { extra = { mult = 7 }},
+    loc_txt = {
+        name = "Moth",
+        text = {
+            "First played card",
+            "gives {C:mult}+#1# {}Mult",
+            "when scored",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card == context.scoring_hand[1] then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+}
 --Chinchilla
+SMODS.Joker {
+    key = "chinchillajoker",
+    pos = { x = 1, y = 0 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 4,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Chinchilla",
+        text = {
+            "Sell this {C:attention}Joker{} to",
+            "create a Chinchilla",
+            "which gets {C:attention}debuffed",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.selling_self and #G.jokers.cards + G.GAME.joker_buffer - 1 < G.jokers.config.card_limit then
+            G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                trigger = "before",
+                delay = 0.0,
+                func = (function()
+                    local card = create_card("Chinchilla",G.jokers, nil, nil, nil, nil, "j_sapjokers_chinchillajoker")
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                    G.GAME.joker_buffer = 0
+                    SMODS.debuff_card(card, true, "j_sapjokers_chinchillajoker")
+                return true
+                end)}))
+        end
+    end
+}
 --Beetle
 --Ladybug
 --Chipmunk
+SMODS.Joker {
+    key = "chipmunkjoker",
+    pos = { x = 4, y = 0 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Chipmunk",
+        text = {
+            "Sell this {C:attention}Joker{} to",
+            "copy its {C:dark_edition}edition{} to",
+            "the Joker to the left",
+        }
+    },
+
+    calculate = function(self, card, context)
+        local joker_pos
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i] == card then
+                joker_pos = i
+                break
+            end
+        end
+        if context.selling_self and card.edition ~= nil then
+            G.jokers.cards[joker_pos-1]:set_edition(card.edition, true, true)
+        end
+    end,
+}
 --Gecko
 --Ferret
 SMODS.Joker {
@@ -887,6 +1014,50 @@ SMODS.Joker {
     end,
 }
 --Bilby
+SMODS.Joker {
+    key = "bilbyjoker",
+    pos = { x = 0, y = 1 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { odds = 3 }},
+    loc_txt = {
+        name = "Bilby",
+        text = {
+            "When a card is {C:attention}added{}",
+            "to the deck, {C:green}#1# in{}",
+            "{C:green}#2#{} chance to create",
+            "a {C:tarot}Tarot {}card",
+            "{C:inactive}(Must have room){}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { (2 * (G.GAME.probabilities.normal or 1)), card.ability.extra.odds }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.playing_card_added and not context.blueprint then
+            if pseudorandom("j_sapjokers_bilbyjoker") < (2 * G.GAME.probabilities.normal) / card.ability.extra.odds then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = "before",
+                    delay = 0.0,
+                    func = (function()
+                        local card = create_card("Tarot", G.consumeables, nil, nil, nil, nil, nil)
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                    return true
+                    end)}))
+                return {
+                    message = localize("k_plus_tarot"),
+                    colour = G.C.TAROT
+                }
+            end
+        end
+    end,
+}
 --Gold Fish
 --Robin
 --Bat
@@ -895,6 +1066,49 @@ SMODS.Joker {
 --Sturgeon
 --Tabby Cat
 --Mandrill
+SMODS.Joker {
+    key = "mandrilljoker",
+    pos = { x = 8, y = 1 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = false,
+    cost = 4,
+    discovered = true,
+    config = { extra = { mandrill_rounds = 0, total_rounds = 3 }},
+    loc_txt = {
+        name = "Mandrill",
+        text = {
+            "After {C:attention}#2#{} rounds,",
+            "destroy this and all",
+            "held {C:attention}Toys",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mandrill_rounds, card.ability.extra.total_rounds }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.end_of_round and not context.game_over and context.main_eval and not context.blueprint then
+            card.ability.extra.mandrill_rounds = card.ability.extra.mandrill_rounds + 1
+            if card.ability.extra.mandrill_rounds >= card.ability.extra.total_rounds then
+                if #SuperAutoJokers.toy_card_area.cards ~= 0 then
+                    for i = 1, #SuperAutoJokers.toy_card_area.cards do
+                        SMODS.destroy_cards(SuperAutoJokers.toy_card_area.cards[i], nil, nil, true)
+                    end
+                end
+                SMODS.destroy_cards(card, nil, nil, true)
+                return {
+                    message = localize("k_sapjokers_destroyed")
+                }
+            else
+                return {
+                    message = (card.ability.extra.mandrill_rounds .. "/" .. card.ability.extra.total_rounds),
+                    colour = G.C.FILTER
+                }
+            end
+        end
+    end
+}
 --Lemur
 SMODS.Joker {
     key = "lemurjoker",
@@ -1124,7 +1338,43 @@ SMODS.Joker {
     end,
 }
 --Mantis Shrimp
---Lionfish
+--Lionfish, needs more testing once other debuffing jokers are implemented
+SMODS.Joker {
+    key = "lionfishjoker",
+    pos = { x = 1, y = 5 },
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { xmult = 1, xmult_gain = 0.1 }},
+    loc_txt = {
+        name = "Lionfish",
+        text = {
+            "This Joker gains {X:mult,C:white}X#2#{} Mult",
+            "when a {C:attention}Debuffed{}",
+            "Joker triggers",
+            "{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, card.ability.extra.xmult_gain }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.post_trigger then
+            local other_ret = context.other_ret.jokers or {}
+            if other_ret.debuff then
+                return {
+                    message = localize {
+                        type = "variable",
+                        key = "a_xmult",
+                        vars = card.ability.extra.xmult_gain
+                    }
+                }
+            end
+        end
+    end,
+}
 --Tyrannosaurus
 --Octopus
 --Anglerfish
