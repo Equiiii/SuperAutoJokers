@@ -1065,6 +1065,52 @@ SMODS.Joker {
 --Shrimp
 --Sturgeon
 --Tabby Cat
+SMODS.Joker {
+    key = "tabbycatjoker",
+    pos = { x = 7, y = 1 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { mult = 0, mult_gain = 8 }},
+    loc_txt = {
+        name = "Tabby Cat",
+        text = {
+            "When this Joker gains an",
+            "{C:dark_edition}Edition{}, remove it and",
+            "gain {C:mult}+#2#{} Mult",
+            "{C:inactive}(Currently {}{C:mult}+#1#{}{C:inactive} Mult)"
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult_gain }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.given_edition and not context.blueprint then
+            if card.edition then
+                G.E_MANAGER:add_event(Event({
+                    trigger = "after",
+                    delay = 0.0,
+                    func = (function()
+                        card:set_edition(nil, true)
+                        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+                    return true
+                    end)}))
+                return {
+                    message = localize("k_upgrade_ex")
+                }
+            end
+        end
+
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+}
 --Mandrill
 SMODS.Joker {
     key = "mandrilljoker",
@@ -1219,6 +1265,47 @@ SMODS.Joker {
     end,
 }
 --Microbe
+SMODS.Joker {
+    key = "microbejoker",
+    pos = { x = 0, y = 3 },
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 5,
+    discovered = true,
+    config = { extra = { sell_cost_increase = 3 }},
+    loc_txt = {
+        name = "Microbe",
+        text = {
+            "At the end of round,",
+            "{C:attention}Debuff{} the Joker to the",
+            "right and increase its",
+            "sell value by {C:money}$#1#{}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.sell_cost_increase }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.end_of_round and not context.game_over and context.main_eval and not context.blueprint then
+            local microbe_pos
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] == card then
+                    microbe_pos = i
+                    break
+                end
+            end
+            if microbe_pos and G.jokers.cards[microbe_pos + 1] then
+                SMODS.debuff_card(G.jokers.cards[microbe_pos + 1], true, "j_sapjokers_microbejoker_undebuff")
+                G.jokers.cards[microbe_pos + 1].sell_cost = G.jokers.cards[microbe_pos + 1].sell_cost + card.ability.extra.sell_cost_increase
+                return {
+                    message = localize("k_sapjokers_debuffed"),
+                    extra = { message = localize("k_val_up") }
+                }
+            end
+        end
+    end,
+}
 --Lobster
 --Buffalo
 --Llama
@@ -1226,6 +1313,57 @@ SMODS.Joker {
 --Doberman
 --Tahr
 --Whale Shark
+
+local card_set_edition_ref = Card.set_edition
+function Card:set_edition(edition, immediate, silent, delay)
+
+    card_set_edition_ref(self, edition, immediate, silent, delay)
+    if self.ability.name == "j_sapjokers_whalesharkjoker" or self.ability.name == "j_sapjokers_tabbycatjoker" then
+        SMODS.calculate_context({ given_edition = true }) 
+    end
+end
+
+SMODS.Joker {
+    key = "whalesharkjoker",
+    pos = { x = 7, y = 3 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Whale Shark",
+        text = {
+            "When this Joker gains an",
+            "{C:dark_edition}Edition{}, remove it and",
+            "gain a random {C:spectral}Spectral{} card",
+            "{C:inactive}(Must have room){}",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.given_edition and not context.blueprint then
+            if card.edition then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = "after",
+                    delay = 0.0,
+                    func = (function()
+                        card:set_edition(nil, true)
+                        local card = create_card("Spectral",G.consumeables, nil, nil, nil, nil, nil)
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                    return true
+                    end)}))
+                return {
+                    message = localize("k_plus_spectral"),
+                    colour = G.C.SPECTRAL
+                }
+            end
+        end
+    end,
+}
 --Chameleon
 --Puppy
 SMODS.Joker {
@@ -1290,14 +1428,14 @@ SMODS.Joker {
     end,
 }
 
-local calc_edition_ref = Card.calculate_edition
+--[[local calc_edition_ref = Card.calculate_edition
 function Card:calculate_edition(context)
     local panther_count = #SMODS.find_card("j_sapjokers_pantherjoker")
     for i = 1, panther_count + 1 do
         print("panther")
         calc_edition_ref(self, context)
     end
-end
+end]]
 --Axolotl
 --Snapping Turtle
 --Mosasaurus
@@ -1376,6 +1514,39 @@ SMODS.Joker {
     end,
 }
 --Tyrannosaurus
+SMODS.Joker {
+    key = "tyrannosaurusjoker",
+    pos = { x = 3, y = 5 },
+    rarity = 3,
+    blueprint_compat = false,
+    cost = 7,
+    discovered = true,
+    config = { extra = { end_of_round_payout = 12 }},
+    loc_txt = {
+        name = "Tyrannosaurus",
+        text = {
+            "Earn {C:money}$#1#{} at end",
+            "of round if you own a",
+            "rare {C:attention}Joker{} other than",
+            "this one",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.end_of_round_payout }}
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        local has_other_rare = false
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].config.center.rarity == 3 and G.jokers.cards[i] ~= card then
+                has_other_rare = true
+            end
+        end
+        if has_other_rare == true then
+            return card.ability.extra.end_of_round_payout
+        end
+    end,
+}
 --Octopus
 --Anglerfish
 --Sauropod

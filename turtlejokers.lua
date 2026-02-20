@@ -82,6 +82,9 @@ SMODS.ObjectType({
             "j_sapjokers_skunkjoker",
             "j_sapjokers_cowjoker",
             "j_sapjokers_tigerjoker",
+
+            "j_sapjokers_ferretjoker",
+
             "j_diet_cola",
             "j_luchador",
             "j_invisible",
@@ -289,14 +292,14 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 3,
     discovered = true,
-    config = { extra = { sell_cost = 2, odds = 2 }},
+    config = { extra = { sell_cost = 1, odds = 2 }},
     loc_txt = {
         name = "Pig",
         text = {
             "Each scored {C:attention}4{} has a",
             "{C:green}#2# in #3#{} chance",
             "to increase this Joker's",
-            "sell value by {C:money}$1{}",
+            "sell value by {C:money}$#1#{}",
         },
     },
 
@@ -309,7 +312,7 @@ SMODS.Joker {
         if context.individual and context.cardarea == G.play then
             if context.other_card:get_id() == 4 or next(SMODS.find_card("j_sapjokers_parrotjoker")) then
                 if pseudorandom("pigjoker") < G.GAME.probabilities.normal / card.ability.extra.odds then
-                    card.sell_cost = card.sell_cost + 1
+                    card.sell_cost = card.sell_cost + card.ability.extra.sell_cost
                     return {
                         message = localize("k_val_up")
                     }
@@ -1547,7 +1550,7 @@ SMODS.Joker {
             end
             return {
                 message = localize("k_sapjokers_level_down"),
-                mcolour = G.C.RED
+                colour = G.C.RED
             }
         end
         if context.joker_main then
@@ -1618,6 +1621,10 @@ SMODS.Joker {
                 colour = G.C.MONEY
             }
         end
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        return card.ability.extra.dollars * ( G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.spectral or 0 )
     end,
 }
 --Penguin
