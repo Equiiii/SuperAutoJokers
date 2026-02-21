@@ -1193,6 +1193,47 @@ SMODS.Joker {
 }
 --Toucan
 --Hare
+SMODS.Joker {
+    key = "harejoker",
+    pos = { x = 2, y = 2 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 4,
+    discovered = true,
+    config = { extra = { chips = 120, debuff_rounds = 4 }},
+    loc_txt = {
+        name = "Hare",
+        text = {
+            "{C:chips}+#1#{} Chips,",
+            "Debuffed after {C:attention}#2#{} rounds"
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.debuff_rounds }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+
+        if context.end_of_round and not context.game_over and context.main_eval and not context.blueprint then
+            card.ability.extra.debuff_rounds = card.ability.extra.debuff_rounds - 1
+            if card.ability.extra.debuff_rounds == 0 then
+                SMODS.debuff_card(card, true, "j_sapjokers_harejoker")
+                return {
+                    message = localize("k_sapjokers_debuffed")
+                }
+            else
+                return {
+                    message = localize("k_sapjokers_minus_round")
+                }
+            end
+        end
+    end,
+}
 --Hoopoe Bird
 --Tropical Fish
 --Owl
@@ -1424,7 +1465,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.mult }}
+        return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.xmult }}
     end,
 }
 
