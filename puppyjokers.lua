@@ -1236,6 +1236,54 @@ SMODS.Joker {
 }
 --Hoopoe Bird
 --Tropical Fish
+--Hatching Chick
+SMODS.Joker {
+    key = "hatchingchickjoker",
+    pos = { x = 4, y = 2 },
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 4,
+    discovered = true,
+    config = { extra = { hands = 4, hand_loss = 1 }},
+    loc_txt = {
+        name = "Hatching Chick",
+        text = {
+            "{C:blue}+#1#{} hands,",
+            "reduces by {C:red}#2#",
+            "each round",
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.hands, card.ability.extra.hand_loss }}
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hands
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hands
+    end,
+
+    calculate = function(self, card, context)
+        if context.end_of_round and not context.blueprint and not context.game_over and context.main_eval then
+            card.ability.extra.hands = card.ability.extra.hands - card.ability.extra.hand_loss
+            G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hand_loss
+            if card.ability.extra.hands == 0 then
+                SMODS.destroy_cards(card, nil, nil, true)
+                return {
+                    message = localize("k_sapjokers_fainted"),
+                    colour = G.C.MULT
+                }
+            else
+                return {
+                    message = localize("k_sapjokers_minus_hand")
+                }
+            end
+        end
+    end,
+}
 --Owl
 --Mole
 SMODS.Joker {
@@ -1351,8 +1399,84 @@ SMODS.Joker {
 --Buffalo
 --Llama
 --Caterpillar
+SMODS.Joker {
+    key = "caterpillarjoker",
+    pos = { x = 4, y = 3 },
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 5,
+    discovered = true,
+    config = { extra = { caterpillar_rounds = 2 }},
+    loc_txt = {
+        name = "Caterpillar",
+        text = {
+            "After {C:attention}#1#{} rounds,",
+            "this Joker is destroyed to",
+            "create a {C:attention}Rare{} Joker",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.caterpillar_rounds }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.end_of_round and context.main_eval and not context.game_over and not context.blueprint then
+            card.ability.extra.caterpillar_rounds = card.ability.extra.caterpillar_rounds - 1
+            if card.ability.extra.caterpillar_rounds == 0 then
+                SMODS.destroy_cards(card, nil, nil, true)
+                SMODS.add_card {
+                    set = "Joker",
+                    rarity = 3
+                }
+                return {
+                    message = localize("k_sapjokers_transformed")
+                }
+            else
+                return {
+                    message = localize("k_sapjokers_minus_round")
+                }
+            end
+        end
+    end,
+}
 --Doberman
 --Tahr
+SMODS.Joker {
+    key = "tahrjoker",
+    pos = { x = 6, y = 3 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Tahr",
+        text = {
+            "If played hand is a",
+            "{C:attention}Straight Flush{}, give {C:dark_edition}Foil",
+            "{C:dark_edition}Holographic{} or {C:dark_edition}Polychrome{} edition",
+            "to a random {C:attention}Joker",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.after and next(context.poker_hands["Straight Flush"]) then
+            G.E_MANAGER:add_event(Event({
+                trigger = "after",
+                delay = 0.4,
+                func = function()
+                    local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
+                    local edition_card = pseudorandom_element(editionless_jokers, "c_sapjokers_melonhelmet")
+                    local edition = poll_edition ("c_sapjokers_melonhelmet", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
+                    edition_card:set_edition(edition, true)
+                    play_sound("tarot2", 1, 0.4)
+                    card:juice_up(0.3, 0.5)
+                    return true
+                end
+            }))
+        end
+    end,
+}
 --Whale Shark
 
 local card_set_edition_ref = Card.set_edition
@@ -1445,12 +1569,49 @@ SMODS.Joker {
 --Stonefish
 --Goat
 --Chicken
+SMODS.Joker {
+    key = "chickenjoker",
+    pos = { x = 2, y = 4 },
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 7,
+    discovered = true,
+    config = { extra = { bonus_mult = 6, bonus_mult_gain = 5 }},
+    loc_txt = {
+        name = "Chicken",
+        text = {
+            "When a card is {C:attention}added",
+            "to the deck, give it",
+            "{C:mult}+#1#{} Mult and",
+            "increase this by {C:attention}#2#",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.bonus_mult, card.ability.extra.bonus_mult_gain }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.playing_card_added then
+            for i = 1, #context.cards do
+                context.cards[i].ability.perma_mult = (context.cards[i].ability.perma_mult or 0) + card.ability.extra.bonus_mult
+                if not context.blueprint then
+                    card.ability.extra.bonus_mult = card.ability.extra.bonus_mult + card.ability.extra.bonus_mult_gain
+                end
+            end
+            if not context.blueprint then
+                return {
+                    message = localize("k_upgrade_ex")
+                }
+            end
+        end
+    end,
+}
 --Orchid Mantis
 --Eagle
 --Panther
 SMODS.Joker {
     key = "pantherjoker",
-    pos = {x = 5, y = 4},
+    pos = { x = 5, y = 4 },
     rarity = 3,
     blueprint_compat = true,
     cost = 7,
