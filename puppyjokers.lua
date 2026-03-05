@@ -977,6 +977,35 @@ SMODS.Joker {
     end,
 }
 --Gecko
+SMODS.Joker {
+    key = "geckojoker",
+    pos = { x = 8, y = 0 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 3,
+    discovered = true,
+    config = { extra = { mult = 8 }},
+    loc_txt = {
+        name = "Gecko",
+        text = {
+            "{C:mult}+#1#{} Mult if you",
+            "have an active {C:attention}Toy",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            if #SuperAutoJokers.toy_card_area.cards > 0 then
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+        end
+    end,
+}
 --Ferret
 SMODS.Joker {
     key = "ferretjoker",
