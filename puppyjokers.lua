@@ -1090,8 +1090,87 @@ SMODS.Joker {
 --Gold Fish
 --Robin
 --Bat
+SMODS.Joker {
+    key = "batjoker",
+    pos = { x = 3, y = 1 },
+    rarity = 1,
+    blueprint_compat = false,
+    cost = 5,
+    discovered = true,
+    config = { extra = { mult = -5, dollars = 6 }},
+    loc_txt = {
+        name = "Bat",
+        text = {
+            "{C:mult}#1# {}Mult, earn {C:money}$#2#",
+            "at end of round",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.dollars }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        return card.ability.extra.dollars
+    end,
+}
 --Dromedary
 --Shrimp
+SMODS.Joker {
+    key = "shrimpjoker",
+    pos = { x = 5, y = 1 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { chips = 0, chip_gain = 2 }},
+    loc_txt = {
+        name = "Shrimp",
+        text = {
+            "{C:chips}+#2#{} Chips per {C:attention}dollar{}",
+            "spent in shop, resets when",
+            "{C:attention}entering{} a shop",
+            "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.chip_gain }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.starting_shop and not context.blueprint then
+            card.ability.extra.chips = 0
+            return {
+                message = localize("k_reset")
+            }
+        end
+
+        if context.money_altered and context.amount < 0 and not context.blueprint then
+            card.ability.extra.chips = card.ability.extra.chips + (card.ability.extra.chip_gain * context.amount * -1)
+            return {
+                message = localize{
+                    type = "variable",
+                    key = "a_chips",
+                    vars = {card.ability.extra.chip_gain * context.amount * -1}
+                },
+                colour = G.C.CHIPS
+            }
+        end
+
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end,
+}
 --Sturgeon
 --Tabby Cat
 SMODS.Joker {
@@ -1346,6 +1425,31 @@ SMODS.Joker {
 }
 --Flying Squirrel
 --Pangolin
+SMODS.Joker {
+    key = "pangolinjoker",
+    pos = { x = 8, y = 2 },
+    rarity = 2,
+    blueprint_compat = false,
+    cost = 5,
+    discovered = true,
+    config = { extra = { dollars = 6 }},
+    loc_txt = {
+        name = "Pangolin",
+        text = {
+            "if you have a {C:attention}Toy{},",
+            "earn {C:money}$#1#{} at end of round",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars }}
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        if #SuperAutoJokers.toy_card_area.cards > 0 then
+            return card.ability.extra.dollars
+        end
+    end,
+}
 --Gharial
 SMODS.Joker {
     key = "gharialjoker",
@@ -1737,7 +1841,7 @@ SMODS.Joker {
                     message = localize {
                         type = "variable",
                         key = "a_xmult",
-                        vars = card.ability.extra.xmult_gain
+                        vars = {card.ability.extra.xmult_gain}
                     }
                 }
             end
@@ -1782,6 +1886,52 @@ SMODS.Joker {
 --Anglerfish
 --Sauropod
 --Elephant Seal
+SMODS.Joker {
+    key = "elephantsealjoker",
+    pos = { x = 7, y = 5 },
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 8,
+    discovered = true,
+    config = { extra = { xmult = 5, xmult_loss = 0.5 }},
+    loc_txt = {
+        name = "Elephant Seal",
+        text = {
+            "{X:mult,C:white}X#1#{} Mult, -{X:mult,C:white}X#2#{} Mult",
+            "when a {C:attention}consumable{} card",
+            "is used",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, card.ability.extra.xmult_loss }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.using_consumeable then
+            card.ability.extra.xmult = card.ability.extra.xmult - card.ability.extra.xmult_loss
+            if card.ability.extra.xmult <= 1 then
+                SMODS.destroy_cards(card, nil, nil, true)
+                return {
+                    message = localize("k_sapjokers_destroyed")
+                }
+            else
+                return {
+                    message = localize {
+                        type = "variable",
+                        key = "a_xmult_minus",
+                        vars = {card.ability.extra.xmult_loss}
+                    }
+                }
+            end
+        end
+
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+    end,
+}
 --Puma
 --Mongoose
 SMODS.Joker {
