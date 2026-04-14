@@ -676,6 +676,7 @@ SMODS.Consumable {
             "When held, {C:attention}Small Blinds{}",
             "and {C:attention}Big Blinds{} have",
             "their requirements halved",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -720,6 +721,7 @@ SMODS.Consumable {
         text = {
             "When held, {C:mult}+#2#{} Mult",
             "and {C:attention}-#3#{} Hand Size",
+            "{C:red,s:0.8}Destroyed in #1# round(s)",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -1700,6 +1702,51 @@ SMODS.Joker {
     end,
 }
 --Stonefish
+SMODS.Joker {
+    key = "stonefishjoker",
+    pos = { x = 0, y = 4 },
+    rarity = 3,
+    blueprint_compat = false,
+    cost = 6,
+    discovered = true,
+    config = { extra = { rounds_left = 4 }},
+    loc_txt = {
+        name = "Stonefish",
+        text = {
+            "{C:attention}Halves{} all blind",
+            "requirements, destroyed",
+            "in {C:attention}#1#{} rounds"
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.rounds_left }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind and not context.blueprint then
+            G.GAME.blind.chips = G.GAME.blind.chips / 2
+            G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+            return {
+                message = localize("k_sapjokers_score_reduced")
+            }
+        end
+
+        if context.end_of_round and not context.blueprint and context.main_eval and not context.game_over then
+            card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
+            if card.ability.extra.rounds_left == 0 then
+                SMODS.destroy_cards(card, nil, nil, true)
+                return {
+                    message = localize("k_sapjokers_fainted"),
+                    colour = G.C.MULT
+                }
+            else
+                return {
+                    message = localize("k_sapjokers_minus_round")
+                }
+            end
+        end
+    end,
+}
 --Goat
 --Chicken
 SMODS.Joker {
@@ -1933,6 +1980,51 @@ SMODS.Joker {
     end,
 }
 --Puma
+SMODS.Joker {
+    key = "pumajoker",
+    pos = { x = 8, y = 5 },
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 9,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Puma",
+        text = {
+            "If you have a {C:attention}Toy{},",
+            "copies the abilities of",
+            "two random Jokers",
+            "{C:inactive}(Must be compatible){}",
+        }
+    },
+    calculate = function(self, card, context)
+        --Something is bugging out here with context.individual
+        if (context.joker_main or context.discard or context.buying_card or context.selling_card or context.reroll_shop
+        or context.before or context.setting_blind) and #SuperAutoJokers.toy_card_area.cards > 0 then
+            local first_copy
+            local second_copy
+            local trials = 0
+            while second_copy == nil and trials < 100 do
+                local rand = math.random(1, #G.jokers.cards)
+                if G.jokers.cards[rand] ~= card and G.jokers.cards[rand].config.center.blueprint_compat then
+                    if first_copy == nil then
+                        first_copy = G.jokers.cards[rand]
+                    elseif second_copy == nil and G.jokers.cards[rand] ~= first_copy then
+                        second_copy = G.jokers.cards[rand]
+                    end
+                end
+                trials = trials + 1
+            end
+
+            local first_ret = SMODS.blueprint_effect(card, first_copy, context)
+            local second_ret = SMODS.blueprint_effect(card, second_copy, context)
+
+            print(first_copy)
+            print(second_copy)
+            return SMODS.merge_effects { first_ret or {}, second_ret or {} }
+        end
+    end,
+}
 --Mongoose
 SMODS.Joker {
     key = "mongoosejoker",
