@@ -947,6 +947,68 @@ SMODS.Joker {
 }
 --Beetle
 --Ladybug
+SMODS.Joker {
+    key = "ladybugjoker",
+    pos = { x = 3, y = 0 },
+    rarity = 1,
+    blueprint_compat = false,
+    cost = 3,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Ladybug",
+        text = {
+            "If played hand contains",
+            "exactly {C:attention}4{} scoring cards,",
+            "the {C:attention}left{} card gains the",
+            "suit of the {C:attention}right{} card",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.before and #context.scoring_hand == 4 then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    play_sound('tarot1')
+                    context.scoring_hand[1]:juice_up(0.3, 0.5)
+                    return true
+                end
+            }))
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    context.scoring_hand[1]:flip()
+                    play_sound('card1', 1)
+                    context.scoring_hand[1]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
+            delay(0.2)
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                func = function()
+                    SMODS.change_base(context.scoring_hand[1], context.scoring_hand[4].base.suit)
+                    return true
+                end
+            }))
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    context.scoring_hand[1]:flip()
+                    play_sound('tarot2', 1, 0.6)
+                    context.scoring_hand[1]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
+            delay(0.5)
+        end
+    end,
+}
 --Chipmunk
 SMODS.Joker {
     key = "chipmunkjoker",
@@ -962,6 +1024,7 @@ SMODS.Joker {
             "Sell this {C:attention}Joker{} to",
             "copy its {C:dark_edition}edition{} to",
             "the Joker to the left",
+            "{C:inactive}(Cannot copy Negative){}",
         }
     },
 
@@ -973,7 +1036,7 @@ SMODS.Joker {
                 break
             end
         end
-        if context.selling_self and card.edition ~= nil then
+        if context.selling_self and card.edition ~= nil and not card.edition.negative then
             G.jokers.cards[joker_pos-1]:set_edition(card.edition, true, true)
         end
     end,
@@ -1091,6 +1154,55 @@ SMODS.Joker {
 }
 --Gold Fish
 --Robin
+SMODS.Joker {
+    key = "robinjoker",
+    pos = { x = 2, y = 1 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Robin",
+        text = {
+            "At the start of the",
+            "Blind, create a {C:attention}Joker{}",
+            "and {C:attention}Debuff{} it",
+            "{C:inactive}(Must have room)",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+                local added_card
+                G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        added_card = SMODS.add_card {
+                            key = "j_joker",
+                        }
+                        G.GAME.joker_buffer = 0
+                        SMODS.debuff_card(added_card, true, "j_sapjokers_robinjoker")
+                        return true
+                    end
+                }))
+                delay(0.5)
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.debuff_card(added_card, true, "j_sapjokers_robinjoker")
+                        return true
+                    end
+                }))
+                return {
+                    message = localize("k_plus_joker"),
+                    colour = G.C.ATTENTION,
+                    extra = {message = localize("k_sapjokers_debuffed")}
+                }
+            end
+        end
+    end,
+}
 --Bat
 SMODS.Joker {
     key = "batjoker",
@@ -1174,6 +1286,37 @@ SMODS.Joker {
     end,
 }
 --Sturgeon
+SMODS.Joker {
+    key = "belugasturgeonjoker",
+    pos = { x = 6, y = 1 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Beluga Sturgeon",
+        text = {
+            "When {C:attention}Boss Blind{} is",
+            "selected, add a random",
+            "{C:dark_edition}Editioned{} card to deck",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.setting_blind and G.GAME.blind:get_type() == "Boss" then
+            local added_card = SMODS.add_card { 
+                set = "Base",
+                edition = pseudorandom_element({"e_foil", "e_holo", "e_polychrome"}, "j_sapjokers_belugasturgeonjoker"),
+                area = G.deck
+            }
+            SMODS.calculate_context({playing_card_added = true, cards = { added_card }})
+            return {
+                message = localize("k_sapjokers_plus_card")
+            }
+        end
+    end,
+}
 --Tabby Cat
 SMODS.Joker {
     key = "tabbycatjoker",
@@ -1532,6 +1675,53 @@ SMODS.Joker {
 }
 --Lobster
 --Buffalo
+SMODS.Joker {
+    key = "buffalojoker",
+    pos = { x = 2, y = 3 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { xmult = 1, xmult_gain = 0.1 }},
+    loc_txt = {
+        name = "Buffalo",
+        text = {
+            "This joker gains {X:mult,C:white}X#2#{} Mult for",
+            "each card {C:attention}discarded{}, resets",
+            "at end of round",
+            "{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, card.ability.extra.xmult_gain }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.discard and not context.blueprint then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_gain
+            return {
+                message = localize {
+                    type = "variable",
+                    key = "a_xmult",
+                    vars = {card.ability.extra.xmult_gain}
+                }
+            }
+        end
+
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+
+        if context.end_of_round and context.main_eval and not context.blueprint and not context.game_over then
+            card.ability.extra.xmult = 1
+            return {
+                message = localize("k_reset")
+            }
+        end
+    end,
+}
 --Llama
 --Caterpillar
 SMODS.Joker {
@@ -1665,6 +1855,32 @@ SMODS.Joker {
     end,
 }
 --Chameleon
+--Needs a hook probably to make toys blueprint compatible
+SMODS.Joker {
+    key = "chameleonjoker",
+    pos = { x = 8, y = 3 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 8,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Chameleon",
+        text = {
+            "Copies the ability of",
+            "the current {C:attention}Toy",
+            "{C:inactive}(Copies the leftmost if",
+            "{C:inactive}there are multiple)",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if #SuperAutoJokers.toy_card_area.cards > 0 then
+            local ret = SMODS.blueprint_effect(card, SuperAutoJokers.toy_card_area.cards[1], context)
+            return ret
+        end
+    end,
+}
 --Puppy
 SMODS.Joker {
     key = "puppyjoker",
@@ -1980,6 +2196,9 @@ SMODS.Joker {
     end,
 }
 --Puma
+
+puma_first_copy = nil
+puma_second_copy = nil
 SMODS.Joker {
     key = "pumajoker",
     pos = { x = 8, y = 5 },
@@ -2000,27 +2219,26 @@ SMODS.Joker {
     calculate = function(self, card, context)
         --Something is bugging out here with context.individual
         if (context.joker_main or context.discard or context.buying_card or context.selling_card or context.reroll_shop
-        or context.before or context.setting_blind) and #SuperAutoJokers.toy_card_area.cards > 0 then
-            local first_copy
-            local second_copy
+        or context.before or context.setting_blind or (context.individual and context.cardarea == G.play and context.other_card == context.full_hand[1])
+        or (context.individual and context.cardarea == G.hand and not context.end_of_round)) then
+            puma_first_copy = nil
+            puma_second_copy = nil
             local trials = 0
-            while second_copy == nil and trials < 100 do
+            while puma_second_copy == nil and trials < 100 do
                 local rand = math.random(1, #G.jokers.cards)
                 if G.jokers.cards[rand] ~= card and G.jokers.cards[rand].config.center.blueprint_compat then
-                    if first_copy == nil then
-                        first_copy = G.jokers.cards[rand]
-                    elseif second_copy == nil and G.jokers.cards[rand] ~= first_copy then
-                        second_copy = G.jokers.cards[rand]
+                    if puma_first_copy == nil then
+                        puma_first_copy = G.jokers.cards[rand]
+                    elseif puma_second_copy == nil and G.jokers.cards[rand] ~= puma_first_copy then
+                        puma_second_copy = G.jokers.cards[rand]
                     end
                 end
                 trials = trials + 1
             end
-
-            local first_ret = SMODS.blueprint_effect(card, first_copy, context)
-            local second_ret = SMODS.blueprint_effect(card, second_copy, context)
-
-            print(first_copy)
-            print(second_copy)
+        end
+        if #SuperAutoJokers.toy_card_area.cards > 0 then
+            local first_ret = SMODS.blueprint_effect(card, puma_first_copy, context)
+            local second_ret = SMODS.blueprint_effect(card, puma_second_copy, context)
             return SMODS.merge_effects { first_ret or {}, second_ret or {} }
         end
     end,

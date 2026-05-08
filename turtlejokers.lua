@@ -1355,6 +1355,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.selling_self then
             local dog_card = SMODS.add_card { set = "Base", edition = "e_holo", area = G.deck}
+            SMODS.calculate_context({playing_card_added = true, cards = { dog_card }})
             return {
                 message = localize("k_sapjokers_plus_card"),
                 colour = G.C.EDITION,
