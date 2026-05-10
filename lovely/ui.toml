@@ -11,3 +11,23 @@ match_indent = true
 payload = '''
 if SuperAutoJokers and SuperAutoJokers.toy_card_area then table.insert(t, SuperAutoJokers.toy_card_area) end
 '''
+
+[[patches]]
+[patches.pattern]
+target = 'globals.lua'
+pattern = 'GREY = HEX("5f7377"),'
+position = 'after'
+match_indent = true
+payload = '''
+ORCHIDMANTIS_PINK = HEX("FF95EC"),
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/misc_functions.lua'
+pattern = 'inactive = G.C.UI.TEXT_INACTIVE,'
+position = 'after'
+match_indent = true
+payload = '''
+orchidmantis_pink = G.C.ORCHIDMANTIS_PINK,
+'''

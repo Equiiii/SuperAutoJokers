@@ -26,7 +26,7 @@ function Game:start_run(args)
 
 end
 
---Toys
+--Toy consumable type
 
 SMODS.ConsumableType ({
     key = "toy",
@@ -40,6 +40,13 @@ SMODS.ConsumableType ({
         collection = "Toys",
     },
 })
+
+SMODS.Atlas {
+    key = "toys",
+    path = "Toys.png",
+    px = 71,
+    py = 95,
+}
 
 --This is all needed so that Mandrill can trigger toys' destroy effects
 
@@ -139,10 +146,13 @@ function SMODS:debuff_card(card, debuff, source)
     return ret
 end
 
+--Toys
+
 
 SMODS.Consumable {
     key = "stick",
     set = "toy",
+    atlas = "toys",
     pos = {x = 0, y = 0},
     discovered = true,
     config = { extra = { rounds_left = 2, mult = 10 } },
@@ -185,6 +195,7 @@ SMODS.Consumable {
 SMODS.Consumable {
     key = "balloon",
     set = "toy",
+    atlas = "toys",
     pos = {x = 1, y = 0},
     discovered = true,
     config = { extra = { rounds_left = 2, dollars = 5 } },
@@ -1832,6 +1843,36 @@ SMODS.Joker {
     end,
 }
 --Lobster
+SMODS.Joker {
+    key = "lobsterjoker",
+    pos = { x = 1, y = 3 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
+    discovered = true,
+    config = { extra = { perma_mult = 1 }},
+    loc_txt = {
+        name = "Lobster",
+        text = {
+            "Cards {C:attention}held in hand{}",
+            "gain {C:mult}+#1#{} Mult",
+            "permanently",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.perma_mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            context.other_card.ability.perma_mult = (context.other_card.ability.perma_mult or 0) + card.ability.extra.perma_mult
+            return {
+                message = localize("k_upgrade_ex"),
+                colour = G.C.MULT
+            }
+        end
+    end,
+}
 --Buffalo
 SMODS.Joker {
     key = "buffalojoker",
@@ -1881,6 +1922,34 @@ SMODS.Joker {
     end,
 }
 --Llama
+SMODS.Joker {
+    key = "llamajoker",
+    pos = { x = 3, y = 3 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 5,
+    discovered = true,
+    config = { extra = { repetitions = 1 }},
+    loc_txt = {
+        name = "Llama",
+        text = {
+            "If played hand contains",
+            "exactly {C:attention}four{} cards,",
+            "retrigger the first three",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.repetitions }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play and #context.full_hand == 4 and context.other_card ~= context.full_hand[4] then
+            return {
+                repetitions = card.ability.extra.repetitions
+            }
+        end
+    end,
+}
 --Caterpillar
 SMODS.Joker {
     key = "caterpillarjoker",
@@ -1923,6 +1992,43 @@ SMODS.Joker {
     end,
 }
 --Doberman
+SMODS.Joker {
+    key = "dobermanjoker",
+    pos = { x = 5, y = 3 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 7,
+    discovered = true,
+    config = { extra = { xmult = 1.5 }},
+    loc_txt = {
+        name = "Doberman",
+        text = {
+            "If you own no {C:attention}Rare{}",
+            "{C:attention}Jokers,{} played cards give",
+            "{X:mult,C:white}X#1#{} Mult when scored",
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            local rare_check = true
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i].config.center.rarity == 3 then
+                    rare_check = false
+                end
+            end
+
+            if rare_check == true then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
+        end
+    end,
+}
 --Tahr
 SMODS.Joker {
     key = "tahrjoker",
@@ -2161,7 +2267,129 @@ SMODS.Joker {
     end,
 }
 --Orchid Mantis
+SMODS.Joker {
+    key = "orchidmantisjoker",
+    pos = { x = 3, y = 4 },
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 7,
+    discovered = true,
+    config = {},
+    loc_txt = {
+        name = "Orchid Mantis",
+        text = {
+            "When a {C:attention}Booster Pack{} is",
+            "opened, destroy a random",
+            "{C:attention}Joker{} and create a random",
+            "{C:spectral}Spectral{} card",
+            "{C:inactive}(Must have room){}",
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.open_booster then
+            local destroy_targets = {}
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] ~= card and not SMODS.is_eternal(G.jokers.cards[i], card) and not G.jokers.cards[i].getting_sliced then
+                    destroy_targets[#destroy_targets + 1] = G.jokers.cards[i]
+                end
+            end
+            local to_destroy = pseudorandom_element(destroy_targets, "j_sapjokers_orchidmantisjoker")
+            to_destroy.getting_sliced = true
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    (context.blueprint_card or card):juice_up(0.8, 0.8)
+                    to_destroy:start_dissolve({ G.C.ORCHIDMANTIS_PINK }, nil, 1.6)
+                    return true
+                end
+            }))
+
+            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                SMODS.add_card ({
+                    set = "Spectral"
+                })
+                return {
+                    message = localize("k_plus_spectral")
+                }
+            end
+        end
+    end,
+}
 --Eagle
+--Need to fix this bugging out with multiple copies
+
+SMODS.Joker {
+    key = "eaglejoker",
+    pos = { x = 4, y = 4 },
+    rarity = 3,
+    blueprint_compat = false,
+    cost = 6,
+    discovered = true,
+    config = { extra = { hand_size_mod = 5, card_discards = 2 }},
+    loc_txt = {
+        name = "Eagle",
+        text = {
+            "{C:attention}+#1#{} hand size,",
+            "discard {C:attention}#2#{} random cards when",
+            "hand is played"
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.hand_size_mod, card.ability.extra.card_discards }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.press_play then
+            --Basically just the Hook boss blind
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local any_selected = nil
+                    local _cards = {}
+                    for _, playing_card in ipairs(G.hand.cards) do
+                        _cards[#_cards + 1] = playing_card
+                    end
+                    for i = 1, card.ability.extra.card_discards do
+                        if G.hand.cards[i] then
+                            local selected_card, card_index = pseudorandom_element(_cards, "j_sapjokers_eaglejoker")
+                            G.hand:add_to_highlighted(selected_card, true)
+                            table.remove(_cards, card_index)
+                            any_selected = true
+                            play_sound('card1', 1)
+                        end
+                    end
+                    if any_selected then G.FUNCS.discard_cards_from_highlighted(nil, true) end
+                    return true
+                end
+            }))
+            delay(0.7)
+            G.E_MANAGER:add_event(Event({
+                trigger = 'immediate',
+                func = (function()
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        delay = 0.06 * G.SETTINGS.GAMESPEED,
+                        blockable = false,
+                        blocking = false,
+                        func = function()
+                            play_sound('tarot2', 0.76, 0.4); return true
+                        end
+                    }))
+                    play_sound('tarot2', 1, 0.4)
+                    return true
+                end)
+            }))
+        end
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        G.hand:change_size(card.ability.extra.hand_size_mod)
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        G.hand:change_size(-card.ability.extra.hand_size_mod)
+    end,
+}
 --Panther
 SMODS.Joker {
     key = "pantherjoker",
