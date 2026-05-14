@@ -5,6 +5,7 @@ return {
             k_sapjokers_destroyed = "Destroyed!",
             k_sapjokers_fainted = "Fainted!",
             k_sapjokers_flipped = "Flipped!",
+            k_sapjokers_foil = "Foil!",
             k_sapjokers_inactive = "Inactive!",
             k_sapjokers_level_down = "Level Down!",
             k_sapjokers_minus_hand = "-1 Hand",
@@ -18,6 +19,7 @@ return {
             k_sapjokers_score_reduced = "Score Reduced!",
             k_sapjokers_scorpion_saved = "Saved by Scorpion",
             k_sapjokers_set_to_zero = "Set to Zero!",
+            k_sapjokers_transferred = "Transferred!",
             k_sapjokers_transformed = "Transformed!",
             k_sapjokers_undebuffed = "Undebuffed!",
         }

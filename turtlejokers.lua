@@ -84,6 +84,12 @@ SMODS.ObjectType({
             "j_sapjokers_tigerjoker",
 
             "j_sapjokers_ferretjoker",
+            "j_sapjokers_lemurjoker",
+            "j_sapjokers_gharialjoker",
+            "j_sapjokers_puppyjoker",
+            "j_sapjokers_stingrayjoker",
+            "j_sapjokers_mongoosejoker",
+            "j_sapjokers_anglerfishjoker",
 
             "j_diet_cola",
             "j_luchador",
@@ -94,6 +100,27 @@ SMODS.ObjectType({
 SMODS.ObjectType.inject(self)
     end,
 })
+
+SMODS.ObjectType({
+    key = "turtlejokers",
+    default = "j_sapjokers_beaverjoker",
+    cards = {},
+    inject = function(self)
+SMODS.ObjectType.inject(self)
+    end,
+})
+
+--This is here because Anglerfish is annoying as hell
+
+SMODS.ObjectType({
+    key = "turtlejokers_rare",
+    default = "j_sapjokers_tigerjoker",
+    cards = {},
+    inject = function(self)
+SMODS.ObjectType.inject(self)
+    end,
+})
+
 SMODS.Joker:take_ownership("diet_cola",{
     pools = {sell = true},
 }, true)
@@ -115,7 +142,7 @@ SMODS.Joker {
     cost = 2,
     discovered = true,
     config = { extra = { duck_rounds = 0, total_rounds = 2 }},
-    pools = {sell = true},
+    pools = {sell = true, turtlejokers = true},
     loc_txt = {
         name = "Duck",
         text = {
@@ -177,7 +204,7 @@ SMODS.Joker {
     cost = 2,
     discovered = true,
     config = {},
-    pools = {sell = true},
+    pools = {sell = true, turtlejokers = true},
     loc_txt = {
         name = "Beaver",
         text = {
@@ -223,7 +250,7 @@ SMODS.Joker {
     cost = 2,
     discovered = true,
     config = {},
-    pools = {sell = true},
+    pools = {sell = true, turtlejokers = true},
     loc_txt = {
         name = "Pigeon",
         text = {
@@ -264,6 +291,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { dollars = 3 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Otter",
         text = {
@@ -293,6 +321,8 @@ SMODS.Joker {
     cost = 3,
     discovered = true,
     config = { extra = { sell_cost = 1, odds = 2 }},
+    pools = {turtlejokers = true},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Pig",
         text = {
@@ -331,6 +361,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { consumableslots = 1 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Ant",
         text = {
@@ -359,6 +390,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = { extra = { mult = 2 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Mosquito",
         text = {
@@ -389,6 +421,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { sell_count = 0 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Fish",
         text = {
@@ -446,6 +479,7 @@ SMODS.Joker {
     cost = 3,
     discovered = true,
     config = { extra = { draw_cards = 5 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Cricket",
         text = {
@@ -474,6 +508,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = { extra = { dollars = 0, displayed_dollars = 2 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Horse",
         text = {
@@ -508,6 +543,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = { extra = { chips = 90, chips_loss = 5 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Snail",
         text = {
@@ -556,6 +592,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = { extra = { mult = 15, mult_loss = 1 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Crab",
         text = {
@@ -603,6 +640,7 @@ SMODS.Joker {
     cost = 3,
     discovered = true,
     config = { extra = { dollars = 0 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Swan",
         text = {
@@ -637,6 +675,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = { extra = { mult = 0, mult_mod = 4 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Rat",
         text = {
@@ -684,6 +723,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Hedgehog",
         text = {
@@ -718,6 +758,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { chips = 35 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Peacock",
         text = {
@@ -755,6 +796,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { mult = 0 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Flamingo",
         text = {
@@ -826,6 +868,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { chips = 0 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Worm",
         text = {
@@ -867,6 +910,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Kangaroo",
         text = {
@@ -912,6 +956,7 @@ SMODS.Joker {
         hand_size_mod = 1,
         config_pick = 0,
     }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Spider",
         text = {
@@ -1045,6 +1090,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { xmult = 1, xmult_gain = 0.1 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Dodo",
         text = {
@@ -1090,6 +1136,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Badger",
         text = {
@@ -1119,6 +1166,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { scored_mult = 5, final_mult = -15 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Dolphin",
         text = {
@@ -1154,6 +1202,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { mult = 0 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Giraffe",
         text = {
@@ -1193,6 +1242,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { xmult = 1 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Elephant",
         text = {
@@ -1231,6 +1281,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { repetitions = 1 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Camel",
         text = {
@@ -1265,6 +1316,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { sell_value = 1 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Rabbit",
         text = {
@@ -1300,6 +1352,7 @@ SMODS.Joker {
     cost = 3,
     discovered = true,
     config = { extra = { bankrupt_at = 10 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Ox",
         text = {
@@ -1340,7 +1393,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = {},
-    pools = {sell = true},
+    pools = {sell = true, turtlejokers = true},
     loc_txt = {
         name = "Dog",
         text = {
@@ -1373,6 +1426,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { tags = 1 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Sheep",
         text = {
@@ -1419,7 +1473,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = {},
-    pools = {sell = true},
+    pools = {sell = true, turtlejokers = true},
     loc_txt = {
         name = "Skunk",
         text = {
@@ -1451,6 +1505,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { tags = 1 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Hippo",
         text = {
@@ -1492,6 +1547,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { mult = 0 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Bison",
         text = {
@@ -1529,6 +1585,7 @@ SMODS.Joker {
     cost = 7,
     discovered = true,
     config = {extra = { xmult = 3 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Blowfish",
         text = {
@@ -1572,6 +1629,7 @@ SMODS.Joker {
     cost = 4,
     discovered = true,
     config = { extra = { discard_mod = 4, hand_mod = -2 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Turtle",
         text = {
@@ -1603,6 +1661,7 @@ SMODS.Joker {
     cost = 7,
     discovered = true,
     config = { extra = { dollars = 2 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Squirrel",
         text = {
@@ -1638,6 +1697,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { chips = 25 }},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Penguin",
         text = {
@@ -1669,6 +1729,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Deer",
         text = {
@@ -1730,6 +1791,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Whale",
         text = {
@@ -1772,6 +1834,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true},
     loc_txt = {
         name = "Parrot",
         text = {
@@ -2078,6 +2141,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Scorpion",
         text = {
@@ -2122,6 +2186,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { xmult = 2.5 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Crocodile",
         text = {
@@ -2152,6 +2217,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { chips = 0, chips_gain = 4, chips_loss = 0 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Rhino",
         text = {
@@ -2207,6 +2273,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { dollars = 6 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Monkey",
         text = {
@@ -2247,6 +2314,7 @@ SMODS.Joker {
     cost = 7,
     discovered = true,
     config = { extra = { mult = 0, mult_change = 3 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Armadillo",
         text = {
@@ -2293,7 +2361,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { cow_rounds = 0, total_rounds = 1 }},
-    pools = {sell = true},
+    pools = {sell = true, turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Cow",
         text = {
@@ -2349,6 +2417,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { sell_cost = 2 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Seal",
         text = {
@@ -2383,6 +2452,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Rooster",
         text = {
@@ -2420,6 +2490,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { xmult = 3 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Shark",
         text = {
@@ -2452,6 +2523,7 @@ SMODS.Joker {
     cost = 7,
     discovered = true,
     config = { extra = { sell_count = 0 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Turkey",
         text = {
@@ -2503,6 +2575,7 @@ SMODS.Joker {
     cost = 7,
     discovered = true,
     config = {},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Leopard",
         text = {
@@ -2555,6 +2628,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { mult = 4 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Boar",
         text = {
@@ -2590,7 +2664,7 @@ SMODS.Joker {
     cost = 8,
     discovered = true,
     config = { extra = { tags = 1 }},
-    pools = {sell = true},
+    pools = {sell = true, turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Tiger",
         text = {
@@ -2621,6 +2695,7 @@ SMODS.Joker {
     cost = 7,
     discovered = true,
     config = { extra = { repetitions = 2 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Wolverine",
         text = {
@@ -2661,6 +2736,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { chips = 200, consumableslots = 1 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Gorilla",
         text = {
@@ -2698,6 +2774,7 @@ SMODS.Joker {
     cost = 8,
     discovered = true,
     config = { extra = { creates = 1, reroll_count = 0}},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Dragon",
         text = {
@@ -2756,6 +2833,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { mult = 40, jokerslots = 1 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Mammoth",
         text = {
@@ -2793,6 +2871,7 @@ SMODS.Joker {
     cost = 6,
     discovered = true,
     config = { extra = { tags = 3 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Cat",
         text = {
@@ -2827,6 +2906,7 @@ SMODS.Joker {
     cost = 7,
     discovered = true,
     config = { extra = { xmult = 0.05 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Snake",
         text = {
@@ -2859,6 +2939,7 @@ SMODS.Joker {
     cost = 5,
     discovered = true,
     config = { extra = { repetitions = 1 }},
+    pools = {turtlejokers = true, turtlejokers_rare = true},
     loc_txt = {
         name = "Fly",
         text = {
