@@ -72,6 +72,7 @@ SMODS.ObjectType.inject(self)
 
 local remove_from_deck_ref = Card.remove_from_deck
 function Card:remove_from_deck(from_debuff)
+    local ret = remove_from_deck_ref(self, from_debuff)
     if self.added_to_deck and SuperAutoJokers.toy_card_area and not from_debuff and self.ability.set == "toy" then
         if self.ability.name == "c_sapjokers_balloon" then
             SMODS.calculate_context({ activate_balloon = true })
@@ -154,7 +155,7 @@ function Card:remove_from_deck(from_debuff)
             end
         end
     end
-    return remove_from_deck_ref
+    return ret
 end
 
 --Logic to allow some jokers to remove their own debuffs
