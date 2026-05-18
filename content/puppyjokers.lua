@@ -1084,9 +1084,17 @@ SMODS.Consumable {
 
 --Jokers
 
+SMODS.Atlas {
+    key = "puppyjokers",
+    path = "PuppyJokers.png",
+    px = 71,
+    py = 95,
+}
+
 --Moth
 SMODS.Joker {
     key = "mothjoker",
+    atlas = "puppyjokers",
     pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = true,
@@ -1120,6 +1128,7 @@ SMODS.Joker {
 --Bluebird
 SMODS.Joker {
     key = "bluebirdjoker",
+    atlas = "puppyjokers",
     pos = { x = 3, y = 0 },
     rarity = 1,
     blueprint_compat = false,
@@ -1155,9 +1164,11 @@ SMODS.Joker {
 --Chinchilla
 SMODS.Joker {
     key = "chinchillajoker",
+    atlas = "puppyjokers",
     pos = { x = 4, y = 0 },
     rarity = 1,
     blueprint_compat = true,
+    eternal_compat = false,
     cost = 4,
     discovered = true,
     config = {},
@@ -1194,6 +1205,7 @@ SMODS.Joker {
 --Beetle
 SMODS.Joker {
     key = "beetlejoker",
+    atlas = "puppyjokers",
     pos = { x = 5, y = 0 },
     rarity = 1,
     blueprint_compat = false,
@@ -1231,6 +1243,7 @@ SMODS.Joker {
 --Ladybug
 SMODS.Joker {
     key = "ladybugjoker",
+    atlas = "puppyjokers",
     pos = { x = 6, y = 0 },
     rarity = 1,
     blueprint_compat = false,
@@ -1298,6 +1311,7 @@ SMODS.Joker {
 --Chipmunk
 SMODS.Joker {
     key = "chipmunkjoker",
+    atlas = "puppyjokers",
     pos = { x = 7, y = 0 },
     rarity = 1,
     blueprint_compat = true,
@@ -1334,6 +1348,7 @@ SMODS.Joker {
 --Gecko
 SMODS.Joker {
     key = "geckojoker",
+    atlas = "puppyjokers",
     pos = { x = 8, y = 0 },
     rarity = 1,
     blueprint_compat = true,
@@ -1368,6 +1383,7 @@ SMODS.Joker {
 --Ferret
 SMODS.Joker {
     key = "ferretjoker",
+    atlas = "puppyjokers",
     pos = { x = 9, y = 0 },
     rarity = 1,
     blueprint_compat = true,
@@ -1407,6 +1423,7 @@ SMODS.Joker {
 --Bilby
 SMODS.Joker {
     key = "bilbyjoker",
+    atlas = "puppyjokers",
     pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = true,
@@ -1432,7 +1449,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.playing_card_added and not context.blueprint then
+        if context.playing_card_added and not context.blueprint and (#G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit) then
             if pseudorandom("j_sapjokers_bilbyjoker") < (2 * G.GAME.probabilities.normal) / card.ability.extra.odds then
                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                 G.E_MANAGER:add_event(Event({
@@ -1456,6 +1473,7 @@ SMODS.Joker {
 --Gold Fish
 SMODS.Joker {
     key = "goldfishjoker",
+    atlas = "puppyjokers",
     pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = true,
@@ -1506,6 +1524,7 @@ SMODS.Joker {
 --Robin
 SMODS.Joker {
     key = "robinjoker",
+    atlas = "puppyjokers",
     pos = { x = 2, y = 1 },
     rarity = 1,
     blueprint_compat = true,
@@ -1563,6 +1582,7 @@ SMODS.Joker {
 --Bat
 SMODS.Joker {
     key = "batjoker",
+    atlas = "puppyjokers",
     pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
@@ -1599,6 +1619,7 @@ SMODS.Joker {
 --Dromedary
 SMODS.Joker {
     key = "dromedaryjoker",
+    atlas = "puppyjokers",
     pos = { x = 4, y = 1 },
     rarity = 1,
     blueprint_compat = true,
@@ -1632,6 +1653,7 @@ SMODS.Joker {
 --Shrimp
 SMODS.Joker {
     key = "shrimpjoker",
+    atlas = "puppyjokers",
     pos = { x = 5, y = 1 },
     rarity = 1,
     blueprint_compat = true,
@@ -1685,6 +1707,7 @@ SMODS.Joker {
 --Sturgeon
 SMODS.Joker {
     key = "belugasturgeonjoker",
+    atlas = "puppyjokers",
     pos = { x = 6, y = 1 },
     rarity = 1,
     blueprint_compat = true,
@@ -1721,6 +1744,7 @@ SMODS.Joker {
 --Tabby Cat
 SMODS.Joker {
     key = "tabbycatjoker",
+    atlas = "puppyjokers",
     pos = { x = 7, y = 1 },
     rarity = 1,
     blueprint_compat = true,
@@ -1772,6 +1796,7 @@ SMODS.Joker {
 --Mandrill
 SMODS.Joker {
     key = "mandrilljoker",
+    atlas = "puppyjokers",
     pos = { x = 8, y = 1 },
     rarity = 1,
     blueprint_compat = false,
@@ -1821,6 +1846,7 @@ SMODS.Joker {
 --Lemur
 SMODS.Joker {
     key = "lemurjoker",
+    atlas = "puppyjokers",
     pos = { x = 9, y = 1 },
     rarity = 1,
     blueprint_compat = true,
@@ -1860,6 +1886,7 @@ SMODS.Joker {
 --Toucan
 SMODS.Joker {
     key = "toucanjoker",
+    atlas = "puppyjokers",
     pos = { x = 1, y = 2 },
     rarity = 2,
     blueprint_compat = true,
@@ -1896,6 +1923,7 @@ SMODS.Joker {
 --Hare
 SMODS.Joker {
     key = "harejoker",
+    atlas = "puppyjokers",
     pos = { x = 2, y = 2 },
     rarity = 2,
     blueprint_compat = true,
@@ -1942,6 +1970,7 @@ SMODS.Joker {
 --Hoopoe Bird
 SMODS.Joker {
     key = "hoopoebirdjoker",
+    atlas = "puppyjokers",
     pos = { x = 2, y = 2 },
     rarity = 2,
     blueprint_compat = true,
@@ -1987,6 +2016,7 @@ SMODS.Joker {
 --Tropical Fish
 SMODS.Joker {
     key = "tropicalfishjoker",
+    atlas = "puppyjokers",
     pos = { x = 3, y = 2 },
     rarity = 2,
     blueprint_compat = true,
@@ -2033,6 +2063,7 @@ SMODS.Joker {
 --Hatching Chick
 SMODS.Joker {
     key = "hatchingchickjoker",
+    atlas = "puppyjokers",
     pos = { x = 4, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -2085,6 +2116,7 @@ SMODS.Joker {
 --Owl
 SMODS.Joker {
     key = "owljoker",
+    atlas = "puppyjokers",
     pos = { x = 5, y = 2 },
     rarity = 2,
     blueprint_compat = true,
@@ -2136,6 +2168,7 @@ SMODS.Joker {
 --Mole
 SMODS.Joker {
     key = "molejoker",
+    atlas = "puppyjokers",
     pos = { x = 6, y = 2 },
     rarity = 2,
     blueprint_compat = true,
@@ -2170,6 +2203,7 @@ SMODS.Joker {
 --Flying Squirrel
 SMODS.Joker {
     key = "flyingsquirreljoker",
+    atlas = "puppyjokers",
     pos = { x = 7, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -2203,6 +2237,7 @@ SMODS.Joker {
 --Pangolin
 SMODS.Joker {
     key = "pangolinjoker",
+    atlas = "puppyjokers",
     pos = { x = 8, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -2233,6 +2268,7 @@ SMODS.Joker {
 --Gharial
 SMODS.Joker {
     key = "gharialjoker",
+    atlas = "puppyjokers",
     pos = { x = 9, y = 2 },
     rarity = 2,
     blueprint_compat = true,
@@ -2272,6 +2308,7 @@ SMODS.Joker {
 --Microbe
 SMODS.Joker {
     key = "microbejoker",
+    atlas = "puppyjokers",
     pos = { x = 0, y = 3 },
     rarity = 2,
     blueprint_compat = false,
@@ -2318,6 +2355,7 @@ SMODS.Joker {
 --Lobster
 SMODS.Joker {
     key = "lobsterjoker",
+    atlas = "puppyjokers",
     pos = { x = 1, y = 3 },
     rarity = 2,
     blueprint_compat = true,
@@ -2353,6 +2391,7 @@ SMODS.Joker {
 --Buffalo
 SMODS.Joker {
     key = "buffalojoker",
+    atlas = "puppyjokers",
     pos = { x = 2, y = 3 },
     rarity = 2,
     blueprint_compat = true,
@@ -2405,6 +2444,7 @@ SMODS.Joker {
 --Llama
 SMODS.Joker {
     key = "llamajoker",
+    atlas = "puppyjokers",
     pos = { x = 3, y = 3 },
     rarity = 2,
     blueprint_compat = true,
@@ -2438,9 +2478,11 @@ SMODS.Joker {
 --Caterpillar
 SMODS.Joker {
     key = "caterpillarjoker",
+    atlas = "puppyjokers",
     pos = { x = 4, y = 3 },
     rarity = 2,
     blueprint_compat = false,
+    eternal_compat = false,
     cost = 5,
     discovered = true,
     config = { extra = { caterpillar_rounds = 2 }},
@@ -2483,6 +2525,7 @@ SMODS.Joker {
 --Doberman
 SMODS.Joker {
     key = "dobermanjoker",
+    atlas = "puppyjokers",
     pos = { x = 5, y = 3 },
     rarity = 2,
     blueprint_compat = true,
@@ -2525,6 +2568,7 @@ SMODS.Joker {
 --Tahr
 SMODS.Joker {
     key = "tahrjoker",
+    atlas = "puppyjokers",
     pos = { x = 6, y = 3 },
     rarity = 2,
     blueprint_compat = true,
@@ -2576,6 +2620,7 @@ end
 
 SMODS.Joker {
     key = "whalesharkjoker",
+    atlas = "puppyjokers",
     pos = { x = 7, y = 3 },
     rarity = 2,
     blueprint_compat = true,
@@ -2623,6 +2668,7 @@ SMODS.Joker {
 --Needs a hook probably to make toys blueprint compatible
 SMODS.Joker {
     key = "chameleonjoker",
+    atlas = "puppyjokers",
     pos = { x = 8, y = 3 },
     rarity = 2,
     blueprint_compat = true,
@@ -2758,6 +2804,7 @@ SMODS.Joker {
 --Puppy
 SMODS.Joker {
     key = "puppyjoker",
+    atlas = "puppyjokers",
     pos = { x = 9, y = 3 },
     rarity = 2,
     blueprint_compat = true,
@@ -2797,6 +2844,7 @@ SMODS.Joker {
 --Stonefish
 SMODS.Joker {
     key = "stonefishjoker",
+    atlas = "puppyjokers",
     pos = { x = 0, y = 4 },
     rarity = 3,
     blueprint_compat = false,
@@ -2847,6 +2895,7 @@ SMODS.Joker {
 --Goat
 SMODS.Joker {
     key = "goatjoker",
+    atlas = "puppyjokers",
     pos = { x = 1, y = 4 },
     rarity = 3,
     blueprint_compat = false,
@@ -2905,6 +2954,7 @@ SMODS.Joker {
 --Chicken
 SMODS.Joker {
     key = "chickenjoker",
+    atlas = "puppyjokers",
     pos = { x = 2, y = 4 },
     rarity = 3,
     blueprint_compat = true,
@@ -2947,6 +2997,7 @@ SMODS.Joker {
 --Orchid Mantis
 SMODS.Joker {
     key = "orchidmantisjoker",
+    atlas = "puppyjokers",
     pos = { x = 3, y = 4 },
     rarity = 3,
     blueprint_compat = true,
@@ -3008,6 +3059,7 @@ SMODS.Joker {
 
 SMODS.Joker {
     key = "eaglejoker",
+    atlas = "puppyjokers",
     pos = { x = 4, y = 4 },
     rarity = 3,
     blueprint_compat = false,
@@ -3085,6 +3137,7 @@ SMODS.Joker {
 --Panther
 SMODS.Joker {
     key = "pantherjoker",
+    atlas = "puppyjokers",
     pos = { x = 5, y = 4 },
     rarity = 3,
     blueprint_compat = true,
@@ -3140,6 +3193,7 @@ SMODS.Joker {
 --Axolotl
 SMODS.Joker {
     key = "axolotljoker",
+    atlas = "puppyjokers",
     pos = { x = 6, y = 4 },
     rarity = 3,
     blueprint_compat = true,
@@ -3183,6 +3237,7 @@ SMODS.Joker {
 --Snapping Turtle
 SMODS.Joker {
     key = "snappingturtlejoker",
+    atlas = "puppyjokers",
     pos = { x = 7, y = 4 },
     rarity = 3,
     blueprint_compat = false,
@@ -3218,6 +3273,7 @@ SMODS.Joker {
 --Mosasaurus
 SMODS.Joker {
     key = "mosasaurusjoker",
+    atlas = "puppyjokers",
     pos = { x = 8, y = 4 },
     rarity = 3,
     blueprint_compat = true,
@@ -3268,6 +3324,7 @@ SMODS.Joker {
 --Stingray
 SMODS.Joker {
     key = "stingrayjoker",
+    atlas = "puppyjokers",
     pos = { x = 9, y = 4 },
     rarity = 3,
     blueprint_compat = true,
@@ -3307,6 +3364,7 @@ SMODS.Joker {
 --Mantis Shrimp
 SMODS.Joker {
     key = "mantisshrimpjoker",
+    atlas = "puppyjokers",
     pos = { x = 0, y = 5 },
     rarity = 3,
     blueprint_compat = true,
@@ -3339,6 +3397,7 @@ SMODS.Joker {
 --Lionfish
 SMODS.Joker {
     key = "lionfishjoker",
+    atlas = "puppyjokers",
     pos = { x = 1, y = 5 },
     rarity = 3,
     blueprint_compat = true,
@@ -3380,6 +3439,7 @@ SMODS.Joker {
 --Tyrannosaurus
 SMODS.Joker {
     key = "tyrannosaurusjoker",
+    atlas = "puppyjokers",
     pos = { x = 3, y = 5 },
     rarity = 3,
     blueprint_compat = false,
@@ -3416,8 +3476,10 @@ SMODS.Joker {
     end,
 }
 --Octopus
+--TODO: live update xmult in loc_vars
 SMODS.Joker {
     key = "octopusjoker",
+    atlas = "puppyjokers",
     pos = { x = 4, y = 5 },
     rarity = 3,
     blueprint_compat = true,
@@ -3439,28 +3501,37 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult + card.ability.extra.xmult_per_card * card.ability.extra.count, card.ability.extra.xmult_per_card}}
+        calc_octopus_xmult = function()
+            card.ability.extra.count = 0
+            if G.playing_cards then
+                for _, playing_card in pairs(G.playing_cards) do
+                    if next(SMODS.get_enhancements(playing_card)) then
+                        card.ability.extra.count = card.ability.extra.count + 1
+                    end
+
+                    if playing_card.seal then
+                        card.ability.extra.count = card.ability.extra.count + 1
+                    end
+
+                    if playing_card.edition then
+                        card.ability.extra.count = card.ability.extra.count + 1
+                    end
+                end
+                return card.ability.extra.count
+            else
+                return 0
+            end
+        end
+
+        local count = calc_octopus_xmult()
+        return { vars = { card.ability.extra.xmult + card.ability.extra.xmult_per_card * count, card.ability.extra.xmult_per_card}}
     end,
 
     calculate = function(self, card, context)
         if context.joker_main then
-            card.ability.extra.count = 0
-            for _, playing_card in pairs(G.playing_cards) do
-                if next(SMODS.get_enhancements(playing_card)) then
-                    card.ability.extra.count = card.ability.extra.count + 1
-                end
-
-                if playing_card.seal then
-                    card.ability.extra.count = card.ability.extra.count + 1
-                end
-
-                if playing_card.edition then
-                    card.ability.extra.count = card.ability.extra.count + 1
-                end
-            end
-
+            local count = calc_octopus_xmult()
             return {
-                xmult = card.ability.extra.xmult + card.ability.extra.xmult_per_card * card.ability.extra.count
+                xmult = card.ability.extra.xmult + card.ability.extra.xmult_per_card * count
             }
         end
     end,
@@ -3468,6 +3539,7 @@ SMODS.Joker {
 --Anglerfish
 SMODS.Joker {
     key = "anglerfishjoker",
+    atlas = "puppyjokers",
     pos = { x = 5, y = 5 },
     rarity = 3,
     blueprint_compat = true,
@@ -3510,6 +3582,7 @@ SMODS.Joker {
 --Sauropod
 SMODS.Joker {
     key = "sauropodjoker",
+    atlas = "puppyjokers",
     pos = { x = 6, y = 5 },
     rarity = 3,
     blueprint_compat = true,
@@ -3543,6 +3616,7 @@ SMODS.Joker {
 --Elephant Seal
 SMODS.Joker {
     key = "elephantsealjoker",
+    atlas = "puppyjokers",
     pos = { x = 7, y = 5 },
     rarity = 3,
     blueprint_compat = true,
@@ -3597,6 +3671,7 @@ puma_first_copy = nil
 puma_second_copy = nil
 SMODS.Joker {
     key = "pumajoker",
+    atlas = "puppyjokers",
     pos = { x = 8, y = 5 },
     rarity = 3,
     blueprint_compat = true,
@@ -3646,6 +3721,7 @@ SMODS.Joker {
 --Mongoose
 SMODS.Joker {
     key = "mongoosejoker",
+    atlas = "puppyjokers",
     pos = { x = 9, y = 5 },
     rarity = 3,
     blueprint_compat = true,
