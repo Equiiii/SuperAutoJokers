@@ -1383,7 +1383,7 @@ SMODS.Joker {
         if context.before then
             card.ability.extra.repetitions = (#context.full_hand - #context.scoring_hand - 1)
         end
-        if context.repetition and context.cardarea == G.play then
+        if context.repetition and context.cardarea == G.play and card.ability.extra.repetitions > 0 then
             return {
                 repetitions = card.ability.extra.repetitions
             }

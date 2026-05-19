@@ -1,0 +1,13 @@
+[manifest]
+version = "0.1.0"
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+pattern = '''_card.ability.crimson_heart_chosen = true
+SMODS.recalc_debuff(_card)
+'''
+position = 'after'
+match_indent = true
+payload = 'SMODS.calculate_context({joker_debuffed = true})'

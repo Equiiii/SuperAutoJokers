@@ -69,10 +69,10 @@ SMODS.ObjectType.inject(self)
 })
 
 --This is all needed so that Mandrill can trigger toys' destroy effects
+--TODO: no toy destroy effects working??
 
 local remove_from_deck_ref = Card.remove_from_deck
 function Card:remove_from_deck(from_debuff)
-    local ret = remove_from_deck_ref(self, from_debuff)
     if self.added_to_deck and SuperAutoJokers.toy_card_area and not from_debuff and self.ability.set == "toy" then
         if self.ability.name == "c_sapjokers_balloon" then
             SMODS.calculate_context({ activate_balloon = true })
@@ -155,6 +155,8 @@ function Card:remove_from_deck(from_debuff)
             end
         end
     end
+
+    local ret = remove_from_deck_ref(self, from_debuff)
     return ret
 end
 
@@ -1135,7 +1137,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 5,
     discovered = true,
-    config = { extra = { perma_mult = 1 }},
+    config = { extra = { perma_mult = 3 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -1355,7 +1357,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 3,
     discovered = true,
-    config = { extra = { mult = 8 }},
+    config = { extra = { mult = 15 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -1540,7 +1542,7 @@ SMODS.Joker {
         name = "Robin",
         text = {
             "At the start of the",
-            "Blind, create a {C:attention}Joker{}",
+            "Blind, create a {C:dark_edition}Foil{} {C:attention}Joker{}",
             "and {C:attention}Debuff{} it",
             "{C:inactive}(Must have room)",
         }
@@ -1561,6 +1563,7 @@ SMODS.Joker {
                             key = "j_joker",
                         }
                         G.GAME.joker_buffer = 0
+                        added_card:set_edition("e_foil", true)
                         return true
                     end
                 }))
@@ -1660,7 +1663,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { chips = 0, chip_gain = 2 }},
+    config = { extra = { chips = 0, chip_gain = 3 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -1751,7 +1754,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { mult = 0, mult_gain = 8 }},
+    config = { extra = { mult = 0, mult_gain = 10 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -1812,9 +1815,10 @@ SMODS.Joker {
     loc_txt = {
         name = "Mandrill",
         text = {
-            "After {C:attention}#2#{} rounds,",
-            "destroy this and all",
-            "held {C:attention}Toys",
+            "After {C:attention}#2#{} rounds, give a",
+            "Joker a random {C:dark_edition}Edition{},",
+            "then destroy this and",
+            "all held {C:attention}Toys",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -1832,6 +1836,15 @@ SMODS.Joker {
                     end
                 end
                 SMODS.destroy_cards(card, nil, nil, true)
+                local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
+                for k, v in pairs(editionless_jokers) do
+                    if v == card then
+                        table.remove(editionless_jokers, k)
+                    end
+                end
+                local edition_card = pseudorandom_element(editionless_jokers, "j_sapjokers_mandrilljoker")
+                local edition = poll_edition ("j_sapjokers_mandrilljoker", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
+                edition_card:set_edition(edition, true)
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -1888,7 +1901,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "toucanjoker",
     atlas = "puppyjokers",
-    pos = { x = 1, y = 2 },
+    pos = { x = 0, y = 2 },
     rarity = 2,
     blueprint_compat = true,
     cost = 4,
@@ -1925,7 +1938,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "harejoker",
     atlas = "puppyjokers",
-    pos = { x = 2, y = 2 },
+    pos = { x = 1, y = 2 },
     rarity = 2,
     blueprint_compat = true,
     cost = 4,
@@ -2123,7 +2136,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 4,
     discovered = true,
-    config = { extra = { mult = 0, mult_gain = 8 }},
+    config = { extra = { mult = 0, mult_gain = 12 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -2315,7 +2328,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 5,
     discovered = true,
-    config = { extra = { sell_cost_increase = 3 }},
+    config = { extra = { sell_cost_increase = 4 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -2370,6 +2383,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Lobster",
         text = {
+            "When hand is played,",
             "Cards {C:attention}held in hand{}",
             "gain {C:mult}+#1#{} Mult",
             "permanently",
@@ -2666,7 +2680,6 @@ SMODS.Joker {
     end,
 }
 --Chameleon
---Needs a hook probably to make toys blueprint compatible
 SMODS.Joker {
     key = "chameleonjoker",
     atlas = "puppyjokers",
