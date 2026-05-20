@@ -1229,13 +1229,10 @@ SMODS.Joker {
     
     add_to_deck = function(self, card, from_debuff)
         card:set_edition("e_foil", true, true)
-        --This just doesn't trigger for some reason
-        SMODS.calculate_context({ self_bought = true, cards = {card} })
     end,
 
     calculate = function(self, card, context)
-        if context.self_bought then
-            print("test")
+        if context.buying_self then
             return {
                 message = localize("k_sapjokers_foil"),
                 colour = G.C.DARK_EDITION
@@ -1318,7 +1315,8 @@ SMODS.Joker {
     pos = { x = 7, y = 0 },
     rarity = 1,
     blueprint_compat = true,
-    cost = 5,
+    eternal_compat = false,
+    cost = 3,
     discovered = true,
     config = {},
     pools = {puppyjokers = true, sell = true},
@@ -1917,7 +1915,8 @@ SMODS.Joker {
             "At the start of the",
             "round, transfer this Joker's",
             "{C:dark_edition}edition{} to a random card",
-            "{C:attention}held in hand"
+            "{C:attention}held in hand, or gain",
+            "a random {C:dark_edition}Edition{}"
         }
     },
     calculate = function(self, card, context)
@@ -1930,6 +1929,9 @@ SMODS.Joker {
                 return {
                     message = localize("k_sapjokers_transferred")
                 }
+            else
+                local edition = poll_edition("j_sapjokers_toucanjoker", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
+                card:set_edition(edition, true)
             end
         end
     end,
@@ -2686,7 +2688,7 @@ SMODS.Joker {
     pos = { x = 8, y = 3 },
     rarity = 2,
     blueprint_compat = true,
-    cost = 8,
+    cost = 7,
     discovered = true,
     config = { extra = { balloon_dollars = 5, radio_chips = 25, ovenmitts_levels = 3,
                          cashregister_sell_increase = 3 }},
@@ -3042,14 +3044,16 @@ SMODS.Joker {
                 end
             end
             local to_destroy = pseudorandom_element(destroy_targets, "j_sapjokers_orchidmantisjoker")
-            to_destroy.getting_sliced = true
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    (context.blueprint_card or card):juice_up(0.8, 0.8)
-                    to_destroy:start_dissolve({ G.C.ORCHIDMANTIS_PINK }, nil, 1.6)
-                    return true
-                end
-            }))
+            if to_destroy ~= nil then
+                to_destroy.getting_sliced = true
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        (context.blueprint_card or card):juice_up(0.8, 0.8)
+                        to_destroy:start_dissolve({ G.C.ORCHIDMANTIS_PINK }, nil, 1.6)
+                        return true
+                    end
+                }))
+            end
 
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 G.E_MANAGER:add_event(Event({
@@ -3285,6 +3289,7 @@ SMODS.Joker {
     end,
 }
 --Mosasaurus
+--TODO: change to 'when toy is destroyed, bring it back'
 SMODS.Joker {
     key = "mosasaurusjoker",
     atlas = "puppyjokers",
@@ -3557,6 +3562,7 @@ SMODS.Joker {
     pos = { x = 5, y = 5 },
     rarity = 3,
     blueprint_compat = true,
+    eternal_compat = false,
     cost = 7,
     discovered = true,
     config = {},
@@ -3634,6 +3640,7 @@ SMODS.Joker {
     pos = { x = 7, y = 5 },
     rarity = 3,
     blueprint_compat = true,
+    eternal_compat = false,
     cost = 8,
     discovered = true,
     config = { extra = { xmult = 5, xmult_loss = 0.5 }},
@@ -3681,8 +3688,6 @@ SMODS.Joker {
 }
 --Puma
 
-puma_first_copy = nil
-puma_second_copy = nil
 SMODS.Joker {
     key = "pumajoker",
     atlas = "puppyjokers",
@@ -3701,34 +3706,23 @@ SMODS.Joker {
         text = {
             "If you have a {C:attention}Toy{},",
             "copies the abilities of",
-            "two random Jokers",
+            "adjacent Jokers",
             "{C:inactive}(Must be compatible){}",
         }
     },
     calculate = function(self, card, context)
-        --Something is bugging out here with context.individual
-        if (context.joker_main or context.discard or context.buying_card or context.selling_card or context.reroll_shop
-        or context.before or context.setting_blind or (context.individual and context.cardarea == G.play and context.other_card == context.full_hand[1])
-        or (context.individual and context.cardarea == G.hand and not context.end_of_round)) then
-            puma_first_copy = nil
-            puma_second_copy = nil
-            local trials = 0
-            while puma_second_copy == nil and trials < 100 do
-                local rand = math.random(1, #G.jokers.cards)
-                if G.jokers.cards[rand] ~= card and G.jokers.cards[rand].config.center.blueprint_compat then
-                    if puma_first_copy == nil then
-                        puma_first_copy = G.jokers.cards[rand]
-                    elseif puma_second_copy == nil and G.jokers.cards[rand] ~= puma_first_copy then
-                        puma_second_copy = G.jokers.cards[rand]
-                    end
-                end
-                trials = trials + 1
-            end
-        end
         if #SuperAutoJokers.toy_card_area.cards > 0 then
-            local first_ret = SMODS.blueprint_effect(card, puma_first_copy, context)
-            local second_ret = SMODS.blueprint_effect(card, puma_second_copy, context)
-            return SMODS.merge_effects { first_ret or {}, second_ret or {} }
+            local index
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] == card then
+                    index = i
+                    break
+                end
+            end
+
+            local left = SMODS.blueprint_effect(card, G.jokers.cards[index - 1], context)
+            local right = SMODS.blueprint_effect(card, G.jokers.cards[index + 1], context)
+            return SMODS.merge_effects { left or {}, right or {} }
         end
     end,
 }

@@ -4,5 +4,6 @@ return {
     ["star_pack"] = true,
     ["golden_pack"] = true,
     ["unicorn_pack"] = true,
-    ["danger_pack"] = true
+    ["danger_pack"] = true,
+    ["disable_vanilla"] = false
 }

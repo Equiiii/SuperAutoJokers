@@ -2560,7 +2560,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { sell_cost = 2 }},
+    config = { extra = { xmult = 1, xmult_gain = 0.1 }},
     pools = {turtlejokers = true, turtlejokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -2569,22 +2569,28 @@ SMODS.Joker {
         name = "Seal",
         text = {
             "When a {C:attention}Sell{} Joker is",
-            "sold, add double its sell",
+            "sold, add 1/10th its sell",
             "value to this card's",
-            "sell value",
+            "total {C:white,X:mult}XMult{}",
+            "{C:inactive}(Currently {}{C:white,X:mult}X#1#{}{C:inactive} Mult){}",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.sell_cost }}
+        return { vars = { card.ability.extra.xmult, card.ability.extra.xmult_gain }}
     end,
 
     calculate = function(self, card, context)
         if context.selling_card and (context.card.config.center.pools or {})["sell"] then
-            card.ability.extra_value = card.ability.extra_value + context.card.sell_cost * 2
-            card:set_cost()
+            card.ability.extra.xmult = card.ability.extra.xmult + context.card.sell_cost * card.ability.extra.xmult_gain
             return {
-                message = localize("k_val_up"),
-                colour = G.C.MONEY
+                message = localize("k_upgrade_ex"),
+                colour = G.C.MULT
+            }
+        end
+
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.xmult
             }
         end
     end,
@@ -2859,7 +2865,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 7,
     discovered = true,
-    config = { extra = { repetitions = 2 }},
+    config = { extra = { repetitions = 1 }},
     pools = {turtlejokers = true, turtlejokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -2867,9 +2873,10 @@ SMODS.Joker {
     loc_txt = {
         name = "Wolverine",
         text = {
-            "If played hand is a",
-            "{C:attention}Straight Flush{} without an {C:attention}Ace{},",
-            "retrigger scored cards twice",
+            "Retrigger all cards once if",
+            "hand contains a {C:attention}Straight{},",
+            "and once if hand",
+            "contains a {C:attention}Flush{}",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -2878,19 +2885,21 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and next(context.poker_hands["Straight Flush"]) then
-            local ace_check = true
-            for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i]:get_id() == 14 then
-                    ace_check = false
-                    break
-                end
-            end
+            return {
+                repetitions = card.ability.extra.repetitions
+            }
+        end
 
-            if ace_check == true then
-                return {
-                    repetitions = card.ability.extra.repetitions
-                }
-            end
+        if context.repetition and context.cardarea == G.play and next(context.poker_hands["Flush"]) then
+            return {
+                repetitions = card.ability.extra.repetitions
+            }
+        end
+
+        if context.repetition and context.cardarea == G.play and next(context.poker_hands["Straight"]) then
+            return {
+                repetitions = card.ability.extra.repetitions
+            }
         end
     end,
 }

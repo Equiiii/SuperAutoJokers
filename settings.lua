@@ -10,13 +10,17 @@ SuperAutoJokers.config_tab = function()
 		create_toggle({
 			label = "Turtle Pack",
 			ref_table = SuperAutoJokers.config,
-			ref_value = "turtle_pack",
-			callback = turtlepack_config_update
+			ref_value = "turtle_pack"
 		}),
 		create_toggle({
 			label = "Puppy Pack",
 			ref_table = SuperAutoJokers.config,
 			ref_value = "puppy_pack"
+		}),
+		create_toggle({
+			label = "Disable Vanilla Jokers",
+			ref_table = SuperAutoJokers.config,
+			ref_value = "disable_vanilla"
 		})
 	}}
 end
