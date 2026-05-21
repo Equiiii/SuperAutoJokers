@@ -1480,7 +1480,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { mult = 0, mult_gain = 1, count = 3, current = 0 }},
+    config = { extra = { mult = 0, mult_gain = 2, count = 5, current = 0 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -1635,7 +1635,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Dromedary",
         text = {
-            "The first two cards {C:attention}held{}",
+            "The first three cards {C:attention}held{}",
             "{C:attention}in hand{} give {C:mult}+#1#{} Mult",
             "for each card held in hand",
         }
@@ -1645,7 +1645,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.hand and not context.end_of_round and (context.other_card == G.hand.cards[1] or context.other_card == G.hand.cards[2]) then
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and (context.other_card == G.hand.cards[1] or context.other_card == G.hand.cards[2] or context.other_card == G.hand.cards[3]) then
             return {
                 mult = card.ability.extra.mult * #G.hand.cards
             }
@@ -1915,7 +1915,7 @@ SMODS.Joker {
             "At the start of the",
             "round, transfer this Joker's",
             "{C:dark_edition}edition{} to a random card",
-            "{C:attention}held in hand, or gain",
+            "{C:attention}held in hand{}, or gain",
             "a random {C:dark_edition}Edition{}"
         }
     },
@@ -2691,7 +2691,7 @@ SMODS.Joker {
     cost = 7,
     discovered = true,
     config = { extra = { balloon_dollars = 5, radio_chips = 25, ovenmitts_levels = 3,
-                         cashregister_sell_increase = 3 }},
+                         cashregister_sell_increase = 3, default_mult = 15 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -2700,14 +2700,15 @@ SMODS.Joker {
         name = "Chameleon",
         text = {
             "Copies the ability of",
-            "the current {C:attention}Toy",
+            "the current {C:attention}Toy,",
+            "or gives {C:mult}+#5#{} Mult",
             "{C:inactive}(Copies the leftmost if",
             "{C:inactive}there are multiple)",
         }
     },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.balloon_dollars, card.ability.extra.radio_chips, card.ability.extra.ovenmitts_levels,
-                          card.ability.extra.cashregister_sell_increase }}
+                          card.ability.extra.cashregister_sell_increase, card.ability.extra.default_mult }}
     end,
     calculate = function(self, card, context)
         if context.toy_repetition then
@@ -2815,6 +2816,12 @@ SMODS.Joker {
                 message = localize("k_again_ex")
             }
         end
+
+        if context.joker_main and #SuperAutoJokers.toy_card_area.cards == 0 then
+            return {
+                mult = card.ability.extra.default_mult
+            }
+        end
     end,
 }
 --Puppy
@@ -2866,7 +2873,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 6,
     discovered = true,
-    config = { extra = { rounds_left = 4 }},
+    config = { extra = { rounds_left = 4, xmult = 2 }},
     pools = {puppyjokers = true, puppyjokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -2875,12 +2882,13 @@ SMODS.Joker {
         name = "Stonefish",
         text = {
             "{C:attention}Halves{} all blind",
-            "requirements, destroyed",
+            "requirements and gives",
+            "{C:white,X:mult}X#2#{} Mult, destroyed",
             "in {C:attention}#1#{} rounds"
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.rounds_left }}
+        return { vars = { card.ability.extra.rounds_left, card.ability.extra.xmult }}
     end,
 
     calculate = function(self, card, context)
@@ -2892,12 +2900,18 @@ SMODS.Joker {
             }
         end
 
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+
         if context.end_of_round and not context.blueprint and context.main_eval and not context.game_over then
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
-                SMODS.destroy_cards(card, nil, nil, true)
+                SMODS.debuff_card(card, true, "j_sapjokers_stonefishjoker_undebuff")
                 return {
-                    message = localize("k_sapjokers_fainted"),
+                    message = localize("k_sapjokers_debuffed"),
                     colour = G.C.MULT
                 }
             else
@@ -2936,7 +2950,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.buying_card and not context.buying_self then
+        if context.buying_card and not context.buying_self and context.card ~= card then
             card.ability.extra.free_cards = card.ability.extra.free_cards - 1
             if card.ability.extra.free_cards == 0 then
                 SMODS.debuff_card(card, true, "sapjokers_goatjoker_undebuff")
@@ -3495,7 +3509,6 @@ SMODS.Joker {
     end,
 }
 --Octopus
---TODO: live update xmult in loc_vars
 SMODS.Joker {
     key = "octopusjoker",
     atlas = "puppyjokers",

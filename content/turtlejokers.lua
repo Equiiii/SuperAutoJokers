@@ -1287,7 +1287,7 @@ SMODS.Joker {
             "This Joker gains",
             "{C:mult}+3{} Mult when {C:attention}Blind{} is",
             "selected with an empty",
-            "{C:attention}joker{} slot",
+            "{C:attention}Joker{} slot",
             "{C:inactive}(Currently {C:mult}+#1#{}{C:inactive} Mult){}",
         }
     },
@@ -2375,6 +2375,7 @@ SMODS.Joker {
                     key = "a_chips",
                     vars = {card.ability.extra.chips_gain},
                 },
+                message_card = card
             }
         end
         if context.before and not context.blueprint then
