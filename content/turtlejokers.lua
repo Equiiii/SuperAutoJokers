@@ -56,19 +56,6 @@ SMODS.Back {
         }))
     end
 }
---For Sloth
-SMODS.Rarity {
-    key = "token",
-    loc_txt = {
-        name = "Token"
-    },
-    pools = { ["Joker"] = true, },
-    default_weight = 0.0001,
-    badge_colour = HEX("FF6A00"),
-    get_weight = function(self, weight, object_type)
-        return weight
-    end,
-}
 
 --Pool of Sell Jokers
 SMODS.ObjectType({
@@ -146,9 +133,6 @@ SMODS.Joker {
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
     end,
-    in_pool = function(self)
-        return SuperAutoJokers.config["turtle_pack"]
-    end,
     loc_txt = {
         name = "Duck",
         text = {
@@ -211,9 +195,6 @@ SMODS.Joker {
     discovered = true,
     config = {},
     pools = {sell = true, turtlejokers = true},
-    in_pool = function(self)
-        return SuperAutoJokers.config["turtle_pack"]
-    end,
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
     end,
@@ -1920,7 +1901,7 @@ SMODS.Joker {
         text = {
             "When Blind is selected,",
             "create a random",
-            "{C:attention}Sell{} joker",
+            "{C:attention}Sell{} Joker",
             "{C:inactive}(Must have room){}",
         }
     },
@@ -2954,7 +2935,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 8,
     discovered = true,
-    config = { extra = { creates = 1, reroll_count = 0}},
+    config = { extra = { creates = 1, reroll_count = 0 }},
     pools = {turtlejokers = true, turtlejokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -3151,23 +3132,6 @@ SMODS.Joker {
             }
         end
     end,
-}
-
-SMODS.Joker {
-    key = "slothjoker",
-    atlas = "turtlejokers",
-    pos = {x = 0, y = 6},
-    rarity = "sapjokers_token",
-    blueprint_compat = true,
-    cost = 1,
-    discovered = false,
-    config = {},
-    loc_txt = {
-        name = "Sloth",
-        text = {
-            "{C:attention}Truly believes in you!{}"
-        }
-    }
 }
 
 function SMODS.current_mod.reset_game_globals(run_start)
