@@ -136,12 +136,16 @@ function Card:remove_from_deck(from_debuff)
             local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
             local edition_card = pseudorandom_element(editionless_jokers, "c_sapjokers_melonhelmet")
             local edition = poll_edition ("c_sapjokers_melonhelmet", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
-            edition_card:set_edition(edition, true)
+            if edition_card ~= nil then
+                edition_card:set_edition(edition, true)
+            end
 
             local editionless_cards = SMODS.Edition:get_edition_cards(G.deck, true)
             local other_edition_card = pseudorandom_element(editionless_cards, "c_sapjokers_melonhelmet")
             local other_edition = poll_edition ("c_sapjokers_melonhelmet", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
-            other_edition_card:set_edition(other_edition, true)
+            if other_edition_card ~= nil then
+                other_edition_card:set_edition(other_edition, true)
+            end
         end
 
         if self.ability.name == "c_sapjokers_ovenmitts" then
@@ -273,7 +277,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -312,7 +316,7 @@ SMODS.Consumable {
             if card.ability.extra.rounds_left == 0 then
                 SMODS.calculate_context({ toy_repetition = true, card = {card} })
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -351,7 +355,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed"),
                 }
@@ -412,7 +416,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -458,7 +462,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -506,7 +510,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -616,7 +620,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -663,7 +667,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -712,7 +716,7 @@ SMODS.Consumable {
             if card.ability.extra.rounds_left == 0 then
                 SMODS.calculate_context({ toy_repetition = true })
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -766,7 +770,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -813,7 +817,7 @@ SMODS.Consumable {
             if card.ability.extra.rounds_left == 0 then
                 SMODS.calculate_context({ toy_repetition = true })
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed"),
                     extra = {message = localize("k_val_up")}
@@ -854,7 +858,7 @@ SMODS.Consumable {
             if card.ability.extra.rounds_left == 0 then
                 SMODS.calculate_context({ toy_repetition = true })
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed"),
                 }
@@ -903,7 +907,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed"),
                 }
@@ -935,18 +939,18 @@ SMODS.Consumable {
     atlas = "toys",
     pos = {x = 3, y = 1},
     discovered = true,
-    config = { extra = { rounds_left = 2, mult = 30, hand_size = 1 }},
+    config = { extra = { rounds_left = 2, xmult = 3, hand_size = 1 }},
     can_use = false,
     loc_txt = {
         name = "Camera",
         text = {
-            "When held, {C:mult}+#2#{} Mult",
+            "When held, {X:mult,C:white}X#2#{} Mult",
             "and {C:attention}-#3#{} Hand Size",
             "{C:red,s:0.8}Destroyed in #1# round(s)",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.rounds_left, card.ability.extra.mult, card.ability.extra.hand_size }}
+        return { vars = { card.ability.extra.rounds_left, card.ability.extra.xmult, card.ability.extra.hand_size }}
     end,
 
     add_to_deck = function(self, card, from_debuff)
@@ -957,7 +961,7 @@ SMODS.Consumable {
         if context.joker_main then
             SMODS.calculate_context({ toy_repetition = true })
             return {
-                mult = card.ability.extra.mult
+                xmult = card.ability.extra.xmult
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
@@ -965,7 +969,7 @@ SMODS.Consumable {
             if card.ability.extra.rounds_left == 0 then
                 G.hand:change_size(card.ability.extra.hand_size)
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed"),
                 }
@@ -978,7 +982,7 @@ SMODS.Consumable {
 
         if context.chameleon_repeat and card == SuperAutoJokers.toy_card_area.cards[1] then
             return {
-                mult = card.ability.extra.mult,
+                xmult = card.ability.extra.xmult,
                 extra = {
                     message = localize("k_again_ex")
                 }
@@ -1013,7 +1017,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -1059,7 +1063,7 @@ SMODS.Consumable {
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -1115,7 +1119,7 @@ SMODS.Consumable {
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left == 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
-                SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                 return {
                     message = localize("k_sapjokers_destroyed")
                 }
@@ -1416,7 +1420,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 3,
     discovered = true,
-    config = {},
+    config = { extra = { rounds = 2 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -1424,54 +1428,38 @@ SMODS.Joker {
     loc_txt = {
         name = "Ladybug",
         text = {
-            "If played hand contains",
-            "exactly {C:attention}4{} scoring cards,",
-            "the {C:attention}left{} card gains the",
-            "suit of the {C:attention}right{} card",
+            "In #1# rounds, give {C:dark_edition}Holographic{}",
+            "to the Joker to the {C:attention}right,",
+            "then debuff this"
         }
     },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.rounds }}
+    end,
 
     calculate = function(self, card, context)
-        if context.before and #context.scoring_hand == 4 then
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.4,
-                func = function()
-                    play_sound('tarot1')
-                    context.scoring_hand[1]:juice_up(0.3, 0.5)
-                    return true
+        if context.end_of_round and not context.blueprint and context.main_eval and not context.game_over then
+            card.ability.extra.rounds = card.ability.extra.rounds - 1
+            if card.ability.extra.rounds == 0 then
+                local joker_pos
+                for i = 1, #G.jokers.cards do
+                    if G.jokers.cards[i] == card then
+                        joker_pos = i
+                        break
+                    end
                 end
-            }))
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.15,
-                func = function()
-                    context.scoring_hand[1]:flip()
-                    play_sound('card1', 1)
-                    context.scoring_hand[1]:juice_up(0.3, 0.3)
-                    return true
+                if G.jokers.cards[joker_pos + 1] ~= nil then
+                    G.jokers.cards[joker_pos + 1]:set_edition("e_holo", true)
                 end
-            }))
-            delay(0.2)
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.1,
-                func = function()
-                    SMODS.change_base(context.scoring_hand[1], context.scoring_hand[4].base.suit)
-                    return true
-                end
-            }))
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.15,
-                func = function()
-                    context.scoring_hand[1]:flip()
-                    play_sound('tarot2', 1, 0.6)
-                    context.scoring_hand[1]:juice_up(0.3, 0.3)
-                    return true
-                end
-            }))
-            delay(0.5)
+                SMODS.debuff_card(card, true, "j_sapjokers_ladybugjoker")
+                return {
+                    message = localize("k_sapjokers_debuffed")
+                }
+            else
+                return {
+                    message = localize("k_sapjokers_minus_round")
+                }
+            end
         end
     end,
 }
@@ -2013,7 +2001,7 @@ SMODS.Joker {
                 if #SuperAutoJokers.toy_card_area.cards ~= 0 then
                     for i = 1, #SuperAutoJokers.toy_card_area.cards do
                         SMODS.destroy_cards(SuperAutoJokers.toy_card_area.cards[i], nil, nil, true)
-                        SMODS.calculate_context({ toy_destroyed = true, cards = {card} })
+                        SMODS.calculate_context({ toy_destroyed = true, card_name = card.config.center.key })
                     end
                 end
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -2025,10 +2013,16 @@ SMODS.Joker {
                 end
                 local edition_card = pseudorandom_element(editionless_jokers, "j_sapjokers_mandrilljoker")
                 local edition = poll_edition ("j_sapjokers_mandrilljoker", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
-                edition_card:set_edition(edition, true)
-                return {
-                    message = localize("k_sapjokers_destroyed")
-                }
+                if edition_card ~= nil then
+                    edition_card:set_edition(edition, true)
+                    return {
+                        message = localize("k_sapjokers_destroyed")
+                    }
+                else
+                    return {
+                        message = localize("k_sapjokers_no_targets")
+                    }
+                end
             else
                 return {
                     message = (card.ability.extra.mandrill_rounds .. "/" .. card.ability.extra.total_rounds),
@@ -2423,13 +2417,20 @@ SMODS.Joker {
     },
 
     calculate = function(self, card, context)
-        if context.toy_destroyed then
-            SMODS.add_card ({
-                key = pseudorandom_element({
-                    "c_sapjokers_balloon", "c_sapjokers_stick", "c_sapjokers_balloon",
-                    "c_sapjokers_radio", "c_sapjokers_plasticsaw"}, "j_sapjokers_flyingsquirreljoker"),
-                area = SuperAutoJokers.toy_card_area
-            })
+        if context.toy_destroyed and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer - 2 < SuperAutoJokers.toy_card_area.config.card_limit) then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                func = (function()
+                    SMODS.add_card ({
+                        key = pseudorandom_element({
+                            "c_sapjokers_balloon", "c_sapjokers_stick", "c_sapjokers_balloon",
+                            "c_sapjokers_radio", "c_sapjokers_plasticsaw"}, "j_sapjokers_flyingsquirreljoker"),
+                        area = SuperAutoJokers.toy_card_area
+                    })
+                    G.GAME.consumeable_buffer = 0
+                    return true
+                end)
+            }))
         end
     end,
 }
@@ -2920,12 +2921,16 @@ SMODS.Joker {
                     local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
                     local edition_card = pseudorandom_element(editionless_jokers, "c_sapjokers_melonhelmet")
                     local edition = poll_edition ("c_sapjokers_melonhelmet", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
-                    edition_card:set_edition(edition, true)
+                    if edition_card ~= nil then
+                        edition_card:set_edition(edition, true)
+                    end
 
                     local editionless_cards = SMODS.Edition:get_edition_cards(G.deck, true)
                     local other_edition_card = pseudorandom_element(editionless_cards, "c_sapjokers_melonhelmet")
                     local other_edition = poll_edition ("c_sapjokers_melonhelmet", 1, true, true, {"e_polychrome", "e_holo", "e_foil"})
-                    other_edition_card:set_edition(other_edition, true)
+                    if other_edition_card ~= nil then
+                        other_edition_card:set_edition(other_edition, true)
+                    end
                     return true
                 end)
             }))
@@ -3066,7 +3071,7 @@ SMODS.Joker {
         text = {
             "{C:attention}Halves{} all blind",
             "requirements and gives",
-            "{C:white,X:mult}X#2#{} Mult, destroyed",
+            "{C:white,X:mult}X#2#{} Mult, debuffed",
             "in {C:attention}#1#{} rounds"
         }
     },
@@ -3165,6 +3170,7 @@ SMODS.Joker {
     end,
 }
 --Chicken
+--TODO: mega buff
 SMODS.Joker {
     key = "chickenjoker",
     atlas = "puppyjokers",
@@ -3173,7 +3179,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 7,
     discovered = true,
-    config = { extra = { bonus_mult = 6, bonus_mult_gain = 5 }},
+    config = { extra = { xmult = 1, xmult_gain = 0.3, xmult_hyperscale = 0.1 }},
     pools = {puppyjokers = true, puppyjokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -3181,29 +3187,30 @@ SMODS.Joker {
     loc_txt = {
         name = "Chicken",
         text = {
-            "When a card is {C:attention}added",
-            "to the deck, give it",
-            "{C:mult}+#1#{} Mult and",
-            "increase this by {C:attention}#2#",
+            "When a {C:attention}voucher{} is redeemed,",
+            "this Joker gains {C:white,X:mult}X#2#{} Mult",
+            "and this number is",
+            "increased by {C:attention}#3#",
+            "{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}"
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.bonus_mult, card.ability.extra.bonus_mult_gain }}
+        return { vars = { card.ability.extra.xmult, card.ability.extra.xmult_gain, card.ability.extra.xmult_hyperscale }}
     end,
 
     calculate = function(self, card, context)
-        if context.playing_card_added then
-            for i = 1, #context.cards do
-                context.cards[i].ability.perma_mult = (context.cards[i].ability.perma_mult or 0) + card.ability.extra.bonus_mult
-                if not context.blueprint then
-                    card.ability.extra.bonus_mult = card.ability.extra.bonus_mult + card.ability.extra.bonus_mult_gain
-                end
-            end
-            if not context.blueprint then
-                return {
-                    message = localize("k_upgrade_ex")
-                }
-            end
+        if context.buying_card and context.card.ability.set == "Voucher" then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_gain
+            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain + card.ability.extra.xmult_hyperscale
+            return {
+                message = localize("k_upgrade_ex")
+            }
+        end
+
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.xmult
+            }
         end
     end,
 }
@@ -3468,7 +3475,7 @@ SMODS.Joker {
         text = {
             "When {C:attention}Blind{} is selected,",
             "replace all {C:attention}Debuffs{} on",
-            "Jokers with random {C:dark_edition}editions"
+            "Jokers with random {C:dark_edition}Editions"
         }
     },
 
@@ -3495,7 +3502,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     discovered = true,
-    config = { extra = { perma_chips = 60, mosasaurus_active = false }},
+    config = {},
     pools = {puppyjokers = true, puppyjokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -3504,36 +3511,24 @@ SMODS.Joker {
         name = "Mosasaurus",
         text = {
             "When a {C:attention}Toy{} is",
-            "destroyed, {C:chips}+#1#{} Chips permanently",
-            "to the next hand drawn"
+            "destroyed, gain a new",
+            "copy of it"
         }
     },
 
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.perma_chips, card.ability.extra.mosasaurus_active }}
-    end,
-
     calculate = function(self, card, context)
-        local eval = function()
-            return card.ability.extra.mosasaurus_active
-        end
-        if (context.hand_drawn or context.other_drawn) and card.ability.extra.mosasaurus_active == true then
-            for i = 1, #G.hand.cards do
-                G.hand.cards[i].ability.perma_bonus = (G.hand.cards[i].ability.perma_bonus or 0) + card.ability.extra.perma_chips
-            end
-
-            card.ability.extra.mosasaurus_active = false
-            return {
-                message = localize("k_upgrade_ex")
-            }
-        end
-
-        if context.toy_destroyed then
-            card.ability.extra.mosasaurus_active = true
-            juice_card_until(card, eval, true)
-            return {
-                message = localize("k_active_ex")
-            }
+        if context.toy_destroyed and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer - 2 < SuperAutoJokers.toy_card_area.config.card_limit) then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                func = (function()
+                    SMODS.add_card ({
+                        key = context.card_name,
+                        area = SuperAutoJokers.toy_card_area
+                    })
+                    G.GAME.consumeable_buffer = 0
+                    return true
+                end)
+            }))
         end
     end,
 }
