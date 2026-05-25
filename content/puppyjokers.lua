@@ -2445,7 +2445,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 5,
     discovered = true,
-    config = { extra = { dollars = 6 }},
+    config = { extra = { dollars = 7 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
