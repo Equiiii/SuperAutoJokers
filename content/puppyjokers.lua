@@ -2315,7 +2315,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 4,
     discovered = true,
-    config = { extra = { mult = 0, mult_gain = 12 }},
+    config = { extra = { mult = 0, mult_gain = 5 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -2323,9 +2323,9 @@ SMODS.Joker {
     loc_txt = {
         name = "Owl",
         text = {
-            "When this is {C:attention}Debuffed,",
-            "remove it and",
-            "gain {C:mult}+#2#{} Mult",
+            "This cannot be {C:attention}Debuffed{},",
+            "when any Joker is {C:attention}Debuffed",
+            "this Joker gains {C:mult}+#2#{} Mult",
             "{C:inactive}(Currently{}{C:mult} +#1#{}{C:inactive} Mult)",
         }
     },
@@ -2335,18 +2335,20 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.owl_joker_debuffed then
-            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+        if context.owl_joker_debuffed then    
             SMODS.debuff_card(card, false, "j_sapjokers_general_undebuff")
             return {
                 message = localize("k_sapjokers_undebuffed"),
-                extra = {
-                    message = localize {
-                        type = "variable",
-                        key = "a_mult",
-                        vars = {card.ability.extra.mult_gain}
-                    },
-                    colour = G.C.MULT
+            }
+        end
+
+        if context.joker_debuffed then
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+            return {
+                message = localize {
+                    type = "variable",
+                    key = "a_mult",
+                    vars = {card.ability.extra.mult_gain}
                 }
             }
         end
