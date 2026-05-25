@@ -3320,6 +3320,11 @@ SMODS.Joker {
                     for i = 1, card.ability.extra.card_discards do
                         if G.hand.cards[i] then
                             local selected_card, card_index = pseudorandom_element(_cards, "j_sapjokers_eaglejoker")
+                            for i = 1, #G.hand.highlighted do
+                                if G.hand.highlighted[i] == selected_card then
+                                    G.hand:remove_from_highlighted(G.hand.highlighted[i], true)
+                                end
+                            end
                             G.hand:add_to_highlighted(selected_card, true)
                             table.remove(_cards, card_index)
                             any_selected = true
