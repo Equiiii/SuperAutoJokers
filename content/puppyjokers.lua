@@ -3323,6 +3323,7 @@ SMODS.Joker {
                             for i = 1, #G.hand.highlighted do
                                 if G.hand.highlighted[i] == selected_card then
                                     G.hand:remove_from_highlighted(G.hand.highlighted[i], true)
+                                    break
                                 end
                             end
                             G.hand:add_to_highlighted(selected_card, true)

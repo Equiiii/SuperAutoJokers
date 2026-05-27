@@ -362,7 +362,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 5,
     discovered = true,
-    config = { extra = { consumableslots = 1 }},
+    config = { extra = { consumableslots = 1, mult = 6 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -370,11 +370,21 @@ SMODS.Joker {
     loc_txt = {
         name = "Ant",
         text = {
-            "+1 {C:attention}consumable{} slot",
+            "+#1# {C:attention}consumable{} slot,",
+            "{C:mult}+#2#{} Mult for each",
+            "held {C:attention}consumable",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.consumableslots }}
+        return { vars = { card.ability.extra.consumableslots, card.ability.extra.mult }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult * #G.consumeables.cards
+            }
+        end
     end,
 
     add_to_deck = function(self, card, from_debuff)
@@ -513,6 +523,7 @@ SMODS.Joker {
     end,
 }
 --Horse
+--TODO: rework this
 SMODS.Joker {
     key = "horsejoker",
     atlas = "turtlejokers",
@@ -521,7 +532,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 4,
     discovered = true,
-    config = { extra = { dollars = 0, displayed_dollars = 2 }},
+    config = { extra = { chips = 100 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -529,23 +540,31 @@ SMODS.Joker {
     loc_txt = {
         name = "Horse",
         text = {
-            "Skipping a {C:attention}Blind{} gives",
-            "{C:money}$2{} for each Blind",
-            "{C:attention}skipped{} this run",
-            "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive})",
+            "{C:chips}+#1#{} Chips if played",
+            "hand is {C:attention}not{} your",
+            "most played hand",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.dollars, card.ability.extra.displayed_dollars }}
+        return { vars = { card.ability.extra.chips }}
     end,
 
     calculate = function(self, card, context)
-        if context.skip_blind then
-            card.ability.extra.dollars = 2 * G.GAME.skips
-            card.ability.extra.displayed_dollars = card.ability.extra.dollars + 2
-            return {
-                dollars = card.ability.extra.dollars
-            }
+        if context.joker_main then
+            local _hand, _played = "High Card", -1
+            for hand_key, hand in pairs(G.GAME.hands) do
+                if hand.played > _played then
+                    _played = hand.played
+                    _hand = hand_key
+                end
+            end
+            local most_played = _hand
+
+            if not (next(context.poker_hands[most_played])) then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
         end
     end,
 }
@@ -662,7 +681,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 3,
     discovered = true,
-    config = { extra = { dollars = 0 }},
+    config = { extra = { dollars = 1 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -670,25 +689,19 @@ SMODS.Joker {
     loc_txt = {
         name = "Swan",
         text = {
-            "Earn {C:money}$1{} at the",
+            "Earn {C:money}$#1#{} at the",
             "end of round for",
             "each owned {C:attention}Joker{}",
-            "{C:inactive}(Currently {}{C:money}$#1#{}{C:inactive})",
+            "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive})",
         }
     },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.dollars, card.ability.extra.dollars * (G.Jokers and #G.Jokers.cards or 0) }}
-    end,
-
-    calculate = function(self, card, context)
-        if context.joker_main then
-            card.ability.extra.dollars = #G.jokers.cards
-        end
+        return { vars = { card.ability.extra.dollars, card.ability.extra.dollars * (G.jokers and #G.jokers.cards or 0) }}
     end,
 
     calc_dollar_bonus = function(self, card)
-        return card.ability.extra.dollars
+        return card.ability.extra.dollars * (G.jokers and #G.jokers.cards or 0)
     end,
 }
 --Rat
@@ -1218,7 +1231,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { scored_mult = 5, final_mult = -15 }},
+    config = { extra = { scored_mult = 5, final_mult = -10 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -1257,7 +1270,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { mult = 0 }},
+    config = { extra = { mult = 0, mult_gain = 3 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -1266,19 +1279,19 @@ SMODS.Joker {
         name = "Giraffe",
         text = {
             "This Joker gains",
-            "{C:mult}+3{} Mult when {C:attention}Blind{} is",
+            "{C:mult}+#2#{} Mult when {C:attention}Blind{} is",
             "selected with an empty",
             "{C:attention}Joker{} slot",
             "{C:inactive}(Currently {C:mult}+#1#{}{C:inactive} Mult){}",
         }
     },
-    loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.mult }}
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult_gain }}
     end,
 
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint and #G.jokers.cards < G.jokers.config.card_limit then
-            card.ability.extra.mult = card.ability.extra.mult + 3
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
             return {
                 message = localize("k_upgrade_ex")
             }
@@ -1286,12 +1299,13 @@ SMODS.Joker {
 
         if context.joker_main then
             return {
-                mult = card.ability.extra.mult,
+                mult = card.ability.extra.mult
             }
         end
     end,
 }
 --Elephant
+--TODO: rework this
 SMODS.Joker {
     key = "elephantjoker",
     atlas = "turtlejokers",
@@ -1300,7 +1314,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     discovered = true,
-    config = { extra = { xmult = 1 }},
+    config = { extra = { xmult = 1.5 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -1308,25 +1322,16 @@ SMODS.Joker {
     loc_txt = {
         name = "Elephant",
         text = {
-            "This Joker gains {X:mult,C:white}X0.5{} Mult",
-            "when played hand is",
-            "{C:attention}Not Allowed",
-            "{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}",
+            "Stone cards {C:attention}held in{}",
+            "{C:attention}hand{} give {X:mult,C:white}X#1#{} Mult",
         }
     },
-    loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.xmult }}
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult }}
     end,
 
     calculate = function(self, card, context)
-        if context.debuffed_hand and not context.blueprint then
-            card.ability.extra.xmult = card.ability.extra.xmult + 0.5
-            return {
-                message = localize("k_upgrade_ex")
-            }
-        end
-
-        if context.joker_main then
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and SMODS.has_enhancement(context.other_card, "m_stone") then
             return {
                 xmult = card.ability.extra.xmult
             }
@@ -1390,7 +1395,7 @@ SMODS.Joker {
         text = {
             "When a Joker is {C:attention}bought{},",
             "increase its {C:attention}sell value{}",
-            "by {C:money}$1{}",
+            "by {C:money}$#1#{}",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -1629,7 +1634,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     discovered = true,
-    config = { extra = { mult = 0 }},
+    config = { extra = { mult = 0, mult_gain = 2 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -1638,25 +1643,25 @@ SMODS.Joker {
         name = "Bison",
         text = {
             "This Joker gains",
-            "{C:mult}+2{} Mult when a",
+            "{C:mult}+#2#{} Mult when a",
             "{C:attention}Joker{} is sold",
             "{C:inactive}(Currently{} +{C:mult}#1#{} {C:inactive}Mult)"
         }
     },
-    loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.mult }}
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult_gain }}
     end,
 
     calculate = function(self, card, context)
         if context.selling_card and context.card.ability.set == "Joker" and not context.blueprint and not context.selling_self then
-            card.ability.extra.mult = card.ability.extra.mult + 2
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
             return {
                 message = localize("k_upgrade_ex")
             }
         end
         if context.joker_main then
             return {
-                mult = card.ability.extra.mult,
+                mult = card.ability.extra.mult
             }
         end
     end,
@@ -2491,7 +2496,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Cow",
         text = {
-            "In {C:attention}1{} round,",
+            "In {C:attention}#2#{} round,",
             "Sell this {C:attention}Joker{} to",
             "gain a random",
             "{C:spectral}Spectral{} card",
@@ -2997,7 +3002,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { mult = 40, jokerslots = 1 }},
+    config = { extra = { xmult = 3, jokerslots = 1 }},
     pools = {turtlejokers = true, turtlejokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -3005,12 +3010,12 @@ SMODS.Joker {
     loc_txt = {
         name = "Mammoth",
         text = {
-            "{C:mult}+#1#{} Mult,",
-            "-1{C:attention} Joker {}Slot",
+            "{X:mult,C:white}X#1#{} Mult,",
+            "-#2#{C:attention} Joker {}Slot",
         }
     },
-    loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.mult, center.ability.extra.jokerslots }}
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, card.ability.extra.jokerslots }}
     end,
 
     add_to_deck = function(self, card, from_debuff)
@@ -3024,7 +3029,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                mult = card.ability.extra.mult
+                xmult = card.ability.extra.xmult
             }
         end
     end,
