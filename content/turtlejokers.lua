@@ -523,7 +523,6 @@ SMODS.Joker {
     end,
 }
 --Horse
---TODO: rework this
 SMODS.Joker {
     key = "horsejoker",
     atlas = "turtlejokers",
@@ -1305,7 +1304,6 @@ SMODS.Joker {
     end,
 }
 --Elephant
---TODO: rework this
 SMODS.Joker {
     key = "elephantjoker",
     atlas = "turtlejokers",

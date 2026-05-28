@@ -22,8 +22,16 @@ function Game:start_run(args)
 
     start_run_ref(self, args)
 
-    SuperAutoJokers.toy_card_area.T.x = G.consumeables.T.x + 2.75
-    SuperAutoJokers.toy_card_area.T.y = G.consumeables.T.y + 3
+    if G.GAME.selected_back.effect.center.key == "b_sapjokers_puppydeck" then
+        SuperAutoJokers.toy_card_area.T.x = G.consumeables.T.x + 2.25
+    else
+        SuperAutoJokers.toy_card_area.T.x = G.consumeables.T.x + 2.75
+    end
+    if next(SMODS.find_mod("Multiplayer")) then
+        SuperAutoJokers.toy_card_area.T.y = G.consumeables.T.y + 5.75
+    else
+        SuperAutoJokers.toy_card_area.T.y = G.consumeables.T.y + 3
+    end
 end
 
 --Toy consumable type
@@ -91,7 +99,6 @@ SMODS.Back {
     apply = function(self, back)
         SuperAutoJokers.toy_card_area.config.card_limit = SuperAutoJokers.toy_card_area.config.card_limit + self.config.extra.toy_slots
         SuperAutoJokers.toy_card_area.T.w = SuperAutoJokers.toy_card_area.T.w * 1.5
-        SuperAutoJokers.toy_card_area.T.x = SuperAutoJokers.toy_card_area.T.x - 1
     end,
 
     calculate = function(self, back, context)
@@ -3172,7 +3179,6 @@ SMODS.Joker {
     end,
 }
 --Chicken
---TODO: mega buff
 SMODS.Joker {
     key = "chickenjoker",
     atlas = "puppyjokers",
@@ -3501,7 +3507,6 @@ SMODS.Joker {
     end,
 }
 --Mosasaurus
---TODO: change to 'when toy is destroyed, bring it back'
 SMODS.Joker {
     key = "mosasaurusjoker",
     atlas = "puppyjokers",
