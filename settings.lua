@@ -1,6 +1,6 @@
 local config = SuperAutoJokers.config
-
-SuperAutoJokers.config_tab = function()
+--TODO: Fix settings not being defaulted correctly
+SMODS.current_mod.config_tab = function()
 	return {
 		n = G.UIT.ROOT, config = {align = "cm", padding = 0.1, colour = G.C.BLACK}, nodes = {
 			{n = G.UIT.R, config = {align = "cm", padding = 0.1, colour = G.C.RED, r = 0.1}, nodes = {

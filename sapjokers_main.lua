@@ -1,4 +1,5 @@
-SuperAutoJokers = SMODS.current_mod
+SuperAutoJokers = {}
+SuperAutoJokers.config = SMODS.current_mod.config
 
 assert(SMODS.load_file("content/turtlejokers.lua"))()
 assert(SMODS.load_file("content/puppyjokers.lua"))()
