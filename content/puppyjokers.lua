@@ -3,7 +3,7 @@ SMODS.current_mod.optional_features = {
     retrigger_joker = true,
 }
 
---Looked at JoyousSpring a LOT for this
+--Looked at JoyousSpring a LOT for this, shoutout to nh6574
 
 local start_run_ref = Game.start_run
 function Game:start_run(args)
@@ -3285,8 +3285,6 @@ SMODS.Joker {
     end,
 }
 --Eagle
---Need to fix this bugging out with multiple copies
-
 SMODS.Joker {
     key = "eaglejoker",
     atlas = "puppyjokers",

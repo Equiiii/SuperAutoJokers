@@ -2,8 +2,8 @@
 
 ## What is included:
 
-- 60(?) new Jokers, with plans to add more
-- 1 new Deck, with plans to add more
+- 120(?) new Jokers, with plans to add more
+- 2 new Decks, with plans to add more
 
 **Note: This mod version is still very early.** It also may be incompatible with other mods, which I wouldn't be able to test all of.
 It is mainly intended to be played as a standalone mod, or with mods like Balatro Multiplayer.
@@ -19,9 +19,9 @@ It is mainly intended to be played as a standalone mod, or with mods like Balatr
 
 ## Some other information:
 
-The art is initially from the game Super Auto Pets by Teamwood Games, I'm not an artist and basically just went over the sprites so they would look better resized. The sounds from the game are off-limits, so sadly there won't be any funny bus sound when the deer triggers. Also, it was hard to think of abilities for 60 more Jokers that felt 'vanilla' and weren't just copied from other mods (though there may be some mods I don't know about), so future additions will probably end up straying a little further than that. That being said, I want to keep the balancing as good as I can and don't intend to make anything Cryptid-like, so if you think something is too unbalanced one way or the other feel free to let me know :3
+The art is initially from the game Super Auto Pets by Teamwood Games, I'm not an artist and basically just went over the sprites so they would look better resized. The sounds from the game are off-limits, so sadly there won't be any funny bus sound when the deer triggers. I also want to keep the balancing as good as I can and don't intend to make anything Cryptid-like, so if you think something is too unbalanced one way or the other feel free to let me know :3
 
-This is my first mod, and I have to shout out the wonderful modders in the Balatro Discord server who helped out with some specific issues I had, notably trif and Somethingcom515, you guys are great 🙂
+This is my first mod, and I have to shout out the wonderful modders in the Balatro Discord server who helped out with some specific issues I had, notably trif, nh6574, and Somethingcom515, you guys are great 🙂
 
 
 
