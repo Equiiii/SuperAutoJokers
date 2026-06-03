@@ -294,7 +294,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Otter",
         text = {
-            "{C:money}Gold{} cards give {C:money}$3{}",
+            "{C:money}Gold{} cards give {C:money}$#1#{}",
             "when {C:attention}discarded{}"
         }
     },
@@ -346,7 +346,8 @@ SMODS.Joker {
                 if pseudorandom("pigjoker") < G.GAME.probabilities.normal / card.ability.extra.odds then
                     card.sell_cost = card.sell_cost + card.ability.extra.sell_cost
                     return {
-                        message = localize("k_val_up")
+                        message = localize("k_val_up"),
+                        message_card = card
                     }
                 end
             end
@@ -438,7 +439,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { sell_count = 0 }},
+    config = { extra = { sell_count = 0, fish_sells = 3 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -454,17 +455,17 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.sell_count }}
+        return { vars = { card.ability.extra.sell_count, card.ability.extra.fish_sells }}
     end,
     calculate = function(self, card, context)
         if context.selling_card and context.card.ability.set == "Joker" and not context.selling_self then
             if not context.blueprint then
-                if card.ability.extra.sell_count == 3 then
+                if card.ability.extra.sell_count == card.ability.extra.fish_sells then
                     card.ability.extra.sell_count = 0
                 end
                 card.ability.extra.sell_count = card.ability.extra.sell_count + 1
             end
-            if card.ability.extra.sell_count == 3 then
+            if card.ability.extra.sell_count == card.ability.extra.fish_sells then
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                     G.E_MANAGER:add_event(Event({
@@ -547,6 +548,8 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips }}
     end,
+
+    --TODO: fix this not working when hand is one below most played
 
     calculate = function(self, card, context)
         if context.joker_main then
@@ -1213,7 +1216,7 @@ SMODS.Joker {
     },
     calculate = function(self, card, context)
         if context.after and #context.full_hand == 2 and context.full_hand[1]:get_id() == context.full_hand[2]:get_id() 
-        and context.full_hand[1].suit == context.full_hand[2].suit and not context.blueprint then
+        and context.full_hand[1].base.suit == context.full_hand[2].base.suit and not context.blueprint then
             SMODS.destroy_cards(context.full_hand[1])
             SMODS.destroy_cards(context.full_hand[2])
             return {
