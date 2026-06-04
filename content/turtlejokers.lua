@@ -549,23 +549,15 @@ SMODS.Joker {
         return { vars = { card.ability.extra.chips }}
     end,
 
-    --TODO: fix this not working when hand is one below most played
-
     calculate = function(self, card, context)
         if context.joker_main then
-            local _hand, _played = "High Card", -1
-            for hand_key, hand in pairs(G.GAME.hands) do
-                if hand.played > _played then
-                    _played = hand.played
-                    _hand = hand_key
+            local play_more_than = (G.GAME.hands[context.scoring_name].played or 0)
+            for name, poker_hand in pairs(G.GAME.hands) do
+                if name ~= context.scoring_name and poker_hand.played >= play_more_than and SMODS.is_poker_hand_visible(name) then
+                    return {
+                        chips = card.ability.extra.chips
+                    }
                 end
-            end
-            local most_played = _hand
-
-            if not (next(context.poker_hands[most_played])) then
-                return {
-                    chips = card.ability.extra.chips
-                }
             end
         end
     end,
