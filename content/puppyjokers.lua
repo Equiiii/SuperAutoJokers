@@ -1688,7 +1688,7 @@ SMODS.Joker {
             else
                 return {
                     message = card.ability.extra.current .. "/" .. card.ability.extra.count,
-                    colour = G.C.ATTENTION
+                    colour = G.C.IMPORTANT
                 }
             end
         end
@@ -1752,7 +1752,7 @@ SMODS.Joker {
                 }))
                 return {
                     message = localize("k_plus_joker"),
-                    colour = G.C.ATTENTION,
+                    colour = G.C.IMPORTANT,
                     extra = {message = localize("k_sapjokers_debuffed")}
                 }
             end
@@ -3647,7 +3647,7 @@ SMODS.Joker {
             else
                 return {
                     message = card.ability.extra.reroll_count .. "/" .. card.ability.extra.rerolls_needed,
-                    colour = G.C.ATTENTION
+                    colour = G.C.IMPORTANT
                 }
             end
         end

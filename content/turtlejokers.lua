@@ -885,13 +885,13 @@ SMODS.Joker {
                 card.ability.extra.mult = card.ability.extra.mult + 1
                 return {
                     message = localize("k_upgrade_ex"),
-                    colour = G.C.ATTENTION
+                    colour = G.C.IMPORTANT
                 }
             else
                 card.ability.extra.mult = 0
                 return {
                     message = localize("k_reset"),
-                    colour = G.C.ATTENTION
+                    colour = G.C.IMPORTANT
                 }
             end
         end
@@ -1429,7 +1429,7 @@ SMODS.Joker {
             "Go up to {C:red}-$#1#{}",
             "in debt, set money to",
             "{C:attention}zero{} when blind is",
-            "selected",
+            "selected if in debt",
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -1443,7 +1443,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind and not context.blueprint and G.GAME.dollars < 0 then
             G.GAME.dollars = 0
             return {
                 message = localize("k_sapjokers_set_to_zero"),
@@ -1583,7 +1583,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 5,
     discovered = true,
-    config = { extra = { tags = 1 }},
+    config = { extra = { tags = 1, blind_increase = 1.5 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -1592,17 +1592,17 @@ SMODS.Joker {
         name = "Hippo",
         text = {
             "When {C:attention}Blind{} is selected,",
-            "{X:attention,C:white}X1.5{} Blind Requirements and",
+            "{X:attention,C:white}X#2#{} Blind Requirements and",
             "gain a random {C:attention}Tag{}",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.tags }}
+        return { vars = { card.ability.extra.tags, card.ability.extra.blind_increase }}
     end,
 
     calculate = function(self, card, context)
         if context.setting_blind then
-            G.GAME.blind.chips = G.GAME.blind.chips * 1.5
+            G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blind_increase
             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
             local tag_pool = get_current_pool('Tag')
             local selected_tag = pseudorandom_element(tag_pool, 'sapjokers_seed')
@@ -1920,7 +1920,7 @@ SMODS.Joker {
                     }))
                     return {
                         message = localize("k_plus_joker"),
-                        colour = G.C.ATTENTION
+                        colour = G.C.IMPORTANT
                     }
             end
         end
@@ -1936,7 +1936,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     discovered = true,
-    config = { extra = { rounds = 2 }},
+    config = { extra = { rounds = 3 }},
     pools = {turtlejokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -1999,7 +1999,8 @@ SMODS.Joker {
             "Prevents death if only",
             "{C:attention}High Card{} was played",
             "this blind",
-            "{C:red,E:2}self destructs{}"
+            "{C:red,E:2}self destructs{}",
+
         }
     },
 
@@ -2010,7 +2011,7 @@ SMODS.Joker {
                 message = localize("k_active_ex")
             }
         end
-        if context.before and not context.blueprint and context.scoring_name ~= "High Card" then
+        if context.before and not context.blueprint and context.scoring_name ~= "High Card" and card.is_active == true then
             card.is_active = false
             return {
                 message = localize("k_sapjokers_inactive")
@@ -2404,7 +2405,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 7,
     discovered = true,
-    config = { extra = { sell_count = 0 }},
+    config = { extra = { sell_count = 0, turkey_sells = 3 }},
     pools = {turtlejokers = true, turtlejokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -2412,24 +2413,24 @@ SMODS.Joker {
     loc_txt = {
         name = "Turkey",
         text = {
-            "After selling 3 {C:attention}Jokers{},",
+            "After selling #2# {C:attention}Jokers{},",
             "Upgrade your most played",
             "{C:attention}poker hand{}",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.sell_count }}
+        return { vars = { card.ability.extra.sell_count, card.ability.extra.turkey_sells }}
     end,
 
     calculate = function(self, card, context)
         if context.selling_card and context.card.ability.set == "Joker" and not context.selling_self then
             if not context.blueprint then
-                if card.ability.extra.sell_count == 3 then
+                if card.ability.extra.sell_count == card.ability.extra.turkey_sells then
                     card.ability.extra.sell_count = 0
                 end
                 card.ability.extra.sell_count = card.ability.extra.sell_count + 1
             end
-            if card.ability.extra.sell_count == 3 then
+            if card.ability.extra.sell_count == card.ability.extra.turkey_sells then
                 local _hand, _played = "High Card", -1
                 for hand_key, hand in pairs(G.GAME.hands) do
                     if hand.played > _played then
@@ -2444,8 +2445,8 @@ SMODS.Joker {
                 }
             end
                 return {
-                    message = card.ability.extra.sell_count .. "/3",
-                    colour = G.C.ATTENTION
+                    message = card.ability.extra.sell_count .. "/" .. card.ability.extra.turkey_sells,
+                    colour = G.C.IMPORTANT
                 }
             end
     end,
@@ -2608,18 +2609,21 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and next(context.poker_hands["Straight Flush"]) then
+            card.ability.extra.repetitions = 2
             return {
                 repetitions = card.ability.extra.repetitions
             }
         end
 
         if context.repetition and context.cardarea == G.play and next(context.poker_hands["Flush"]) then
+            card.ability.extra.repetitions = 1
             return {
                 repetitions = card.ability.extra.repetitions
             }
         end
 
         if context.repetition and context.cardarea == G.play and next(context.poker_hands["Straight"]) then
+            card.ability.extra.repetitions = 1
             return {
                 repetitions = card.ability.extra.repetitions
             }
@@ -2676,7 +2680,7 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 8,
     discovered = true,
-    config = { extra = { creates = 1, reroll_count = 0 }},
+    config = { extra = { creates = 1, reroll_count = 0, dragon_rerolls = 2 }},
     pools = {turtlejokers = true, turtlejokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["turtle_pack"]
@@ -2684,25 +2688,25 @@ SMODS.Joker {
     loc_txt = {
         name = "Dragon",
         text = {
-            "After {C:attention}2{} Shop Rerolls,",
+            "After {C:attention}#3#{} Shop Rerolls,",
             "create a random",
             "{C:attention}Sell{} Joker",
             "{C:inactive}(Must have room){}",
-            "{C:inactive}(Currently #2#/2)",
+            "{C:inactive}(Currently #2#/#3#)",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.creates, card.ability.extra.reroll_count}}
+        return { vars = { card.ability.extra.creates, card.ability.extra.reroll_count, card.ability.extra.dragon_rerolls }}
     end,
     calculate = function(self, card, context)
         if context.reroll_shop then
             if not context.blueprint then
-                if card.ability.extra.reroll_count == 2 then
+                if card.ability.extra.reroll_count == card.ability.extra.dragon_rerolls then
                     card.ability.extra.reroll_count = 0
                 end
                 card.ability.extra.reroll_count = card.ability.extra.reroll_count + 1
             end
-            if card.ability.extra.reroll_count == 2 then
+            if card.ability.extra.reroll_count == card.ability.extra.dragon_rerolls then
                 if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                     G.E_MANAGER:add_event(Event({
@@ -2716,14 +2720,14 @@ SMODS.Joker {
                     }))
                     return {
                         message = localize("k_plus_joker"),
-                        colour = G.C.ATTENTION
+                        colour = G.C.IMPORTANT
                     }
                 end
                 
             else
                 return {
-                    message = card.ability.extra.reroll_count .. "/2",
-                    colour = G.C.ATTENTION
+                    message = card.ability.extra.reroll_count .. "/" .. card.ability.extra.dragon_rerolls,
+                    colour = G.C.IMPORTANT
                 }
             end
         end
