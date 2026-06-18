@@ -2695,7 +2695,7 @@ SMODS.Joker {
     eternal_compat = false,
     cost = 5,
     discovered = true,
-    config = { extra = { caterpillar_rounds = 2 }},
+    config = { extra = { caterpillar_rounds = 2, rounds_played = 0 }},
     pools = {puppyjokers = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -2706,16 +2706,17 @@ SMODS.Joker {
             "After {C:attention}#1#{} rounds,",
             "this Joker is destroyed to",
             "create a {C:attention}Rare{} Joker",
+            "{C:inactive}(Currently #2#/#1#){}",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.caterpillar_rounds }}
+        return { vars = { card.ability.extra.caterpillar_rounds, card.ability.extra.rounds_played }}
     end,
 
     calculate = function(self, card, context)
         if context.end_of_round and context.main_eval and not context.game_over and not context.blueprint then
-            card.ability.extra.caterpillar_rounds = card.ability.extra.caterpillar_rounds - 1
-            if card.ability.extra.caterpillar_rounds == 0 then
+            card.ability.extra.rounds_played = card.ability.extra.rounds_played + 1
+            if card.ability.extra.rounds_played == card.ability.extra.caterpillar_rounds then
                 SMODS.destroy_cards(card, nil, nil, true)
                 SMODS.add_card {
                     set = "Joker",
@@ -2726,7 +2727,7 @@ SMODS.Joker {
                 }
             else
                 return {
-                    message = localize("k_sapjokers_minus_round")
+                    message = card.ability.extra.rounds_played .. "/" .. card.ability.extra.caterpillar_rounds 
                 }
             end
         end
@@ -3070,7 +3071,7 @@ SMODS.Joker {
     blueprint_compat = false,
     cost = 6,
     discovered = true,
-    config = { extra = { rounds_left = 4, xmult = 2 }},
+    config = { extra = { rounds = 0, xmult = 2, total_rounds = 4 }},
     pools = {puppyjokers = true, puppyjokers_rare = true},
     in_pool = function(self)
         return SuperAutoJokers.config["puppy_pack"]
@@ -3081,11 +3082,12 @@ SMODS.Joker {
             "{C:attention}Halves{} all blind",
             "requirements and gives",
             "{C:white,X:mult}X#2#{} Mult, debuffed",
-            "in {C:attention}#1#{} rounds"
+            "in {C:attention}#3#{} rounds",
+            "{C:inactive}(Currently #1#/#3#){}",
         }
     },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.rounds_left, card.ability.extra.xmult }}
+        return { vars = { card.ability.extra.rounds, card.ability.extra.xmult, card.ability.extra.total_rounds }}
     end,
 
     calculate = function(self, card, context)
@@ -3104,8 +3106,8 @@ SMODS.Joker {
         end
 
         if context.end_of_round and not context.blueprint and context.main_eval and not context.game_over then
-            card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
-            if card.ability.extra.rounds_left == 0 then
+            card.ability.extra.rounds = card.ability.extra.rounds + 1
+            if card.ability.extra.rounds == card.ability.extra.total_rounds then
                 SMODS.debuff_card(card, true, "j_sapjokers_stonefishjoker_undebuff")
                 return {
                     message = localize("k_sapjokers_debuffed"),
@@ -3113,7 +3115,7 @@ SMODS.Joker {
                 }
             else
                 return {
-                    message = localize("k_sapjokers_minus_round")
+                    message = card.ability.extra.rounds .. "/" .. card.ability.extra.total_rounds 
                 }
             end
         end

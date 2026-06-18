@@ -251,7 +251,7 @@ jd_def["j_sapjokers_flamingojoker"] = {
     text_config = { colour = G.C.MULT },
     calc_function = function(card)
         local hand = G.hand.highlighted
-        local text, _, _ = JokerDisplay.evaluate_hand(hand)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand(hand)
         local hand_exists = text ~= "Unknown" and G.GAME.hands and G.GAME.hands[text]
         local two_suits = true
         local suits = {
@@ -263,14 +263,14 @@ jd_def["j_sapjokers_flamingojoker"] = {
 
         if hand_exists then
             for _, card in pairs(hand) do
-                if not SMODS.has_any_suit(hand[_]) then
-                    if hand[_]:is_suit('Hearts', true) and suits["Hearts"] == 0 then
+                if not SMODS.has_any_suit(scoring_hand[_]) then
+                    if scoring_hand[_]:is_suit('Hearts', true) and suits["Hearts"] == 0 then
                         suits["Hearts"] = suits["Hearts"] + 1
-                    elseif hand[_]:is_suit('Diamonds', true) and suits["Diamonds"] == 0 then
+                    elseif scoring_hand[_]:is_suit('Diamonds', true) and suits["Diamonds"] == 0 then
                         suits["Diamonds"] = suits["Diamonds"] + 1
-                    elseif hand[_]:is_suit('Spades', true) and suits["Spades"] == 0 then
+                    elseif scoring_hand[_]:is_suit('Spades', true) and suits["Spades"] == 0 then
                         suits["Spades"] = suits["Spades"] + 1
-                    elseif hand[_]:is_suit('Clubs', true) and suits["Clubs"] == 0 then
+                    elseif scoring_hand[_]:is_suit('Clubs', true) and suits["Clubs"] == 0 then
                         suits["Clubs"] = suits["Clubs"] + 1
                     end
                 end
@@ -743,7 +743,7 @@ jd_def["j_sapjokers_boarjoker"] = {
     end
 }
 
-jd_def["j_sapjokers_boarjoker"] = {
+jd_def["j_sapjokers_tigerjoker"] = {
 }
 
 jd_def["j_sapjokers_wolverinejoker"] = {
@@ -828,4 +828,668 @@ jd_def["j_sapjokers_flyjoker"] = {
             return 0
         end
     end
+}
+
+--PUPPY PACK
+
+jd_def["j_sapjokers_duck2joker"] = {
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "active" },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.is_active = card.ability.extra.duck_rounds >= card.ability.extra.total_rounds
+        card.joker_display_values.active = card.joker_display_values.is_active and 
+            localize("jdis_active") or (card.ability.extra.duck_rounds .. "/" .. card.ability.extra.total_rounds)
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if reminder_text and reminder_text.children and reminder_text.children[2] then
+            reminder_text.children[2].config.colour = card.joker_display_values.is_active and G.C.GREEN or
+                G.C.UI.TEXT_INACTIVE
+        end
+    end
+}
+
+jd_def["j_sapjokers_beaver2joker"] = {
+}
+
+jd_def["j_sapjokers_mothjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+    calc_function = function(card)
+        local count = 0
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local first_card = JokerDisplay.calculate_leftmost_card(scoring_hand)
+        card.joker_display_values.mult = first_card and (card.ability.extra.mult * JokerDisplay.calculate_card_triggers(first_card, scoring_hand)) or 1
+    end
+}
+
+jd_def["j_sapjokers_bluebirdjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "perma_mult" },
+    },
+    text_config = { colour = G.C.MULT },
+}
+
+jd_def["j_sapjokers_chinchillajoker"] = {
+}
+
+jd_def["j_sapjokers_beetlejoker"] = {
+}
+
+jd_def["j_sapjokers_ladybugjoker"] = {
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "rounds" },
+        { text = "/2)" },
+    },
+}
+
+jd_def["j_sapjokers_chipmunkjoker"] = {
+}
+
+jd_def["j_sapjokers_geckojoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+    calc_function = function(card)
+        if #SuperAutoJokers.toy_card_area.cards > 0 then
+            card.joker_display_values.mult = card.ability.extra.mult
+        else
+            card.joker_display_values.mult = 0
+        end
+    end
+}
+
+jd_def["j_sapjokers_ferretjoker"] = {
+}
+
+jd_def["j_sapjokers_bilbyjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "tarot" },
+    },
+    text_config = { colour = G.C.SECONDARY_SET.Tarot },
+    extra = {
+        {
+            { text = "(" },
+            { ref_table = "card.joker_display_values", ref_value = "odds" },
+            { text = ")" },
+        }
+    },
+    extra_config = { colour = G.C.GREEN, scale = 0.3 },
+    calc_function = function(card)
+        card.joker_display_values.tarot = 1
+        local numerator, denominator = 2, card.ability.extra.odds
+        if SMODS then numerator, denominator = SMODS.get_probability_vars(card, numerator, denominator, 'j_sapjokers_bilbyjoker') end
+        card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+    end
+}
+
+jd_def["j_sapjokers_goldfishjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "current" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "count" },
+        { text = ")" },
+    },
+}
+
+jd_def["j_sapjokers_robinjoker"] = {
+}
+
+jd_def["j_sapjokers_batjoker"] = {
+    text = {
+        { ref_table = "card.ability.extra", ref_value = "mult" },
+        { text = ", +$", colour = G.C.GOLD },
+        { ref_table = "card.ability.extra", ref_value = "dollars", colour = G.C.GOLD },
+    },
+    text_config = { colour = G.C.MULT },
+}
+
+jd_def["j_sapjokers_dromedaryjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+    calc_function = function(card)
+        local playing_hand = next(G.play.cards)
+        local count = 0
+        local first_three_check = 0
+        for _, playing_card in ipairs(G.hand.cards) do
+            if playing_hand or not playing_card.highlighted then
+                if not (playing_card.facing == "back") and not playing_card.debuff and first_three_check < 3 then
+                    count = count + (JokerDisplay.calculate_card_triggers(playing_card, nil, true) * card.ability.extra.mult * (#G.hand.cards - #G.hand.highlighted))
+                    first_three_check = first_three_check + 1
+                end
+            end
+        end
+        card.joker_display_values.mult = count
+    end
+}
+
+jd_def["j_sapjokers_shrimpjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "chips" },
+    },
+    text_config = { colour = G.C.CHIPS },
+}
+
+jd_def["j_sapjokers_belugasturgeonjoker"] = {
+}
+
+jd_def["j_sapjokers_tabbycatjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+}
+
+jd_def["j_sapjokers_mandrilljoker"] = {
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "mandrill_rounds" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "total_rounds" },
+        { text = ")" },
+    },
+}
+
+jd_def["j_sapjokers_lemurjoker"] = {
+}
+
+jd_def["j_sapjokers_toucanjoker"] = {
+}
+
+jd_def["j_sapjokers_harejoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "chips" },
+    },
+    text_config = { colour = G.C.CHIPS },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "debuff_rounds" },
+        { text = "/4)" },
+    },
+}
+
+jd_def["j_sapjokers_hoopoebirdjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+    },
+    text_config = { colour = G.C.SECONDARY_SET.Tarot },
+    calc_function = function(card)
+        card.joker_display_values.active = to_big(G.GAME.dollars) > to_big(24)
+        card.joker_display_values.count = card.joker_display_values.active and 1 or 0
+    end
+}
+
+
+jd_def["j_sapjokers_tropicalfishjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "chips" },
+    },
+    text_config = { colour = G.C.CHIPS },
+}
+
+jd_def["j_sapjokers_hatchingchickjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "hands" },
+    },
+    text_config = { colour = G.C.CHIPS },
+}
+
+jd_def["j_sapjokers_owljoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+}
+
+jd_def["j_sapjokers_molejoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+}
+
+jd_def["j_sapjokers_flyingsquirreljoker"] = {
+}
+
+jd_def["j_sapjokers_pangolinjoker"] = {
+    text = {
+        { text = "+$" },
+        { ref_table = "card.joker_display_values", ref_value = "dollars" },
+    },
+    text_config = { colour = G.C.GOLD },
+    calc_function = function(card)
+        card.joker_display_values.dollars = #SuperAutoJokers.toy_card_area.cards > 0 and card.ability.extra.dollars or 0
+    end
+}
+
+jd_def["j_sapjokers_gharialjoker"] = {
+}
+
+jd_def["j_sapjokers_microbejoker"] = {
+    text = {
+        { text = "+$" },
+        { ref_table = "card.ability.extra", ref_value = "sell_cost_increase" },
+    },
+    text_config = { colour = G.C.GOLD },
+}
+
+jd_def["j_sapjokers_lobsterjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+    calc_function = function(card)
+        local playing_hand = next(G.play.cards)
+        local count = 0
+        for _, playing_card in ipairs(G.hand.cards) do
+            if playing_hand or not playing_card.highlighted then
+                if not (playing_card.facing == "back") and not playing_card.debuff then
+                    count = count + (JokerDisplay.calculate_card_triggers(playing_card, nil, true))
+                end
+            end
+        end
+        card.joker_display_values.mult = count
+    end
+}
+
+jd_def["j_sapjokers_buffalojoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" },
+            }
+        }
+    },
+}
+
+jd_def["j_sapjokers_llamajoker"] = {
+    retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+        if held_in_hand then return 0 end
+        local hand = G.hand.highlighted
+        if #hand == 4 then
+            local rightmost_card = JokerDisplay.calculate_rightmost_card(hand)
+            local retriggers = joker_card.ability.extra.repetitions
+            return rightmost_card and playing_card ~= rightmost_card and retriggers * JokerDisplay.calculate_joker_triggers(joker_card) or 0
+        end
+    end
+}
+
+
+jd_def["j_sapjokers_caterpillarjoker"] = {
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "rounds_played" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "caterpillar_rounds" },
+        { text = ")" },
+    },
+}
+
+jd_def["j_sapjokers_dobermanjoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+            }
+        }
+    },
+    calc_function = function(card)
+        local count = 0
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        if text ~= "Unknown" then
+            for _, scoring_card in pairs(scoring_hand) do
+                count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+            end
+        end
+        local rare_check = true
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].config.center.rarity == 3 then
+                rare_check = false
+            end
+        end
+
+        if rare_check == true then
+            card.joker_display_values.x_mult = card.ability.extra.xmult ^ count
+        else
+            card.joker_display_values.x_mult = 1
+        end
+    end
+}
+
+jd_def["j_sapjokers_tahrjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+    },
+    text_config = { colour = G.C.DARK_EDITION },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.ORANGE },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        local text, _, _ = JokerDisplay.evaluate_hand()
+        local is_straight_flush = text == "Straight Flush"
+
+        card.joker_display_values.localized_text = localize("Straight Flush", "poker_hands")
+        card.joker_display_values.count = is_straight_flush and 1 or 0
+    end
+}
+
+jd_def["j_sapjokers_whalesharkjoker"] = {
+}
+
+jd_def["j_sapjokers_chameleonjoker"] = {
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "mult" },
+    },
+    text_config = { colour = G.C.MULT },
+    reminder_text = {
+        { text = "(Copying " },
+        { ref_table = "card.joker_display_values", ref_value = "toy_name", colour = G.C.IMPORTANT },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        if #SuperAutoJokers.toy_card_area.cards > 0 then
+            local copy_target = localize({type = "name_text", set = "toy", key = SuperAutoJokers.toy_card_area.cards[1].config.center.key})
+            card.joker_display_values.toy_name = copy_target
+            card.joker_display_values.mult = 0
+        else
+            card.joker_display_values.toy_name = "None"
+            card.joker_display_values.mult = card.ability.extra.default_mult
+        end
+    end
+}
+
+jd_def["j_sapjokers_puppyjoker"] = {
+}
+
+jd_def["j_sapjokers_stonefishjoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" },
+            }
+        }
+    },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "rounds" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "total_rounds" },
+        { text = ")" },
+    }
+}
+
+jd_def["j_sapjokers_goatjoker"] = {
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "free_cards", colour = G.C.IMPORTANT },
+        { text = " Remaining)" },
+    }
+}
+
+jd_def["j_sapjokers_chickenjoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" },
+            },
+        },
+        { text = ", +" },
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "xmult_gain", retrigger_type = "exp" },
+            },
+        },
+    },
+}
+
+jd_def["j_sapjokers_orchidmantisjoker"] = {
+}
+
+jd_def["j_sapjokers_eaglejoker"] = {
+}
+
+jd_def["j_sapjokers_pantherjoker"] = {
+    text = {
+        { text = "(+" },
+        { ref_table = "card.joker_display_values", ref_value = "chips", colour = G.C.CHIPS },
+        { text = ", +" },
+        { ref_table = "card.joker_display_values", ref_value = "mult", colour = G.C.MULT },
+        { text = ", " },
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" },
+            },
+        },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        local foil_count, holo_count, poly_count = 0, 0, 0
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].edition ~= nil then
+                if G.jokers.cards[i].edition.key == "e_foil" then
+                    foil_count = foil_count + 1
+                elseif G.jokers.cards[i].edition.key == "e_holo" then
+                    holo_count = holo_count + 1
+                elseif G.jokers.cards[i].edition.key == "e_polychrome" then
+                    poly_count = poly_count + 1
+                end
+            end
+        end
+
+        card.joker_display_values.chips = foil_count * card.ability.extra.chips * 2
+        card.joker_display_values.mult = holo_count * card.ability.extra.mult * 2
+        card.joker_display_values.xmult = poly_count > 0 and ((poly_count * 2) ^ card.ability.extra.xmult) or 1
+    end
+}
+
+jd_def["j_sapjokers_axolotljoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" },
+            },
+        },
+    },
+    calc_function = function(card)
+        local debuff_check = false
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i].debuff then
+                    debuff_check = true
+                    break
+                end
+            end
+        card.joker_display_values.x_mult = debuff_check == true and card.ability.extra.xmult or 1
+    end
+}
+
+jd_def["j_sapjokers_snappingturtlejoker"] = {
+}
+
+jd_def["j_sapjokers_mosasaurusjoker"] = {
+}
+
+jd_def["j_sapjokers_stingrayjoker"] = {
+}
+
+jd_def["j_sapjokers_dragon2joker"] = {
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "reroll_count" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "rerolls_needed" },
+        { text = ")" },
+    },
+    reminder_text_config = { scale = 0.35 }
+}
+
+jd_def["j_sapjokers_mantisshrimpjoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" },
+            },
+        },
+    },
+    calc_function = function(card)
+        card.joker_display_values.x_mult = G.GAME.current_round.hands_played == 0 and card.ability.extra.xmult or 1
+    end
+}
+
+jd_def["j_sapjokers_lionfishjoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" },
+            }
+        }
+    }
+}
+
+jd_def["j_sapjokers_tyrannosaurusjoker"] = {
+    text = {
+        { text = "+$" },
+        { ref_table = "card.joker_display_values", ref_value = "dollars" },
+    },
+    text_config = { colour = G.C.GOLD },
+    calc_function = function(card)
+        local has_other_rare = false
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].config.center.rarity == 3 and G.jokers.cards[i] ~= card then
+                has_other_rare = true
+            end
+        end
+        card.joker_display_values.dollars = has_other_rare and card.ability.extra.end_of_round_payout or 0
+    end
+}
+
+jd_def["j_sapjokers_octopusjoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" },
+            }
+        }
+    },
+    calc_function = function(card)
+        local count = calc_octopus_xmult()
+        card.joker_display_values.x_mult = card.ability.extra.xmult + card.ability.extra.xmult_per_card * count
+    end
+}
+
+jd_def["j_sapjokers_anglerfishjoker"] = {
+}
+
+jd_def["j_sapjokers_sauropodjoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+            }
+        }
+    },
+    calc_function = function(card)
+        local count = 0
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        if text ~= "Unknown" then
+            for _, scoring_card in pairs(scoring_hand) do
+                if scoring_card.edition then
+                    count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                end
+            end
+        end
+
+        card.joker_display_values.x_mult = card.ability.extra.xmult ^ count
+    end
+}
+
+jd_def["j_sapjokers_elephantsealjoker"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+            }
+        }
+    }
+}
+
+jd_def["j_sapjokers_pumajoker"] = {
+    text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "first_copy", colour = G.C.IMPORTANT },
+        { text = " + " },
+        { ref_table = "card.joker_display_values", ref_value = "second_copy", colour = G.C.IMPORTANT },
+        { text = ")" },
+    },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "active" },
+        { text = ")" }
+    },
+    calc_function = function(card)
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i] == card then
+                if G.jokers.cards[i - 1] and G.jokers.cards[i - 1].config.center.blueprint_compat == false then
+                    card.joker_display_values.first_copy = localize("k_incompatible")
+                else
+                    card.joker_display_values.first_copy = G.jokers.cards[i - 1] ~= nil and localize({type = "name_text", set = "Joker", key = G.jokers.cards[i - 1].config.center.key}) or "None"
+                end
+
+                if G.jokers.cards[i + 1] and G.jokers.cards[i + 1].config.center.blueprint_compat == false then
+                    card.joker_display_values.second_copy = localize("k_incompatible")
+                else
+                    card.joker_display_values.second_copy = G.jokers.cards[i + 1] ~= nil and localize({type = "name_text", set = "Joker", key = G.jokers.cards[i + 1].config.center.key}) or "None"
+                end
+                break
+            end
+        end
+
+        card.joker_display_values.active = #SuperAutoJokers.toy_card_area.cards > 0 and localize("jdis_active") or localize("jdis_inactive")
+    end
+}
+
+jd_def["j_sapjokers_mongoosejoker"] = {
 }
