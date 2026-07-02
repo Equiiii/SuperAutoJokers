@@ -1183,6 +1183,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_death
         return { vars = { card.ability.extra.duck_rounds, card.ability.extra.total_rounds }}
     end,
 
@@ -1404,6 +1405,9 @@ SMODS.Joker {
             "{C:attention}Joker{} gains {C:dark_edition}Foil{}",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_foil
+    end,
     
     add_to_deck = function(self, card, from_debuff)
         card:set_edition("e_foil", true, true)
@@ -1441,6 +1445,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
         return { vars = { card.ability.extra.rounds }}
     end,
 
@@ -1582,6 +1587,12 @@ SMODS.Joker {
             "tier 1 {C:attention}Toy",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_stick
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_balloon
+        return {
+        }
+    end,
 
     calculate = function(self, card, context)
         if context.selling_self and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer < SuperAutoJokers.toy_card_area.config.card_limit) then
@@ -1726,6 +1737,7 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS["j_joker"]
+        info_queue[#info_queue+1] = G.P_CENTERS.e_foil
     end,
 
     calculate = function(self, card, context)
@@ -2062,6 +2074,13 @@ SMODS.Joker {
             "tier 2 {C:attention}Toy",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_radio
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_tennisball
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_plasticsaw
+        return {
+        }
+    end,
 
     calculate = function(self, card, context)
         if context.selling_self and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer < SuperAutoJokers.toy_card_area.config.card_limit) then
@@ -2384,7 +2403,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Mole",
         text = {
-            "{C:mult}+#1#{} Mult, debuffed",
+            "{C:mult}+#1#{} Mult, Debuffed",
             "every other hand",
         }
     },
@@ -2497,6 +2516,13 @@ SMODS.Joker {
             "tier 3 {C:attention}Toy",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_melonhelmet
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_foamsword
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_toygun
+        return {
+        }
+    end,
 
     calculate = function(self, card, context)
         if context.selling_self and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer < SuperAutoJokers.toy_card_area.config.card_limit) then
@@ -2799,6 +2825,11 @@ SMODS.Joker {
             "to a random {C:attention}Joker",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_foil
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
+        info_queue[#info_queue+1] = G.P_CENTERS.e_polychrome
+    end,
 
     calculate = function(self, card, context)
         if context.after and next(context.poker_hands["Straight Flush"]) then
@@ -3045,6 +3076,13 @@ SMODS.Joker {
             "tier 4 {C:attention}Toy",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_ovenmitts
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_toiletpaper
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_cashregister
+        return {
+        }
+    end,
 
     calculate = function(self, card, context)
         if context.selling_self and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer < SuperAutoJokers.toy_card_area.config.card_limit) then
@@ -3568,6 +3606,13 @@ SMODS.Joker {
             "tier 5 {C:attention}Toy",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_flashlight
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_stinkysock
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_camera
+        return {
+        }
+    end,
 
     calculate = function(self, card, context)
         if context.selling_self and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer < SuperAutoJokers.toy_card_area.config.card_limit) then
@@ -4023,6 +4068,13 @@ SMODS.Joker {
             "tier 6 {C:attention}Toy",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_tv
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_peanutjar
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sapjokers_airpalmtree
+        return {
+        }
+    end,
 
     calculate = function(self, card, context)
         if context.selling_self and (#SuperAutoJokers.toy_card_area.cards + G.GAME.consumeable_buffer < SuperAutoJokers.toy_card_area.config.card_limit) then

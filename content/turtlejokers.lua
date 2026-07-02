@@ -44,6 +44,10 @@ SMODS.Back {
                                  "j_sapjokers_pigeonjoker",
                                  "j_sapjokers_dogjoker",
                                  "j_sapjokers_skunkjoker",
+                                 "j_sapjokers_ferretjoker",
+                                 "j_sapjokers_lemurjoker",
+                                 "j_sapjokers_gharialjoker",
+                                 "j_sapjokers_puppyjoker",
                                  "j_diet_cola",
                                  "j_luchador"
                                 }, "turtledeck"
@@ -144,6 +148,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_death
         return { vars = { card.ability.extra.duck_rounds, card.ability.extra.total_rounds }}
     end,
 
@@ -1151,13 +1156,14 @@ SMODS.Joker {
     loc_txt = {
         name = "Dodo",
         text = {
-            "When Blind is selected,",
+            "When {C:attention}Blind{} is selected,",
             "this Joker gains {X:mult,C:white}X#2#{} Mult",
             "for each held {C:attention}Sell Joker{}",
             "{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}",
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { set = "Other", key = "k_sapjokers_selljokers" }
         return { vars = { card.ability.extra.xmult, card.ability.extra.xmult_gain }}
     end,
 
@@ -1512,6 +1518,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_TAGS["tag_charm"]
         return { vars = { card.ability.extra.tags }}
     end,
 
@@ -1904,6 +1911,11 @@ SMODS.Joker {
             "{C:inactive}(Must have room){}",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { set = "Other", key = "k_sapjokers_selljokers" }
+        return {
+        }
+    end,
 
     calculate = function(self, card, context)
         if context.setting_blind then
@@ -2300,6 +2312,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { set = "Other", key = "k_sapjokers_selljokers" }
         return { vars = { card.ability.extra.xmult, card.ability.extra.xmult_gain }}
     end,
 
@@ -2342,6 +2355,9 @@ SMODS.Joker {
             "in its place",
         }
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_fool
+    end,
 
     calculate = function(self, card, context)
         if context.setting_blind and #G.consumeables.cards > 0 and not context.blueprint then
@@ -2568,6 +2584,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_TAGS["tag_rare"]
         return { vars = { card.ability.extra.tags }}
     end,
 
@@ -2696,6 +2713,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { set = "Other", key = "k_sapjokers_selljokers" }
         return { vars = { card.ability.extra.creates, card.ability.extra.reroll_count, card.ability.extra.dragon_rerolls }}
     end,
     calculate = function(self, card, context)
@@ -2798,6 +2816,7 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue + 1] = G.P_TAGS["tag_double"]
         return { vars = { center.ability.extra.tags }}
     end,
 

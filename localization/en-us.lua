@@ -1,4 +1,21 @@
 return {
+    descriptions = {
+        Other = {
+            k_sapjokers_selljokers = {
+                name = "Sell Jokers",
+                text = {
+                    "The following Jokers count as Sell Jokers:",
+                    "",
+                    "Vanilla: {C:attention}Diet Cola{}, {C:attention}Luchador{}, {C:attention}Invisible Joker{}",
+                    "Turtle Pack: {C:attention}Duck{}, {C:attention}Beaver{}, {C:attention}Pigeon{}, {C:attention}Dog{}, {C:attention}Skunk{}, {C:attention}Cow{}, {C:attention}Tiger{}",
+                    "Puppy Pack: {C:attention}Ferret{}, {C:attention}Lemur{}, {C:attention}Gharial{}, {C:attention}Puppy{}, {C:attention}Sting Ray{}, {C:attention}Mongoose{}, {C:attention}Anglerfish{}",
+                }
+            }
+        }
+    },
+
+
+
     misc = {
         dictionary = {
             k_sapjokers_debuffed = "Debuffed!",
